@@ -221,7 +221,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<MandatesResponse>("/mandates", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<MandatesResponse>("/einvoicing/mandates", localVarRequestOptions, requiredScopes);
 
             if (this.ExceptionFactory != null)
             {
@@ -307,7 +307,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<MandatesResponse>("/mandates", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<MandatesResponse>("/einvoicing/mandates", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

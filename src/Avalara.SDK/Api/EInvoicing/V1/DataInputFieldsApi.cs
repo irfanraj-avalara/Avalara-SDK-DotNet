@@ -221,7 +221,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<DataInputFieldsResponse>("/data-input-fields", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<DataInputFieldsResponse>("/einvoicing/data-input-fields", localVarRequestOptions, requiredScopes);
 
             if (this.ExceptionFactory != null)
             {
@@ -307,7 +307,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<DataInputFieldsResponse>("/data-input-fields", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<DataInputFieldsResponse>("/einvoicing/data-input-fields", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -371,7 +371,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/documents/{documentId}/$download", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<FileParameter>("/einvoicing/documents/{documentId}/$download", localVarRequestOptions, requiredScopes);
 
             if (this.ExceptionFactory != null)
             {
@@ -449,7 +449,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<FileParameter>("/documents/{documentId}/$download", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<FileParameter>("/einvoicing/documents/{documentId}/$download", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -543,7 +543,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<DocumentListResponse>("/documents", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<DocumentListResponse>("/einvoicing/documents", localVarRequestOptions, requiredScopes);
 
             if (this.ExceptionFactory != null)
             {
@@ -641,7 +641,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<DocumentListResponse>("/documents", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<DocumentListResponse>("/einvoicing/documents", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -708,7 +708,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<DocumentStatusResponse>("/document/{documentId}/status", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<DocumentStatusResponse>("/einvoicing/document/{documentId}/status", localVarRequestOptions, requiredScopes);
 
             if (this.ExceptionFactory != null)
             {
@@ -779,7 +779,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<DocumentStatusResponse>("/document/{documentId}/status", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<DocumentStatusResponse>("/einvoicing/document/{documentId}/status", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -853,7 +853,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             localVarRequestOptions.FormParameters.Add("data", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.Data)); // form parameter
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<DocumentSubmitResponse>("/documents", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Post<DocumentSubmitResponse>("/einvoicing/documents", localVarRequestOptions, requiredScopes);
 
             if (this.ExceptionFactory != null)
             {
@@ -931,7 +931,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             localVarRequestOptions.FormParameters.Add("data", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.Data)); // form parameter
 
             // make the HTTP request
-			var localVarResponse = await this.Client.PostAsync<DocumentSubmitResponse>("/documents", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<DocumentSubmitResponse>("/einvoicing/documents", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
