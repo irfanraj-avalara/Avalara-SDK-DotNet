@@ -1,0 +1,60 @@
+name: DotNet- Publish to Nuget
+
+on:
+  release:
+    types: [published]
+  
+  #workflow_dispatch:
+    
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set env
+      run: |
+        echo "VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV 
+        echo "SANDBOX_USERNAME=${{ secrets.SANDBOX_USERNAME }}" >> $GITHUB_ENV
+        echo "SANDBOX_PASSWORD=${{ secrets.SANDBOX_PASSWORD }}" >> $GITHUB_ENV
+    - name: Print Version
+      run: |
+        echo $VERSION
+        echo ${{ env.VERSION }}
+     
+    - name: Setup .NET 2.x
+      uses: actions/setup-dotnet@v1    
+      with:
+        dotnet-version: 2.x.x
+    - name: Setup .NET 3.x
+      uses: actions/setup-dotnet@v1    
+      with:
+        dotnet-version: 3.x.x
+    - name: Setup .NET 5.x
+      uses: actions/setup-dotnet@v1    
+      with:
+        dotnet-version: 5.x.x
+    - name: Setup .NET 6.x
+      uses: actions/setup-dotnet@v1    
+      with:
+        dotnet-version: 6.x.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build Package
+      run: dotnet build --no-restore --configuration Release /p:Version=${VERSION}
+    #- name: Test cases
+    #  run: dotnet test --no-build --verbosity normal --configuration Release /p:Version=${VERSION}
+    - name: Pack Package
+      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output ./nuget
+    - name: Update resources
+      uses: test-room-7/action-update-file@v1
+      with:
+          file-path: ./**/*.nupkg
+          commit-msg: Commit Nuget Package
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Push Package
+    #  run: dotnet nuget push Avalara.SDK.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${GITHUB_TOKEN} 
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.NUGET_API_TOKEN }}

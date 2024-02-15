@@ -1,0 +1,336 @@
+/*
+ * AvaTax Software Development Kit for C#
+ *
+ * (c) 2004-2022 Avalara, Inc.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Avalara E-Invoicing API
+ *
+ * An API that supports sending data for an E-Invoicing compliance use-case.
+ *
+
+ * @author     Sachin Baijal <sachin.baijal@avalara.com>
+ * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
+ * @copyright  2004-2022 Avalara, Inc.
+ * @license    https://www.apache.org/licenses/LICENSE-2.0
+ * @link       https://github.com/avadev/AvaTax-REST-V3-DotNet-SDK
+ */
+
+
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
+using Avalara.SDK.Client;
+using Avalara.SDK.Model.EInvoicing.V1;
+
+namespace Avalara.SDK.Api.EInvoicing.V1
+{
+    /// <summary>
+    /// Represents the Request object for the GetMandates API
+    /// </summary>
+    public class GetMandatesRequest {
+        /// <summary>
+        /// Constructor for the Request object
+        /// </summary>
+        public GetMandatesRequest () {
+        }
+        /// <summary>
+        /// The HTTP Header meant to specify the version of the API intended to be used
+        /// </summary>
+        public string AvalaraVersion { get; set; }
+        /// <summary>
+        /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;
+        /// </summary>
+        public string XAvalaraClient { get; set; }
+        /// <summary>
+        /// Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering.
+        /// </summary>
+        public string Filter { get; set; }
+        /// <summary>
+        /// If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.
+        /// </summary>
+        public decimal? Top { get; set; }
+        /// <summary>
+        /// If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets.
+        /// </summary>
+        public decimal? Skip { get; set; }
+        /// <summary>
+        /// When set to true, the count of the collection is also returned in the response body.
+        /// </summary>
+        public bool? Count { get; set; }
+        /// <summary>
+        /// When set to true, only the count of the collection is returned
+        /// </summary>
+        public bool? CountOnly { get; set; }
+    }
+
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public interface IMandatesApiSync 
+    {
+        #region Synchronous Operations
+        /// <summary>
+        /// List country mandates that are supported by the Avalara E-Invoicing platform
+        /// </summary>
+        /// <remarks>
+        /// This endpoint offers a list of country mandates supported by the Avalara E-Invoicing API.
+        /// </remarks>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <returns>MandatesResponse</returns>
+        MandatesResponse GetMandates(GetMandatesRequest requestParameters);
+
+        #endregion Synchronous Operations
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public interface IMandatesApiAsync 
+    {
+        #region Asynchronous Operations
+        /// <summary>
+        /// List country mandates that are supported by the Avalara E-Invoicing platform
+        /// </summary>
+        /// <remarks>
+        /// This endpoint offers a list of country mandates supported by the Avalara E-Invoicing API.
+        /// </remarks>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MandatesResponse</returns>
+        System.Threading.Tasks.Task<MandatesResponse> GetMandatesAsync(GetMandatesRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        #endregion Asynchronous Operations
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public partial class MandatesApi : IMandatesApiSync, IMandatesApiAsync
+    {
+        private Avalara.SDK.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+		
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MandatesApi"/> class
+        /// using a Configuration object and client instance.
+        /// <param name="client">The client interface for API access.</param>
+        /// </summary>
+        public MandatesApi(Avalara.SDK.Client.IApiClient client)
+        {
+             SetConfiguration(client);
+             this.ExceptionFactory = Avalara.SDK.Client.Configuration.DefaultExceptionFactory;
+        }       
+
+        /// <summary>
+        /// The client for accessing this underlying API.
+        /// </summary>
+        private Avalara.SDK.Client.IInternalApiClient Client { get; set; }
+
+        /// <summary>
+        /// Provides a factory method hook for the creation of exceptions.
+        /// </summary>
+        private Avalara.SDK.Client.ExceptionFactory ExceptionFactory
+        {
+            get
+            {
+                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
+                {
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                }
+                return _exceptionFactory;
+            }
+            set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// List country mandates that are supported by the Avalara E-Invoicing platform This endpoint offers a list of country mandates supported by the Avalara E-Invoicing API.
+        /// </summary>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <returns>MandatesResponse</returns>
+        public MandatesResponse GetMandates(GetMandatesRequest requestParameters)
+        {
+            Avalara.SDK.Client.ApiResponse<MandatesResponse> localVarResponse = GetMandatesWithHttpInfo(requestParameters);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List country mandates that are supported by the Avalara E-Invoicing platform This endpoint offers a list of country mandates supported by the Avalara E-Invoicing API.
+        /// </summary>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <returns>ApiResponse of MandatesResponse</returns>
+        private Avalara.SDK.Client.ApiResponse<MandatesResponse> GetMandatesWithHttpInfo(GetMandatesRequest requestParameters)
+        {
+            //OAuth2 Scopes
+            String requiredScopes = "";
+            // verify the required parameter 'AvalaraVersion' is set
+            if (requestParameters.AvalaraVersion == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling MandatesApi->GetMandates");
+
+            Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Avalara.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.0");
+
+            if (requestParameters.Filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$filter", requestParameters.Filter));
+            }
+            if (requestParameters.Top != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$top", requestParameters.Top));
+            }
+            if (requestParameters.Skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$skip", requestParameters.Skip));
+            }
+            if (requestParameters.Count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$count", requestParameters.Count));
+            }
+            if (requestParameters.CountOnly != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$countOnly", requestParameters.CountOnly));
+            }
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
+            if (requestParameters.XAvalaraClient != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Avalara-Client", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XAvalaraClient)); // header parameter
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MandatesResponse>("/mandates", localVarRequestOptions, requiredScopes);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMandates", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List country mandates that are supported by the Avalara E-Invoicing platform This endpoint offers a list of country mandates supported by the Avalara E-Invoicing API.
+        /// </summary>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of MandatesResponse</returns>
+        public async System.Threading.Tasks.Task<MandatesResponse> GetMandatesAsync(GetMandatesRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Avalara.SDK.Client.ApiResponse<MandatesResponse> localVarResponse = await GetMandatesWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List country mandates that are supported by the Avalara E-Invoicing platform This endpoint offers a list of country mandates supported by the Avalara E-Invoicing API.
+        /// </summary>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (MandatesResponse)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<MandatesResponse>> GetMandatesWithHttpInfoAsync(GetMandatesRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            //OAuth2 Scopes
+            String requiredScopes = "";
+            // verify the required parameter 'requestParameters.AvalaraVersion' is set
+            if (requestParameters.AvalaraVersion == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling MandatesApi->GetMandates");
+
+
+            Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Avalara.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.0");
+
+            if (requestParameters.Filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$filter", requestParameters.Filter));
+            }
+            if (requestParameters.Top != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$top", requestParameters.Top));
+            }
+            if (requestParameters.Skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$skip", requestParameters.Skip));
+            }
+            if (requestParameters.Count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$count", requestParameters.Count));
+            }
+            if (requestParameters.CountOnly != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$countOnly", requestParameters.CountOnly));
+            }
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
+            if (requestParameters.XAvalaraClient != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Avalara-Client", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XAvalaraClient)); // header parameter
+            }
+
+            // make the HTTP request
+			var localVarResponse = await this.Client.GetAsync<MandatesResponse>("/mandates", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMandates", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the configuration object in APIClient
+        /// </summary>        
+        private void SetConfiguration(IApiClient client)
+        {
+            if (client == null) throw new ArgumentNullException("ApiClient");
+            if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
+
+            this.Client = (IInternalApiClient)client;
+            this.Client.SdkVersion = "";
+        }
+        
+    }
+
+    
+}
