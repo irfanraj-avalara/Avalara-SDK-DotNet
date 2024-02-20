@@ -5,7 +5,7 @@ include:
 
 sast:tests:
   extends: .sast:tests
-  stage: test
+  stage: testing:development
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
       when: always
