@@ -1,9 +1,6 @@
-stages:
-  - test
-sast:
+sast:tests:
+  extends: .sast:tests
   stage: test
-include:
-  - template: Security/SAST.gitlab-ci.yml
-default:
-  tags:
-    - prd
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      when: always
