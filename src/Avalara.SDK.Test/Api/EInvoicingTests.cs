@@ -31,7 +31,7 @@ namespace Avalara.SDK.Test.Api
         public EInvoicingTests()
         {
             var root = Directory.GetCurrentDirectory();
-            var basePath = root.Split("\\src\\")[0];
+            var basePath = root.Split(new string[] { "\\src\\" }, StringSplitOptions.None)[0];
             var dotenv = Path.Combine(basePath, ".env");
             DotEnv.Load(dotenv);
             Configuration configuration = new Configuration

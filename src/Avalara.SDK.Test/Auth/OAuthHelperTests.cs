@@ -33,14 +33,13 @@ namespace Avalara.SDK.Test.Auth
         public OAuthHelperTests()
         {
             var root = Directory.GetCurrentDirectory();
-            var basePath = root.Split("\\src\\")[0];
+            var basePath = root.Split(new string[] { "\\src\\" }, StringSplitOptions.None)[0];
             var dotenv = Path.Combine(basePath, ".env");
-            var clientId = !String.IsNullOrEmpty(Environment.GetEnvironmentVariable("CLIENT_ID")) ? Environment.GetEnvironmentVariable("CLIENT_ID") : "sdkOnSbxWebClient";
             DotEnv.Load(dotenv);
             configuration = new Configuration()
             {
                 Environment = AvalaraEnvironment.Sandbox,
-                ClientID = clientId,
+                ClientID = Environment.GetEnvironmentVariable("CLIENT_ID"),
                 AppName = "Test",
                 AppVersion = "1.0",
                 MachineName = "LocalBox"
