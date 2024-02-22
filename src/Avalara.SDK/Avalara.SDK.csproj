@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0;</TargetFrameworks>
     <AssemblyName>Avalara.SDK</AssemblyName>
     <PackageId>Avalara.SDK</PackageId>
     <OutputType>Library</OutputType>
