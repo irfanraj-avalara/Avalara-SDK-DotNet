@@ -22,10 +22,10 @@ jobs:
             -d "grant_type=client_credentials&client_id=${{secrets.OKTA_CLIENT_ID}}&client_secret=${{secrets.OKTA_CLIENT_SECRET}}")
           token=$(echo $response | jq -r '.access_token')
           echo "BEARER_TOKEN=${token}" >> $GITHUB_ENV
-      - name: Setup .NET 7.x
+      - name: Setup .NET 8.x
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 7.x.x
+          dotnet-version: 8.x.x
       - name: Restore dependencies
         run: dotnet restore
       - name: Build Package
