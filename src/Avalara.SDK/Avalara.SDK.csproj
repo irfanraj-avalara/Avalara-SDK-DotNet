@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <TargetFrameworks>net451;net45;net461;net472;netcoreapp2.2;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net5.0;net6.0;net7.0;netcoreapp3.1</TargetFrameworks>
     <AssemblyName>Avalara.SDK</AssemblyName>
     <PackageId>Avalara.SDK</PackageId>
     <OutputType>Library</OutputType>
