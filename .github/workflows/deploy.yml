@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v2
       - name: Set env
@@ -51,6 +51,4 @@ jobs:
           commit-msg: Commit Nuget Package
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Push Package
-        run: dotnet nuget push ./nuget/Avalara.SDK.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${GITHUB_TOKEN}
-        env:
-          GITHUB_TOKEN: ${{ secrets.NUGET_API_TOKEN }}
+        run: dotnet nuget push ./nuget/Avalara.SDK.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_API_TOKEN}}
