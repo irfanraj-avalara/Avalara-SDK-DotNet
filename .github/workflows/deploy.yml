@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v2
       - name: Set env
@@ -41,7 +41,7 @@ jobs:
       - name: Build Package
         run: dotnet build --no-restore --configuration Release /p:Version=${VERSION}
       - name: Test cases
-       run: dotnet test --no-build --verbosity normal --configuration Release /p:Version=${VERSION}
+        run: dotnet test --no-build --verbosity normal --configuration Release /p:Version=${VERSION}
       - name: Pack Package
         run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output ./nuget
       - name: Update resources
