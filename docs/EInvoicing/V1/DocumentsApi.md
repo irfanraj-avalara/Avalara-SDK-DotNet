@@ -130,7 +130,7 @@ namespace Example
             var apiInstance = new DocumentsApi(apiClient);
             var requestParameters = new FetchDocumentsRequest();
             requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used
-            requestParameters.FetchDocumentsRequest = new FetchDocumentsRequest(); // FetchDocumentsRequest | 
+            requestParameters.DocumentFetchRequest = new DocumentFetchRequest(); // DocumentFetchRequest | 
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional) 
 
             try
@@ -155,7 +155,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **AvalaraVersion** | **string**| The HTTP Header meant to specify the version of the API intended to be used | 
- **FetchDocumentsRequest** | [**FetchDocumentsRequest**](FetchDocumentsRequest.md)|  | 
+ **DocumentFetchRequest** | [**DocumentFetchRequest**](DocumentFetchRequest.md)|  | 
  **XAvalaraClient** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional] 
 
 ### Return type
@@ -397,7 +397,7 @@ namespace Example
             var requestParameters = new SubmitDocumentRequest();
             requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used
             requestParameters.Metadata = new SubmitDocumentMetadata(); // SubmitDocumentMetadata | 
-            requestParameters.Data = new Object(); // Object | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
+            requestParameters.Data = "data_example";  // string | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional) 
 
             try
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **AvalaraVersion** | **string**| The HTTP Header meant to specify the version of the API intended to be used | 
  **Metadata** | [**SubmitDocumentMetadata**](SubmitDocumentMetadata.md)|  | 
- **Data** | [**Object**](Object.md)| The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; | 
+ **Data** | **string**| The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39; | 
  **XAvalaraClient** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional] 
 
 ### Return type

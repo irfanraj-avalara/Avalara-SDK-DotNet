@@ -73,7 +73,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// 
         /// </summary>
-        public FetchDocumentsRequest FetchDocumentsRequest { get; set; }
+        public DocumentFetchRequest DocumentFetchRequest { get; set; }
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         /// </summary>
@@ -174,7 +174,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39;
         /// </summary>
-        public Object Data { get; set; }
+        public string Data { get; set; }
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         /// </summary>
@@ -532,9 +532,9 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (requestParameters.AvalaraVersion == null)
                 throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling DocumentsApi->FetchDocuments");
 
-            // verify the required parameter 'FetchDocumentsRequest' is set
-            if (requestParameters.FetchDocumentsRequest == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.FetchDocumentsRequest' when calling DocumentsApi->FetchDocuments");
+            // verify the required parameter 'DocumentFetchRequest' is set
+            if (requestParameters.DocumentFetchRequest == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.DocumentFetchRequest' when calling DocumentsApi->FetchDocuments");
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
 
@@ -560,7 +560,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             {
                 localVarRequestOptions.HeaderParameters.Add("X-Avalara-Client", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XAvalaraClient)); // header parameter
             }
-            localVarRequestOptions.Data = requestParameters.FetchDocumentsRequest;
+            localVarRequestOptions.Data = requestParameters.DocumentFetchRequest;
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<DocumentFetch>("/einvoicing/documents/$fetch", localVarRequestOptions, requiredScopes);
@@ -602,9 +602,9 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (requestParameters.AvalaraVersion == null)
                 throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling DocumentsApi->FetchDocuments");
 
-            // verify the required parameter 'requestParameters.FetchDocumentsRequest' is set
-            if (requestParameters.FetchDocumentsRequest == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.FetchDocumentsRequest' when calling DocumentsApi->FetchDocuments");
+            // verify the required parameter 'requestParameters.DocumentFetchRequest' is set
+            if (requestParameters.DocumentFetchRequest == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.DocumentFetchRequest' when calling DocumentsApi->FetchDocuments");
 
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
@@ -632,7 +632,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             {
                 localVarRequestOptions.HeaderParameters.Add("X-Avalara-Client", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XAvalaraClient)); // header parameter
             }
-            localVarRequestOptions.Data = requestParameters.FetchDocumentsRequest;
+            localVarRequestOptions.Data = requestParameters.DocumentFetchRequest;
 
             // make the HTTP request
 			var localVarResponse = await this.Client.PostAsync<DocumentFetch>("/einvoicing/documents/$fetch", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
