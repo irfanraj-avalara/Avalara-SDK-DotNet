@@ -31,6 +31,37 @@ using Avalara.SDK.Model.EInvoicing.V1;
 namespace Avalara.SDK.Api.EInvoicing.V1
 {
     /// <summary>
+    /// Represents the Request object for the GetMandateDataInputFields API
+    /// </summary>
+    public class GetMandateDataInputFieldsRequest {
+        /// <summary>
+        /// Constructor for the Request object
+        /// </summary>
+        public GetMandateDataInputFieldsRequest () {
+        }
+        /// <summary>
+        /// The HTTP Header meant to specify the version of the API intended to be used
+        /// </summary>
+        public string AvalaraVersion { get; set; }
+        /// <summary>
+        /// The unique ID for the mandate that was returned in the GET /einvoicing/mandates response body
+        /// </summary>
+        public string MandateId { get; set; }
+        /// <summary>
+        /// Select the documentType for which you wish to view the data-input-fields (You may obtain the supported documentTypes from the GET /mandates endpoint)
+        /// </summary>
+        public string DocumentType { get; set; }
+        /// <summary>
+        /// Select the document version of the documentType (You may obtain the supported documentVersion from the GET /mandates endpoint)
+        /// </summary>
+        public string DocumentVersion { get; set; }
+        /// <summary>
+        /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
+        /// </summary>
+        public string XAvalaraClient { get; set; }
+    }
+
+    /// <summary>
     /// Represents the Request object for the GetMandates API
     /// </summary>
     public class GetMandatesRequest {
@@ -44,7 +75,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         public string AvalaraVersion { get; set; }
         /// <summary>
-        /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;
+        /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         /// </summary>
         public string XAvalaraClient { get; set; }
         /// <summary>
@@ -77,6 +108,17 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     {
         #region Synchronous Operations
         /// <summary>
+        /// Returns document field information for a country mandate, a selected document type, and its version
+        /// </summary>
+        /// <remarks>
+        /// This endpoint provides document field details and the optionality of fields (required, conditional, optional) of different documents supported by the country mandate. Use the GET &lt;code&gt;/mandates&lt;/code&gt; endpoint to retrieve all available country mandates, their supported document types and supported versions. You can use the &#x60;documentType&#x60; and &#x60;documentVersion&#x60; query parameters to retrieve the input fields for a particular document type and document version.
+        /// </remarks>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <returns>List&lt;MandateDataInputField&gt;</returns>
+        List<MandateDataInputField> GetMandateDataInputFields(GetMandateDataInputFieldsRequest requestParameters);
+
+        /// <summary>
         /// List country mandates that are supported by the Avalara E-Invoicing platform
         /// </summary>
         /// <remarks>
@@ -96,6 +138,18 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     public interface IMandatesApiAsync 
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Returns document field information for a country mandate, a selected document type, and its version
+        /// </summary>
+        /// <remarks>
+        /// This endpoint provides document field details and the optionality of fields (required, conditional, optional) of different documents supported by the country mandate. Use the GET &lt;code&gt;/mandates&lt;/code&gt; endpoint to retrieve all available country mandates, their supported document types and supported versions. You can use the &#x60;documentType&#x60; and &#x60;documentVersion&#x60; query parameters to retrieve the input fields for a particular document type and document version.
+        /// </remarks>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;MandateDataInputField&gt;</returns>
+        System.Threading.Tasks.Task<List<MandateDataInputField>> GetMandateDataInputFieldsAsync(GetMandateDataInputFieldsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
         /// <summary>
         /// List country mandates that are supported by the Avalara E-Invoicing platform
         /// </summary>
@@ -151,6 +205,164 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
+        /// Returns document field information for a country mandate, a selected document type, and its version This endpoint provides document field details and the optionality of fields (required, conditional, optional) of different documents supported by the country mandate. Use the GET &lt;code&gt;/mandates&lt;/code&gt; endpoint to retrieve all available country mandates, their supported document types and supported versions. You can use the &#x60;documentType&#x60; and &#x60;documentVersion&#x60; query parameters to retrieve the input fields for a particular document type and document version.
+        /// </summary>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <returns>List&lt;MandateDataInputField&gt;</returns>
+        public List<MandateDataInputField> GetMandateDataInputFields(GetMandateDataInputFieldsRequest requestParameters)
+        {
+            Avalara.SDK.Client.ApiResponse<List<MandateDataInputField>> localVarResponse = GetMandateDataInputFieldsWithHttpInfo(requestParameters);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns document field information for a country mandate, a selected document type, and its version This endpoint provides document field details and the optionality of fields (required, conditional, optional) of different documents supported by the country mandate. Use the GET &lt;code&gt;/mandates&lt;/code&gt; endpoint to retrieve all available country mandates, their supported document types and supported versions. You can use the &#x60;documentType&#x60; and &#x60;documentVersion&#x60; query parameters to retrieve the input fields for a particular document type and document version.
+        /// </summary>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <returns>ApiResponse of List&lt;MandateDataInputField&gt;</returns>
+        private Avalara.SDK.Client.ApiResponse<List<MandateDataInputField>> GetMandateDataInputFieldsWithHttpInfo(GetMandateDataInputFieldsRequest requestParameters)
+        {
+            //OAuth2 Scopes
+            String requiredScopes = "";
+            // verify the required parameter 'AvalaraVersion' is set
+            if (requestParameters.AvalaraVersion == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling MandatesApi->GetMandateDataInputFields");
+
+            // verify the required parameter 'MandateId' is set
+            if (requestParameters.MandateId == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.MandateId' when calling MandatesApi->GetMandateDataInputFields");
+
+            // verify the required parameter 'DocumentType' is set
+            if (requestParameters.DocumentType == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.DocumentType' when calling MandatesApi->GetMandateDataInputFields");
+
+            // verify the required parameter 'DocumentVersion' is set
+            if (requestParameters.DocumentVersion == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.DocumentVersion' when calling MandatesApi->GetMandateDataInputFields");
+
+            Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Avalara.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
+
+            localVarRequestOptions.PathParameters.Add("mandateId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.MandateId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentType", requestParameters.DocumentType));
+            localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentVersion", requestParameters.DocumentVersion));
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
+            if (requestParameters.XAvalaraClient != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Avalara-Client", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XAvalaraClient)); // header parameter
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<MandateDataInputField>>("/einvoicing/mandates/{mandateId}/data-input-fields", localVarRequestOptions, requiredScopes);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMandateDataInputFields", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns document field information for a country mandate, a selected document type, and its version This endpoint provides document field details and the optionality of fields (required, conditional, optional) of different documents supported by the country mandate. Use the GET &lt;code&gt;/mandates&lt;/code&gt; endpoint to retrieve all available country mandates, their supported document types and supported versions. You can use the &#x60;documentType&#x60; and &#x60;documentVersion&#x60; query parameters to retrieve the input fields for a particular document type and document version.
+        /// </summary>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;MandateDataInputField&gt;</returns>
+        public async System.Threading.Tasks.Task<List<MandateDataInputField>> GetMandateDataInputFieldsAsync(GetMandateDataInputFieldsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Avalara.SDK.Client.ApiResponse<List<MandateDataInputField>> localVarResponse = await GetMandateDataInputFieldsWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns document field information for a country mandate, a selected document type, and its version This endpoint provides document field details and the optionality of fields (required, conditional, optional) of different documents supported by the country mandate. Use the GET &lt;code&gt;/mandates&lt;/code&gt; endpoint to retrieve all available country mandates, their supported document types and supported versions. You can use the &#x60;documentType&#x60; and &#x60;documentVersion&#x60; query parameters to retrieve the input fields for a particular document type and document version.
+        /// </summary>
+        /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestParameters">Request Object for the API</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;MandateDataInputField&gt;)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<List<MandateDataInputField>>> GetMandateDataInputFieldsWithHttpInfoAsync(GetMandateDataInputFieldsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            //OAuth2 Scopes
+            String requiredScopes = "";
+            // verify the required parameter 'requestParameters.AvalaraVersion' is set
+            if (requestParameters.AvalaraVersion == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling MandatesApi->GetMandateDataInputFields");
+
+            // verify the required parameter 'requestParameters.MandateId' is set
+            if (requestParameters.MandateId == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.MandateId' when calling MandatesApi->GetMandateDataInputFields");
+
+            // verify the required parameter 'requestParameters.DocumentType' is set
+            if (requestParameters.DocumentType == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.DocumentType' when calling MandatesApi->GetMandateDataInputFields");
+
+            // verify the required parameter 'requestParameters.DocumentVersion' is set
+            if (requestParameters.DocumentVersion == null)
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.DocumentVersion' when calling MandatesApi->GetMandateDataInputFields");
+
+
+            Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Avalara.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
+
+            localVarRequestOptions.PathParameters.Add("mandateId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.MandateId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentType", requestParameters.DocumentType));
+            localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentVersion", requestParameters.DocumentVersion));
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
+            if (requestParameters.XAvalaraClient != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Avalara-Client", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XAvalaraClient)); // header parameter
+            }
+
+            // make the HTTP request
+			var localVarResponse = await this.Client.GetAsync<List<MandateDataInputField>>("/einvoicing/mandates/{mandateId}/data-input-fields", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMandateDataInputFields", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List country mandates that are supported by the Avalara E-Invoicing platform This endpoint offers a list of country mandates supported by the Avalara E-Invoicing API.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
@@ -192,7 +404,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.0");
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Filter != null)
             {
@@ -278,7 +490,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.0");
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Filter != null)
             {

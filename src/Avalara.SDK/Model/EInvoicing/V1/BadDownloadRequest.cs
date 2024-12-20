@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns an HTTP status code and message for a &#39;bad request&#39;
     /// </summary>
-    [DataContract]
-    public partial class BadDownloadRequest :  IEquatable<BadDownloadRequest>
+    [DataContract(Name = "BadDownloadRequest")]
+    public partial class BadDownloadRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BadDownloadRequest" /> class.
@@ -60,21 +60,24 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// The three-digit HTTP error code for the bad request
         /// </summary>
         /// <value>The three-digit HTTP error code for the bad request</value>
-        [DataMember(Name="error", EmitDefaultValue=false)]
+        /// <example>406</example>
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>
         /// A message explaining the bad request
         /// </summary>
         /// <value>A message explaining the bad request</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
+        /// <example>Incorrect Accept header.</example>
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
         /// A message explaining the bad request
         /// </summary>
         /// <value>A message explaining the bad request</value>
-        [DataMember(Name="supportedAcceptHeaders", EmitDefaultValue=false)]
+        /// <example>[&quot;application/vnd.oasis.ubl+xml&quot;,&quot;application/pdf&quot;]</example>
+        [DataMember(Name = "supportedAcceptHeaders", EmitDefaultValue = false)]
         public Object SupportedAcceptHeaders { get; set; }
 
         /// <summary>
@@ -83,7 +86,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BadDownloadRequest {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -102,61 +105,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as BadDownloadRequest);
-        }
-
-        /// <summary>
-        /// Returns true if BadDownloadRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of BadDownloadRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(BadDownloadRequest input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.SupportedAcceptHeaders == input.SupportedAcceptHeaders ||
-                    (this.SupportedAcceptHeaders != null &&
-                    this.SupportedAcceptHeaders.Equals(input.SupportedAcceptHeaders))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                if (this.SupportedAcceptHeaders != null)
-                    hashCode = hashCode * 59 + this.SupportedAcceptHeaders.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

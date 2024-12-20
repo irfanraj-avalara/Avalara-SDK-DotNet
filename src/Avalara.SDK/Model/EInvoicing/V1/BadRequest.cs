@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns an HTTP status code and message for a &#39;bad request&#39;
     /// </summary>
-    [DataContract]
-    public partial class BadRequest :  IEquatable<BadRequest>
+    [DataContract(Name = "BadRequest")]
+    public partial class BadRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BadRequest" /> class.
@@ -58,14 +58,16 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// The three-digit HTTP error code for the bad request
         /// </summary>
         /// <value>The three-digit HTTP error code for the bad request</value>
-        [DataMember(Name="error", EmitDefaultValue=false)]
+        /// <example>400</example>
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>
         /// A message explaining the bad request
         /// </summary>
         /// <value>A message explaining the bad request</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
+        /// <example>string</example>
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
@@ -74,7 +76,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BadRequest {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -92,54 +94,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as BadRequest);
-        }
-
-        /// <summary>
-        /// Returns true if BadRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of BadRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(BadRequest input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

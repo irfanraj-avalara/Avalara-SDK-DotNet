@@ -37,17 +37,17 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns the current document ID and status
     /// </summary>
-    [DataContract]
-    public partial class DocumentStatusResponse :  IEquatable<DocumentStatusResponse>
+    [DataContract(Name = "DocumentStatusResponse")]
+    public partial class DocumentStatusResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentStatusResponse" /> class.
         /// </summary>
         /// <param name="id">The unique ID for this document.</param>
-        /// <param name="status">Status of the transaction: &lt;br&gt; &#39;Pending&#39; &lt;br&gt; &#39;Failed&#39; &lt;br&gt; &#39;Complete&#39;.</param>
+        /// <param name="status">Status of the document.</param>
         /// <param name="events">events.</param>
         public DocumentStatusResponse(string id = default(string), string status = default(string), List<StatusEvent> events = default(List<StatusEvent>))
         {
@@ -60,20 +60,22 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// The unique ID for this document
         /// </summary>
         /// <value>The unique ID for this document</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        /// <example>52f60401-44d0-4667-ad47-4afe519abb53</example>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Status of the transaction: &lt;br&gt; &#39;Pending&#39; &lt;br&gt; &#39;Failed&#39; &lt;br&gt; &#39;Complete&#39;
+        /// Status of the document
         /// </summary>
-        /// <value>Status of the transaction: &lt;br&gt; &#39;Pending&#39; &lt;br&gt; &#39;Failed&#39; &lt;br&gt; &#39;Complete&#39;</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        /// <value>Status of the document</value>
+        /// <example>Complete</example>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Events
         /// </summary>
-        [DataMember(Name="events", EmitDefaultValue=false)]
+        [DataMember(Name = "events", EmitDefaultValue = false)]
         public List<StatusEvent> Events { get; set; }
 
         /// <summary>
@@ -82,7 +84,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DocumentStatusResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -101,62 +103,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as DocumentStatusResponse);
-        }
-
-        /// <summary>
-        /// Returns true if DocumentStatusResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of DocumentStatusResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(DocumentStatusResponse input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.Events == input.Events ||
-                    this.Events != null &&
-                    input.Events != null &&
-                    this.Events.SequenceEqual(input.Events)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.Events != null)
-                    hashCode = hashCode * 59 + this.Events.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

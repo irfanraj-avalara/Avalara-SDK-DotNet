@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **FieldId** | **string** | Field ID | [optional] 
 **ApplicableDocumentRoots** | **List&lt;Object&gt;** |  | [optional] 
 **Path** | **string** | Path to this field | [optional] 
-**VarNameSpace** | **string** | Namespace of this field | [optional] 
+**Namespace** | **string** | Namespace of this field | [optional] 
 **FieldName** | **string** | Field name | [optional] 
 **ExampleOrFixedValue** | **string** | An example of the content for this field | [optional] 
 **AcceptedValues** | **Object** | An object representing the acceptable values for this field | [optional] 

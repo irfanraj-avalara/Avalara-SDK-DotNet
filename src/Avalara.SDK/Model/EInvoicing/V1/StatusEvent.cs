@@ -37,36 +37,58 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Displays when a status event occurred
     /// </summary>
-    [DataContract]
-    public partial class StatusEvent :  IEquatable<StatusEvent>
+    [DataContract(Name = "StatusEvent")]
+    public partial class StatusEvent : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StatusEvent" /> class.
         /// </summary>
         /// <param name="eventDateTime">The date and time when the status event occured, displayed in the format YYYY-MM-DDThh:mm:ss.</param>
         /// <param name="message">A message describing the status event.</param>
-        public StatusEvent(string eventDateTime = default(string), string message = default(string))
+        /// <param name="responseKey"> The type of number or acknowledgement returned by the tax authority (if applicable). For example, it could be an identification key, acknowledgement code, or any other relevant identifier..</param>
+        /// <param name="responseValue">The corresponding value associated with the response key. This value is provided by the tax authority in response to the event..</param>
+        public StatusEvent(string eventDateTime = default(string), string message = default(string), string responseKey = default(string), string responseValue = default(string))
         {
             this.EventDateTime = eventDateTime;
             this.Message = message;
+            this.ResponseKey = responseKey;
+            this.ResponseValue = responseValue;
         }
 
         /// <summary>
         /// The date and time when the status event occured, displayed in the format YYYY-MM-DDThh:mm:ss
         /// </summary>
         /// <value>The date and time when the status event occured, displayed in the format YYYY-MM-DDThh:mm:ss</value>
-        [DataMember(Name="eventDateTime", EmitDefaultValue=false)]
+        /// <example>2022-01-09T12:36:02</example>
+        [DataMember(Name = "eventDateTime", EmitDefaultValue = false)]
         public string EventDateTime { get; set; }
 
         /// <summary>
         /// A message describing the status event
         /// </summary>
         /// <value>A message describing the status event</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
+        /// <example>E-Invoice sent to SDI</example>
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
+
+        /// <summary>
+        ///  The type of number or acknowledgement returned by the tax authority (if applicable). For example, it could be an identification key, acknowledgement code, or any other relevant identifier.
+        /// </summary>
+        /// <value> The type of number or acknowledgement returned by the tax authority (if applicable). For example, it could be an identification key, acknowledgement code, or any other relevant identifier.</value>
+        /// <example>IdentificativoSdI</example>
+        [DataMember(Name = "responseKey", EmitDefaultValue = true)]
+        public string ResponseKey { get; set; }
+
+        /// <summary>
+        /// The corresponding value associated with the response key. This value is provided by the tax authority in response to the event.
+        /// </summary>
+        /// <value>The corresponding value associated with the response key. This value is provided by the tax authority in response to the event.</value>
+        /// <example>2865701</example>
+        [DataMember(Name = "responseValue", EmitDefaultValue = true)]
+        public string ResponseValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,10 +96,12 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StatusEvent {\n");
             sb.Append("  EventDateTime: ").Append(EventDateTime).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  ResponseKey: ").Append(ResponseKey).Append("\n");
+            sb.Append("  ResponseValue: ").Append(ResponseValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,54 +116,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as StatusEvent);
-        }
-
-        /// <summary>
-        /// Returns true if StatusEvent instances are equal
-        /// </summary>
-        /// <param name="input">Instance of StatusEvent to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(StatusEvent input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.EventDateTime == input.EventDateTime ||
-                    (this.EventDateTime != null &&
-                    this.EventDateTime.Equals(input.EventDateTime))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.EventDateTime != null)
-                    hashCode = hashCode * 59 + this.EventDateTime.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

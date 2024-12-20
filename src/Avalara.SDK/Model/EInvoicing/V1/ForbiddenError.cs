@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns an optional message with a &#39;forbidden&#39; response
     /// </summary>
-    [DataContract]
-    public partial class ForbiddenError :  IEquatable<ForbiddenError>
+    [DataContract(Name = "ForbiddenError")]
+    public partial class ForbiddenError : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ForbiddenError" /> class.
@@ -56,7 +56,8 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// A message that informs the user that they may not access a resource
         /// </summary>
         /// <value>A message that informs the user that they may not access a resource</value>
-        [DataMember(Name="Message", EmitDefaultValue=false)]
+        /// <example>User is not authorized to access this resource with an explicit deny</example>
+        [DataMember(Name = "Message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ForbiddenError {\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
@@ -82,47 +83,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as ForbiddenError);
-        }
-
-        /// <summary>
-        /// Returns true if ForbiddenError instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ForbiddenError to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ForbiddenError input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

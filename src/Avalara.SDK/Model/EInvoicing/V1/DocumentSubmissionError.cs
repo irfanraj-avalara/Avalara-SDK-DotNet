@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns an HTTP status code and message for an &#39;exception&#39;
     /// </summary>
-    [DataContract]
-    public partial class DocumentSubmissionError :  IEquatable<DocumentSubmissionError>
+    [DataContract(Name = "DocumentSubmissionError")]
+    public partial class DocumentSubmissionError : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentSubmissionError" /> class.
@@ -58,14 +58,16 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// The three-digit HTTP status code for the exception
         /// </summary>
         /// <value>The three-digit HTTP status code for the exception</value>
-        [DataMember(Name="StatusCode", EmitDefaultValue=false)]
+        /// <example>400</example>
+        [DataMember(Name = "StatusCode", EmitDefaultValue = false)]
         public string StatusCode { get; set; }
 
         /// <summary>
         /// A message explaining the exception
         /// </summary>
         /// <value>A message explaining the exception</value>
-        [DataMember(Name="Message", EmitDefaultValue=false)]
+        /// <example>Failed to parse document</example>
+        [DataMember(Name = "Message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
@@ -74,7 +76,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DocumentSubmissionError {\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -92,54 +94,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as DocumentSubmissionError);
-        }
-
-        /// <summary>
-        /// Returns true if DocumentSubmissionError instances are equal
-        /// </summary>
-        /// <param name="input">Instance of DocumentSubmissionError to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(DocumentSubmissionError input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.StatusCode == input.StatusCode ||
-                    (this.StatusCode != null &&
-                    this.StatusCode.Equals(input.StatusCode))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.StatusCode != null)
-                    hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

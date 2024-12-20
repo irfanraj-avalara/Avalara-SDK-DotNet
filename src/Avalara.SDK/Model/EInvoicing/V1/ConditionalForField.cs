@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Mandates for which this field is conditional
     /// </summary>
-    [DataContract]
-    public partial class ConditionalForField :  IEquatable<ConditionalForField>
+    [DataContract(Name = "ConditionalForField")]
+    public partial class ConditionalForField : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConditionalForField" /> class.
@@ -57,14 +57,15 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <summary>
         /// Gets or Sets CountryMandate
         /// </summary>
-        [DataMember(Name="countryMandate", EmitDefaultValue=false)]
+        /// <example>DE-ZUGFERD</example>
+        [DataMember(Name = "countryMandate", EmitDefaultValue = false)]
         public string CountryMandate { get; set; }
 
         /// <summary>
         /// Array of scenarios which describe when a particular field is conditional for a country mandate
         /// </summary>
         /// <value>Array of scenarios which describe when a particular field is conditional for a country mandate</value>
-        [DataMember(Name="requiredWhen", EmitDefaultValue=false)]
+        [DataMember(Name = "requiredWhen", EmitDefaultValue = false)]
         public List<RequiredWhenField> RequiredWhen { get; set; }
 
         /// <summary>
@@ -73,7 +74,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConditionalForField {\n");
             sb.Append("  CountryMandate: ").Append(CountryMandate).Append("\n");
             sb.Append("  RequiredWhen: ").Append(RequiredWhen).Append("\n");
@@ -91,55 +92,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as ConditionalForField);
-        }
-
-        /// <summary>
-        /// Returns true if ConditionalForField instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ConditionalForField to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ConditionalForField input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.CountryMandate == input.CountryMandate ||
-                    (this.CountryMandate != null &&
-                    this.CountryMandate.Equals(input.CountryMandate))
-                ) && 
-                (
-                    this.RequiredWhen == input.RequiredWhen ||
-                    this.RequiredWhen != null &&
-                    input.RequiredWhen != null &&
-                    this.RequiredWhen.SequenceEqual(input.RequiredWhen)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CountryMandate != null)
-                    hashCode = hashCode * 59 + this.CountryMandate.GetHashCode();
-                if (this.RequiredWhen != null)
-                    hashCode = hashCode * 59 + this.RequiredWhen.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

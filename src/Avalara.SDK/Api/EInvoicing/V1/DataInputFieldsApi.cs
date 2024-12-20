@@ -44,7 +44,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         public string AvalaraVersion { get; set; }
         /// <summary>
-        /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;
+        /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         /// </summary>
         public string XAvalaraClient { get; set; }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     {
         #region Synchronous Operations
         /// <summary>
-        /// Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+        /// Returns the optionality of document fields for different country mandates
         /// </summary>
         /// <remarks>
         /// This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
@@ -97,7 +97,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Returns the mandatory and conditional invoice or creditnote input fields for different country mandates
+        /// Returns the optionality of document fields for different country mandates
         /// </summary>
         /// <remarks>
         /// This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
@@ -151,7 +151,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns the mandatory and conditional invoice or creditnote input fields for different country mandates This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
+        /// Returns the optionality of document fields for different country mandates This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -163,7 +163,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns the mandatory and conditional invoice or creditnote input fields for different country mandates This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
+        /// Returns the optionality of document fields for different country mandates This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -192,7 +192,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.0");
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Filter != null)
             {
@@ -233,7 +233,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns the mandatory and conditional invoice or creditnote input fields for different country mandates This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
+        /// Returns the optionality of document fields for different country mandates This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -246,7 +246,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns the mandatory and conditional invoice or creditnote input fields for different country mandates This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
+        /// Returns the optionality of document fields for different country mandates This endpoint provides a list of required, conditional, and optional fields for each country mandate. You can use the &lt;code&gt;mandates&lt;/code&gt; endpoint to retrieve all available country mandates. You can use the $filter query parameter to retrieve fields for a particular mandate
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -278,7 +278,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.0");
+            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Filter != null)
             {
