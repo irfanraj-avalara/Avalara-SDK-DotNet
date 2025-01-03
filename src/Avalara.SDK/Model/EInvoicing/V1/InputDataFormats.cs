@@ -37,16 +37,16 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Format and version used when inputting the data
     /// </summary>
-    [DataContract]
-    public partial class InputDataFormats :  IEquatable<InputDataFormats>
+    [DataContract(Name = "inputDataFormats")]
+    public partial class InputDataFormats : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InputDataFormats" /> class.
         /// </summary>
-        /// <param name="format">Invoice format.</param>
+        /// <param name="format">Document format.</param>
         /// <param name="versions">versions.</param>
         public InputDataFormats(string format = default(string), List<string> versions = default(List<string>))
         {
@@ -55,16 +55,17 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Invoice format
+        /// Document format
         /// </summary>
-        /// <value>Invoice format</value>
-        [DataMember(Name="format", EmitDefaultValue=false)]
+        /// <value>Document format</value>
+        /// <example>ubl-invoice</example>
+        [DataMember(Name = "format", EmitDefaultValue = false)]
         public string Format { get; set; }
 
         /// <summary>
         /// Gets or Sets Versions
         /// </summary>
-        [DataMember(Name="versions", EmitDefaultValue=false)]
+        [DataMember(Name = "versions", EmitDefaultValue = false)]
         public List<string> Versions { get; set; }
 
         /// <summary>
@@ -73,7 +74,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InputDataFormats {\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("  Versions: ").Append(Versions).Append("\n");
@@ -91,55 +92,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as InputDataFormats);
-        }
-
-        /// <summary>
-        /// Returns true if InputDataFormats instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InputDataFormats to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InputDataFormats input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.Format == input.Format ||
-                    (this.Format != null &&
-                    this.Format.Equals(input.Format))
-                ) && 
-                (
-                    this.Versions == input.Versions ||
-                    this.Versions != null &&
-                    input.Versions != null &&
-                    this.Versions.SequenceEqual(input.Versions)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Format != null)
-                    hashCode = hashCode * 59 + this.Format.GetHashCode();
-                if (this.Versions != null)
-                    hashCode = hashCode * 59 + this.Versions.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

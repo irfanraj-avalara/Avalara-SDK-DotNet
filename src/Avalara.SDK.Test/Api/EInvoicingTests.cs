@@ -14,6 +14,7 @@ using Xunit;
 using Avalara.SDK.Client;
 using Avalara.SDK.Helpers;
 using Avalara.SDK.Api.EInvoicing.V1;
+using System.Threading.Tasks;
 
 namespace Avalara.SDK.Test.Api
 {
@@ -26,7 +27,8 @@ namespace Avalara.SDK.Test.Api
     /// </remarks>
     public class EInvoicingTests : IDisposable
     {
-        private DocumentsApi instance;
+        private MandatesApi mandatesApi;
+        private DocumentsApi documentsApi;
         private ApiClient apiclient;
         public EInvoicingTests()
         {
@@ -45,7 +47,9 @@ namespace Avalara.SDK.Test.Api
 
             apiclient = new ApiClient(configuration);
 
-            instance = new DocumentsApi(apiclient);
+            mandatesApi = new MandatesApi(apiclient);
+            documentsApi = new DocumentsApi(apiclient);
+
         }
 
         public void Dispose()
@@ -59,20 +63,27 @@ namespace Avalara.SDK.Test.Api
         [Fact]
         public void InstanceTest()
         {
-            Assert.IsType<DocumentsApi>(instance);
+            Assert.IsType<MandatesApi>(mandatesApi);
         }
 
         /// <summary>
         /// Test Get Documents
         /// </summary>
         [Fact]
-        public void DocumentsTest()
+        public async Task DocumentsTest()
         {
-       
-            var requestParameters = new GetDocumentListRequest();
-            requestParameters.AvalaraVersion = "1.0";
-            var response = instance.GetDocumentList(requestParameters);
-            Assert.True(response != null);            
+            var response = await documentsApi.GetDocumentListAsync(new GetDocumentListRequest() { });
+            Assert.NotNull(response);
+        }
+
+        /// <summary>
+        /// Test Get Mandates
+        /// </summary>
+        [Fact]
+        public async Task MandatesTest()
+        {
+            var response = await mandatesApi.GetMandatesAsync(new GetMandatesRequest() { });
+            Assert.NotNull(response.Value);            
         }
     }
 }

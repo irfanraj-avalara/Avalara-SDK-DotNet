@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// RequiredWhenField
     /// </summary>
-    [DataContract]
-    public partial class RequiredWhenField :  IEquatable<RequiredWhenField>
+    [DataContract(Name = "RequiredWhenField")]
+    public partial class RequiredWhenField : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RequiredWhenField" /> class.
@@ -55,7 +55,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <summary>
         /// Gets or Sets Scenario
         /// </summary>
-        [DataMember(Name="scenario", EmitDefaultValue=false)]
+        [DataMember(Name = "scenario", EmitDefaultValue = false)]
         public string Scenario { get; set; }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RequiredWhenField {\n");
             sb.Append("  Scenario: ").Append(Scenario).Append("\n");
             sb.Append("}\n");
@@ -81,47 +81,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as RequiredWhenField);
-        }
-
-        /// <summary>
-        /// Returns true if RequiredWhenField instances are equal
-        /// </summary>
-        /// <param name="input">Instance of RequiredWhenField to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(RequiredWhenField input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.Scenario == input.Scenario ||
-                    (this.Scenario != null &&
-                    this.Scenario.Equals(input.Scenario))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Scenario != null)
-                    hashCode = hashCode * 59 + this.Scenario.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

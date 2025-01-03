@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
-    /// Key value pairs of metadata for a document submission. dataFormat can be ubl-invoice or ubl-creditnote:  &lt;br&gt;&lt;pre&gt;{  \&quot;workflowId\&quot;: \&quot;partner-einvoicing\&quot;, \&quot;dataFormat\&quot;: \&quot;ubl-invoice\&quot;, \&quot;dataFormatVersion\&quot;: \&quot;2.1\&quot;, \&quot;countryCode\&quot;: \&quot;SA\&quot;, \&quot;countryMandate\&quot;: \&quot;SA-Phase1-B2B\&quot; }&lt;/pre&gt; &lt;br&gt; 
+/// <summary>
+    /// Key value pairs of metadata for a document submission &lt;br&gt;&lt;pre&gt;{  \&quot;workflowId\&quot;: \&quot;partner-einvoicing\&quot;, \&quot;dataFormat\&quot;: \&quot;ubl-invoice\&quot;, \&quot;dataFormatVersion\&quot;: \&quot;2.1\&quot;, \&quot;countryCode\&quot;: \&quot;SA\&quot;, \&quot;countryMandate\&quot;: \&quot;SA-Phase1-B2B\&quot; }&lt;/pre&gt; &lt;br&gt; 
     /// </summary>
-    [DataContract]
-    public partial class SubmitDocumentMetadata :  IEquatable<SubmitDocumentMetadata>
+    [DataContract(Name = "SubmitDocument_metadata")]
+    public partial class SubmitDocumentMetadata : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubmitDocumentMetadata" /> class.
@@ -54,95 +54,80 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <param name="workflowId">Specifies a unique ID for this workflow. (required).</param>
         /// <param name="dataFormat">Specifies the data format for this workflow. (required).</param>
         /// <param name="dataFormatVersion">Specifies the data format version number. (required).</param>
-        /// <param name="countryCode">The two-letter ISO-3166 country code for the country where the e-invoice is being submitted (required).</param>
+        /// <param name="countryCode">The two-letter ISO-3166 country code for the country where the document is being submitted (required).</param>
         /// <param name="countryMandate">The e-invoicing mandate for the specified country. (required).</param>
         public SubmitDocumentMetadata(string workflowId = default(string), string dataFormat = default(string), string dataFormatVersion = default(string), string countryCode = default(string), string countryMandate = default(string))
         {
             // to ensure "workflowId" is required (not null)
             if (workflowId == null)
             {
-                throw new InvalidDataException("workflowId is a required property for SubmitDocumentMetadata and cannot be null");
+                throw new ArgumentNullException("workflowId is a required property for SubmitDocumentMetadata and cannot be null");
             }
-            else
-            {
-                this.WorkflowId = workflowId;
-            }
-
+            this.WorkflowId = workflowId;
             // to ensure "dataFormat" is required (not null)
             if (dataFormat == null)
             {
-                throw new InvalidDataException("dataFormat is a required property for SubmitDocumentMetadata and cannot be null");
+                throw new ArgumentNullException("dataFormat is a required property for SubmitDocumentMetadata and cannot be null");
             }
-            else
-            {
-                this.DataFormat = dataFormat;
-            }
-
+            this.DataFormat = dataFormat;
             // to ensure "dataFormatVersion" is required (not null)
             if (dataFormatVersion == null)
             {
-                throw new InvalidDataException("dataFormatVersion is a required property for SubmitDocumentMetadata and cannot be null");
+                throw new ArgumentNullException("dataFormatVersion is a required property for SubmitDocumentMetadata and cannot be null");
             }
-            else
-            {
-                this.DataFormatVersion = dataFormatVersion;
-            }
-
+            this.DataFormatVersion = dataFormatVersion;
             // to ensure "countryCode" is required (not null)
             if (countryCode == null)
             {
-                throw new InvalidDataException("countryCode is a required property for SubmitDocumentMetadata and cannot be null");
+                throw new ArgumentNullException("countryCode is a required property for SubmitDocumentMetadata and cannot be null");
             }
-            else
-            {
-                this.CountryCode = countryCode;
-            }
-
+            this.CountryCode = countryCode;
             // to ensure "countryMandate" is required (not null)
             if (countryMandate == null)
             {
-                throw new InvalidDataException("countryMandate is a required property for SubmitDocumentMetadata and cannot be null");
+                throw new ArgumentNullException("countryMandate is a required property for SubmitDocumentMetadata and cannot be null");
             }
-            else
-            {
-                this.CountryMandate = countryMandate;
-            }
-
+            this.CountryMandate = countryMandate;
         }
 
         /// <summary>
         /// Specifies a unique ID for this workflow.
         /// </summary>
         /// <value>Specifies a unique ID for this workflow.</value>
-        [DataMember(Name="workflowId", EmitDefaultValue=true)]
+        /// <example>partner-einvoicing</example>
+        [DataMember(Name = "workflowId", IsRequired = true, EmitDefaultValue = true)]
         public string WorkflowId { get; set; }
 
         /// <summary>
         /// Specifies the data format for this workflow.
         /// </summary>
         /// <value>Specifies the data format for this workflow.</value>
-        [DataMember(Name="dataFormat", EmitDefaultValue=true)]
+        /// <example>ubl-invoice</example>
+        [DataMember(Name = "dataFormat", IsRequired = true, EmitDefaultValue = true)]
         public string DataFormat { get; set; }
 
         /// <summary>
         /// Specifies the data format version number.
         /// </summary>
         /// <value>Specifies the data format version number.</value>
-        [DataMember(Name="dataFormatVersion", EmitDefaultValue=true)]
+        /// <example>2.1</example>
+        [DataMember(Name = "dataFormatVersion", IsRequired = true, EmitDefaultValue = true)]
         public string DataFormatVersion { get; set; }
 
         /// <summary>
-        /// The two-letter ISO-3166 country code for the country where the e-invoice is being submitted
+        /// The two-letter ISO-3166 country code for the country where the document is being submitted
         /// </summary>
-        /// <value>The two-letter ISO-3166 country code for the country where the e-invoice is being submitted</value>
-        [DataMember(Name="countryCode", EmitDefaultValue=true)]
+        /// <value>The two-letter ISO-3166 country code for the country where the document is being submitted</value>
+        /// <example>SA</example>
+        [DataMember(Name = "countryCode", IsRequired = true, EmitDefaultValue = true)]
         public string CountryCode { get; set; }
 
         /// <summary>
         /// The e-invoicing mandate for the specified country.
         /// </summary>
         /// <value>The e-invoicing mandate for the specified country.</value>
-        [DataMember(Name="countryMandate", EmitDefaultValue=true)]
+        /// <example>SA-Phase1-B2B</example>
+        [DataMember(Name = "countryMandate", IsRequired = true, EmitDefaultValue = true)]
         public string CountryMandate { get; set; }
 
         /// <summary>
@@ -151,7 +136,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SubmitDocumentMetadata {\n");
             sb.Append("  WorkflowId: ").Append(WorkflowId).Append("\n");
             sb.Append("  DataFormat: ").Append(DataFormat).Append("\n");
@@ -172,75 +157,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as SubmitDocumentMetadata);
-        }
-
-        /// <summary>
-        /// Returns true if SubmitDocumentMetadata instances are equal
-        /// </summary>
-        /// <param name="input">Instance of SubmitDocumentMetadata to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(SubmitDocumentMetadata input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.WorkflowId == input.WorkflowId ||
-                    (this.WorkflowId != null &&
-                    this.WorkflowId.Equals(input.WorkflowId))
-                ) && 
-                (
-                    this.DataFormat == input.DataFormat ||
-                    (this.DataFormat != null &&
-                    this.DataFormat.Equals(input.DataFormat))
-                ) && 
-                (
-                    this.DataFormatVersion == input.DataFormatVersion ||
-                    (this.DataFormatVersion != null &&
-                    this.DataFormatVersion.Equals(input.DataFormatVersion))
-                ) && 
-                (
-                    this.CountryCode == input.CountryCode ||
-                    (this.CountryCode != null &&
-                    this.CountryCode.Equals(input.CountryCode))
-                ) && 
-                (
-                    this.CountryMandate == input.CountryMandate ||
-                    (this.CountryMandate != null &&
-                    this.CountryMandate.Equals(input.CountryMandate))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.WorkflowId != null)
-                    hashCode = hashCode * 59 + this.WorkflowId.GetHashCode();
-                if (this.DataFormat != null)
-                    hashCode = hashCode * 59 + this.DataFormat.GetHashCode();
-                if (this.DataFormatVersion != null)
-                    hashCode = hashCode * 59 + this.DataFormatVersion.GetHashCode();
-                if (this.CountryCode != null)
-                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
-                if (this.CountryMandate != null)
-                    hashCode = hashCode * 59 + this.CountryMandate.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

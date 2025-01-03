@@ -37,17 +37,17 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Mandate
     /// </summary>
-    [DataContract]
-    public partial class Mandate :  IEquatable<Mandate>
+    [DataContract(Name = "Mandate")]
+    public partial class Mandate : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Mandate" /> class.
         /// </summary>
-        /// <param name="mandateId">Mandate UUID.</param>
-        /// <param name="countryMandate">Country mandate name.</param>
+        /// <param name="mandateId">The &#x60;mandateId&#x60; is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). Keep in mind the following when specifying a &#x60;mandateId&#x60;. - A country can have multiple mandate types (B2C, B2B, B2G). - A entity/company can opt in for multiple mandates. - A &#x60;mandateId&#x60; is the combination of country + mandate type + network/regulation..</param>
+        /// <param name="countryMandate">**[LEGACY]** This field is retained for backward compatibility. It is recommended to use &#x60;mandateId&#x60; instead. The &#x60;countryMandate&#x60; similar to the &#x60;mandateId&#x60; is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). .</param>
         /// <param name="countryCode">Country code.</param>
         /// <param name="description">Mandate description.</param>
         /// <param name="supportedByPartnerAPI">Indicates whether this mandate supported by the partner API.</param>
@@ -67,59 +67,65 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Mandate UUID
+        /// The &#x60;mandateId&#x60; is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). Keep in mind the following when specifying a &#x60;mandateId&#x60;. - A country can have multiple mandate types (B2C, B2B, B2G). - A entity/company can opt in for multiple mandates. - A &#x60;mandateId&#x60; is the combination of country + mandate type + network/regulation.
         /// </summary>
-        /// <value>Mandate UUID</value>
-        [DataMember(Name="mandateId", EmitDefaultValue=false)]
+        /// <value>The &#x60;mandateId&#x60; is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). Keep in mind the following when specifying a &#x60;mandateId&#x60;. - A country can have multiple mandate types (B2C, B2B, B2G). - A entity/company can opt in for multiple mandates. - A &#x60;mandateId&#x60; is the combination of country + mandate type + network/regulation.</value>
+        /// <example>AU-B2G-PEPPOL</example>
+        [DataMember(Name = "mandateId", EmitDefaultValue = false)]
         public string MandateId { get; set; }
 
         /// <summary>
-        /// Country mandate name
+        /// **[LEGACY]** This field is retained for backward compatibility. It is recommended to use &#x60;mandateId&#x60; instead. The &#x60;countryMandate&#x60; similar to the &#x60;mandateId&#x60; is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). 
         /// </summary>
-        /// <value>Country mandate name</value>
-        [DataMember(Name="countryMandate", EmitDefaultValue=false)]
+        /// <value>**[LEGACY]** This field is retained for backward compatibility. It is recommended to use &#x60;mandateId&#x60; instead. The &#x60;countryMandate&#x60; similar to the &#x60;mandateId&#x60; is comprised of the country code, mandate type, and the network or regulation type (for example, AU-B2G-PEPPOL). </value>
+        /// <example>AU-B2G-PEPPOL</example>
+        [DataMember(Name = "countryMandate", EmitDefaultValue = false)]
         public string CountryMandate { get; set; }
 
         /// <summary>
         /// Country code
         /// </summary>
         /// <value>Country code</value>
-        [DataMember(Name="countryCode", EmitDefaultValue=false)]
+        /// <example>AU</example>
+        [DataMember(Name = "countryCode", EmitDefaultValue = false)]
         public string CountryCode { get; set; }
 
         /// <summary>
         /// Mandate description
         /// </summary>
         /// <value>Mandate description</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        /// <example>The mandate supporting B2G eInvoicing in Australia. This function will create a Peppol BIS 3.0 file and sends the invoice to the related recipient via the Peppol network</example>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Indicates whether this mandate supported by the partner API
         /// </summary>
         /// <value>Indicates whether this mandate supported by the partner API</value>
-        [DataMember(Name="supportedByPartnerAPI", EmitDefaultValue=false)]
+        /// <example>true</example>
+        [DataMember(Name = "supportedByPartnerAPI", EmitDefaultValue = true)]
         public bool SupportedByPartnerAPI { get; set; }
 
         /// <summary>
         /// Mandate format
         /// </summary>
         /// <value>Mandate format</value>
-        [DataMember(Name="mandateFormat", EmitDefaultValue=false)]
+        /// <example>xml</example>
+        [DataMember(Name = "mandateFormat", EmitDefaultValue = false)]
         public string MandateFormat { get; set; }
 
         /// <summary>
         /// Format and version used when inputting the data
         /// </summary>
         /// <value>Format and version used when inputting the data</value>
-        [DataMember(Name="inputDataFormats", EmitDefaultValue=false)]
+        [DataMember(Name = "inputDataFormats", EmitDefaultValue = false)]
         public List<InputDataFormats> InputDataFormats { get; set; }
 
         /// <summary>
         /// Workflow ID list
         /// </summary>
         /// <value>Workflow ID list</value>
-        [DataMember(Name="workflowIds", EmitDefaultValue=false)]
+        [DataMember(Name = "workflowIds", EmitDefaultValue = false)]
         public List<WorkflowIds> WorkflowIds { get; set; }
 
         /// <summary>
@@ -128,7 +134,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Mandate {\n");
             sb.Append("  MandateId: ").Append(MandateId).Append("\n");
             sb.Append("  CountryMandate: ").Append(CountryMandate).Append("\n");
@@ -152,98 +158,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as Mandate);
-        }
-
-        /// <summary>
-        /// Returns true if Mandate instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Mandate to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Mandate input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.MandateId == input.MandateId ||
-                    (this.MandateId != null &&
-                    this.MandateId.Equals(input.MandateId))
-                ) && 
-                (
-                    this.CountryMandate == input.CountryMandate ||
-                    (this.CountryMandate != null &&
-                    this.CountryMandate.Equals(input.CountryMandate))
-                ) && 
-                (
-                    this.CountryCode == input.CountryCode ||
-                    (this.CountryCode != null &&
-                    this.CountryCode.Equals(input.CountryCode))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.SupportedByPartnerAPI == input.SupportedByPartnerAPI ||
-                    (this.SupportedByPartnerAPI != null &&
-                    this.SupportedByPartnerAPI.Equals(input.SupportedByPartnerAPI))
-                ) && 
-                (
-                    this.MandateFormat == input.MandateFormat ||
-                    (this.MandateFormat != null &&
-                    this.MandateFormat.Equals(input.MandateFormat))
-                ) && 
-                (
-                    this.InputDataFormats == input.InputDataFormats ||
-                    this.InputDataFormats != null &&
-                    input.InputDataFormats != null &&
-                    this.InputDataFormats.SequenceEqual(input.InputDataFormats)
-                ) && 
-                (
-                    this.WorkflowIds == input.WorkflowIds ||
-                    this.WorkflowIds != null &&
-                    input.WorkflowIds != null &&
-                    this.WorkflowIds.SequenceEqual(input.WorkflowIds)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.MandateId != null)
-                    hashCode = hashCode * 59 + this.MandateId.GetHashCode();
-                if (this.CountryMandate != null)
-                    hashCode = hashCode * 59 + this.CountryMandate.GetHashCode();
-                if (this.CountryCode != null)
-                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.SupportedByPartnerAPI != null)
-                    hashCode = hashCode * 59 + this.SupportedByPartnerAPI.GetHashCode();
-                if (this.MandateFormat != null)
-                    hashCode = hashCode * 59 + this.MandateFormat.GetHashCode();
-                if (this.InputDataFormats != null)
-                    hashCode = hashCode * 59 + this.InputDataFormats.GetHashCode();
-                if (this.WorkflowIds != null)
-                    hashCode = hashCode * 59 + this.WorkflowIds.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

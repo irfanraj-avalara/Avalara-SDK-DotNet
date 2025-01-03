@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecordSetCount** | **decimal** | Total count of results | [optional] 
+**RecordsetCount** | **decimal** | Total count of results | [optional] 
 **NextLink** | **string** |  | [optional] 
 **Value** | [**List&lt;DataInputField&gt;**](DataInputField.md) | Array of Data Input Fields | [optional] 
 

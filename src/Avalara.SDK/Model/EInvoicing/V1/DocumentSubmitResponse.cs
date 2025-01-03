@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns the unique ID of a successful document submission
     /// </summary>
-    [DataContract]
-    public partial class DocumentSubmitResponse :  IEquatable<DocumentSubmitResponse>
+    [DataContract(Name = "DocumentSubmitResponse")]
+    public partial class DocumentSubmitResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentSubmitResponse" /> class.
@@ -56,7 +56,8 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Unique ID for this document that can be used for status checking and file downloads. This is a UID created by the Avalara E-Invoicing platform.
         /// </summary>
         /// <value>Unique ID for this document that can be used for status checking and file downloads. This is a UID created by the Avalara E-Invoicing platform.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        /// <example>52f60401-44d0-4667-ad47-4afe519abb53</example>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DocumentSubmitResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
@@ -82,47 +83,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as DocumentSubmitResponse);
-        }
-
-        /// <summary>
-        /// Returns true if DocumentSubmitResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of DocumentSubmitResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(DocumentSubmitResponse input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

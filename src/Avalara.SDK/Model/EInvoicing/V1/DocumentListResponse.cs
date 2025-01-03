@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns the requested list of documents
     /// </summary>
-    [DataContract]
-    public partial class DocumentListResponse :  IEquatable<DocumentListResponse>
+    [DataContract(Name = "DocumentListResponse")]
+    public partial class DocumentListResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentListResponse" /> class.
@@ -51,23 +51,18 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentListResponse" /> class.
         /// </summary>
-        /// <param name="recordSetCount">Count of collections for the given date range.</param>
+        /// <param name="recordsetCount">Count of collections for the given date range.</param>
         /// <param name="nextLink">nextLink.</param>
-        /// <param name="value">Array of invoices matching query parameters (required).</param>
-        public DocumentListResponse(string recordSetCount = default(string), string nextLink = default(string), List<DocumentSummary> value = default(List<DocumentSummary>))
+        /// <param name="value">Array of documents matching query parameters (required).</param>
+        public DocumentListResponse(string recordsetCount = default(string), string nextLink = default(string), List<DocumentSummary> value = default(List<DocumentSummary>))
         {
-            this.NextLink = nextLink;
             // to ensure "value" is required (not null)
             if (value == null)
             {
-                throw new InvalidDataException("value is a required property for DocumentListResponse and cannot be null");
+                throw new ArgumentNullException("value is a required property for DocumentListResponse and cannot be null");
             }
-            else
-            {
-                this.Value = value;
-            }
-
-            this.RecordSetCount = recordSetCount;
+            this.Value = value;
+            this.RecordsetCount = recordsetCount;
             this.NextLink = nextLink;
         }
 
@@ -75,20 +70,21 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Count of collections for the given date range
         /// </summary>
         /// <value>Count of collections for the given date range</value>
-        [DataMember(Name="@recordSetCount", EmitDefaultValue=false)]
-        public string RecordSetCount { get; set; }
+        /// <example>1</example>
+        [DataMember(Name = "@recordsetCount", EmitDefaultValue = false)]
+        public string RecordsetCount { get; set; }
 
         /// <summary>
         /// Gets or Sets NextLink
         /// </summary>
-        [DataMember(Name="@nextLink", EmitDefaultValue=true)]
+        [DataMember(Name = "@nextLink", EmitDefaultValue = true)]
         public string NextLink { get; set; }
 
         /// <summary>
-        /// Array of invoices matching query parameters
+        /// Array of documents matching query parameters
         /// </summary>
-        /// <value>Array of invoices matching query parameters</value>
-        [DataMember(Name="value", EmitDefaultValue=true)]
+        /// <value>Array of documents matching query parameters</value>
+        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public List<DocumentSummary> Value { get; set; }
 
         /// <summary>
@@ -97,9 +93,9 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DocumentListResponse {\n");
-            sb.Append("  RecordSetCount: ").Append(RecordSetCount).Append("\n");
+            sb.Append("  RecordsetCount: ").Append(RecordsetCount).Append("\n");
             sb.Append("  NextLink: ").Append(NextLink).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -116,62 +112,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as DocumentListResponse);
-        }
-
-        /// <summary>
-        /// Returns true if DocumentListResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of DocumentListResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(DocumentListResponse input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.RecordSetCount == input.RecordSetCount ||
-                    (this.RecordSetCount != null &&
-                    this.RecordSetCount.Equals(input.RecordSetCount))
-                ) && 
-                (
-                    this.NextLink == input.NextLink ||
-                    (this.NextLink != null &&
-                    this.NextLink.Equals(input.NextLink))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    this.Value != null &&
-                    input.Value != null &&
-                    this.Value.SequenceEqual(input.Value)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.RecordSetCount != null)
-                    hashCode = hashCode * 59 + this.RecordSetCount.GetHashCode();
-                if (this.NextLink != null)
-                    hashCode = hashCode * 59 + this.NextLink.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

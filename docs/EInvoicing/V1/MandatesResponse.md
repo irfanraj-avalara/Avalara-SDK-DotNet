@@ -5,7 +5,7 @@ Mandate list response schema
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecordSetCount** | **decimal** | Total count of results | [optional] 
+**RecordsetCount** | **decimal** | Total count of results | [optional] 
 **NextLink** | **string** |  | [optional] 
 **Value** | [**List&lt;Mandate&gt;**](Mandate.md) | Mandates schema | [optional] 
 

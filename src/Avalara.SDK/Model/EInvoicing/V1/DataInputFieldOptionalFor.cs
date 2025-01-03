@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Array of CountryMandate names for which this field is optional.
     /// </summary>
-    [DataContract]
-    public partial class DataInputFieldOptionalFor :  IEquatable<DataInputFieldOptionalFor>
+    [DataContract(Name = "DataInputField_optionalFor")]
+    public partial class DataInputFieldOptionalFor : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataInputFieldOptionalFor" /> class.
@@ -55,7 +55,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <summary>
         /// Gets or Sets CountryMandate
         /// </summary>
-        [DataMember(Name="countryMandate", EmitDefaultValue=false)]
+        [DataMember(Name = "countryMandate", EmitDefaultValue = false)]
         public string CountryMandate { get; set; }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DataInputFieldOptionalFor {\n");
             sb.Append("  CountryMandate: ").Append(CountryMandate).Append("\n");
             sb.Append("}\n");
@@ -81,47 +81,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as DataInputFieldOptionalFor);
-        }
-
-        /// <summary>
-        /// Returns true if DataInputFieldOptionalFor instances are equal
-        /// </summary>
-        /// <param name="input">Instance of DataInputFieldOptionalFor to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(DataInputFieldOptionalFor input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.CountryMandate == input.CountryMandate ||
-                    (this.CountryMandate != null &&
-                    this.CountryMandate.Equals(input.CountryMandate))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CountryMandate != null)
-                    hashCode = hashCode * 59 + this.CountryMandate.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }

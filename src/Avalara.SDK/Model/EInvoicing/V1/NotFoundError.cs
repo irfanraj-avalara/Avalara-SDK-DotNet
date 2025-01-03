@@ -37,11 +37,11 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns an HTTP error code and message for a &#39;not found&#39; error
     /// </summary>
-    [DataContract]
-    public partial class NotFoundError :  IEquatable<NotFoundError>
+    [DataContract(Name = "NotFoundError")]
+    public partial class NotFoundError : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NotFoundError" /> class.
@@ -58,14 +58,16 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// The three-digit HTTP error code for a not found error
         /// </summary>
         /// <value>The three-digit HTTP error code for a not found error</value>
-        [DataMember(Name="error", EmitDefaultValue=false)]
+        /// <example>404</example>
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>
         /// A message about the not found error
         /// </summary>
         /// <value>A message about the not found error</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
+        /// <example>Not Found</example>
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
@@ -74,7 +76,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotFoundError {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -92,54 +94,13 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        /// To validate all properties of the instance
         /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.Equals(input as NotFoundError);
-        }
-
-        /// <summary>
-        /// Returns true if NotFoundError instances are equal
-        /// </summary>
-        /// <param name="input">Instance of NotFoundError to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(NotFoundError input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                return hashCode;
-            }
+            yield break;
         }
     }
-
 }
