@@ -42,7 +42,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string AvalaraVersion { get; set; }
+        public string? AvalaraVersion { get; set; } = "1.2";
         /// <summary>
         /// The unique ID for the mandate that was returned in the GET /einvoicing/mandates response body
         /// </summary>
@@ -73,7 +73,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string AvalaraVersion { get; set; }
+        public string? AvalaraVersion { get; set; } = "1.2";
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         /// </summary>
@@ -258,8 +258,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
-
             localVarRequestOptions.PathParameters.Add("mandateId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.MandateId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentType", requestParameters.DocumentType));
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentVersion", requestParameters.DocumentVersion));
@@ -339,8 +337,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
-
             localVarRequestOptions.PathParameters.Add("mandateId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.MandateId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentType", requestParameters.DocumentType));
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentVersion", requestParameters.DocumentVersion));
@@ -403,8 +399,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
 
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Filter != null)
             {
@@ -489,8 +483,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
 
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Filter != null)
             {

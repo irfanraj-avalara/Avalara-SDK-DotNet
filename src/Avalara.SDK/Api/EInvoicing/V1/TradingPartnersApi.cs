@@ -42,7 +42,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string AvalaraVersion { get; set; }
+        public string? AvalaraVersion { get; set; } = "1.2";
         /// <summary>
         /// The human readable name given to this batch search.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string AvalaraVersion { get; set; }
+        public string? AvalaraVersion { get; set; } = "1.2";
         /// <summary>
         /// The ID of the batch search whose report is to be downloaded.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string AvalaraVersion { get; set; }
+        public string? AvalaraVersion { get; set; } = "1.2";
         /// <summary>
         /// The ID of the batch search that was submitted earlier.
         /// </summary>
@@ -131,7 +131,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string AvalaraVersion { get; set; }
+        public string? AvalaraVersion { get; set; } = "1.2";
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;
         /// </summary>
@@ -174,7 +174,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string AvalaraVersion { get; set; }
+        public string? AvalaraVersion { get; set; } = "1.2";
         /// <summary>
         /// Search by value supports logical AND and OR. Refer to [https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search) for more information on search. Search will be done over &lt;code&gt;name&lt;/code&gt; and &lt;code&gt;identifier&lt;/code&gt; parameters only.
         /// </summary>
@@ -436,8 +436,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
-
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "name", requestParameters.Name));
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "notificationEmail", requestParameters.NotificationEmail));
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
@@ -521,8 +519,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
-
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "name", requestParameters.Name));
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "notificationEmail", requestParameters.NotificationEmail));
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
@@ -594,8 +590,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
 
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             localVarRequestOptions.PathParameters.Add("id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.Id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
@@ -671,8 +665,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
-
             localVarRequestOptions.PathParameters.Add("id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.Id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             if (requestParameters.XAvalaraClient != null)
@@ -741,8 +733,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
 
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             localVarRequestOptions.PathParameters.Add("id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.Id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
@@ -817,8 +807,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
-
             localVarRequestOptions.PathParameters.Add("id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.Id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             if (requestParameters.XAvalaraClient != null)
@@ -883,8 +871,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
 
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Filter != null)
             {
@@ -974,8 +960,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
-
             if (requestParameters.Filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "$filter", requestParameters.Filter));
@@ -1063,8 +1047,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
 
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Count != null)
             {
@@ -1158,8 +1140,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
 
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             if (requestParameters.Count != null)
             {

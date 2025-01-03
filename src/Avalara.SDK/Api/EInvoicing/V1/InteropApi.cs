@@ -50,7 +50,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string AvalaraVersion { get; set; }
+        public string? AvalaraVersion { get; set; } = "1.2";
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;
         /// </summary>
@@ -197,8 +197,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
-
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentType", requestParameters.DocumentType));
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "interchangeType", requestParameters.InterchangeType));
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
@@ -281,8 +279,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
 
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.HeaderParameters.Add("avalara-version", "1.2");
 
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "documentType", requestParameters.DocumentType));
             localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "interchangeType", requestParameters.InterchangeType));
