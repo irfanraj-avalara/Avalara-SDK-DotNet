@@ -56,20 +56,20 @@ namespace Example
 
             ApiClient apiClient = new ApiClient(configuration);
 
-            var apiInstance = new MandatesApi(apiClient);
+            var mandatesApi = new MandatesApi(apiClient);
             var requestParameters = new GetMandatesRequest();
-            requestParameters.xAvalaraClient = "\"Swagger UI; 22.7.0; Custom; 1.0\"";  // string | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)  (default to "Swagger UI; 22.7.0; Custom; 1.0")
+            requestParameters.XAvalaraClient = "\"Swagger UI; 22.7.0; Custom; 1.0\"";  // string | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional)  (default to "Swagger UI; 22.7.0; Custom; 1.0")
 
             try
             {
                 // Retrieve the list of Mandates
                 var response = await mandatesApi.GetMandatesAsync(requestParameters);
-                Debug.WriteLine(result);
+                Debug.WriteLine(response);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling AddressesApi.ResolveAddressPost: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling AddressesApi.ResolveAddressPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
 
