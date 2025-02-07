@@ -153,7 +153,8 @@ namespace Avalara.SDK.Client
             // at this point, it must be a model (json)
             try
             {
-                return JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync(), type, _serializerSettings);
+                var responseContent = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject(responseContent, type, _serializerSettings);
             }
             catch (Exception e)
             {
@@ -178,7 +179,7 @@ namespace Avalara.SDK.Client
     /// <remarks>
     /// The Dispose method will manage the HttpClient lifecycle when not passed by constructor.
     /// </remarks>
-    public partial class ApiClient : IInternalApiClient, IDisposable
+    public partial class ApiClient : IInternalApiClient
     {
         /// <summary>
         /// The standard client header for AvaTax API calls
@@ -189,7 +190,7 @@ namespace Avalara.SDK.Client
         /// Version of the SDK being used
         /// </summary>
         private string sdkVersion;
-
+        
         /// <summary>
         /// SDKVersion property - Cannot be set by user
         /// </summary>
@@ -249,7 +250,7 @@ namespace Avalara.SDK.Client
         /// </summary>
         public void Dispose()
         {
-             Configuration.HttpClient.Dispose();
+            Configuration.HttpClient.Dispose();
         }
 
         /// Prepares multipart/form-data content
@@ -285,23 +286,23 @@ namespace Avalara.SDK.Client
         /// <param name="method">The http verb.</param>
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>[private] A new HttpRequestMessage instance.</returns>
         /// <exception cref="ArgumentNullException"></exception>
         private HttpRequestMessage NewRequest(
             HttpMethod method,
             string path,
-            RequestOptions options)
+            RequestOptions options,
+            AvalaraMicroservice microservice)
         {
             CheckConfiguration();
             if (path == null) throw new ArgumentNullException("path");
             if (options == null) throw new ArgumentNullException("options");
 
             string clientID = String.Format("{0}; {1}; {2}; {3}; {4}", Configuration.AppName, Configuration.AppVersion,
-                "CSharpRestClient", SdkVersion, Configuration.MachineName);
+                "CSharpRestClient", ((IInternalApiClient)this).SdkVersion, Configuration.MachineName);
 
-            WebRequestPathBuilder builder = new WebRequestPathBuilder(Configuration.BasePath, path);
+            WebRequestPathBuilder builder = new WebRequestPathBuilder(Configuration.GetBasePath(microservice), path);
 
             builder.AddPathParameters(options.PathParameters);
 
@@ -401,13 +402,13 @@ namespace Avalara.SDK.Client
             {
                 req.Headers.Add("Authorization", "Basic " + Avalara.SDK.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
-            
+
         }
         partial void InterceptResponse(HttpRequestMessage req, HttpResponseMessage response);
 
         private async Task<ApiResponse<T>> ToApiResponse<T>(HttpResponseMessage response, object responseData, Uri uri)
         {
-            T result = (T) responseData;
+            T result = (T)responseData;
             string rawContent = await response.Content.ReadAsStringAsync();
 
             var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent)
@@ -436,13 +437,14 @@ namespace Avalara.SDK.Client
 
             if (Configuration.HttpClientHandler != null && response != null)
             {
-                try {
+                try
+                {
                     foreach (Cookie cookie in Configuration.HttpClientHandler.CookieContainer.GetCookies(uri))
                     {
                         transformed.Cookies.Add(cookie);
                     }
                 }
-                catch (PlatformNotSupportedException) {}
+                catch (PlatformNotSupportedException) { }
             }
 
             return transformed;
@@ -469,7 +471,7 @@ namespace Avalara.SDK.Client
 
             if (Configuration.ClientCertificates != null)
             {
-                if(Configuration.HttpClientHandler == null) throw new InvalidOperationException("Configuration `ClientCertificates` not supported when the client is explicitly created without an HttpClientHandler, use the proper constructor.");
+                if (Configuration.HttpClientHandler == null) throw new InvalidOperationException("Configuration `ClientCertificates` not supported when the client is explicitly created without an HttpClientHandler, use the proper constructor.");
                 Configuration.HttpClientHandler.ClientCertificates.AddRange(Configuration.ClientCertificates);
             }
 
@@ -477,7 +479,7 @@ namespace Avalara.SDK.Client
 
             if (cookieContainer != null)
             {
-                if(Configuration.HttpClientHandler == null) throw new InvalidOperationException("Request property `CookieContainer` not supported when the client is explicitly created without an HttpClientHandler, use the proper constructor.");
+                if (Configuration.HttpClientHandler == null) throw new InvalidOperationException("Request property `CookieContainer` not supported when the client is explicitly created without an HttpClientHandler, use the proper constructor.");
                 foreach (var cookie in cookieContainer)
                 {
                     Configuration.HttpClientHandler.CookieContainer.Add(cookie);
@@ -521,6 +523,29 @@ namespace Avalara.SDK.Client
                             response = await Configuration.HttpClient.SendAsync(req, cancellationToken).ConfigureAwait(false);
                         }
                     }
+                } else if (this.Configuration.RefreshTokenDelegate != null) {
+                    // Execute injected delegate to get a new access token
+                    string accessToken = await this.Configuration.RefreshTokenDelegate();
+
+                    // Clone the request or create a new one with the same properties
+                    var newRequest = new HttpRequestMessage(req.Method, req.RequestUri)
+                    {
+                        Content = req.Content != null ? await CloneHttpContent(req.Content) : null
+                    };
+
+                    foreach (var header in req.Headers)
+                    {
+                        newRequest.Headers.TryAddWithoutValidation(header.Key, header.Value);
+                    }
+
+                    // Update config instance with new access token
+                    this.Configuration.BearerToken = accessToken;
+
+                    // Remove old and add new Authorization header
+                    newRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                    // Send the cloned request
+                    response = await Configuration.HttpClient.SendAsync(newRequest, cancellationToken).ConfigureAwait(false);
                 }
             }
 
@@ -544,6 +569,21 @@ namespace Avalara.SDK.Client
             InterceptResponse(req, response);
 
             return await ToApiResponse<T>(response, responseData, req.RequestUri);
+        }
+
+        private static async Task<HttpContent> CloneHttpContent(HttpContent originalContent)
+        {
+            var memStream = new MemoryStream();
+            await originalContent.CopyToAsync(memStream).ConfigureAwait(false);
+            memStream.Position = 0;
+
+            var newContent = new StreamContent(memStream);
+            foreach (var header in originalContent.Headers)
+            {
+                newContent.Headers.Add(header.Key, header.Value);
+            }
+
+            return newContent;
         }
 
         private void CheckConfiguration()
@@ -617,10 +657,11 @@ namespace Avalara.SDK.Client
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> GetAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string))
+        public Task<ApiResponse<T>> GetAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return ExecAsync<T>(NewRequest(HttpMethod.Get, path, options), requiredScopes, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Get, path, options, microservice), requiredScopes, cancellationToken);
         }
 
         /// <summary>
@@ -630,10 +671,11 @@ namespace Avalara.SDK.Client
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string))
+        public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return ExecAsync<T>(NewRequest(HttpMethod.Post, path, options), requiredScopes, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Post, path, options, microservice), requiredScopes, cancellationToken);
         }
 
         /// <summary>
@@ -643,10 +685,11 @@ namespace Avalara.SDK.Client
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PutAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string))
+        public Task<ApiResponse<T>> PutAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return ExecAsync<T>(NewRequest(HttpMethod.Put, path, options), requiredScopes, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Put, path, options, microservice), requiredScopes, cancellationToken);
         }
 
         /// <summary>
@@ -656,10 +699,11 @@ namespace Avalara.SDK.Client
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string))
+        public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return ExecAsync<T>(NewRequest(HttpMethod.Delete, path, options), requiredScopes, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Delete, path, options, microservice), requiredScopes, cancellationToken);
         }
 
         /// <summary>
@@ -669,10 +713,11 @@ namespace Avalara.SDK.Client
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string))
+        public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return ExecAsync<T>(NewRequest(HttpMethod.Head, path, options), requiredScopes, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Head, path, options, microservice), requiredScopes, cancellationToken);
         }
 
         /// <summary>
@@ -682,10 +727,11 @@ namespace Avalara.SDK.Client
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> OptionsAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string))
+        public Task<ApiResponse<T>> OptionsAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return ExecAsync<T>(NewRequest(HttpMethod.Options, path, options), requiredScopes, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Options, path, options, microservice), requiredScopes, cancellationToken);
         }
 
         /// <summary>
@@ -695,10 +741,11 @@ namespace Avalara.SDK.Client
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
         /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string))
+        public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return ExecAsync<T>(NewRequest(new HttpMethod("PATCH"), path, options), requiredScopes, cancellationToken);
+            return ExecAsync<T>(NewRequest(new HttpMethod("PATCH"), path, options, microservice), requiredScopes, cancellationToken);
         }
         #endregion IAsynchronousClient
 
@@ -709,10 +756,11 @@ namespace Avalara.SDK.Client
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Get<T>(string path, RequestOptions options, string requiredScopes = default(string))
+        public ApiResponse<T> Get<T>(string path, RequestOptions options, string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return Exec<T>(NewRequest(HttpMethod.Get, path, options), requiredScopes);
+            return Exec<T>(NewRequest(HttpMethod.Get, path, options, microservice), requiredScopes);
         }
 
         /// <summary>
@@ -721,10 +769,11 @@ namespace Avalara.SDK.Client
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Post<T>(string path, RequestOptions options, string requiredScopes = default(string))
+        public ApiResponse<T> Post<T>(string path, RequestOptions options, string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return Exec<T>(NewRequest(HttpMethod.Post, path, options), requiredScopes);
+            return Exec<T>(NewRequest(HttpMethod.Post, path, options, microservice), requiredScopes);
         }
 
         /// <summary>
@@ -733,10 +782,11 @@ namespace Avalara.SDK.Client
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Put<T>(string path, RequestOptions options, string requiredScopes = default(string))
+        public ApiResponse<T> Put<T>(string path, RequestOptions options, string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return Exec<T>(NewRequest(HttpMethod.Put, path, options), requiredScopes);
+            return Exec<T>(NewRequest(HttpMethod.Put, path, options, microservice), requiredScopes);
         }
 
         /// <summary>
@@ -745,10 +795,11 @@ namespace Avalara.SDK.Client
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Delete<T>(string path, RequestOptions options, string requiredScopes = default(string))
+        public ApiResponse<T> Delete<T>(string path, RequestOptions options, string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return Exec<T>(NewRequest(HttpMethod.Delete, path, options), requiredScopes);
+            return Exec<T>(NewRequest(HttpMethod.Delete, path, options, microservice), requiredScopes);
         }
 
         /// <summary>
@@ -757,10 +808,11 @@ namespace Avalara.SDK.Client
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Head<T>(string path, RequestOptions options, string requiredScopes = default(string))
+        public ApiResponse<T> Head<T>(string path, RequestOptions options, string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return Exec<T>(NewRequest(HttpMethod.Head, path, options), requiredScopes);
+            return Exec<T>(NewRequest(HttpMethod.Head, path, options, microservice), requiredScopes);
         }
 
         /// <summary>
@@ -769,10 +821,11 @@ namespace Avalara.SDK.Client
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Options<T>(string path, RequestOptions options, string requiredScopes = default(string))
+        public ApiResponse<T> Options<T>(string path, RequestOptions options, string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return Exec<T>(NewRequest(HttpMethod.Options, path, options), requiredScopes);
+            return Exec<T>(NewRequest(HttpMethod.Options, path, options, microservice), requiredScopes);
         }
 
         /// <summary>
@@ -781,10 +834,11 @@ namespace Avalara.SDK.Client
         /// <param name="path">The target path (or resource).</param>
         /// <param name="options">The additional request options.</param>
         /// <param name="requiredScopes">OAuth scopes required for the request.</param>
+        /// <param name="microservice">A per-request microservice enum to determine which backend to route the request to.</param>
         /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Patch<T>(string path, RequestOptions options, string requiredScopes = default(string))
+        public ApiResponse<T> Patch<T>(string path, RequestOptions options, string requiredScopes = default(string), AvalaraMicroservice microservice = AvalaraMicroservice.None)
         {
-            return Exec<T>(NewRequest(new HttpMethod("PATCH"), path, options), requiredScopes);
+            return Exec<T>(NewRequest(new HttpMethod("PATCH"), path, options, microservice), requiredScopes);
         }
         #endregion ISynchronousClient
     }

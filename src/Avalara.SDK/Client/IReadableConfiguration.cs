@@ -40,10 +40,10 @@ namespace Avalara.SDK.Client
         /// <value>API key prefix.</value>
         IDictionary<string, string> ApiKeyPrefix { get; }
 
-        /// <summary>
-        /// Base Path of the Avalara API 
+       /// <summary>
+        /// GetBasePath used to get the base path based on the environment, region, and microservice
         /// </summary>
-        string BasePath { get; }
+        string GetBasePath(AvalaraMicroservice microservice = AvalaraMicroservice.None);
         /// <summary>
         /// Base Path of the test environment.
         /// </summary>
@@ -166,5 +166,10 @@ namespace Avalara.SDK.Client
         /// The Instance of HttpClient
         /// </summary>
         HttpClientHandler HttpClientHandler { get; }
+
+        /// <summary>
+        /// Delegate used to refresh the token when a 401 or 403 Response comes from an API call.
+        /// </summary>
+        RefreshTokenDelegate RefreshTokenDelegate { get; set; }
     }
 }
