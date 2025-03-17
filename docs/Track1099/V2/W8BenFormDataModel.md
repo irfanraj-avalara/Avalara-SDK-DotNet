@@ -5,7 +5,7 @@ W-8 BEN form
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Type of the form, always W8BEN for this model. | [optional] [readonly] 
+**Type** | **string** | Type of the form, always W8ben for this model. | [optional] [readonly] 
 **SignedDate** | **DateTime?** | The date the form was signed. | [optional] 
 **Birthday** | **string** | The birthday of the individual associated with the form. | [optional] 
 **ForeignTinNotRequired** | **bool?** | Indicates whether a foreign TIN is not required. | [optional] 
@@ -14,12 +14,14 @@ Name | Type | Description | Notes
 **CompanyId** | **int?** | The ID of the associated company. | [optional] 
 **DisplayName** | **string** | The display name associated with the form. | [optional] 
 **Email** | **string** | The email address of the individual associated with the form. | [optional] 
+**TypeOfTin** | **string** | The type of TIN provided. | [optional] 
 **Name** | **string** | The name of the individual or entity associated with the form. | [optional] 
 **ResidenceAddress** | **string** | The residential address of the individual or entity. | [optional] 
 **ResidenceCity** | **string** | The city of residence. | [optional] 
 **ResidenceState** | **string** | The state of residence. | [optional] 
 **ResidencePostalCode** | **string** | The postal code of the residence. | [optional] 
 **ResidenceCountry** | **string** | The country of residence. | [optional] 
+**ResidenceIsMailing** | **bool** |  | [optional] 
 **MailingAddress** | **string** | The mailing address. | [optional] 
 **MailingCity** | **string** | The city of the mailing address. | [optional] 
 **MailingState** | **string** | The state of the mailing address. | [optional] 
@@ -41,6 +43,16 @@ Name | Type | Description | Notes
 **UpdatedAt** | **DateTime?** | The last updated date of the form. | [optional] 
 **Id** | **int** |  | [optional] 
 **EntryStatus** | **string** |  | [optional] 
+**EntryStatusDate** | **DateTime?** |  | [optional] 
+**PdfJson** | **string** |  | [optional] 
+**PdfVersion** | **string** |  | [optional] 
+**RequestToken** | **string** |  | [optional] 
+**Signature** | **string** |  | [optional] 
+**Mobile** | **bool?** |  | [optional] 
+**AppVersion** | **string** |  | [optional] 
+**Platform** | **string** |  | [optional] 
+**OsVersion** | **string** |  | [optional] 
+**AncestorId** | **long?** |  | [optional] 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

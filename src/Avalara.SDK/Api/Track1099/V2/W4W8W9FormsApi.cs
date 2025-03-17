@@ -31,22 +31,18 @@ using Avalara.SDK.Model.Track1099.V2;
 namespace Avalara.SDK.Api.Track1099.V2
 {
     /// <summary>
-    /// Represents the Request object for the AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet API
+    /// Represents the Request object for the W9FormsFormIdGet API
     /// </summary>
-    public class AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest {
+    public class W9FormsFormIdGetRequest {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest () {
+        public W9FormsFormIdGetRequest () {
         }
         /// <summary>
-        /// 
+        /// Unique id of the form
         /// </summary>
-        public string AuthorizedApiRequestId { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string R { get; set; }
+        public long FormId { get; set; }
         /// <summary>
         /// API version
         /// </summary>
@@ -58,18 +54,14 @@ namespace Avalara.SDK.Api.Track1099.V2
     }
 
     /// <summary>
-    /// Represents the Request object for the AuthorizedApiRequestsAuthorizedApiRequestIdGet API
+    /// Represents the Request object for the W9FormsGet API
     /// </summary>
-    public class AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest {
+    public class W9FormsGetRequest {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest () {
+        public W9FormsGetRequest () {
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string AuthorizedApiRequestId { get; set; }
         /// <summary>
         /// API version
         /// </summary>
@@ -78,16 +70,32 @@ namespace Avalara.SDK.Api.Track1099.V2
         /// Unique correlation Id in a GUID format
         /// </summary>
         public string XCorrelationId { get; set; }
+        /// <summary>
+        /// A filter statement to identify specific records to retrieve. For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;.
+        /// </summary>
+        public string Filter { get; set; }
+        /// <summary>
+        /// If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.
+        /// </summary>
+        public int? Top { get; set; }
+        /// <summary>
+        /// If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets.
+        /// </summary>
+        public int? Skip { get; set; }
+        /// <summary>
+        /// A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC.
+        /// </summary>
+        public string Sort { get; set; }
     }
 
     /// <summary>
-    /// Represents the Request object for the AuthorizedApiRequestsPost API
+    /// Represents the Request object for the W9FormsPost API
     /// </summary>
-    public class AuthorizedApiRequestsPostRequest {
+    public class W9FormsPostRequest {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public AuthorizedApiRequestsPostRequest () {
+        public W9FormsPostRequest () {
         }
         /// <summary>
         /// API version
@@ -98,50 +106,47 @@ namespace Avalara.SDK.Api.Track1099.V2
         /// </summary>
         public string XCorrelationId { get; set; }
         /// <summary>
-        /// 
+        /// Form to be created
         /// </summary>
-        public AuthorizedApiRequestModel AuthorizedApiRequestModel { get; set; }
+        public FormDataModel FormDataModel { get; set; }
     }
 
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IAuthorizedAPIRequestsApiSync 
+    public interface IW4W8W9FormsApiSync 
     {
         #region Synchronous Operations
         /// <summary>
-        /// Execute URL for downloads
+        /// Retrieve a W9/W8/W4 form
         /// </summary>
         /// <remarks>
-        /// Execute the URL you created
+        /// Retreive a single W9/W8/W4 form by id
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns></returns>
-        void AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet(AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest requestParameters);
+        /// <returns>W9FormsPostRequest</returns>
+        W9FormsPostRequest W9FormsFormIdGet(W9FormsFormIdGetRequest requestParameters);
 
         /// <summary>
-        /// Retrieve URL for downloads
+        /// List W9/W4/W8 forms.
         /// </summary>
         /// <remarks>
-        /// Retrieve the URL you created
+        /// List W9/W4/W8 forms.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>AuthorizedApiRequestV2DataModel</returns>
-        AuthorizedApiRequestV2DataModel AuthorizedApiRequestsAuthorizedApiRequestIdGet(AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest requestParameters);
+        /// <returns>PaginatedW9FormsModel</returns>
+        PaginatedW9FormsModel W9FormsGet(W9FormsGetRequest requestParameters);
 
         /// <summary>
-        /// Create URL for downloads
+        /// Create a new W9/W8/W4 form
         /// </summary>
-        /// <remarks>
-        /// Create a URL that can be used to download forms. It will be valid until the given Time To Live (TTL) has passed
-        /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>AuthorizedApiRequestV2DataModel</returns>
-        AuthorizedApiRequestV2DataModel AuthorizedApiRequestsPost(AuthorizedApiRequestsPostRequest requestParameters);
+        /// <returns>W9FormsPostRequest</returns>
+        W9FormsPostRequest W9FormsPost(W9FormsPostRequest requestParameters);
 
         #endregion Synchronous Operations
     }
@@ -149,44 +154,44 @@ namespace Avalara.SDK.Api.Track1099.V2
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IAuthorizedAPIRequestsApiAsync 
+    public interface IW4W8W9FormsApiAsync 
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Execute URL for downloads
+        /// Retrieve a W9/W8/W4 form
         /// </summary>
         /// <remarks>
-        /// Execute the URL you created
+        /// Retreive a single W9/W8/W4 form by id
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetAsync(AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of W9FormsPostRequest</returns>
+        System.Threading.Tasks.Task<W9FormsPostRequest> W9FormsFormIdGetAsync(W9FormsFormIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieve URL for downloads
+        /// List W9/W4/W8 forms.
         /// </summary>
         /// <remarks>
-        /// Retrieve the URL you created
+        /// List W9/W4/W8 forms.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of AuthorizedApiRequestV2DataModel</returns>
-        System.Threading.Tasks.Task<AuthorizedApiRequestV2DataModel> AuthorizedApiRequestsAuthorizedApiRequestIdGetAsync(AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of PaginatedW9FormsModel</returns>
+        System.Threading.Tasks.Task<PaginatedW9FormsModel> W9FormsGetAsync(W9FormsGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create URL for downloads
+        /// Create a new W9/W8/W4 form
         /// </summary>
         /// <remarks>
-        /// Create a URL that can be used to download forms. It will be valid until the given Time To Live (TTL) has passed
+        /// 
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of AuthorizedApiRequestV2DataModel</returns>
-        System.Threading.Tasks.Task<AuthorizedApiRequestV2DataModel> AuthorizedApiRequestsPostAsync(AuthorizedApiRequestsPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of W9FormsPostRequest</returns>
+        System.Threading.Tasks.Task<W9FormsPostRequest> W9FormsPostAsync(W9FormsPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         #endregion Asynchronous Operations
     }
@@ -194,16 +199,16 @@ namespace Avalara.SDK.Api.Track1099.V2
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class AuthorizedAPIRequestsApi : IAuthorizedAPIRequestsApiSync, IAuthorizedAPIRequestsApiAsync
+    public partial class W4W8W9FormsApi : IW4W8W9FormsApiSync, IW4W8W9FormsApiAsync
     {
         private Avalara.SDK.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 		
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthorizedAPIRequestsApi"/> class
+        /// Initializes a new instance of the <see cref="W4W8W9FormsApi"/> class
         /// using a Configuration object and client instance.
         /// <param name="client">The client interface for API access.</param>
         /// </summary>
-        public AuthorizedAPIRequestsApi(Avalara.SDK.Client.IApiClient client)
+        public W4W8W9FormsApi(Avalara.SDK.Client.IApiClient client)
         {
              SetConfiguration(client);
              this.ExceptionFactory = Avalara.SDK.Client.Configuration.DefaultExceptionFactory;
@@ -231,41 +236,34 @@ namespace Avalara.SDK.Api.Track1099.V2
         }
 
         /// <summary>
-        /// Execute URL for downloads Execute the URL you created
+        /// Retrieve a W9/W8/W4 form Retreive a single W9/W8/W4 form by id
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns></returns>
-        public void AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet(AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest requestParameters)
+        /// <returns>W9FormsPostRequest</returns>
+        public W9FormsPostRequest W9FormsFormIdGet(W9FormsFormIdGetRequest requestParameters)
         {
-            AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<W9FormsPostRequest> localVarResponse = W9FormsFormIdGetWithHttpInfo(requestParameters);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Execute URL for downloads Execute the URL you created
+        /// Retrieve a W9/W8/W4 form Retreive a single W9/W8/W4 form by id
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        private Avalara.SDK.Client.ApiResponse<Object> AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetWithHttpInfo(AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest requestParameters)
+        /// <returns>ApiResponse of W9FormsPostRequest</returns>
+        private Avalara.SDK.Client.ApiResponse<W9FormsPostRequest> W9FormsFormIdGetWithHttpInfo(W9FormsFormIdGetRequest requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
-            // verify the required parameter 'AuthorizedApiRequestId' is set
-            if (requestParameters.AuthorizedApiRequestId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AuthorizedApiRequestId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet");
-
-            // verify the required parameter 'R' is set
-            if (requestParameters.R == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.R' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet");
-
             // verify the required parameter 'AvalaraVersion' is set
             if (requestParameters.AvalaraVersion == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling W4W8W9FormsApi->W9FormsFormIdGet");
 
             // verify the required parameter 'XCorrelationId' is set
             if (requestParameters.XCorrelationId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling W4W8W9FormsApi->W9FormsFormIdGet");
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
 
@@ -283,17 +281,16 @@ namespace Avalara.SDK.Api.Track1099.V2
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("authorizedApiRequestId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AuthorizedApiRequestId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "r", requestParameters.R));
+            localVarRequestOptions.PathParameters.Add("formId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.FormId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/authorized-api-requests/{authorizedApiRequestId}/$execute", localVarRequestOptions, requiredScopes, AvalaraMicroservice.Track1099);
+            var localVarResponse = this.Client.Get<W9FormsPostRequest>("/w9/forms/{formId}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.Track1099);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("W9FormsFormIdGet", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -301,43 +298,36 @@ namespace Avalara.SDK.Api.Track1099.V2
         }
 
         /// <summary>
-        /// Execute URL for downloads Execute the URL you created
+        /// Retrieve a W9/W8/W4 form Retreive a single W9/W8/W4 form by id
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetAsync(AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of W9FormsPostRequest</returns>
+        public async System.Threading.Tasks.Task<W9FormsPostRequest> W9FormsFormIdGetAsync(W9FormsFormIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<W9FormsPostRequest> localVarResponse = await W9FormsFormIdGetWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Execute URL for downloads Execute the URL you created
+        /// Retrieve a W9/W8/W4 form Retreive a single W9/W8/W4 form by id
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<Object>> AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetWithHttpInfoAsync(AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (W9FormsPostRequest)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<W9FormsPostRequest>> W9FormsFormIdGetWithHttpInfoAsync(W9FormsFormIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
-            // verify the required parameter 'requestParameters.AuthorizedApiRequestId' is set
-            if (requestParameters.AuthorizedApiRequestId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AuthorizedApiRequestId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet");
-
-            // verify the required parameter 'requestParameters.R' is set
-            if (requestParameters.R == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.R' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet");
-
             // verify the required parameter 'requestParameters.AvalaraVersion' is set
             if (requestParameters.AvalaraVersion == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling W4W8W9FormsApi->W9FormsFormIdGet");
 
             // verify the required parameter 'requestParameters.XCorrelationId' is set
             if (requestParameters.XCorrelationId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling W4W8W9FormsApi->W9FormsFormIdGet");
 
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
@@ -357,17 +347,16 @@ namespace Avalara.SDK.Api.Track1099.V2
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("authorizedApiRequestId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AuthorizedApiRequestId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "r", requestParameters.R));
+            localVarRequestOptions.PathParameters.Add("formId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.FormId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<Object>("/authorized-api-requests/{authorizedApiRequestId}/$execute", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.Track1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<W9FormsPostRequest>("/w9/forms/{formId}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.Track1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("W9FormsFormIdGet", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -375,38 +364,34 @@ namespace Avalara.SDK.Api.Track1099.V2
         }
 
         /// <summary>
-        /// Retrieve URL for downloads Retrieve the URL you created
+        /// List W9/W4/W8 forms. List W9/W4/W8 forms.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>AuthorizedApiRequestV2DataModel</returns>
-        public AuthorizedApiRequestV2DataModel AuthorizedApiRequestsAuthorizedApiRequestIdGet(AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest requestParameters)
+        /// <returns>PaginatedW9FormsModel</returns>
+        public PaginatedW9FormsModel W9FormsGet(W9FormsGetRequest requestParameters)
         {
-            Avalara.SDK.Client.ApiResponse<AuthorizedApiRequestV2DataModel> localVarResponse = AuthorizedApiRequestsAuthorizedApiRequestIdGetWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<PaginatedW9FormsModel> localVarResponse = W9FormsGetWithHttpInfo(requestParameters);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve URL for downloads Retrieve the URL you created
+        /// List W9/W4/W8 forms. List W9/W4/W8 forms.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of AuthorizedApiRequestV2DataModel</returns>
-        private Avalara.SDK.Client.ApiResponse<AuthorizedApiRequestV2DataModel> AuthorizedApiRequestsAuthorizedApiRequestIdGetWithHttpInfo(AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest requestParameters)
+        /// <returns>ApiResponse of PaginatedW9FormsModel</returns>
+        private Avalara.SDK.Client.ApiResponse<PaginatedW9FormsModel> W9FormsGetWithHttpInfo(W9FormsGetRequest requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
-            // verify the required parameter 'AuthorizedApiRequestId' is set
-            if (requestParameters.AuthorizedApiRequestId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AuthorizedApiRequestId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdGet");
-
             // verify the required parameter 'AvalaraVersion' is set
             if (requestParameters.AvalaraVersion == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling W4W8W9FormsApi->W9FormsGet");
 
             // verify the required parameter 'XCorrelationId' is set
             if (requestParameters.XCorrelationId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling W4W8W9FormsApi->W9FormsGet");
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
 
@@ -424,16 +409,31 @@ namespace Avalara.SDK.Api.Track1099.V2
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("authorizedApiRequestId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AuthorizedApiRequestId)); // path parameter
+            if (requestParameters.Filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "filter", requestParameters.Filter));
+            }
+            if (requestParameters.Top != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "top", requestParameters.Top));
+            }
+            if (requestParameters.Skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "skip", requestParameters.Skip));
+            }
+            if (requestParameters.Sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "sort", requestParameters.Sort));
+            }
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<AuthorizedApiRequestV2DataModel>("/authorized-api-requests/{authorizedApiRequestId}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.Track1099);
+            var localVarResponse = this.Client.Get<PaginatedW9FormsModel>("/w9/forms", localVarRequestOptions, requiredScopes, AvalaraMicroservice.Track1099);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AuthorizedApiRequestsAuthorizedApiRequestIdGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("W9FormsGet", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -441,40 +441,36 @@ namespace Avalara.SDK.Api.Track1099.V2
         }
 
         /// <summary>
-        /// Retrieve URL for downloads Retrieve the URL you created
+        /// List W9/W4/W8 forms. List W9/W4/W8 forms.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of AuthorizedApiRequestV2DataModel</returns>
-        public async System.Threading.Tasks.Task<AuthorizedApiRequestV2DataModel> AuthorizedApiRequestsAuthorizedApiRequestIdGetAsync(AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of PaginatedW9FormsModel</returns>
+        public async System.Threading.Tasks.Task<PaginatedW9FormsModel> W9FormsGetAsync(W9FormsGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Avalara.SDK.Client.ApiResponse<AuthorizedApiRequestV2DataModel> localVarResponse = await AuthorizedApiRequestsAuthorizedApiRequestIdGetWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<PaginatedW9FormsModel> localVarResponse = await W9FormsGetWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve URL for downloads Retrieve the URL you created
+        /// List W9/W4/W8 forms. List W9/W4/W8 forms.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (AuthorizedApiRequestV2DataModel)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<AuthorizedApiRequestV2DataModel>> AuthorizedApiRequestsAuthorizedApiRequestIdGetWithHttpInfoAsync(AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (PaginatedW9FormsModel)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<PaginatedW9FormsModel>> W9FormsGetWithHttpInfoAsync(W9FormsGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
-            // verify the required parameter 'requestParameters.AuthorizedApiRequestId' is set
-            if (requestParameters.AuthorizedApiRequestId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AuthorizedApiRequestId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdGet");
-
             // verify the required parameter 'requestParameters.AvalaraVersion' is set
             if (requestParameters.AvalaraVersion == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling W4W8W9FormsApi->W9FormsGet");
 
             // verify the required parameter 'requestParameters.XCorrelationId' is set
             if (requestParameters.XCorrelationId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsAuthorizedApiRequestIdGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling W4W8W9FormsApi->W9FormsGet");
 
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
@@ -494,16 +490,31 @@ namespace Avalara.SDK.Api.Track1099.V2
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("authorizedApiRequestId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AuthorizedApiRequestId)); // path parameter
+            if (requestParameters.Filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "filter", requestParameters.Filter));
+            }
+            if (requestParameters.Top != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "top", requestParameters.Top));
+            }
+            if (requestParameters.Skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "skip", requestParameters.Skip));
+            }
+            if (requestParameters.Sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Avalara.SDK.Client.ClientUtils.ParameterToMultiMap("", "sort", requestParameters.Sort));
+            }
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<AuthorizedApiRequestV2DataModel>("/authorized-api-requests/{authorizedApiRequestId}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.Track1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<PaginatedW9FormsModel>("/w9/forms", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.Track1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AuthorizedApiRequestsAuthorizedApiRequestIdGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("W9FormsGet", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -511,34 +522,34 @@ namespace Avalara.SDK.Api.Track1099.V2
         }
 
         /// <summary>
-        /// Create URL for downloads Create a URL that can be used to download forms. It will be valid until the given Time To Live (TTL) has passed
+        /// Create a new W9/W8/W4 form 
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>AuthorizedApiRequestV2DataModel</returns>
-        public AuthorizedApiRequestV2DataModel AuthorizedApiRequestsPost(AuthorizedApiRequestsPostRequest requestParameters)
+        /// <returns>W9FormsPostRequest</returns>
+        public W9FormsPostRequest W9FormsPost(W9FormsPostRequest requestParameters)
         {
-            Avalara.SDK.Client.ApiResponse<AuthorizedApiRequestV2DataModel> localVarResponse = AuthorizedApiRequestsPostWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<W9FormsPostRequest> localVarResponse = W9FormsPostWithHttpInfo(requestParameters);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create URL for downloads Create a URL that can be used to download forms. It will be valid until the given Time To Live (TTL) has passed
+        /// Create a new W9/W8/W4 form 
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of AuthorizedApiRequestV2DataModel</returns>
-        private Avalara.SDK.Client.ApiResponse<AuthorizedApiRequestV2DataModel> AuthorizedApiRequestsPostWithHttpInfo(AuthorizedApiRequestsPostRequest requestParameters)
+        /// <returns>ApiResponse of W9FormsPostRequest</returns>
+        private Avalara.SDK.Client.ApiResponse<W9FormsPostRequest> W9FormsPostWithHttpInfo(W9FormsPostRequest requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
             // verify the required parameter 'AvalaraVersion' is set
             if (requestParameters.AvalaraVersion == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsPost");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling W4W8W9FormsApi->W9FormsPost");
 
             // verify the required parameter 'XCorrelationId' is set
             if (requestParameters.XCorrelationId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsPost");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling W4W8W9FormsApi->W9FormsPost");
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
 
@@ -561,14 +572,14 @@ namespace Avalara.SDK.Api.Track1099.V2
 
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
-            localVarRequestOptions.Data = requestParameters.AuthorizedApiRequestModel;
+            localVarRequestOptions.Data = requestParameters.FormDataModel;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<AuthorizedApiRequestV2DataModel>("/authorized-api-requests", localVarRequestOptions, requiredScopes, AvalaraMicroservice.Track1099);
+            var localVarResponse = this.Client.Post<W9FormsPostRequest>("/w9/forms", localVarRequestOptions, requiredScopes, AvalaraMicroservice.Track1099);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AuthorizedApiRequestsPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("W9FormsPost", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -576,36 +587,36 @@ namespace Avalara.SDK.Api.Track1099.V2
         }
 
         /// <summary>
-        /// Create URL for downloads Create a URL that can be used to download forms. It will be valid until the given Time To Live (TTL) has passed
+        /// Create a new W9/W8/W4 form 
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of AuthorizedApiRequestV2DataModel</returns>
-        public async System.Threading.Tasks.Task<AuthorizedApiRequestV2DataModel> AuthorizedApiRequestsPostAsync(AuthorizedApiRequestsPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of W9FormsPostRequest</returns>
+        public async System.Threading.Tasks.Task<W9FormsPostRequest> W9FormsPostAsync(W9FormsPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Avalara.SDK.Client.ApiResponse<AuthorizedApiRequestV2DataModel> localVarResponse = await AuthorizedApiRequestsPostWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<W9FormsPostRequest> localVarResponse = await W9FormsPostWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create URL for downloads Create a URL that can be used to download forms. It will be valid until the given Time To Live (TTL) has passed
+        /// Create a new W9/W8/W4 form 
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (AuthorizedApiRequestV2DataModel)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<AuthorizedApiRequestV2DataModel>> AuthorizedApiRequestsPostWithHttpInfoAsync(AuthorizedApiRequestsPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (W9FormsPostRequest)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<W9FormsPostRequest>> W9FormsPostWithHttpInfoAsync(W9FormsPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
             // verify the required parameter 'requestParameters.AvalaraVersion' is set
             if (requestParameters.AvalaraVersion == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsPost");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling W4W8W9FormsApi->W9FormsPost");
 
             // verify the required parameter 'requestParameters.XCorrelationId' is set
             if (requestParameters.XCorrelationId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling AuthorizedAPIRequestsApi->AuthorizedApiRequestsPost");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling W4W8W9FormsApi->W9FormsPost");
 
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
@@ -630,14 +641,14 @@ namespace Avalara.SDK.Api.Track1099.V2
 
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
-            localVarRequestOptions.Data = requestParameters.AuthorizedApiRequestModel;
+            localVarRequestOptions.Data = requestParameters.FormDataModel;
 
             // make the HTTP request
-			var localVarResponse = await this.Client.PostAsync<AuthorizedApiRequestV2DataModel>("/authorized-api-requests", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.Track1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<W9FormsPostRequest>("/w9/forms", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.Track1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("AuthorizedApiRequestsPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("W9FormsPost", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

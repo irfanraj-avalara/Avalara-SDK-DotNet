@@ -38,75 +38,41 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.Track1099.V2
 {
 /// <summary>
-    /// Error model returned in response for all API errors
+    /// Generic paginated model to wrap query response data
     /// </summary>
-    [DataContract(Name = "ErrorModel")]
-    public partial class ErrorModel : IValidatableObject
+    [DataContract(Name = "PaginatedQueryResultModel1")]
+    public partial class PaginatedQueryResultModel1 : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorModel" /> class.
+        /// Initializes a new instance of the <see cref="PaginatedQueryResultModel1" /> class.
         /// </summary>
-        /// <param name="type">HTTP error code in 4xx or 5xx..</param>
-        /// <param name="status">HTTP error code in 4xx or 5xx..</param>
-        /// <param name="title">Description of the HTTP error code..</param>
-        /// <param name="detail">Detailed error message..</param>
-        /// <param name="instance">Error code..</param>
-        /// <param name="source">Cause of error..</param>
-        public ErrorModel(string type = default(string), string status = default(string), string title = default(string), string detail = default(string), string instance = default(string), Object source = default(Object))
+        /// <param name="recordsetCount">recordsetCount.</param>
+        /// <param name="value">value.</param>
+        /// <param name="nextLink">nextLink.</param>
+        public PaginatedQueryResultModel1(int recordsetCount = default(int), List<Object> value = default(List<Object>), string nextLink = default(string))
         {
-            this.Type = type;
-            this.Status = status;
-            this.Title = title;
-            this.Detail = detail;
-            this.Instance = instance;
-            this.Source = source;
+            this.RecordsetCount = recordsetCount;
+            this.Value = value;
+            this.NextLink = nextLink;
         }
 
         /// <summary>
-        /// HTTP error code in 4xx or 5xx.
+        /// Gets or Sets RecordsetCount
         /// </summary>
-        /// <value>HTTP error code in 4xx or 5xx.</value>
-        /// <example>https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400</example>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
-        public string Type { get; set; }
+        [DataMember(Name = "@recordsetCount", EmitDefaultValue = false)]
+        public int RecordsetCount { get; set; }
 
         /// <summary>
-        /// HTTP error code in 4xx or 5xx.
+        /// Gets or Sets Value
         /// </summary>
-        /// <value>HTTP error code in 4xx or 5xx.</value>
-        /// <example>400</example>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
-        public string Status { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = true)]
+        public List<Object> Value { get; set; }
 
         /// <summary>
-        /// Description of the HTTP error code.
+        /// Gets or Sets NextLink
         /// </summary>
-        /// <value>Description of the HTTP error code.</value>
-        /// <example>Bad request</example>
-        [DataMember(Name = "title", EmitDefaultValue = true)]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// Detailed error message.
-        /// </summary>
-        /// <value>Detailed error message.</value>
-        [DataMember(Name = "detail", EmitDefaultValue = true)]
-        public string Detail { get; set; }
-
-        /// <summary>
-        /// Error code.
-        /// </summary>
-        /// <value>Error code.</value>
-        /// <example>/issuers/12345</example>
-        [DataMember(Name = "instance", EmitDefaultValue = true)]
-        public string Instance { get; set; }
-
-        /// <summary>
-        /// Cause of error.
-        /// </summary>
-        /// <value>Cause of error.</value>
-        [DataMember(Name = "source", EmitDefaultValue = true)]
-        public Object Source { get; set; }
+        [DataMember(Name = "@nextLink", EmitDefaultValue = true)]
+        public string NextLink { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,13 +81,10 @@ namespace Avalara.SDK.Model.Track1099.V2
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ErrorModel {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Detail: ").Append(Detail).Append("\n");
-            sb.Append("  Instance: ").Append(Instance).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("class PaginatedQueryResultModel1 {\n");
+            sb.Append("  RecordsetCount: ").Append(RecordsetCount).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  NextLink: ").Append(NextLink).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

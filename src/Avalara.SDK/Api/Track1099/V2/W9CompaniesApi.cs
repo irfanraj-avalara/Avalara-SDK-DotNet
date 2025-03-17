@@ -31,18 +31,14 @@ using Avalara.SDK.Model.Track1099.V2;
 namespace Avalara.SDK.Api.Track1099.V2
 {
     /// <summary>
-    /// Represents the Request object for the FormRequestsFormRequestIdGet API
+    /// Represents the Request object for the W9CompaniesPost API
     /// </summary>
-    public class FormRequestsFormRequestIdGetRequest {
+    public class W9CompaniesPostRequest {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public FormRequestsFormRequestIdGetRequest () {
+        public W9CompaniesPostRequest () {
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string FormRequestId { get; set; }
         /// <summary>
         /// API version
         /// </summary>
@@ -51,25 +47,29 @@ namespace Avalara.SDK.Api.Track1099.V2
         /// Unique correlation Id in a GUID format
         /// </summary>
         public string XCorrelationId { get; set; }
+        /// <summary>
+        /// The company to create
+        /// </summary>
+        public CompanyModel CompanyModel { get; set; }
     }
 
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFormRequestsApiSync 
+    public interface IW9CompaniesApiSync 
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get form request
+        /// Creates a new company
         /// </summary>
         /// <remarks>
-        /// Create a W-9, W-8BEN or W-8BEN-E form request for the given &#x60;company_id&#x60; (ID of a company in the W-9 section of the Track1099 app) and your internal &#x60;reference_id&#x60; for the vendor. &#x60;reference_id&#x60; is opaque to Track1099 but should be meaningful to you. If provided, it must uniquely identify (to you) the person or company from whom you are requesting the form.
+        /// Creates a new company
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>FormRequestModel</returns>
-        FormRequestModel FormRequestsFormRequestIdGet(FormRequestsFormRequestIdGetRequest requestParameters);
+        /// <returns>CompanyModel</returns>
+        CompanyModel W9CompaniesPost(W9CompaniesPostRequest requestParameters);
 
         #endregion Synchronous Operations
     }
@@ -77,20 +77,20 @@ namespace Avalara.SDK.Api.Track1099.V2
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFormRequestsApiAsync 
+    public interface IW9CompaniesApiAsync 
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get form request
+        /// Creates a new company
         /// </summary>
         /// <remarks>
-        /// Create a W-9, W-8BEN or W-8BEN-E form request for the given &#x60;company_id&#x60; (ID of a company in the W-9 section of the Track1099 app) and your internal &#x60;reference_id&#x60; for the vendor. &#x60;reference_id&#x60; is opaque to Track1099 but should be meaningful to you. If provided, it must uniquely identify (to you) the person or company from whom you are requesting the form.
+        /// Creates a new company
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FormRequestModel</returns>
-        System.Threading.Tasks.Task<FormRequestModel> FormRequestsFormRequestIdGetAsync(FormRequestsFormRequestIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CompanyModel</returns>
+        System.Threading.Tasks.Task<CompanyModel> W9CompaniesPostAsync(W9CompaniesPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         #endregion Asynchronous Operations
     }
@@ -98,16 +98,16 @@ namespace Avalara.SDK.Api.Track1099.V2
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class FormRequestsApi : IFormRequestsApiSync, IFormRequestsApiAsync
+    public partial class W9CompaniesApi : IW9CompaniesApiSync, IW9CompaniesApiAsync
     {
         private Avalara.SDK.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 		
         /// <summary>
-        /// Initializes a new instance of the <see cref="FormRequestsApi"/> class
+        /// Initializes a new instance of the <see cref="W9CompaniesApi"/> class
         /// using a Configuration object and client instance.
         /// <param name="client">The client interface for API access.</param>
         /// </summary>
-        public FormRequestsApi(Avalara.SDK.Client.IApiClient client)
+        public W9CompaniesApi(Avalara.SDK.Client.IApiClient client)
         {
              SetConfiguration(client);
              this.ExceptionFactory = Avalara.SDK.Client.Configuration.DefaultExceptionFactory;
@@ -135,42 +135,41 @@ namespace Avalara.SDK.Api.Track1099.V2
         }
 
         /// <summary>
-        /// Get form request Create a W-9, W-8BEN or W-8BEN-E form request for the given &#x60;company_id&#x60; (ID of a company in the W-9 section of the Track1099 app) and your internal &#x60;reference_id&#x60; for the vendor. &#x60;reference_id&#x60; is opaque to Track1099 but should be meaningful to you. If provided, it must uniquely identify (to you) the person or company from whom you are requesting the form.
+        /// Creates a new company Creates a new company
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>FormRequestModel</returns>
-        public FormRequestModel FormRequestsFormRequestIdGet(FormRequestsFormRequestIdGetRequest requestParameters)
+        /// <returns>CompanyModel</returns>
+        public CompanyModel W9CompaniesPost(W9CompaniesPostRequest requestParameters)
         {
-            Avalara.SDK.Client.ApiResponse<FormRequestModel> localVarResponse = FormRequestsFormRequestIdGetWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<CompanyModel> localVarResponse = W9CompaniesPostWithHttpInfo(requestParameters);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get form request Create a W-9, W-8BEN or W-8BEN-E form request for the given &#x60;company_id&#x60; (ID of a company in the W-9 section of the Track1099 app) and your internal &#x60;reference_id&#x60; for the vendor. &#x60;reference_id&#x60; is opaque to Track1099 but should be meaningful to you. If provided, it must uniquely identify (to you) the person or company from whom you are requesting the form.
+        /// Creates a new company Creates a new company
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of FormRequestModel</returns>
-        private Avalara.SDK.Client.ApiResponse<FormRequestModel> FormRequestsFormRequestIdGetWithHttpInfo(FormRequestsFormRequestIdGetRequest requestParameters)
+        /// <returns>ApiResponse of CompanyModel</returns>
+        private Avalara.SDK.Client.ApiResponse<CompanyModel> W9CompaniesPostWithHttpInfo(W9CompaniesPostRequest requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
-            // verify the required parameter 'FormRequestId' is set
-            if (requestParameters.FormRequestId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.FormRequestId' when calling FormRequestsApi->FormRequestsFormRequestIdGet");
-
             // verify the required parameter 'AvalaraVersion' is set
             if (requestParameters.AvalaraVersion == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling FormRequestsApi->FormRequestsFormRequestIdGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling W9CompaniesApi->W9CompaniesPost");
 
             // verify the required parameter 'XCorrelationId' is set
             if (requestParameters.XCorrelationId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling FormRequestsApi->FormRequestsFormRequestIdGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling W9CompaniesApi->W9CompaniesPost");
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json",
+                "text/json",
+                "application/*+json"
             };
 
             // to determine the Accept header
@@ -184,16 +183,16 @@ namespace Avalara.SDK.Api.Track1099.V2
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("formRequestId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.FormRequestId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
+            localVarRequestOptions.Data = requestParameters.CompanyModel;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FormRequestModel>("/form-requests/{formRequestId}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.Track1099);
+            var localVarResponse = this.Client.Post<CompanyModel>("/w9/companies", localVarRequestOptions, requiredScopes, AvalaraMicroservice.Track1099);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FormRequestsFormRequestIdGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("W9CompaniesPost", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -201,45 +200,44 @@ namespace Avalara.SDK.Api.Track1099.V2
         }
 
         /// <summary>
-        /// Get form request Create a W-9, W-8BEN or W-8BEN-E form request for the given &#x60;company_id&#x60; (ID of a company in the W-9 section of the Track1099 app) and your internal &#x60;reference_id&#x60; for the vendor. &#x60;reference_id&#x60; is opaque to Track1099 but should be meaningful to you. If provided, it must uniquely identify (to you) the person or company from whom you are requesting the form.
+        /// Creates a new company Creates a new company
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FormRequestModel</returns>
-        public async System.Threading.Tasks.Task<FormRequestModel> FormRequestsFormRequestIdGetAsync(FormRequestsFormRequestIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CompanyModel</returns>
+        public async System.Threading.Tasks.Task<CompanyModel> W9CompaniesPostAsync(W9CompaniesPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Avalara.SDK.Client.ApiResponse<FormRequestModel> localVarResponse = await FormRequestsFormRequestIdGetWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<CompanyModel> localVarResponse = await W9CompaniesPostWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get form request Create a W-9, W-8BEN or W-8BEN-E form request for the given &#x60;company_id&#x60; (ID of a company in the W-9 section of the Track1099 app) and your internal &#x60;reference_id&#x60; for the vendor. &#x60;reference_id&#x60; is opaque to Track1099 but should be meaningful to you. If provided, it must uniquely identify (to you) the person or company from whom you are requesting the form.
+        /// Creates a new company Creates a new company
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FormRequestModel)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<FormRequestModel>> FormRequestsFormRequestIdGetWithHttpInfoAsync(FormRequestsFormRequestIdGetRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CompanyModel)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<CompanyModel>> W9CompaniesPostWithHttpInfoAsync(W9CompaniesPostRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
-            // verify the required parameter 'requestParameters.FormRequestId' is set
-            if (requestParameters.FormRequestId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.FormRequestId' when calling FormRequestsApi->FormRequestsFormRequestIdGet");
-
             // verify the required parameter 'requestParameters.AvalaraVersion' is set
             if (requestParameters.AvalaraVersion == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling FormRequestsApi->FormRequestsFormRequestIdGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.AvalaraVersion' when calling W9CompaniesApi->W9CompaniesPost");
 
             // verify the required parameter 'requestParameters.XCorrelationId' is set
             if (requestParameters.XCorrelationId == null)
-                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling FormRequestsApi->FormRequestsFormRequestIdGet");
+                throw new Avalara.SDK.Client.ApiException(400, "Missing required parameter 'requestParameters.XCorrelationId' when calling W9CompaniesApi->W9CompaniesPost");
 
 
             Avalara.SDK.Client.RequestOptions localVarRequestOptions = new Avalara.SDK.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json", 
+                "text/json", 
+                "application/*+json"
             };
 
             // to determine the Accept header
@@ -254,16 +252,16 @@ namespace Avalara.SDK.Api.Track1099.V2
             var localVarAccept = Avalara.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("formRequestId", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.FormRequestId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
+            localVarRequestOptions.Data = requestParameters.CompanyModel;
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<FormRequestModel>("/form-requests/{formRequestId}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.Track1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<CompanyModel>("/w9/companies", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.Track1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FormRequestsFormRequestIdGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("W9CompaniesPost", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -1,21 +1,21 @@
-# Avalara.SDK.Api.Track1099.V2.AuthorizedAPIRequestsApi
+# Avalara.SDK.Api.Track1099.V2.W4W8W9FormsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet**](AuthorizedAPIRequestsApi.md#authorizedapirequestsauthorizedapirequestidexecuteget) | **GET** /authorized-api-requests/{authorizedApiRequestId}/$execute | Execute URL for downloads
-[**AuthorizedApiRequestsAuthorizedApiRequestIdGet**](AuthorizedAPIRequestsApi.md#authorizedapirequestsauthorizedapirequestidget) | **GET** /authorized-api-requests/{authorizedApiRequestId} | Retrieve URL for downloads
-[**AuthorizedApiRequestsPost**](AuthorizedAPIRequestsApi.md#authorizedapirequestspost) | **POST** /authorized-api-requests | Create URL for downloads
+[**W9FormsFormIdGet**](W4W8W9FormsApi.md#w9formsformidget) | **GET** /w9/forms/{formId} | Retrieve a W9/W8/W4 form
+[**W9FormsGet**](W4W8W9FormsApi.md#w9formsget) | **GET** /w9/forms | List W9/W4/W8 forms.
+[**W9FormsPost**](W4W8W9FormsApi.md#w9formspost) | **POST** /w9/forms | Create a new W9/W8/W4 form
 
 
-<a name="authorizedapirequestsauthorizedapirequestidexecuteget"></a>
-# **AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet**
-> void AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet (AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest requestParameters)
+<a name="w9formsformidget"></a>
+# **W9FormsFormIdGet**
+> W9FormsPostRequest W9FormsFormIdGet (W9FormsFormIdGetRequest requestParameters)
 
-Execute URL for downloads
+Retrieve a W9/W8/W4 form
 
-Execute the URL you created
+Retreive a single W9/W8/W4 form by id
 
 ### Example
 ```csharp
@@ -28,7 +28,7 @@ using Avalara.SDK.Model.Track1099.V2;
 
 namespace Example
 {
-    public class AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetExample
+    public class W9FormsFormIdGetExample
     {
         public static void Main()
         {
@@ -38,21 +38,21 @@ namespace Example
             
             ApiClient apiClient= new ApiClient(config);
             
-            var apiInstance = new AuthorizedAPIRequestsApi(apiClient);
-            var requestParameters = new AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGetRequest();
-            requestParameters.AuthorizedApiRequestId = "authorizedApiRequestId_example";  // string | 
-            requestParameters.R = "r_example";  // string | 
+            var apiInstance = new W4W8W9FormsApi(apiClient);
+            var requestParameters = new W9FormsFormIdGetRequest();
+            requestParameters.FormId = 789L;  // long | Unique id of the form
             requestParameters.AvalaraVersion = 2.0;  // string | API version
             requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
 
             try
             {
-                // Execute URL for downloads
-                apiInstance.AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet(requestParameters);
+                // Retrieve a W9/W8/W4 form
+                W9FormsPostRequest result = apiInstance.W9FormsFormIdGet(requestParameters);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthorizedAPIRequestsApi.AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet: " + e.Message );
+                Debug.Print("Exception when calling W4W8W9FormsApi.W9FormsFormIdGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -65,14 +65,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **AuthorizedApiRequestId** | **string**|  | 
- **R** | **string**|  | 
+ **FormId** | **long**| Unique id of the form | 
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
 
 ### Return type
 
-void (empty response body)
+[**W9FormsPostRequest**](W9FormsPostRequest.md)
 
 ### Authorization
 
@@ -87,18 +86,20 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | W9/W8/W4 form with id |  -  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Authentication failed |  -  |
 | **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-<a name="authorizedapirequestsauthorizedapirequestidget"></a>
-# **AuthorizedApiRequestsAuthorizedApiRequestIdGet**
-> AuthorizedApiRequestV2DataModel AuthorizedApiRequestsAuthorizedApiRequestIdGet (AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest requestParameters)
+<a name="w9formsget"></a>
+# **W9FormsGet**
+> PaginatedW9FormsModel W9FormsGet (W9FormsGetRequest requestParameters)
 
-Retrieve URL for downloads
+List W9/W4/W8 forms.
 
-Retrieve the URL you created
+List W9/W4/W8 forms.
 
 ### Example
 ```csharp
@@ -111,7 +112,7 @@ using Avalara.SDK.Model.Track1099.V2;
 
 namespace Example
 {
-    public class AuthorizedApiRequestsAuthorizedApiRequestIdGetExample
+    public class W9FormsGetExample
     {
         public static void Main()
         {
@@ -121,21 +122,24 @@ namespace Example
             
             ApiClient apiClient= new ApiClient(config);
             
-            var apiInstance = new AuthorizedAPIRequestsApi(apiClient);
-            var requestParameters = new AuthorizedApiRequestsAuthorizedApiRequestIdGetRequest();
-            requestParameters.AuthorizedApiRequestId = "authorizedApiRequestId_example";  // string | 
+            var apiInstance = new W4W8W9FormsApi(apiClient);
+            var requestParameters = new W9FormsGetRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
             requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
+            requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
+            requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
+            requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
+            requestParameters.Sort = "sort_example";  // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional) 
 
             try
             {
-                // Retrieve URL for downloads
-                AuthorizedApiRequestV2DataModel result = apiInstance.AuthorizedApiRequestsAuthorizedApiRequestIdGet(requestParameters);
+                // List W9/W4/W8 forms.
+                PaginatedW9FormsModel result = apiInstance.W9FormsGet(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthorizedAPIRequestsApi.AuthorizedApiRequestsAuthorizedApiRequestIdGet: " + e.Message );
+                Debug.Print("Exception when calling W4W8W9FormsApi.W9FormsGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -148,13 +152,16 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **AuthorizedApiRequestId** | **string**|  | 
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+ **Filter** | **string**| A filter statement to identify specific records to retrieve. For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;. | [optional] 
+ **Top** | **int?**| If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. | [optional] [default to 10]
+ **Skip** | **int?**| If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. | [optional] [default to 0]
+ **Sort** | **string**| A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. | [optional] 
 
 ### Return type
 
-[**AuthorizedApiRequestV2DataModel**](AuthorizedApiRequestV2DataModel.md)
+[**PaginatedW9FormsModel**](PaginatedW9FormsModel.md)
 
 ### Authorization
 
@@ -169,19 +176,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of forms |  -  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Authentication failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-<a name="authorizedapirequestspost"></a>
-# **AuthorizedApiRequestsPost**
-> AuthorizedApiRequestV2DataModel AuthorizedApiRequestsPost (AuthorizedApiRequestsPostRequest requestParameters)
+<a name="w9formspost"></a>
+# **W9FormsPost**
+> W9FormsPostRequest W9FormsPost (W9FormsPostRequest requestParameters)
 
-Create URL for downloads
-
-Create a URL that can be used to download forms. It will be valid until the given Time To Live (TTL) has passed
+Create a new W9/W8/W4 form
 
 ### Example
 ```csharp
@@ -194,7 +199,7 @@ using Avalara.SDK.Model.Track1099.V2;
 
 namespace Example
 {
-    public class AuthorizedApiRequestsPostExample
+    public class W9FormsPostExample
     {
         public static void Main()
         {
@@ -204,21 +209,21 @@ namespace Example
             
             ApiClient apiClient= new ApiClient(config);
             
-            var apiInstance = new AuthorizedAPIRequestsApi(apiClient);
-            var requestParameters = new AuthorizedApiRequestsPostRequest();
+            var apiInstance = new W4W8W9FormsApi(apiClient);
+            var requestParameters = new W9FormsPostRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
             requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
-            requestParameters.AuthorizedApiRequestModel = new AuthorizedApiRequestModel(); // AuthorizedApiRequestModel |  (optional) 
+            requestParameters.FormDataModel = new FormDataModel(); // FormDataModel | Form to be created (optional) 
 
             try
             {
-                // Create URL for downloads
-                AuthorizedApiRequestV2DataModel result = apiInstance.AuthorizedApiRequestsPost(requestParameters);
+                // Create a new W9/W8/W4 form
+                W9FormsPostRequest result = apiInstance.W9FormsPost(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthorizedAPIRequestsApi.AuthorizedApiRequestsPost: " + e.Message );
+                Debug.Print("Exception when calling W4W8W9FormsApi.W9FormsPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -233,11 +238,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **AuthorizedApiRequestModel** | [**AuthorizedApiRequestModel**](AuthorizedApiRequestModel.md)|  | [optional] 
+ **FormDataModel** | [**FormDataModel**](FormDataModel.md)| Form to be created | [optional] 
 
 ### Return type
 
-[**AuthorizedApiRequestV2DataModel**](AuthorizedApiRequestV2DataModel.md)
+[**W9FormsPostRequest**](W9FormsPostRequest.md)
 
 ### Authorization
 
@@ -252,9 +257,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | The created W9/W8/W4 form |  -  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Authentication failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

@@ -1,19 +1,19 @@
-# Avalara.SDK.Api.Track1099.V2.FormRequestsApi
+# Avalara.SDK.Api.Track1099.V2.W9CompaniesApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FormRequestsFormRequestIdGet**](FormRequestsApi.md#formrequestsformrequestidget) | **GET** /form-requests/{formRequestId} | Get form request
+[**W9CompaniesPost**](W9CompaniesApi.md#w9companiespost) | **POST** /w9/companies | Creates a new company
 
 
-<a name="formrequestsformrequestidget"></a>
-# **FormRequestsFormRequestIdGet**
-> FormRequestModel FormRequestsFormRequestIdGet (FormRequestsFormRequestIdGetRequest requestParameters)
+<a name="w9companiespost"></a>
+# **W9CompaniesPost**
+> CompanyModel W9CompaniesPost (W9CompaniesPostRequest requestParameters)
 
-Get form request
+Creates a new company
 
-Create a W-9, W-8BEN or W-8BEN-E form request for the given `company_id` (ID of a company in the W-9 section of the Track1099 app) and your internal `reference_id` for the vendor. `reference_id` is opaque to Track1099 but should be meaningful to you. If provided, it must uniquely identify (to you) the person or company from whom you are requesting the form.
+Creates a new company
 
 ### Example
 ```csharp
@@ -26,7 +26,7 @@ using Avalara.SDK.Model.Track1099.V2;
 
 namespace Example
 {
-    public class FormRequestsFormRequestIdGetExample
+    public class W9CompaniesPostExample
     {
         public static void Main()
         {
@@ -36,21 +36,21 @@ namespace Example
             
             ApiClient apiClient= new ApiClient(config);
             
-            var apiInstance = new FormRequestsApi(apiClient);
-            var requestParameters = new FormRequestsFormRequestIdGetRequest();
-            requestParameters.FormRequestId = "formRequestId_example";  // string | 
+            var apiInstance = new W9CompaniesApi(apiClient);
+            var requestParameters = new W9CompaniesPostRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
             requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
+            requestParameters.CompanyModel = new CompanyModel(); // CompanyModel | The company to create (optional) 
 
             try
             {
-                // Get form request
-                FormRequestModel result = apiInstance.FormRequestsFormRequestIdGet(requestParameters);
+                // Creates a new company
+                CompanyModel result = apiInstance.W9CompaniesPost(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FormRequestsApi.FormRequestsFormRequestIdGet: " + e.Message );
+                Debug.Print("Exception when calling W9CompaniesApi.W9CompaniesPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -63,13 +63,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **FormRequestId** | **string**|  | 
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+ **CompanyModel** | [**CompanyModel**](CompanyModel.md)| The company to create | [optional] 
 
 ### Return type
 
-[**FormRequestModel**](FormRequestModel.md)
+[**CompanyModel**](CompanyModel.md)
 
 ### Authorization
 
@@ -77,16 +77,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
+| **201** | Created company |  -  |
+| **400** | Bad request (e.g., model validation failed) |  -  |
+| **401** | Authentication failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

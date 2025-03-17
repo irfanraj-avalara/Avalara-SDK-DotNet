@@ -57,7 +57,7 @@ namespace Avalara.SDK.Client
         /// </summary>
         DEV = 4
     }
-        /// <summary>
+    /// <summary>
     /// Represents which Microservice in Wfaas is being called
     /// </summary>
     public enum AvalaraMicroservice
@@ -110,12 +110,12 @@ namespace Avalara.SDK.Client
         /// <summary>
         /// Official URL of AvaTax (Sandbox)
         /// </summary>
-        private static readonly string TRACK1099_SERVICE_SBX_URL = "https://api-ava1099.gamma.sbx.us-west-2.aws.avalara.io";
+        private static readonly string TRACK1099_SERVICE_SBX_URL = "https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io";
 
         /// <summary>
         /// Official URL of AvaTax (Production)
         /// </summary>
-        private static readonly string TRACK1099_SERVICE_PRD_URL = "https://api-ava1099.gamma.prd.us-west-2.aws.avalara.io";
+        private static readonly string TRACK1099_SERVICE_PRD_URL = "https://api.avalara.com/avalara1099";
         /// <summary>
         /// Official OIDC disdcovery document URL of Sandbox Avalara identity Server 
         /// </summary>
@@ -146,12 +146,12 @@ namespace Avalara.SDK.Client
         public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
         {
             var status = (int)response.StatusCode;
-            if (status==0 || status >= 400)
+            if (status == 0 || status >= 400)
             {
                 return new ApiException(status,
                     string.Format("Error calling {0}: {1}", methodName, response.RawContent),
                     response.RawContent, response.Headers);
-            }            
+            }
             return null;
         };
 
@@ -208,7 +208,7 @@ namespace Avalara.SDK.Client
         #endregion Constructors
 
         #region Properties
-         /// <summary>
+        /// <summary>
         /// GetBasePath used to get the base path based on the environment, region, and microservice
         /// </summary>
         public string GetBasePath(AvalaraMicroservice microservice)
@@ -242,7 +242,7 @@ namespace Avalara.SDK.Client
         /// <summary>
         /// Base Path of the test environment.
         /// </summary>
-        public string TestBasePath {set;get;}
+        public string TestBasePath { set; get; }
 
         /// <summary>
         /// Gets or sets the default headers.
@@ -333,14 +333,17 @@ namespace Avalara.SDK.Client
         /// <summary>
         /// ClientID for oAuth2 flow
         /// </summary>
-        public string ClientID { 
-            get {
+        public string ClientID
+        {
+            get
+            {
                 return _clientId;
-            } 
-            set {
+            }
+            set
+            {
                 _clientId = value;
                 PopulateTokenURLFromOpenIdConnect();
-            } 
+            }
         }
         /// <summary>
         /// ClientSecret for oAuth2 flow
@@ -577,7 +580,7 @@ namespace Avalara.SDK.Client
         /// </summary>
         public void Dispose()
         {
-             _httpClient.Dispose();
+            _httpClient.Dispose();
         }
 
         #endregion Methods
@@ -609,7 +612,7 @@ namespace Avalara.SDK.Client
                 Timeout = second.Timeout,
                 Username = second.Username ?? first.Username,
                 Password = second.Password ?? first.Password,
-                TestBasePath= second.TestBasePath ?? first.TestBasePath,
+                TestBasePath = second.TestBasePath ?? first.TestBasePath,
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 Environment = second.Environment ?? first.Environment,
@@ -628,6 +631,6 @@ namespace Avalara.SDK.Client
         #endregion Static Members
     }
 
-   
+
 }
 
