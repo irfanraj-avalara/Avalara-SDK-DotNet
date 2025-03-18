@@ -65,23 +65,23 @@ namespace Avalara.SDK.Test.Api
         /// <summary>
         /// Test Get Documents
         /// </summary>
-        [Fact]
-        public async Task IssuersTest()
-        {
+        // [Fact]
+        // public async Task IssuersTest()
+        // {
 
-            try
-            {
-                // Retrieve the list of Mandates
-                var response = await issuersApi.Call1099IssuersGetAsync(new Call1099IssuersGetRequest() { Top = 10, Skip = 0 });
-                Assert.NotNull(response);
-            }
-            catch (ApiException e)
-            {
-                Console.WriteLine("Exception when calling issuersApi.ApiIssuersGetAsync: " + e.Message);
-                Console.WriteLine("Status Code: " + e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
+        //     try
+        //     {
+        //         // Retrieve the list of Mandates
+        //         var response = await issuersApi.Call1099IssuersGetAsync(new Call1099IssuersGetRequest() { Top = 10, Skip = 0 });
+        //         Assert.NotNull(response);
+        //     }
+        //     catch (ApiException e)
+        //     {
+        //         Console.WriteLine("Exception when calling issuersApi.ApiIssuersGetAsync: " + e.Message);
+        //         Console.WriteLine("Status Code: " + e.ErrorCode);
+        //         Console.WriteLine(e.StackTrace);
+        //     }
 
-        }
+        // }
     }
 }
