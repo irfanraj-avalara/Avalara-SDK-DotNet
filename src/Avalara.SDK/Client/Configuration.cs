@@ -51,7 +51,29 @@ namespace Avalara.SDK.Client
         /// <summary>
         /// Represents the QA environment
         /// </summary>
-        QA = 3
+        QA = 3,
+        /// <summary>
+        /// Represents the DEV environment
+        /// </summary>
+        DEV = 4
+    }
+    /// <summary>
+    /// Represents which Microservice in Wfaas is being called
+    /// </summary>
+    public enum AvalaraMicroservice
+    {
+        /// <summary>
+        /// Represents the E-Invoicing service
+        /// </summary>
+        EInvoicing = 0,
+        /// <summary>
+        /// Represents the Track1099 service
+        /// </summary>
+        Track1099 = 1,
+        /// <summary>
+        /// Represents when no microservice is specified
+        /// </summary>
+        None = 99,
     }
     /// <summary>
     /// Represents a set of configuration settings
@@ -60,20 +82,40 @@ namespace Avalara.SDK.Client
     {
         #region Constants
 
-
+        /// <summary>
+        /// Official URL of AvaTax (Dev)
+        /// </summary>
+        private static readonly string AVALARA_DEV_URL = "https://superapi.dev.avalara.io";
         /// <summary>
         /// Official URL of AvaTax (QA)
         /// </summary>
-        private static readonly string AVATAX_QA_URL = "https://superapi.qa.avalara.io";
+        private static readonly string AVALARA_QA_URL = "https://superapi.qa.avalara.io";
         /// <summary>
         /// Official URL of AvaTax (Sandbox)
         /// </summary>
-        private static readonly string AVATAX_SANDBOX_URL = "https://api.sbx.avalara.com";
+        private static readonly string AVALARA_SANDBOX_URL = "https://api.sbx.avalara.com";
 
         /// <summary>
         /// Official URL of AvaTax (Production)
         /// </summary>
-        private static readonly string AVATAX_PRODUCTION_URL = "https://api.avalara.com";
+        private static readonly string AVALARA_PRODUCTION_URL = "https://api.avalara.com";
+        /// <summary>
+        /// Official URL of AvaTax (Dev)
+        /// </summary>
+        private static readonly string TRACK1099_SERVICE_DEV_URL = "https://api-ava1099.gamma.dev.us-west-2.aws.avalara.io";
+        /// <summary>
+        /// Official URL of AvaTax (QA)
+        /// </summary>
+        private static readonly string TRACK1099_SERVICE_QA_URL = "https://api-ava1099.edge.qa.us-east-1.aws.avalara.io";
+        /// <summary>
+        /// Official URL of AvaTax (Sandbox)
+        /// </summary>
+        private static readonly string TRACK1099_SERVICE_SBX_URL = "https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io";
+
+        /// <summary>
+        /// Official URL of AvaTax (Production)
+        /// </summary>
+        private static readonly string TRACK1099_SERVICE_PRD_URL = "https://api.avalara.com/avalara1099";
         /// <summary>
         /// Official OIDC disdcovery document URL of Sandbox Avalara identity Server 
         /// </summary>
@@ -86,14 +128,6 @@ namespace Avalara.SDK.Client
         /// Official OIDC disdcovery document URL of Production Avalara identity Server 
         /// </summary>
         private static readonly string OPENID_CONNECT_URL_PRD = "https://identity.avalara.com/.well-known/openid-configuration";
-        /// <summary>
-        /// Fallback Token URL 
-        /// </summary>
-        private static readonly string FALLBACK_TOKEN_URL = "https://identity.avalara.com/connect/token";
-        /// <summary>
-        /// Fallback Device Authorization URL 
-        /// </summary>
-        private static readonly string FALLBACK_DEVICE_AUTHORIZATION_URL = "https://identity.avalara.com/connect/token";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -112,12 +146,12 @@ namespace Avalara.SDK.Client
         public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
         {
             var status = (int)response.StatusCode;
-            if (status==0 || status >= 400)
+            if (status == 0 || status >= 400)
             {
                 return new ApiException(status,
                     string.Format("Error calling {0}: {1}", methodName, response.RawContent),
                     response.RawContent, response.Headers);
-            }            
+            }
             return null;
         };
 
@@ -174,37 +208,41 @@ namespace Avalara.SDK.Client
         #endregion Constructors
 
         #region Properties
-
         /// <summary>
-        /// Gets or sets the base path for APIs. Should be set only for Other Envrionment.
+        /// GetBasePath used to get the base path based on the environment, region, and microservice
         /// </summary>
-        public string BasePath
+        public string GetBasePath(AvalaraMicroservice microservice)
         {
-            get {
-                switch (this.Environment)
-                {
-                    case AvalaraEnvironment.Production:
-                        _basePath = AVATAX_PRODUCTION_URL;
-                        break;
-                    case AvalaraEnvironment.QA:
-                        _basePath = AVATAX_QA_URL;
-                        break;
-                    case AvalaraEnvironment.Sandbox:
-                        _basePath = AVATAX_SANDBOX_URL;
-                        break;
-                    case AvalaraEnvironment.Test:
-                        _basePath = TestBasePath;
-                        break;
-                    default:
-                        break;
-                }
-                return _basePath;
-            }            
+            switch (microservice)
+            {
+                case AvalaraMicroservice.EInvoicing:
+                    return this.Environment switch
+                    {
+                        AvalaraEnvironment.Production => AVALARA_PRODUCTION_URL,
+                        AvalaraEnvironment.QA => AVALARA_QA_URL,
+                        AvalaraEnvironment.Sandbox => AVALARA_SANDBOX_URL,
+                        AvalaraEnvironment.DEV => AVALARA_DEV_URL,
+                        AvalaraEnvironment.Test => TestBasePath,
+                        _ => throw new ApiException(500, "Invalid Environment"),
+                    };
+                case AvalaraMicroservice.Track1099:
+                    return this.Environment switch
+                    {
+                        AvalaraEnvironment.Production => TRACK1099_SERVICE_PRD_URL,
+                        AvalaraEnvironment.QA => TRACK1099_SERVICE_QA_URL,
+                        AvalaraEnvironment.Sandbox => TRACK1099_SERVICE_SBX_URL,
+                        AvalaraEnvironment.DEV => TRACK1099_SERVICE_DEV_URL,
+                        AvalaraEnvironment.Test => TestBasePath,
+                        _ => throw new ApiException(500, "Invalid Environment"),
+                    };
+                default:
+                    throw new ApiException(500, "Invalid Microservice");
+            }
         }
         /// <summary>
         /// Base Path of the test environment.
         /// </summary>
-        public string TestBasePath {set;get;}
+        public string TestBasePath { set; get; }
 
         /// <summary>
         /// Gets or sets the default headers.
@@ -295,14 +333,17 @@ namespace Avalara.SDK.Client
         /// <summary>
         /// ClientID for oAuth2 flow
         /// </summary>
-        public string ClientID { 
-            get {
+        public string ClientID
+        {
+            get
+            {
                 return _clientId;
-            } 
-            set {
+            }
+            set
+            {
                 _clientId = value;
                 PopulateTokenURLFromOpenIdConnect();
-            } 
+            }
         }
         /// <summary>
         /// ClientSecret for oAuth2 flow
@@ -504,6 +545,11 @@ namespace Avalara.SDK.Client
             }
         }
 
+        /// <summary>
+        /// RefreshTokenDelegate to be executed when a 401/403 is returned, which returns a new bearer token, SDK will automatically set it.
+        /// </summary>
+        public RefreshTokenDelegate RefreshTokenDelegate { get; set; }
+
         #endregion Properties
 
         #region Methods
@@ -534,7 +580,7 @@ namespace Avalara.SDK.Client
         /// </summary>
         public void Dispose()
         {
-             _httpClient.Dispose();
+            _httpClient.Dispose();
         }
 
         #endregion Methods
@@ -566,7 +612,7 @@ namespace Avalara.SDK.Client
                 Timeout = second.Timeout,
                 Username = second.Username ?? first.Username,
                 Password = second.Password ?? first.Password,
-                TestBasePath= second.TestBasePath ?? first.TestBasePath,
+                TestBasePath = second.TestBasePath ?? first.TestBasePath,
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 Environment = second.Environment ?? first.Environment,
@@ -577,13 +623,14 @@ namespace Avalara.SDK.Client
                 ClientID = second.ClientID ?? first.ClientID,
                 ClientSecret = second.ClientSecret ?? first.ClientSecret,
                 BearerToken = second.BearerToken ?? first.BearerToken,
-                RequiredScopes = second.RequiredScopes ?? first.RequiredScopes
+                RequiredScopes = second.RequiredScopes ?? first.RequiredScopes,
+                RefreshTokenDelegate = second.RefreshTokenDelegate ?? first.RefreshTokenDelegate
             };
             return config;
         }
         #endregion Static Members
     }
 
-   
+
 }
 

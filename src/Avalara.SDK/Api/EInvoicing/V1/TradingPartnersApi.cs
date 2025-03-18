@@ -450,7 +450,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             localVarRequestOptions.FileParameters.Add("file", requestParameters.File);
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Post<Object>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -533,7 +533,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             localVarRequestOptions.FileParameters.Add("file", requestParameters.File);
 
             // make the HTTP request
-			var localVarResponse = await this.Client.PostAsync<Object>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<Object>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -603,7 +603,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/einvoicing/trading-partners/batch-searches/{id}/$download-results", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<FileParameter>("/einvoicing/trading-partners/batch-searches/{id}/$download-results", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -677,7 +677,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<FileParameter>("/einvoicing/trading-partners/batch-searches/{id}/$download-results", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<FileParameter>("/einvoicing/trading-partners/batch-searches/{id}/$download-results", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -746,7 +746,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<BatchSearch>("/einvoicing/trading-partners/batch-searches/{id}", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<BatchSearch>("/einvoicing/trading-partners/batch-searches/{id}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -819,7 +819,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<BatchSearch>("/einvoicing/trading-partners/batch-searches/{id}", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<BatchSearch>("/einvoicing/trading-partners/batch-searches/{id}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -903,7 +903,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<BatchSearchListResponse>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<BatchSearchListResponse>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -991,7 +991,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<BatchSearchListResponse>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<BatchSearchListResponse>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1080,7 +1080,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<DirectorySearchResponse>("/einvoicing/trading-partners", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<DirectorySearchResponse>("/einvoicing/trading-partners", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -1173,7 +1173,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<DirectorySearchResponse>("/einvoicing/trading-partners", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<DirectorySearchResponse>("/einvoicing/trading-partners", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1193,7 +1193,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "";
+            this.Client.SdkVersion = "25.3.0";
         }
         
     }

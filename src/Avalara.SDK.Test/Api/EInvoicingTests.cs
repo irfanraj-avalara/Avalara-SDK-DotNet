@@ -39,7 +39,7 @@ namespace Avalara.SDK.Test.Api
             Configuration configuration = new Configuration
             {
                 Environment = AvalaraEnvironment.Sandbox,
-                BearerToken = Environment.GetEnvironmentVariable("BEARER_TOKEN"),
+                BearerToken = Environment.GetEnvironmentVariable("BEARER_TOKEN_EINVOICING"),
                 AppName = "Test",
                 AppVersion = "1.0",
                 MachineName = "LocalBox"
@@ -83,7 +83,7 @@ namespace Avalara.SDK.Test.Api
         public async Task MandatesTest()
         {
             var response = await mandatesApi.GetMandatesAsync(new GetMandatesRequest() { });
-            Assert.NotNull(response.Value);            
+            Assert.NotNull(response.Value);
         }
     }
 }
