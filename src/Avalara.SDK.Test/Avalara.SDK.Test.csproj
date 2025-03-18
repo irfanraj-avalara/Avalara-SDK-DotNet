@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Avalara.SDK.Test</AssemblyName>
     <RootNamespace>Avalara.SDK.Test</RootNamespace>
-    <TargetFrameworks>net5.0;net6.0;net7.0;</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;</TargetFrameworks>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
