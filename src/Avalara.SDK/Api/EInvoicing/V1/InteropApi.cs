@@ -214,7 +214,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<SubmitInteropDocument202Response>("/einvoicing/interop/documents", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Post<SubmitInteropDocument202Response>("/einvoicing/interop/documents", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -297,7 +297,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.PostAsync<SubmitInteropDocument202Response>("/einvoicing/interop/documents", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<SubmitInteropDocument202Response>("/einvoicing/interop/documents", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -317,7 +317,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "";
+            this.Client.SdkVersion = "25.3.0";
         }
         
     }

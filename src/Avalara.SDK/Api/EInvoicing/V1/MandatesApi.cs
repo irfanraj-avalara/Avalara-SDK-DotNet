@@ -268,7 +268,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<MandateDataInputField>>("/einvoicing/mandates/{mandateId}/data-input-fields", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<List<MandateDataInputField>>("/einvoicing/mandates/{mandateId}/data-input-fields", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -347,7 +347,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<List<MandateDataInputField>>("/einvoicing/mandates/{mandateId}/data-input-fields", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<List<MandateDataInputField>>("/einvoicing/mandates/{mandateId}/data-input-fields", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -427,7 +427,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<MandatesResponse>("/einvoicing/mandates", localVarRequestOptions, requiredScopes);
+            var localVarResponse = this.Client.Get<MandatesResponse>("/einvoicing/mandates", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -511,7 +511,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<MandatesResponse>("/einvoicing/mandates", localVarRequestOptions, cancellationToken, requiredScopes).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<MandatesResponse>("/einvoicing/mandates", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -531,7 +531,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "";
+            this.Client.SdkVersion = "25.3.0";
         }
         
     }
