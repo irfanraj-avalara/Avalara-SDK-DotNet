@@ -184,7 +184,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The document to be submitted, as indicated by the metadata fields &#39;dataFormat&#39; and &#39;dataFormatVersion&#39;
         /// </summary>
-        public string Data { get; set; }
+        public Object Data { get; set; }
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         /// </summary>
@@ -1127,7 +1127,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.3.0";
+            this.Client.SdkVersion = "25.3.1";
         }
 
     }

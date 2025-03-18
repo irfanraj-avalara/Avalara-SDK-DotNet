@@ -279,7 +279,7 @@ namespace Avalara.SDK.Api.Track1099.V2
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.3.0";
+            this.Client.SdkVersion = "25.3.1";
         }
         
     }
