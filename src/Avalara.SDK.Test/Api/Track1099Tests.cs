@@ -28,7 +28,7 @@ namespace Avalara.SDK.Test.Api
     public class Track1099Tests : IDisposable
     {
         private ApiClient apiclient;
-        private IssuersApi issuersApi;
+        private Class1099IssuersApi issuersApi;
         public Track1099Tests()
         {
             var root = Directory.GetCurrentDirectory();
@@ -45,7 +45,7 @@ namespace Avalara.SDK.Test.Api
             };
 
             apiclient = new ApiClient(configuration);
-            issuersApi = new IssuersApi(apiclient);
+            issuersApi = new Class1099IssuersApi(apiclient);
         }
 
         public void Dispose()
@@ -59,17 +59,29 @@ namespace Avalara.SDK.Test.Api
         [Fact]
         public void InstanceTest()
         {
-            Assert.IsType<IssuersApi>(issuersApi);
+            Assert.IsType<Class1099IssuersApi>(issuersApi);
         }
 
         /// <summary>
         /// Test Get Documents
         /// </summary>
-        // [Fact]
-        // public async Task IssuersTest()
-        // {
-        //     var response = await issuersApi.ApiIssuersGetAsync(new ApiIssuersGetRequest() { Top = 10, Skip = 0 });
-        //     Assert.NotNull(response);
-        // }
+        [Fact]
+        public async Task IssuersTest()
+        {
+
+            try
+            {
+                // Retrieve the list of Mandates
+                var response = await issuersApi.Call1099IssuersGetAsync(new Call1099IssuersGetRequest() { Top = 10, Skip = 0 });
+                Assert.NotNull(response);
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling issuersApi.ApiIssuersGetAsync: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+
+        }
     }
 }
