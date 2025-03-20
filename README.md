@@ -101,24 +101,24 @@ Class | Method | HTTP request | Description
 *TradingPartnersApi* | [**ListBatchSearches**](docs/EInvoicing/V1/TradingPartnersApi.md#listbatchsearches) | **GET** /trading-partners/batch-searches | List all batch searches that were previously submitted.
 *TradingPartnersApi* | [**SearchParticipants**](docs/EInvoicing/V1/TradingPartnersApi.md#searchparticipants) | **GET** /trading-partners | Returns a list of participants matching the input query.
 
-<a name="documentation-for-Track1099-V2-api-endpoints"></a>
-### Track1099 V2 API Documentation
+<a name="documentation-for-A1099-V2-api-endpoints"></a>
+### A1099 V2 API Documentation
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthorizedAPIRequestsApi* | [**AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet**](docs/Track1099/V2/AuthorizedAPIRequestsApi.md#authorizedapirequestsauthorizedapirequestidexecuteget) | **GET** /authorized-api-requests/{authorizedApiRequestId}/$execute | Execute URL for downloads
-*AuthorizedAPIRequestsApi* | [**AuthorizedApiRequestsAuthorizedApiRequestIdGet**](docs/Track1099/V2/AuthorizedAPIRequestsApi.md#authorizedapirequestsauthorizedapirequestidget) | **GET** /authorized-api-requests/{authorizedApiRequestId} | Retrieve URL for downloads
-*AuthorizedAPIRequestsApi* | [**AuthorizedApiRequestsPost**](docs/Track1099/V2/AuthorizedAPIRequestsApi.md#authorizedapirequestspost) | **POST** /authorized-api-requests | Create URL for downloads
-*Class1099IssuersApi* | [**Call1099IssuersGet**](docs/Track1099/V2/Class1099IssuersApi.md#call1099issuersget) | **GET** /1099/issuers | List issuers
-*Class1099IssuersApi* | [**Call1099IssuersIssuerIdDelete**](docs/Track1099/V2/Class1099IssuersApi.md#call1099issuersissueriddelete) | **DELETE** /1099/issuers/{issuerId} | Delete an issuer
-*Class1099IssuersApi* | [**Call1099IssuersIssuerIdGet**](docs/Track1099/V2/Class1099IssuersApi.md#call1099issuersissueridget) | **GET** /1099/issuers/{issuerId} | Get a single issuer
-*Class1099IssuersApi* | [**Call1099IssuersIssuerIdPut**](docs/Track1099/V2/Class1099IssuersApi.md#call1099issuersissueridput) | **PUT** /1099/issuers/{issuerId} | Update an issuer
-*Class1099IssuersApi* | [**Call1099IssuersPost**](docs/Track1099/V2/Class1099IssuersApi.md#call1099issuerspost) | **POST** /1099/issuers | Create a new issuer
-*FormRequestsApi* | [**FormRequestsFormRequestIdGet**](docs/Track1099/V2/FormRequestsApi.md#formrequestsformrequestidget) | **GET** /form-requests/{formRequestId} | Get form request
-*W4W8W9FormsApi* | [**W9FormsFormIdGet**](docs/Track1099/V2/W4W8W9FormsApi.md#w9formsformidget) | **GET** /w9/forms/{formId} | Retrieve a W9/W8/W4 form
-*W4W8W9FormsApi* | [**W9FormsGet**](docs/Track1099/V2/W4W8W9FormsApi.md#w9formsget) | **GET** /w9/forms | List W9/W4/W8 forms.
-*W4W8W9FormsApi* | [**W9FormsPost**](docs/Track1099/V2/W4W8W9FormsApi.md#w9formspost) | **POST** /w9/forms | Create a new W9/W8/W4 form
-*W9CompaniesApi* | [**W9CompaniesPost**](docs/Track1099/V2/W9CompaniesApi.md#w9companiespost) | **POST** /w9/companies | Creates a new company
+*AuthorizedAPIRequestsApi* | [**AuthorizedApiRequestsAuthorizedApiRequestIdExecuteGet**](docs/A1099/V2/AuthorizedAPIRequestsApi.md#authorizedapirequestsauthorizedapirequestidexecuteget) | **GET** /authorized-api-requests/{authorizedApiRequestId}/$execute | Execute URL for downloads
+*AuthorizedAPIRequestsApi* | [**AuthorizedApiRequestsAuthorizedApiRequestIdGet**](docs/A1099/V2/AuthorizedAPIRequestsApi.md#authorizedapirequestsauthorizedapirequestidget) | **GET** /authorized-api-requests/{authorizedApiRequestId} | Retrieve URL for downloads
+*AuthorizedAPIRequestsApi* | [**AuthorizedApiRequestsPost**](docs/A1099/V2/AuthorizedAPIRequestsApi.md#authorizedapirequestspost) | **POST** /authorized-api-requests | Create URL for downloads
+*Class1099IssuersApi* | [**Call1099IssuersGet**](docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget) | **GET** /1099/issuers | List issuers
+*Class1099IssuersApi* | [**Call1099IssuersIssuerIdDelete**](docs/A1099/V2/Class1099IssuersApi.md#call1099issuersissueriddelete) | **DELETE** /1099/issuers/{issuerId} | Delete an issuer
+*Class1099IssuersApi* | [**Call1099IssuersIssuerIdGet**](docs/A1099/V2/Class1099IssuersApi.md#call1099issuersissueridget) | **GET** /1099/issuers/{issuerId} | Get a single issuer
+*Class1099IssuersApi* | [**Call1099IssuersIssuerIdPut**](docs/A1099/V2/Class1099IssuersApi.md#call1099issuersissueridput) | **PUT** /1099/issuers/{issuerId} | Update an issuer
+*Class1099IssuersApi* | [**Call1099IssuersPost**](docs/A1099/V2/Class1099IssuersApi.md#call1099issuerspost) | **POST** /1099/issuers | Create a new issuer
+*FormRequestsApi* | [**FormRequestsFormRequestIdGet**](docs/A1099/V2/FormRequestsApi.md#formrequestsformrequestidget) | **GET** /form-requests/{formRequestId} | Get form request
+*W4W8W9FormsApi* | [**W9FormsFormIdGet**](docs/A1099/V2/W4W8W9FormsApi.md#w9formsformidget) | **GET** /w9/forms/{formId} | Retrieve a W9/W8/W4 form
+*W4W8W9FormsApi* | [**W9FormsGet**](docs/A1099/V2/W4W8W9FormsApi.md#w9formsget) | **GET** /w9/forms | List W9/W4/W8 forms.
+*W4W8W9FormsApi* | [**W9FormsPost**](docs/A1099/V2/W4W8W9FormsApi.md#w9formspost) | **POST** /w9/forms | Create a new W9/W8/W4 form
+*W9CompaniesApi* | [**W9CompaniesPost**](docs/A1099/V2/W9CompaniesApi.md#w9companiespost) | **POST** /w9/companies | Creates a new company
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
@@ -167,26 +167,26 @@ Class | Method | HTTP request | Description
  - [Model.EInvoicing.V1.WorkflowIds](docs/EInvoicing/V1/WorkflowIds.md)
 
 
-<a name="documentation-for-Track1099-V2-models"></a>
-### Track1099 V2 Model Documentation
+<a name="documentation-for-A1099-V2-models"></a>
+### A1099 V2 Model Documentation
 
- - [Model.Track1099.V2.AuthorizedApiRequestModel](docs/Track1099/V2/AuthorizedApiRequestModel.md)
- - [Model.Track1099.V2.AuthorizedApiRequestV2DataModel](docs/Track1099/V2/AuthorizedApiRequestV2DataModel.md)
- - [Model.Track1099.V2.BaseFormDataModel](docs/Track1099/V2/BaseFormDataModel.md)
- - [Model.Track1099.V2.CompanyModel](docs/Track1099/V2/CompanyModel.md)
- - [Model.Track1099.V2.ErrorModel](docs/Track1099/V2/ErrorModel.md)
- - [Model.Track1099.V2.FormDataModel](docs/Track1099/V2/FormDataModel.md)
- - [Model.Track1099.V2.FormRequestModel](docs/Track1099/V2/FormRequestModel.md)
- - [Model.Track1099.V2.HttpValidationProblemDetails](docs/Track1099/V2/HttpValidationProblemDetails.md)
- - [Model.Track1099.V2.IssuerModel](docs/Track1099/V2/IssuerModel.md)
- - [Model.Track1099.V2.IssuerModelPaginatedQueryResultModel](docs/Track1099/V2/IssuerModelPaginatedQueryResultModel.md)
- - [Model.Track1099.V2.Model1099IssuersIssuerIdGet400Response](docs/Track1099/V2/Model1099IssuersIssuerIdGet400Response.md)
- - [Model.Track1099.V2.PaginatedQueryResultModel1](docs/Track1099/V2/PaginatedQueryResultModel1.md)
- - [Model.Track1099.V2.PaginatedW9FormsModel](docs/Track1099/V2/PaginatedW9FormsModel.md)
- - [Model.Track1099.V2.ProblemDetails](docs/Track1099/V2/ProblemDetails.md)
- - [Model.Track1099.V2.W4FormDataModel](docs/Track1099/V2/W4FormDataModel.md)
- - [Model.Track1099.V2.W8BenFormDataModel](docs/Track1099/V2/W8BenFormDataModel.md)
- - [Model.Track1099.V2.W8BeneFormDataModel](docs/Track1099/V2/W8BeneFormDataModel.md)
- - [Model.Track1099.V2.W8ImyFormDataModel](docs/Track1099/V2/W8ImyFormDataModel.md)
- - [Model.Track1099.V2.W9FormDataModel](docs/Track1099/V2/W9FormDataModel.md)
- - [Model.Track1099.V2.W9FormsPostRequest](docs/Track1099/V2/W9FormsPostRequest.md)
+ - [Model.A1099.V2.AuthorizedApiRequestModel](docs/A1099/V2/AuthorizedApiRequestModel.md)
+ - [Model.A1099.V2.AuthorizedApiRequestV2DataModel](docs/A1099/V2/AuthorizedApiRequestV2DataModel.md)
+ - [Model.A1099.V2.BaseFormDataModel](docs/A1099/V2/BaseFormDataModel.md)
+ - [Model.A1099.V2.CompanyModel](docs/A1099/V2/CompanyModel.md)
+ - [Model.A1099.V2.ErrorModel](docs/A1099/V2/ErrorModel.md)
+ - [Model.A1099.V2.FormDataModel](docs/A1099/V2/FormDataModel.md)
+ - [Model.A1099.V2.FormRequestModel](docs/A1099/V2/FormRequestModel.md)
+ - [Model.A1099.V2.HttpValidationProblemDetails](docs/A1099/V2/HttpValidationProblemDetails.md)
+ - [Model.A1099.V2.IssuerModel](docs/A1099/V2/IssuerModel.md)
+ - [Model.A1099.V2.IssuerModelPaginatedQueryResultModel](docs/A1099/V2/IssuerModelPaginatedQueryResultModel.md)
+ - [Model.A1099.V2.Model1099IssuersIssuerIdGet400Response](docs/A1099/V2/Model1099IssuersIssuerIdGet400Response.md)
+ - [Model.A1099.V2.PaginatedQueryResultModel1](docs/A1099/V2/PaginatedQueryResultModel1.md)
+ - [Model.A1099.V2.PaginatedW9FormsModel](docs/A1099/V2/PaginatedW9FormsModel.md)
+ - [Model.A1099.V2.ProblemDetails](docs/A1099/V2/ProblemDetails.md)
+ - [Model.A1099.V2.W4FormDataModel](docs/A1099/V2/W4FormDataModel.md)
+ - [Model.A1099.V2.W8BenFormDataModel](docs/A1099/V2/W8BenFormDataModel.md)
+ - [Model.A1099.V2.W8BeneFormDataModel](docs/A1099/V2/W8BeneFormDataModel.md)
+ - [Model.A1099.V2.W8ImyFormDataModel](docs/A1099/V2/W8ImyFormDataModel.md)
+ - [Model.A1099.V2.W9FormDataModel](docs/A1099/V2/W9FormDataModel.md)
+ - [Model.A1099.V2.W9FormsPostRequest](docs/A1099/V2/W9FormsPostRequest.md)
