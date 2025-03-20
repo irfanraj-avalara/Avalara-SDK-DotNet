@@ -69,7 +69,7 @@ namespace Avalara.SDK.Client
         /// <summary>
         /// Represents the Track1099 service
         /// </summary>
-        Track1099 = 1,
+        A1099 = 1,
         /// <summary>
         /// Represents when no microservice is specified
         /// </summary>
@@ -225,7 +225,7 @@ namespace Avalara.SDK.Client
                         AvalaraEnvironment.Test => TestBasePath,
                         _ => throw new ApiException(500, "Invalid Environment"),
                     };
-                case AvalaraMicroservice.Track1099:
+                case AvalaraMicroservice.A1099:
                     return this.Environment switch
                     {
                         AvalaraEnvironment.Production => TRACK1099_SERVICE_PRD_URL,
