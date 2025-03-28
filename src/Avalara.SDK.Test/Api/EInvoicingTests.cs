@@ -72,7 +72,7 @@ namespace Avalara.SDK.Test.Api
         [Fact]
         public async Task DocumentsTest()
         {
-            var response = await documentsApi.GetDocumentListAsync(new GetDocumentListRequest() { });
+            var response = await documentsApi.GetDocumentListAsync(new GetDocumentListRequestSdk() { });
             Assert.NotNull(response);
         }
 
@@ -82,7 +82,7 @@ namespace Avalara.SDK.Test.Api
         [Fact]
         public async Task MandatesTest()
         {
-            var response = await mandatesApi.GetMandatesAsync(new GetMandatesRequest() { });
+            var response = await mandatesApi.GetMandatesAsync(new GetMandatesRequestSdk() { });
             Assert.NotNull(response.Value);
         }
     }
