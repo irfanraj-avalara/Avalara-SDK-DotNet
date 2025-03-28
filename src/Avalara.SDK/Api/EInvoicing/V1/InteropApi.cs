@@ -33,11 +33,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// <summary>
     /// Represents the Request object for the SubmitInteropDocument API
     /// </summary>
-    public class SubmitInteropDocumentRequest {
+    public class SubmitInteropDocumentRequestSdk {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public SubmitInteropDocumentRequest () {
+        public SubmitInteropDocumentRequestSdk () {
         }
         /// <summary>
         /// Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents.
@@ -81,7 +81,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>SubmitInteropDocument202Response</returns>
-        SubmitInteropDocument202Response SubmitInteropDocument(SubmitInteropDocumentRequest requestParameters);
+        SubmitInteropDocument202Response SubmitInteropDocument(SubmitInteropDocumentRequestSdk requestParameters);
 
         #endregion Synchronous Operations
     }
@@ -102,7 +102,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SubmitInteropDocument202Response</returns>
-        System.Threading.Tasks.Task<SubmitInteropDocument202Response> SubmitInteropDocumentAsync(SubmitInteropDocumentRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SubmitInteropDocument202Response> SubmitInteropDocumentAsync(SubmitInteropDocumentRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         #endregion Asynchronous Operations
     }
@@ -152,7 +152,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>SubmitInteropDocument202Response</returns>
-        public SubmitInteropDocument202Response SubmitInteropDocument(SubmitInteropDocumentRequest requestParameters)
+        public SubmitInteropDocument202Response SubmitInteropDocument(SubmitInteropDocumentRequestSdk requestParameters)
         {
             Avalara.SDK.Client.ApiResponse<SubmitInteropDocument202Response> localVarResponse = SubmitInteropDocumentWithHttpInfo(requestParameters);
             return localVarResponse.Data;
@@ -164,7 +164,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>ApiResponse of SubmitInteropDocument202Response</returns>
-        private Avalara.SDK.Client.ApiResponse<SubmitInteropDocument202Response> SubmitInteropDocumentWithHttpInfo(SubmitInteropDocumentRequest requestParameters)
+        private Avalara.SDK.Client.ApiResponse<SubmitInteropDocument202Response> SubmitInteropDocumentWithHttpInfo(SubmitInteropDocumentRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -232,7 +232,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SubmitInteropDocument202Response</returns>
-        public async System.Threading.Tasks.Task<SubmitInteropDocument202Response> SubmitInteropDocumentAsync(SubmitInteropDocumentRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SubmitInteropDocument202Response> SubmitInteropDocumentAsync(SubmitInteropDocumentRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Avalara.SDK.Client.ApiResponse<SubmitInteropDocument202Response> localVarResponse = await SubmitInteropDocumentWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -245,7 +245,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SubmitInteropDocument202Response)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<SubmitInteropDocument202Response>> SubmitInteropDocumentWithHttpInfoAsync(SubmitInteropDocumentRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<SubmitInteropDocument202Response>> SubmitInteropDocumentWithHttpInfoAsync(SubmitInteropDocumentRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -317,7 +317,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.3.2";
+            this.Client.SdkVersion = "25.3.3";
         }
         
     }
