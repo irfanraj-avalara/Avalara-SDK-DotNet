@@ -33,11 +33,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// <summary>
     /// Represents the Request object for the BatchSearchParticipants API
     /// </summary>
-    public class BatchSearchParticipantsRequest {
+    public class BatchSearchParticipantsRequestSdk {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public BatchSearchParticipantsRequest () {
+        public BatchSearchParticipantsRequestSdk () {
         }
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
@@ -68,11 +68,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// <summary>
     /// Represents the Request object for the DownloadBatchSearchReport API
     /// </summary>
-    public class DownloadBatchSearchReportRequest {
+    public class DownloadBatchSearchReportRequestSdk {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public DownloadBatchSearchReportRequest () {
+        public DownloadBatchSearchReportRequestSdk () {
         }
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
@@ -95,11 +95,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// <summary>
     /// Represents the Request object for the GetBatchSearchDetail API
     /// </summary>
-    public class GetBatchSearchDetailRequest {
+    public class GetBatchSearchDetailRequestSdk {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public GetBatchSearchDetailRequest () {
+        public GetBatchSearchDetailRequestSdk () {
         }
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
@@ -122,11 +122,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// <summary>
     /// Represents the Request object for the ListBatchSearches API
     /// </summary>
-    public class ListBatchSearchesRequest {
+    public class ListBatchSearchesRequestSdk {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public ListBatchSearchesRequest () {
+        public ListBatchSearchesRequestSdk () {
         }
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
@@ -165,11 +165,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// <summary>
     /// Represents the Request object for the SearchParticipants API
     /// </summary>
-    public class SearchParticipantsRequest {
+    public class SearchParticipantsRequestSdk {
         /// <summary>
         /// Constructor for the Request object
         /// </summary>
-        public SearchParticipantsRequest () {
+        public SearchParticipantsRequestSdk () {
         }
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
@@ -225,7 +225,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns></returns>
-        void BatchSearchParticipants(BatchSearchParticipantsRequest requestParameters);
+        void BatchSearchParticipants(BatchSearchParticipantsRequestSdk requestParameters);
 
         /// <summary>
         /// Download batch search results in a csv file.
@@ -236,7 +236,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>FileParameter</returns>
-        FileParameter DownloadBatchSearchReport(DownloadBatchSearchReportRequest requestParameters);
+        FileParameter DownloadBatchSearchReport(DownloadBatchSearchReportRequestSdk requestParameters);
 
         /// <summary>
         /// Get the batch search details for a given id.
@@ -247,7 +247,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>BatchSearch</returns>
-        BatchSearch GetBatchSearchDetail(GetBatchSearchDetailRequest requestParameters);
+        BatchSearch GetBatchSearchDetail(GetBatchSearchDetailRequestSdk requestParameters);
 
         /// <summary>
         /// List all batch searches that were previously submitted.
@@ -258,7 +258,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>BatchSearchListResponse</returns>
-        BatchSearchListResponse ListBatchSearches(ListBatchSearchesRequest requestParameters);
+        BatchSearchListResponse ListBatchSearches(ListBatchSearchesRequestSdk requestParameters);
 
         /// <summary>
         /// Returns a list of participants matching the input query.
@@ -269,7 +269,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>DirectorySearchResponse</returns>
-        DirectorySearchResponse SearchParticipants(SearchParticipantsRequest requestParameters);
+        DirectorySearchResponse SearchParticipants(SearchParticipantsRequestSdk requestParameters);
 
         #endregion Synchronous Operations
     }
@@ -290,7 +290,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task BatchSearchParticipantsAsync(BatchSearchParticipantsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task BatchSearchParticipantsAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Download batch search results in a csv file.
@@ -302,7 +302,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
-        System.Threading.Tasks.Task<FileParameter> DownloadBatchSearchReportAsync(DownloadBatchSearchReportRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileParameter> DownloadBatchSearchReportAsync(DownloadBatchSearchReportRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get the batch search details for a given id.
@@ -314,7 +314,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BatchSearch</returns>
-        System.Threading.Tasks.Task<BatchSearch> GetBatchSearchDetailAsync(GetBatchSearchDetailRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BatchSearch> GetBatchSearchDetailAsync(GetBatchSearchDetailRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List all batch searches that were previously submitted.
@@ -326,7 +326,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BatchSearchListResponse</returns>
-        System.Threading.Tasks.Task<BatchSearchListResponse> ListBatchSearchesAsync(ListBatchSearchesRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BatchSearchListResponse> ListBatchSearchesAsync(ListBatchSearchesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns a list of participants matching the input query.
@@ -338,7 +338,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DirectorySearchResponse</returns>
-        System.Threading.Tasks.Task<DirectorySearchResponse> SearchParticipantsAsync(SearchParticipantsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DirectorySearchResponse> SearchParticipantsAsync(SearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         #endregion Asynchronous Operations
     }
@@ -388,7 +388,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns></returns>
-        public void BatchSearchParticipants(BatchSearchParticipantsRequest requestParameters)
+        public void BatchSearchParticipants(BatchSearchParticipantsRequestSdk requestParameters)
         {
             BatchSearchParticipantsWithHttpInfo(requestParameters);
         }
@@ -399,7 +399,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        private Avalara.SDK.Client.ApiResponse<Object> BatchSearchParticipantsWithHttpInfo(BatchSearchParticipantsRequest requestParameters)
+        private Avalara.SDK.Client.ApiResponse<Object> BatchSearchParticipantsWithHttpInfo(BatchSearchParticipantsRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -468,7 +468,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task BatchSearchParticipantsAsync(BatchSearchParticipantsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task BatchSearchParticipantsAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await BatchSearchParticipantsWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
         }
@@ -480,7 +480,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<Object>> BatchSearchParticipantsWithHttpInfoAsync(BatchSearchParticipantsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<Object>> BatchSearchParticipantsWithHttpInfoAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -550,7 +550,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>FileParameter</returns>
-        public FileParameter DownloadBatchSearchReport(DownloadBatchSearchReportRequest requestParameters)
+        public FileParameter DownloadBatchSearchReport(DownloadBatchSearchReportRequestSdk requestParameters)
         {
             Avalara.SDK.Client.ApiResponse<FileParameter> localVarResponse = DownloadBatchSearchReportWithHttpInfo(requestParameters);
             return localVarResponse.Data;
@@ -562,7 +562,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>ApiResponse of FileParameter</returns>
-        private Avalara.SDK.Client.ApiResponse<FileParameter> DownloadBatchSearchReportWithHttpInfo(DownloadBatchSearchReportRequest requestParameters)
+        private Avalara.SDK.Client.ApiResponse<FileParameter> DownloadBatchSearchReportWithHttpInfo(DownloadBatchSearchReportRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -621,7 +621,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
-        public async System.Threading.Tasks.Task<FileParameter> DownloadBatchSearchReportAsync(DownloadBatchSearchReportRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileParameter> DownloadBatchSearchReportAsync(DownloadBatchSearchReportRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Avalara.SDK.Client.ApiResponse<FileParameter> localVarResponse = await DownloadBatchSearchReportWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -634,7 +634,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<FileParameter>> DownloadBatchSearchReportWithHttpInfoAsync(DownloadBatchSearchReportRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<FileParameter>> DownloadBatchSearchReportWithHttpInfoAsync(DownloadBatchSearchReportRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -694,7 +694,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>BatchSearch</returns>
-        public BatchSearch GetBatchSearchDetail(GetBatchSearchDetailRequest requestParameters)
+        public BatchSearch GetBatchSearchDetail(GetBatchSearchDetailRequestSdk requestParameters)
         {
             Avalara.SDK.Client.ApiResponse<BatchSearch> localVarResponse = GetBatchSearchDetailWithHttpInfo(requestParameters);
             return localVarResponse.Data;
@@ -706,7 +706,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>ApiResponse of BatchSearch</returns>
-        private Avalara.SDK.Client.ApiResponse<BatchSearch> GetBatchSearchDetailWithHttpInfo(GetBatchSearchDetailRequest requestParameters)
+        private Avalara.SDK.Client.ApiResponse<BatchSearch> GetBatchSearchDetailWithHttpInfo(GetBatchSearchDetailRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -764,7 +764,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BatchSearch</returns>
-        public async System.Threading.Tasks.Task<BatchSearch> GetBatchSearchDetailAsync(GetBatchSearchDetailRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BatchSearch> GetBatchSearchDetailAsync(GetBatchSearchDetailRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Avalara.SDK.Client.ApiResponse<BatchSearch> localVarResponse = await GetBatchSearchDetailWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -777,7 +777,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BatchSearch)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<BatchSearch>> GetBatchSearchDetailWithHttpInfoAsync(GetBatchSearchDetailRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<BatchSearch>> GetBatchSearchDetailWithHttpInfoAsync(GetBatchSearchDetailRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -836,7 +836,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>BatchSearchListResponse</returns>
-        public BatchSearchListResponse ListBatchSearches(ListBatchSearchesRequest requestParameters)
+        public BatchSearchListResponse ListBatchSearches(ListBatchSearchesRequestSdk requestParameters)
         {
             Avalara.SDK.Client.ApiResponse<BatchSearchListResponse> localVarResponse = ListBatchSearchesWithHttpInfo(requestParameters);
             return localVarResponse.Data;
@@ -848,7 +848,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>ApiResponse of BatchSearchListResponse</returns>
-        private Avalara.SDK.Client.ApiResponse<BatchSearchListResponse> ListBatchSearchesWithHttpInfo(ListBatchSearchesRequest requestParameters)
+        private Avalara.SDK.Client.ApiResponse<BatchSearchListResponse> ListBatchSearchesWithHttpInfo(ListBatchSearchesRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -921,7 +921,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BatchSearchListResponse</returns>
-        public async System.Threading.Tasks.Task<BatchSearchListResponse> ListBatchSearchesAsync(ListBatchSearchesRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BatchSearchListResponse> ListBatchSearchesAsync(ListBatchSearchesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Avalara.SDK.Client.ApiResponse<BatchSearchListResponse> localVarResponse = await ListBatchSearchesWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -934,7 +934,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BatchSearchListResponse)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<BatchSearchListResponse>> ListBatchSearchesWithHttpInfoAsync(ListBatchSearchesRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<BatchSearchListResponse>> ListBatchSearchesWithHttpInfoAsync(ListBatchSearchesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -1008,7 +1008,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>DirectorySearchResponse</returns>
-        public DirectorySearchResponse SearchParticipants(SearchParticipantsRequest requestParameters)
+        public DirectorySearchResponse SearchParticipants(SearchParticipantsRequestSdk requestParameters)
         {
             Avalara.SDK.Client.ApiResponse<DirectorySearchResponse> localVarResponse = SearchParticipantsWithHttpInfo(requestParameters);
             return localVarResponse.Data;
@@ -1020,7 +1020,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>ApiResponse of DirectorySearchResponse</returns>
-        private Avalara.SDK.Client.ApiResponse<DirectorySearchResponse> SearchParticipantsWithHttpInfo(SearchParticipantsRequest requestParameters)
+        private Avalara.SDK.Client.ApiResponse<DirectorySearchResponse> SearchParticipantsWithHttpInfo(SearchParticipantsRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -1098,7 +1098,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DirectorySearchResponse</returns>
-        public async System.Threading.Tasks.Task<DirectorySearchResponse> SearchParticipantsAsync(SearchParticipantsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DirectorySearchResponse> SearchParticipantsAsync(SearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Avalara.SDK.Client.ApiResponse<DirectorySearchResponse> localVarResponse = await SearchParticipantsWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1111,7 +1111,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DirectorySearchResponse)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<DirectorySearchResponse>> SearchParticipantsWithHttpInfoAsync(SearchParticipantsRequest requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<DirectorySearchResponse>> SearchParticipantsWithHttpInfoAsync(SearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -1193,7 +1193,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.3.2";
+            this.Client.SdkVersion = "25.3.3";
         }
         
     }
