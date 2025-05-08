@@ -35,11 +35,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// </summary>
     public class BatchSearchParticipantsRequestSdk {
         /// <summary>
-        /// Constructor for the Request object
-        /// </summary>
-        public BatchSearchParticipantsRequestSdk () {
-        }
-        /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
         public string? AvalaraVersion { get; set; } = "1.2";
@@ -70,11 +65,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// </summary>
     public class DownloadBatchSearchReportRequestSdk {
         /// <summary>
-        /// Constructor for the Request object
-        /// </summary>
-        public DownloadBatchSearchReportRequestSdk () {
-        }
-        /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
         public string? AvalaraVersion { get; set; } = "1.2";
@@ -97,11 +87,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// </summary>
     public class GetBatchSearchDetailRequestSdk {
         /// <summary>
-        /// Constructor for the Request object
-        /// </summary>
-        public GetBatchSearchDetailRequestSdk () {
-        }
-        /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
         public string? AvalaraVersion { get; set; } = "1.2";
@@ -123,11 +108,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// Represents the Request object for the ListBatchSearches API
     /// </summary>
     public class ListBatchSearchesRequestSdk {
-        /// <summary>
-        /// Constructor for the Request object
-        /// </summary>
-        public ListBatchSearchesRequestSdk () {
-        }
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
@@ -166,11 +146,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// Represents the Request object for the SearchParticipants API
     /// </summary>
     public class SearchParticipantsRequestSdk {
-        /// <summary>
-        /// Constructor for the Request object
-        /// </summary>
-        public SearchParticipantsRequestSdk () {
-        }
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
@@ -1193,7 +1168,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.3.3";
+            this.Client.SdkVersion = "";
         }
         
     }

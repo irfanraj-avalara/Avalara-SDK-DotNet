@@ -35,11 +35,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// </summary>
     public class SubmitInteropDocumentRequestSdk {
         /// <summary>
-        /// Constructor for the Request object
-        /// </summary>
-        public SubmitInteropDocumentRequestSdk () {
-        }
-        /// <summary>
         /// Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents.
         /// </summary>
         public string DocumentType { get; set; }
@@ -317,7 +312,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.3.3";
+            this.Client.SdkVersion = "";
         }
         
     }

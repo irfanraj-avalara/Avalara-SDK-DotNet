@@ -35,11 +35,6 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// </summary>
     public class GetDataInputFieldsRequestSdk {
         /// <summary>
-        /// Constructor for the Request object
-        /// </summary>
-        public GetDataInputFieldsRequestSdk () {
-        }
-        /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
         public string? AvalaraVersion { get; set; } = "1.2";
@@ -323,7 +318,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.3.3";
+            this.Client.SdkVersion = "";
         }
         
     }

@@ -6,9 +6,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Avalara 1099 API Definition
+ * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication Use **username/password** or **generate a license** key from: Avalara Portal → Settings → License and API Keys  More info on authentication: [Avalara Authentication Methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  Validate your credentials here: [Test Credentials](https://developer.avalara.com/avatax/test-credentials/)  ## API & SDK Docs [Avalara (C#/.NET) SDK on GitHub](https://github.com/avadev/Avalara-SDK-DotNet/tree/main#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples for 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -57,14 +57,15 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="referenceId">Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces..</param>
         /// <param name="telephone">Telephone number (required).</param>
         /// <param name="taxYear">Tax year (required).</param>
-        /// <param name="shippingCountryCode">If there is a transfer agent, use the shipping address of the transfer agent..</param>
+        /// <param name="countryCode">If there is a transfer agent, use the shipping address of the transfer agent..</param>
         /// <param name="email">Email address.</param>
         /// <param name="address">Shipping address (required).</param>
         /// <param name="city">City (required).</param>
         /// <param name="state">State.</param>
         /// <param name="zip">Zip code (required).</param>
         /// <param name="foreignProvince">Foreign province.</param>
-        public IssuerModel(string name = default(string), string nameDba = default(string), string tin = default(string), string referenceId = default(string), string telephone = default(string), int taxYear = default(int), string shippingCountryCode = default(string), string email = default(string), string address = default(string), string city = default(string), string state = default(string), string zip = default(string), string foreignProvince = default(string))
+        /// <param name="transferAgentName">transferAgentName.</param>
+        public IssuerModel(string name = default(string), string nameDba = default(string), string tin = default(string), string referenceId = default(string), string telephone = default(string), int taxYear = default(int), string countryCode = default(string), string email = default(string), string address = default(string), string city = default(string), string state = default(string), string zip = default(string), string foreignProvince = default(string), string transferAgentName = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -100,10 +101,11 @@ namespace Avalara.SDK.Model.A1099.V2
             this.NameDba = nameDba;
             this.Tin = tin;
             this.ReferenceId = referenceId;
-            this.ShippingCountryCode = shippingCountryCode;
+            this.CountryCode = countryCode;
             this.Email = email;
             this.State = state;
             this.ForeignProvince = foreignProvince;
+            this.TransferAgentName = transferAgentName;
         }
 
         /// <summary>
@@ -148,7 +150,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Tax year
         /// </summary>
         /// <value>Tax year</value>
-        /// <example>2023</example>
+        /// <example>2024</example>
         [DataMember(Name = "taxYear", IsRequired = true, EmitDefaultValue = true)]
         public int TaxYear { get; set; }
 
@@ -157,8 +159,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>If there is a transfer agent, use the shipping address of the transfer agent.</value>
         /// <example>US</example>
-        [DataMember(Name = "shippingCountryCode", EmitDefaultValue = true)]
-        public string ShippingCountryCode { get; set; }
+        [DataMember(Name = "countryCode", EmitDefaultValue = true)]
+        public string CountryCode { get; set; }
 
         /// <summary>
         /// Email address
@@ -210,7 +212,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Unique identifier set when the record is created
         /// </summary>
         /// <value>Unique identifier set when the record is created</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        /// <example>0</example>
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -252,20 +255,11 @@ namespace Avalara.SDK.Model.A1099.V2
             return false;
         }
         /// <summary>
-        /// id or the manager_id of the user to whom this issuer belongs to
+        /// Gets or Sets TransferAgentName
         /// </summary>
-        /// <value>id or the manager_id of the user to whom this issuer belongs to</value>
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
-        public string UserId { get; private set; }
+        [DataMember(Name = "transferAgentName", EmitDefaultValue = true)]
+        public string TransferAgentName { get; set; }
 
-        /// <summary>
-        /// Returns false as UserId should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUserId()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -280,7 +274,7 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
             sb.Append("  Telephone: ").Append(Telephone).Append("\n");
             sb.Append("  TaxYear: ").Append(TaxYear).Append("\n");
-            sb.Append("  ShippingCountryCode: ").Append(ShippingCountryCode).Append("\n");
+            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");
@@ -290,7 +284,7 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  TransferAgentName: ").Append(TransferAgentName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -337,7 +331,7 @@ namespace Avalara.SDK.Model.A1099.V2
 
             if (this.ReferenceId != null) {
                 // ReferenceId (string) pattern
-                Regex regexReferenceId = new Regex(@"[a-z\d\-_ ]*", RegexOptions.CultureInvariant);
+                Regex regexReferenceId = new Regex(@"^(?is)[a-z\d\-_ ]*$", RegexOptions.CultureInvariant);
                 if (!regexReferenceId.Match(this.ReferenceId).Success)
                 {
                     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceId, must match a pattern of " + regexReferenceId, new [] { "ReferenceId" });

@@ -6,9 +6,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Avalara 1099 API Definition
+ * Avalara 1099 & W-9 API Definition
  *
- * ## Authentication Use **username/password** or **generate a license** key from: Avalara Portal → Settings → License and API Keys  More info on authentication: [Avalara Authentication Methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  Validate your credentials here: [Test Credentials](https://developer.avalara.com/avatax/test-credentials/)  ## API & SDK Docs [Avalara (C#/.NET) SDK on GitHub](https://github.com/avadev/Avalara-SDK-DotNet/tree/main#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples for 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -117,7 +117,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="platform">platform.</param>
         /// <param name="osVersion">osVersion.</param>
         /// <param name="ancestorId">ancestorId.</param>
-        public BaseFormDataModel(string id = default(string), string entryStatus = default(string), DateTime? updatedAt = default(DateTime?), string referenceId = default(string), string companyId = default(string), string displayName = default(string), string email = default(string), bool? archived = default(bool?), DateTime? entryStatusDate = default(DateTime?), string pdfJson = default(string), string pdfVersion = default(string), string requestToken = default(string), string signature = default(string), bool? mobile = default(bool?), string appVersion = default(string), string platform = default(string), string osVersion = default(string), string ancestorId = default(string))
+        public BaseFormDataModel(int id = default(int), string entryStatus = default(string), DateTime? updatedAt = default(DateTime?), string referenceId = default(string), int? companyId = default(int?), string displayName = default(string), string email = default(string), bool? archived = default(bool?), DateTime? entryStatusDate = default(DateTime?), string pdfJson = default(string), string pdfVersion = default(string), string requestToken = default(string), string signature = default(string), bool? mobile = default(bool?), string appVersion = default(string), string platform = default(string), string osVersion = default(string), long? ancestorId = default(long?))
         {
             this.Id = id;
             this.EntryStatus = entryStatus;
@@ -143,7 +143,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or Sets EntryStatus
@@ -170,7 +170,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The ID of the associated company.</value>
         [DataMember(Name = "companyId", EmitDefaultValue = true)]
-        public string CompanyId { get; set; }
+        public int? CompanyId { get; set; }
 
         /// <summary>
         /// The display name associated with the form.
@@ -251,7 +251,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets AncestorId
         /// </summary>
         [DataMember(Name = "ancestorId", EmitDefaultValue = true)]
-        public string AncestorId { get; set; }
+        public long? AncestorId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
