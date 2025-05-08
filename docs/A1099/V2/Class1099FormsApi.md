@@ -44,7 +44,7 @@ namespace Example
             var apiInstance = new Class1099FormsApi(apiClient);
             var requestParameters = new BulkUpsert1099FormsRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = d3924eab-ae5e-4d58-beff-0acc46973175;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 8c27d637-2dfa-433a-8b99-796eabd34ada;  // string | Unique correlation Id in a GUID format
             requestParameters.BulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(); // BulkUpsert1099FormsRequest |  (optional) 
 
             try
@@ -127,7 +127,7 @@ namespace Example
             var apiInstance = new Class1099FormsApi(apiClient);
             var requestParameters = new Create1099FormRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 44717243-a8bf-4289-b9ca-3e95d44935a4;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = ca54dde9-53f6-4494-8b19-cdd81502ad95;  // string | Unique correlation Id in a GUID format
             requestParameters.Update1099FormRequest = new Update1099FormRequest(); // Update1099FormRequest |  (optional) 
 
             try
@@ -210,7 +210,7 @@ namespace Example
             var requestParameters = new Delete1099FormRequest();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 70475224-f37e-4299-81ce-4f8f6b50279c;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = a8f032f7-a715-4b0f-9a54-0359e4cf2d43;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -292,7 +292,7 @@ namespace Example
             var requestParameters = new Get1099FormRequest();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = dec2cd41-4709-40c1-a3ef-11d91b119677;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 43a8b5ca-16b8-4050-a916-171757cd489c;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -374,7 +374,7 @@ namespace Example
             var apiInstance = new Class1099FormsApi(apiClient);
             var requestParameters = new List1099FormsRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = e4289fa1-6ef8-4273-8008-c82a44f60dc2;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = e24f4b84-25c7-4029-b117-b7d5b5c1be4f;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
             requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
@@ -466,7 +466,7 @@ namespace Example
             var requestParameters = new Update1099FormRequest();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 6dee7663-689a-40e4-8f0a-b3fcd4e7c4ab;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 534b2fc5-caae-4f25-9626-c5c9df5d4e0b;  // string | Unique correlation Id in a GUID format
             requestParameters.Update1099FormRequest = new Update1099FormRequest(); // Update1099FormRequest |  (optional) 
 
             try

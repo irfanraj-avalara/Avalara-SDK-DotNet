@@ -82,7 +82,7 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <summary>
         /// Gets or Sets Instance
         /// </summary>
-        /// <example>unknown parameter &#39;city&#39;</example>
+        /// <example>Invalid request format or parameters.</example>
         [DataMember(Name = "instance", EmitDefaultValue = false)]
         public string Instance { get; set; }
 

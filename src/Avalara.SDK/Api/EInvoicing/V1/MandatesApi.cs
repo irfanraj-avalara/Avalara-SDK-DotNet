@@ -37,7 +37,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.2";
+        public string? AvalaraVersion { get; set; } = "1.3";
         /// <summary>
         /// The unique ID for the mandate that was returned in the GET /einvoicing/mandates response body
         /// </summary>
@@ -63,7 +63,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.2";
+        public string? AvalaraVersion { get; set; } = "1.3";
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         /// </summary>

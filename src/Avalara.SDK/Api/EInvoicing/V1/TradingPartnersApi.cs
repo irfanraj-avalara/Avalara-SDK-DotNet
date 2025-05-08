@@ -37,7 +37,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.2";
+        public string? AvalaraVersion { get; set; } = "1.3";
         /// <summary>
         /// The human readable name given to this batch search.
         /// </summary>
@@ -67,7 +67,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.2";
+        public string? AvalaraVersion { get; set; } = "1.3";
         /// <summary>
         /// The ID of the batch search whose report is to be downloaded.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.2";
+        public string? AvalaraVersion { get; set; } = "1.3";
         /// <summary>
         /// The ID of the batch search that was submitted earlier.
         /// </summary>
@@ -111,7 +111,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.2";
+        public string? AvalaraVersion { get; set; } = "1.3";
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \&quot;Fingerprint\&quot;
         /// </summary>
@@ -149,7 +149,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.2";
+        public string? AvalaraVersion { get; set; } = "1.3";
         /// <summary>
         /// Search by value supports logical AND and OR. Refer to [https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview#search) for more information on search. Search will be done over &lt;code&gt;name&lt;/code&gt; and &lt;code&gt;identifier&lt;/code&gt; parameters only.
         /// </summary>
@@ -199,8 +199,8 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns></returns>
-        void BatchSearchParticipants(BatchSearchParticipantsRequestSdk requestParameters);
+        /// <returns>BatchSearchParticipants202Response</returns>
+        BatchSearchParticipants202Response BatchSearchParticipants(BatchSearchParticipantsRequestSdk requestParameters);
 
         /// <summary>
         /// Download batch search results in a csv file.
@@ -217,7 +217,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// Get the batch search details for a given id.
         /// </summary>
         /// <remarks>
-        /// Get the batch search details for a given id.
+        /// This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -228,7 +228,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// List all batch searches that were previously submitted.
         /// </summary>
         /// <remarks>
-        /// Retrieves all batch searches performed by the user.
+        /// This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -239,7 +239,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// Returns a list of participants matching the input query.
         /// </summary>
         /// <remarks>
-        /// Returns a list of participants matching the input query.
+        /// This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -264,8 +264,8 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task BatchSearchParticipantsAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of BatchSearchParticipants202Response</returns>
+        System.Threading.Tasks.Task<BatchSearchParticipants202Response> BatchSearchParticipantsAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Download batch search results in a csv file.
@@ -283,7 +283,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// Get the batch search details for a given id.
         /// </summary>
         /// <remarks>
-        /// Get the batch search details for a given id.
+        /// This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -295,7 +295,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// List all batch searches that were previously submitted.
         /// </summary>
         /// <remarks>
-        /// Retrieves all batch searches performed by the user.
+        /// This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -307,7 +307,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// Returns a list of participants matching the input query.
         /// </summary>
         /// <remarks>
-        /// Returns a list of participants matching the input query.
+        /// This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -362,10 +362,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns></returns>
-        public void BatchSearchParticipants(BatchSearchParticipantsRequestSdk requestParameters)
+        /// <returns>BatchSearchParticipants202Response</returns>
+        public BatchSearchParticipants202Response BatchSearchParticipants(BatchSearchParticipantsRequestSdk requestParameters)
         {
-            BatchSearchParticipantsWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<BatchSearchParticipants202Response> localVarResponse = BatchSearchParticipantsWithHttpInfo(requestParameters);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -373,8 +374,8 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        private Avalara.SDK.Client.ApiResponse<Object> BatchSearchParticipantsWithHttpInfo(BatchSearchParticipantsRequestSdk requestParameters)
+        /// <returns>ApiResponse of BatchSearchParticipants202Response</returns>
+        private Avalara.SDK.Client.ApiResponse<BatchSearchParticipants202Response> BatchSearchParticipantsWithHttpInfo(BatchSearchParticipantsRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -425,7 +426,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             localVarRequestOptions.FileParameters.Add("file", requestParameters.File);
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
+            var localVarResponse = this.Client.Post<BatchSearchParticipants202Response>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, requiredScopes, AvalaraMicroservice.EInvoicing);
 
             if (this.ExceptionFactory != null)
             {
@@ -442,10 +443,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task BatchSearchParticipantsAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of BatchSearchParticipants202Response</returns>
+        public async System.Threading.Tasks.Task<BatchSearchParticipants202Response> BatchSearchParticipantsAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await BatchSearchParticipantsWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<BatchSearchParticipants202Response> localVarResponse = await BatchSearchParticipantsWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -454,8 +456,8 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<Object>> BatchSearchParticipantsWithHttpInfoAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (BatchSearchParticipants202Response)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<BatchSearchParticipants202Response>> BatchSearchParticipantsWithHttpInfoAsync(BatchSearchParticipantsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -508,7 +510,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             localVarRequestOptions.FileParameters.Add("file", requestParameters.File);
 
             // make the HTTP request
-			var localVarResponse = await this.Client.PostAsync<Object>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<BatchSearchParticipants202Response>("/einvoicing/trading-partners/batch-searches", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.EInvoicing).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -664,7 +666,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Get the batch search details for a given id. Get the batch search details for a given id.
+        /// Get the batch search details for a given id. This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -676,7 +678,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Get the batch search details for a given id. Get the batch search details for a given id.
+        /// Get the batch search details for a given id. This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -733,7 +735,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Get the batch search details for a given id. Get the batch search details for a given id.
+        /// Get the batch search details for a given id. This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -746,7 +748,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Get the batch search details for a given id. Get the batch search details for a given id.
+        /// Get the batch search details for a given id. This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -806,7 +808,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// List all batch searches that were previously submitted. Retrieves all batch searches performed by the user.
+        /// List all batch searches that were previously submitted. This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -818,7 +820,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// List all batch searches that were previously submitted. Retrieves all batch searches performed by the user.
+        /// List all batch searches that were previously submitted. This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -890,7 +892,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// List all batch searches that were previously submitted. Retrieves all batch searches performed by the user.
+        /// List all batch searches that were previously submitted. This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -903,7 +905,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// List all batch searches that were previously submitted. Retrieves all batch searches performed by the user.
+        /// List all batch searches that were previously submitted. This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It&#39;s particularly useful for tracking the progress of a previously initiated batch search operations.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -978,7 +980,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns a list of participants matching the input query. Returns a list of participants matching the input query.
+        /// Returns a list of participants matching the input query. This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -990,7 +992,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns a list of participants matching the input query. Returns a list of participants matching the input query.
+        /// Returns a list of participants matching the input query. This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1067,7 +1069,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns a list of participants matching the input query. Returns a list of participants matching the input query.
+        /// Returns a list of participants matching the input query. This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1080,7 +1082,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         }
 
         /// <summary>
-        /// Returns a list of participants matching the input query. Returns a list of participants matching the input query.
+        /// Returns a list of participants matching the input query. This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>

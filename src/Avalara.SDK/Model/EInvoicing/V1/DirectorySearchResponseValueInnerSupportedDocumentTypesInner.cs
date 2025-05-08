@@ -62,7 +62,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Document type name.
         /// </summary>
         /// <value>Document type name.</value>
-        /// <example>Peppol BIS Billing UBL Invoice V3</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -70,7 +69,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Document type identifier.
         /// </summary>
         /// <value>Document type identifier.</value>
-        /// <example>busdox-docid-qns::urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</example>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 
@@ -78,7 +76,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Does trading partner support receiving this document type
         /// </summary>
         /// <value>Does trading partner support receiving this document type</value>
-        /// <example>true</example>
         [DataMember(Name = "supportedByTradingPartner", EmitDefaultValue = true)]
         public bool SupportedByTradingPartner { get; set; }
 
@@ -86,7 +83,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Does avalara support exchanging this document type
         /// </summary>
         /// <value>Does avalara support exchanging this document type</value>
-        /// <example>true</example>
         [DataMember(Name = "supportedByAvalara", EmitDefaultValue = true)]
         public bool SupportedByAvalara { get; set; }
 
