@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="batchsearchparticipants"></a>
 # **BatchSearchParticipants**
-> void BatchSearchParticipants (BatchSearchParticipantsRequest requestParameters)
+> BatchSearchParticipants202Response BatchSearchParticipants (BatchSearchParticipantsRequest requestParameters)
 
 Creates a batch search and performs a batch search in the directory for participants in the background.
 
@@ -52,7 +52,8 @@ namespace Example
             try
             {
                 // Creates a batch search and performs a batch search in the directory for participants in the background.
-                apiInstance.BatchSearchParticipants(requestParameters);
+                BatchSearchParticipants202Response result = apiInstance.BatchSearchParticipants(requestParameters);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -78,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**BatchSearchParticipants202Response**](BatchSearchParticipants202Response.md)
 
 ### Authorization
 
@@ -194,7 +195,7 @@ Name | Type | Description  | Notes
 
 Get the batch search details for a given id.
 
-Get the batch search details for a given id.
+This endpoint provides a detailed information for a specific batch search based on a given ID. It is ideal for tracking the progress of a previously initiated batch search operation.
 
 ### Example
 ```csharp
@@ -269,6 +270,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Get the batch search details for a given id. |  * X-Correlation-Id -  <br>  |
 | **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
+| **404** | Report not found |  * X-Correlation-Id -  <br>  |
 | **403** | Forbidden |  * X-Correlation-Id -  <br>  |
 | **500** | Internal server error |  * X-Correlation-Id -  <br>  |
 
@@ -280,7 +282,7 @@ Name | Type | Description  | Notes
 
 List all batch searches that were previously submitted.
 
-Retrieves all batch searches performed by the user.
+This endpoint provides a way to retrieve a comprehensive list of all batch search operations that have been previously submitted. This endpoint returns details about each batch search, such as their id, status, created date and associated metadata, allowing users to easily view past batch search requests. It's particularly useful for tracking the progress of a previously initiated batch search operations.
 
 ### Example
 ```csharp
@@ -362,6 +364,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of batch searches |  * X-Correlation-Id -  <br>  |
+| **400** | Bad request |  * X-Correlation-Id -  <br>  |
 | **401** | Unauthorized |  * X-Correlation-Id -  <br>  |
 | **403** | Forbidden |  * X-Correlation-Id -  <br>  |
 | **500** | Internal server error |  * X-Correlation-Id -  <br>  |
@@ -374,7 +377,7 @@ Name | Type | Description  | Notes
 
 Returns a list of participants matching the input query.
 
-Returns a list of participants matching the input query.
+This endpoint provides a list of trading partners that match a specified input query. The search is performed based on various filters, search text, and other relevant parameters.
 
 ### Example
 ```csharp

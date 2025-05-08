@@ -58,7 +58,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Peppol Participant ID if the participant is in Peppol network
         /// </summary>
         /// <value>Peppol Participant ID if the participant is in Peppol network</value>
-        /// <example>PeppolParticipantId</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -66,7 +65,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Value of the identifier
         /// </summary>
         /// <value>Value of the identifier</value>
-        /// <example>9930:de112233445</example>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

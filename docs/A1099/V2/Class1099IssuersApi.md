@@ -1,21 +1,21 @@
 # Avalara.SDK.Api.A1099.V2.Class1099IssuersApi
 
-All URIs are relative to *https://api.avalara.com/avalara1099*
+All URIs are relative to *https://api-ava1099.gamma.qa.us-west-2.aws.avalara.io/avalara1099*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateIssuer**](Class1099IssuersApi.md#createissuer) | **POST** /1099/issuers | Create a new issuer
-[**DeleteIssuer**](Class1099IssuersApi.md#deleteissuer) | **DELETE** /1099/issuers/{issuerId} | Delete an issuer
-[**GetIssuer**](Class1099IssuersApi.md#getissuer) | **GET** /1099/issuers/{issuerId} | Get a single issuer
+[**CreateIssuer**](Class1099IssuersApi.md#createissuer) | **POST** /1099/issuers | Create an issuer
+[**DeleteIssuer**](Class1099IssuersApi.md#deleteissuer) | **DELETE** /1099/issuers/{id} | Delete an issuer
+[**GetIssuer**](Class1099IssuersApi.md#getissuer) | **GET** /1099/issuers/{id} | Get an issuer
 [**ListIssuers**](Class1099IssuersApi.md#listissuers) | **GET** /1099/issuers | List issuers
-[**UpdateIssuer**](Class1099IssuersApi.md#updateissuer) | **PUT** /1099/issuers/{issuerId} | Update an issuer
+[**UpdateIssuer**](Class1099IssuersApi.md#updateissuer) | **PUT** /1099/issuers/{id} | Update an issuer
 
 
 <a name="createissuer"></a>
 # **CreateIssuer**
 > IssuerModel CreateIssuer (CreateIssuerRequest requestParameters)
 
-Create a new issuer
+Create an issuer
 
 Create a new issuer
 
@@ -42,14 +42,13 @@ namespace Example
             
             var apiInstance = new Class1099IssuersApi(apiClient);
             var requestParameters = new CreateIssuerRequest();
-            requestParameters.AvalaraVersion = "\"2.0.0\"";  // string | API version (default to "2.0.0")
-            requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
-            requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). (optional) 
+            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.XCorrelationId = 8f69b6ed-8673-465b-94f4-6e8469145e40;  // string | Unique correlation Id in a GUID format
             requestParameters.IssuerModel = new IssuerModel(); // IssuerModel | The issuer to create (optional) 
 
             try
             {
-                // Create a new issuer
+                // Create an issuer
                 IssuerModel result = apiInstance.CreateIssuer(requestParameters);
                 Debug.WriteLine(result);
             }
@@ -68,9 +67,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **AvalaraVersion** | **string**| API version | [default to &quot;2.0.0&quot;]
+ **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **XAvalaraClient** | **string**| Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). | [optional] 
  **IssuerModel** | [**IssuerModel**](IssuerModel.md)| The issuer to create | [optional] 
 
 ### Return type
@@ -83,16 +81,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Created issuer |  * Location - The location of the created W9 Company <br>  |
-| **400** | Bad Request |  * X-Correlation-Id -  <br>  |
-| **401** | Authentication failed |  * X-Correlation-Id -  <br>  |
+| **201** | Created issuer |  -  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Authentication failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -102,7 +100,7 @@ Name | Type | Description  | Notes
 
 Delete an issuer
 
-Delete a single issuer by id
+Delete an issuer
 
 ### Example
 ```csharp
@@ -127,10 +125,9 @@ namespace Example
             
             var apiInstance = new Class1099IssuersApi(apiClient);
             var requestParameters = new DeleteIssuerRequest();
-            requestParameters.IssuerId = "issuerId_example";  // string | Id of the issuer to delete
-            requestParameters.AvalaraVersion = "\"2.0.0\"";  // string | API version (default to "2.0.0")
-            requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
-            requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). (optional) 
+            requestParameters.Id = "id_example";  // string | Id of the issuer to delete
+            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.XCorrelationId = dec9a586-b124-47b9-bf77-44ddeca2bb3d;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -152,10 +149,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IssuerId** | **string**| Id of the issuer to delete | 
- **AvalaraVersion** | **string**| API version | [default to &quot;2.0.0&quot;]
+ **Id** | **string**| Id of the issuer to delete | 
+ **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **XAvalaraClient** | **string**| Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). | [optional] 
 
 ### Return type
 
@@ -175,9 +171,8 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Empty response |  -  |
-| **400** | Bad Request |  * X-Correlation-Id -  <br>  |
-| **401** | Authentication failed |  * X-Correlation-Id -  <br>  |
-| **404** | Not Found |  * X-Correlation-Id -  <br>  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Authentication failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -185,9 +180,9 @@ void (empty response body)
 # **GetIssuer**
 > IssuerModel GetIssuer (GetIssuerRequest requestParameters)
 
-Get a single issuer
+Get an issuer
 
-Get a single issuer by id
+Get an issuer
 
 ### Example
 ```csharp
@@ -212,14 +207,13 @@ namespace Example
             
             var apiInstance = new Class1099IssuersApi(apiClient);
             var requestParameters = new GetIssuerRequest();
-            requestParameters.IssuerId = "issuerId_example";  // string | 
-            requestParameters.AvalaraVersion = "\"2.0.0\"";  // string | API version (default to "2.0.0")
-            requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
-            requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). (optional) 
+            requestParameters.Id = "id_example";  // string | 
+            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.XCorrelationId = 0fc7594e-d5fd-40b1-8567-377c117eb678;  // string | Unique correlation Id in a GUID format
 
             try
             {
-                // Get a single issuer
+                // Get an issuer
                 IssuerModel result = apiInstance.GetIssuer(requestParameters);
                 Debug.WriteLine(result);
             }
@@ -238,10 +232,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IssuerId** | **string**|  | 
- **AvalaraVersion** | **string**| API version | [default to &quot;2.0.0&quot;]
+ **Id** | **string**|  | 
+ **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **XAvalaraClient** | **string**| Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). | [optional] 
 
 ### Return type
 
@@ -261,18 +254,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Single issuer |  -  |
-| **400** | Bad Request |  * X-Correlation-Id -  <br>  |
-| **401** | Authentication failed |  * X-Correlation-Id -  <br>  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Authentication failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 <a name="listissuers"></a>
 # **ListIssuers**
-> IssuerModelPaginatedQueryResultModel ListIssuers (ListIssuersRequest requestParameters)
+> PaginatedQueryResultModelIssuerModel ListIssuers (ListIssuersRequest requestParameters)
 
 List issuers
 
-List existing issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
 
 ### Example
 ```csharp
@@ -297,19 +290,18 @@ namespace Example
             
             var apiInstance = new Class1099IssuersApi(apiClient);
             var requestParameters = new ListIssuersRequest();
-            requestParameters.AvalaraVersion = "\"2.0.0\"";  // string | API version (default to "2.0.0")
-            requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
-            requestParameters.Filter = referenceId eq '100089';  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.  Filterable: name, nameDba, referenceId, taxYear  (optional) 
+            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.XCorrelationId = fc881b6b-f990-459c-85e8-4c9cb4ff6ea5;  // string | Unique correlation Id in a GUID format
+            requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
             requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
             requestParameters.OrderBy = "orderBy_example";  // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional) 
-            requestParameters.Count = "\"false\"";  // bool? | Set true to request count of complete collection in response. (optional)  (default to "false")
-            requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). (optional) 
+            requestParameters.Count = true;  // bool? | When true, returns a @recordSetCount in the result set (optional) 
 
             try
             {
                 // List issuers
-                IssuerModelPaginatedQueryResultModel result = apiInstance.ListIssuers(requestParameters);
+                PaginatedQueryResultModelIssuerModel result = apiInstance.ListIssuers(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -327,18 +319,17 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **AvalaraVersion** | **string**| API version | [default to &quot;2.0.0&quot;]
+ **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **Filter** | **string**| A filter statement to identify specific records to retrieve. For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;.  Filterable: name, nameDba, referenceId, taxYear  | [optional] 
+ **Filter** | **string**| A filter statement to identify specific records to retrieve. For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;. | [optional] 
  **Top** | **int?**| If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. | [optional] [default to 10]
  **Skip** | **int?**| If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. | [optional] [default to 0]
  **OrderBy** | **string**| A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. | [optional] 
- **Count** | **bool?**| Set true to request count of complete collection in response. | [optional] [default to &quot;false&quot;]
- **XAvalaraClient** | **string**| Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). | [optional] 
+ **Count** | **bool?**| When true, returns a @recordSetCount in the result set | [optional] 
 
 ### Return type
 
-[**IssuerModelPaginatedQueryResultModel**](IssuerModelPaginatedQueryResultModel.md)
+[**PaginatedQueryResultModelIssuerModel**](PaginatedQueryResultModelIssuerModel.md)
 
 ### Authorization
 
@@ -354,8 +345,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of issuers |  -  |
-| **400** | Bad Request |  * X-Correlation-Id -  <br>  |
-| **401** | Authentication failed |  * X-Correlation-Id -  <br>  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Authentication failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -365,7 +356,7 @@ Name | Type | Description  | Notes
 
 Update an issuer
 
-Update an existing issuer by id
+Update an existing issuer
 
 ### Example
 ```csharp
@@ -390,10 +381,9 @@ namespace Example
             
             var apiInstance = new Class1099IssuersApi(apiClient);
             var requestParameters = new UpdateIssuerRequest();
-            requestParameters.IssuerId = "issuerId_example";  // string | Id of the issuer to Update
-            requestParameters.AvalaraVersion = "\"2.0.0\"";  // string | API version (default to "2.0.0")
-            requestParameters.XCorrelationId = 0a232c3b-386d-40f9-84c8-4967b32e0d39;  // string | Unique correlation Id in a GUID format
-            requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). (optional) 
+            requestParameters.Id = "id_example";  // string | Id of the issuer to Update
+            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.XCorrelationId = 720150d9-3de7-414e-8a86-13a7ae36f169;  // string | Unique correlation Id in a GUID format
             requestParameters.IssuerModel = new IssuerModel(); // IssuerModel | The issuer to update (optional) 
 
             try
@@ -416,10 +406,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IssuerId** | **string**| Id of the issuer to Update | 
- **AvalaraVersion** | **string**| API version | [default to &quot;2.0.0&quot;]
+ **Id** | **string**| Id of the issuer to Update | 
+ **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **XAvalaraClient** | **string**| Identifies the software you are using to call this API.  For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/). | [optional] 
  **IssuerModel** | [**IssuerModel**](IssuerModel.md)| The issuer to update | [optional] 
 
 ### Return type
@@ -432,7 +421,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: application/json
 
 
@@ -440,9 +429,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Issuer updated |  -  |
-| **400** | Bad Request |  * X-Correlation-Id -  <br>  |
-| **401** | Authentication failed |  * X-Correlation-Id -  <br>  |
-| **404** | Not Found |  * X-Correlation-Id -  <br>  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

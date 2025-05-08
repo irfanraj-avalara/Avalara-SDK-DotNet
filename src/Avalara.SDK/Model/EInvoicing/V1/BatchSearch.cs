@@ -80,7 +80,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Status of the batch search
         /// </summary>
         /// <value>Status of the batch search</value>
-        /// <example>Accepted</example>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -108,7 +107,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// ID of the batch search
         /// </summary>
         /// <value>ID of the batch search</value>
-        /// <example>2f5ea4b5-4dae-445a-b3e4-9f65a61eaa99</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -116,7 +114,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Name of the batch report
         /// </summary>
         /// <value>Name of the batch report</value>
-        /// <example>Batch Search Report 1</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -124,7 +121,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Email of the user who created the batch search
         /// </summary>
         /// <value>Email of the user who created the batch search</value>
-        /// <example>user@example.com</example>
         [DataMember(Name = "createdBy", EmitDefaultValue = false)]
         public string CreatedBy { get; set; }
 
@@ -132,7 +128,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Timestamp when the batch search was created
         /// </summary>
         /// <value>Timestamp when the batch search was created</value>
-        /// <example>2024-08-01T12:34:56Z</example>
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public DateTime Created { get; set; }
 
@@ -140,7 +135,6 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// Timestamp when the batch search was created
         /// </summary>
         /// <value>Timestamp when the batch search was created</value>
-        /// <example>2024-08-01T12:34:56Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 
