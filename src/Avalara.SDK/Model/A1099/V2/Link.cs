@@ -55,7 +55,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
-        [DataMember(Name = "self", EmitDefaultValue = true)]
+        [DataMember(Name = "self", EmitDefaultValue = false)]
         public string Self { get; set; }
 
         /// <summary>

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **GroupName** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **DbaName** | **string** |  | [optional] 
-**ShippingAddress** | **string** |  | [optional] 
+**Address** | **string** |  | [optional] 
 **City** | **string** |  | [optional] 
 **State** | **string** |  | [optional] 
 **ForeignProvince** | **string** |  | [optional] 

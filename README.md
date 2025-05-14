@@ -111,28 +111,29 @@ Class | Method | HTTP request | Description
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Class1099FormsApi* | [**BulkUpsert1099Forms**](docs/A1099/V2/Class1099FormsApi.md#bulkupsert1099forms) | **POST** /1099/forms/$bulk-upsert | Create or update multiple 1099 forms.
-*Class1099FormsApi* | [**Create1099Form**](docs/A1099/V2/Class1099FormsApi.md#create1099form) | **POST** /1099/forms | Create a 1099 form.
-*Class1099FormsApi* | [**Delete1099Form**](docs/A1099/V2/Class1099FormsApi.md#delete1099form) | **DELETE** /1099/forms/{id} | Delete a 1099 form.
-*Class1099FormsApi* | [**Get1099Form**](docs/A1099/V2/Class1099FormsApi.md#get1099form) | **GET** /1099/forms/{id} | Retrieve a 1099 form.
-*Class1099FormsApi* | [**List1099Forms**](docs/A1099/V2/Class1099FormsApi.md#list1099forms) | **GET** /1099/forms | Retrieve a list of 1099 forms based on query parameters.
-*Class1099FormsApi* | [**Update1099Form**](docs/A1099/V2/Class1099FormsApi.md#update1099form) | **PUT** /1099/forms/{id} | Update a 1099 form.
-*Class1099IssuersApi* | [**CreateIssuer**](docs/A1099/V2/Class1099IssuersApi.md#createissuer) | **POST** /1099/issuers | Create an issuer
-*Class1099IssuersApi* | [**DeleteIssuer**](docs/A1099/V2/Class1099IssuersApi.md#deleteissuer) | **DELETE** /1099/issuers/{id} | Delete an issuer
-*Class1099IssuersApi* | [**GetIssuer**](docs/A1099/V2/Class1099IssuersApi.md#getissuer) | **GET** /1099/issuers/{id} | Get an issuer
-*Class1099IssuersApi* | [**ListIssuers**](docs/A1099/V2/Class1099IssuersApi.md#listissuers) | **GET** /1099/issuers | List issuers
-*Class1099IssuersApi* | [**UpdateIssuer**](docs/A1099/V2/Class1099IssuersApi.md#updateissuer) | **PUT** /1099/issuers/{id} | Update an issuer
-*Class1099JobsApi* | [**GetJob**](docs/A1099/V2/Class1099JobsApi.md#getjob) | **GET** /1099/jobs/{id} | Retrieves information about the job
-*W9CompaniesApi* | [**CreateCompany**](docs/A1099/V2/W9CompaniesApi.md#createcompany) | **POST** /w9/companies | Creates a new company
-*W9CompaniesApi* | [**GetCompanies**](docs/A1099/V2/W9CompaniesApi.md#getcompanies) | **GET** /w9/companies | List companies
-*W9CompaniesApi* | [**UpdateCompany**](docs/A1099/V2/W9CompaniesApi.md#updatecompany) | **PUT** /w9/companies/{id} | Update a company
-*W9FormsApi* | [**CreateW9Form**](docs/A1099/V2/W9FormsApi.md#createw9form) | **POST** /w9/forms | Create a W9/W4/W8 form
-*W9FormsApi* | [**DeleteW9Form**](docs/A1099/V2/W9FormsApi.md#deletew9form) | **DELETE** /w9/forms/{id} | Delete a form
-*W9FormsApi* | [**GetW9Form**](docs/A1099/V2/W9FormsApi.md#getw9form) | **GET** /w9/forms/{id} | Retrieve a W9/W4/W8 form
-*W9FormsApi* | [**GetW9FormRequest**](docs/A1099/V2/W9FormsApi.md#getw9formrequest) | **GET** /w9/forms/requests/{formRequestId} | Retrieve a form request
-*W9FormsApi* | [**ListW9Forms**](docs/A1099/V2/W9FormsApi.md#listw9forms) | **GET** /w9/forms | List W9/W4/W8 forms.
-*W9FormsApi* | [**UpdateW9Form**](docs/A1099/V2/W9FormsApi.md#updatew9form) | **PUT** /w9/forms/{id} | Update a W9/W4/W8 form
-*W9FormsApi* | [**UploadW9Files**](docs/A1099/V2/W9FormsApi.md#uploadw9files) | **PUT** /w9/forms/{id}/attachment | Upload files for a W9/W4/W8 form
+*CompaniesW9Api* | [**CreateCompany**](docs/A1099/V2/CompaniesW9Api.md#createcompany) | **POST** /w9/companies | Creates a new company
+*CompaniesW9Api* | [**GetCompanies**](docs/A1099/V2/CompaniesW9Api.md#getcompanies) | **GET** /w9/companies | List companies
+*CompaniesW9Api* | [**GetCompany**](docs/A1099/V2/CompaniesW9Api.md#getcompany) | **GET** /w9/companies/{id} | Retrieve a company
+*CompaniesW9Api* | [**UpdateCompany**](docs/A1099/V2/CompaniesW9Api.md#updatecompany) | **PUT** /w9/companies/{id} | Update a company
+*Forms1099Api* | [**BulkUpsert1099Forms**](docs/A1099/V2/Forms1099Api.md#bulkupsert1099forms) | **POST** /1099/forms/$bulk-upsert | Create or update multiple 1099 forms.
+*Forms1099Api* | [**Create1099Form**](docs/A1099/V2/Forms1099Api.md#create1099form) | **POST** /1099/forms | Create a 1099 form.
+*Forms1099Api* | [**Delete1099Form**](docs/A1099/V2/Forms1099Api.md#delete1099form) | **DELETE** /1099/forms/{id} | Delete a 1099 form.
+*Forms1099Api* | [**Get1099Form**](docs/A1099/V2/Forms1099Api.md#get1099form) | **GET** /1099/forms/{id} | Retrieve a 1099 form.
+*Forms1099Api* | [**List1099Forms**](docs/A1099/V2/Forms1099Api.md#list1099forms) | **GET** /1099/forms | Retrieve a list of 1099 forms based on query parameters.
+*Forms1099Api* | [**Update1099Form**](docs/A1099/V2/Forms1099Api.md#update1099form) | **PUT** /1099/forms/{id} | Update a 1099 form.
+*FormsW9Api* | [**CreateW9Form**](docs/A1099/V2/FormsW9Api.md#createw9form) | **POST** /w9/forms | Create a W9/W4/W8 form
+*FormsW9Api* | [**DeleteW9Form**](docs/A1099/V2/FormsW9Api.md#deletew9form) | **DELETE** /w9/forms/{id} | Delete a form
+*FormsW9Api* | [**GetW9Form**](docs/A1099/V2/FormsW9Api.md#getw9form) | **GET** /w9/forms/{id} | Retrieve a W9/W4/W8 form
+*FormsW9Api* | [**GetW9FormRequest**](docs/A1099/V2/FormsW9Api.md#getw9formrequest) | **GET** /w9/forms/requests/{formRequestId} | Retrieve a form request
+*FormsW9Api* | [**ListW9Forms**](docs/A1099/V2/FormsW9Api.md#listw9forms) | **GET** /w9/forms | List W9/W4/W8 forms.
+*FormsW9Api* | [**UpdateW9Form**](docs/A1099/V2/FormsW9Api.md#updatew9form) | **PUT** /w9/forms/{id} | Update a W9/W4/W8 form
+*FormsW9Api* | [**UploadW9Files**](docs/A1099/V2/FormsW9Api.md#uploadw9files) | **PUT** /w9/forms/{id}/attachment | Upload files for a W9/W4/W8 form
+*Issuers1099Api* | [**CreateIssuer**](docs/A1099/V2/Issuers1099Api.md#createissuer) | **POST** /1099/issuers | Create an issuer
+*Issuers1099Api* | [**DeleteIssuer**](docs/A1099/V2/Issuers1099Api.md#deleteissuer) | **DELETE** /1099/issuers/{id} | Delete an issuer
+*Issuers1099Api* | [**GetIssuer**](docs/A1099/V2/Issuers1099Api.md#getissuer) | **GET** /1099/issuers/{id} | Get an issuer
+*Issuers1099Api* | [**ListIssuers**](docs/A1099/V2/Issuers1099Api.md#listissuers) | **GET** /1099/issuers | List issuers
+*Issuers1099Api* | [**UpdateIssuer**](docs/A1099/V2/Issuers1099Api.md#updateissuer) | **PUT** /1099/issuers/{id} | Update an issuer
+*Jobs1099Api* | [**GetJob**](docs/A1099/V2/Jobs1099Api.md#getjob) | **GET** /1099/jobs/{id} | Retrieves information about the job
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
@@ -210,7 +211,7 @@ Class | Method | HTTP request | Description
  - [Model.A1099.V2.AuthorizedApiRequestModel](docs/A1099/V2/AuthorizedApiRequestModel.md)
  - [Model.A1099.V2.AuthorizedApiRequestV2DataModel](docs/A1099/V2/AuthorizedApiRequestV2DataModel.md)
  - [Model.A1099.V2.BaseCompanyModel](docs/A1099/V2/BaseCompanyModel.md)
- - [Model.A1099.V2.BaseFormCsvRequest](docs/A1099/V2/BaseFormCsvRequest.md)
+ - [Model.A1099.V2.BaseFormListRequest](docs/A1099/V2/BaseFormListRequest.md)
  - [Model.A1099.V2.BulkUpsert1099FormsRequest](docs/A1099/V2/BulkUpsert1099FormsRequest.md)
  - [Model.A1099.V2.CompanyCreateUpdateRequestModel](docs/A1099/V2/CompanyCreateUpdateRequestModel.md)
  - [Model.A1099.V2.CompanyModel](docs/A1099/V2/CompanyModel.md)
@@ -219,32 +220,45 @@ Class | Method | HTTP request | Description
  - [Model.A1099.V2.Data](docs/A1099/V2/Data.md)
  - [Model.A1099.V2.ErrorModel](docs/A1099/V2/ErrorModel.md)
  - [Model.A1099.V2.ErrorResponse](docs/A1099/V2/ErrorResponse.md)
- - [Model.A1099.V2.Form1099CsvProccessResult](docs/A1099/V2/Form1099CsvProccessResult.md)
- - [Model.A1099.V2.Form1099DivCsvRequest](docs/A1099/V2/Form1099DivCsvRequest.md)
- - [Model.A1099.V2.Form1099MiscCsvRequest](docs/A1099/V2/Form1099MiscCsvRequest.md)
- - [Model.A1099.V2.Form1099NecCsvRequest](docs/A1099/V2/Form1099NecCsvRequest.md)
- - [Model.A1099.V2.Form1099TypeDiv](docs/A1099/V2/Form1099TypeDiv.md)
- - [Model.A1099.V2.Form1099TypeMisc](docs/A1099/V2/Form1099TypeMisc.md)
- - [Model.A1099.V2.Form1099TypeNec](docs/A1099/V2/Form1099TypeNec.md)
- - [Model.A1099.V2.FormCsvRequestBase](docs/A1099/V2/FormCsvRequestBase.md)
- - [Model.A1099.V2.FormCsvResponseBase](docs/A1099/V2/FormCsvResponseBase.md)
+ - [Model.A1099.V2.Form1099Base](docs/A1099/V2/Form1099Base.md)
+ - [Model.A1099.V2.Form1099DivList](docs/A1099/V2/Form1099DivList.md)
+ - [Model.A1099.V2.Form1099DivListItem](docs/A1099/V2/Form1099DivListItem.md)
+ - [Model.A1099.V2.Form1099DivRequest](docs/A1099/V2/Form1099DivRequest.md)
+ - [Model.A1099.V2.Form1099List](docs/A1099/V2/Form1099List.md)
+ - [Model.A1099.V2.Form1099ListDataInner](docs/A1099/V2/Form1099ListDataInner.md)
+ - [Model.A1099.V2.Form1099Misc](docs/A1099/V2/Form1099Misc.md)
+ - [Model.A1099.V2.Form1099MiscList](docs/A1099/V2/Form1099MiscList.md)
+ - [Model.A1099.V2.Form1099MiscListItem](docs/A1099/V2/Form1099MiscListItem.md)
+ - [Model.A1099.V2.Form1099MiscRequest](docs/A1099/V2/Form1099MiscRequest.md)
+ - [Model.A1099.V2.Form1099Nec](docs/A1099/V2/Form1099Nec.md)
+ - [Model.A1099.V2.Form1099NecList](docs/A1099/V2/Form1099NecList.md)
+ - [Model.A1099.V2.Form1099NecListItem](docs/A1099/V2/Form1099NecListItem.md)
+ - [Model.A1099.V2.Form1099NecRequest](docs/A1099/V2/Form1099NecRequest.md)
+ - [Model.A1099.V2.Form1099ProccessResult](docs/A1099/V2/Form1099ProccessResult.md)
+ - [Model.A1099.V2.Form1099StatusDetail](docs/A1099/V2/Form1099StatusDetail.md)
+ - [Model.A1099.V2.FormRequestBase](docs/A1099/V2/FormRequestBase.md)
  - [Model.A1099.V2.FormRequestModel](docs/A1099/V2/FormRequestModel.md)
+ - [Model.A1099.V2.FormResponseBase](docs/A1099/V2/FormResponseBase.md)
+ - [Model.A1099.V2.FormSingleRequestBase](docs/A1099/V2/FormSingleRequestBase.md)
  - [Model.A1099.V2.GetIssuer400Response](docs/A1099/V2/GetIssuer400Response.md)
  - [Model.A1099.V2.HttpValidationProblemDetails](docs/A1099/V2/HttpValidationProblemDetails.md)
+ - [Model.A1099.V2.ICreateForm1099Request](docs/A1099/V2/ICreateForm1099Request.md)
+ - [Model.A1099.V2.IUpdateForm1099Request](docs/A1099/V2/IUpdateForm1099Request.md)
  - [Model.A1099.V2.IW9FormDataModelsOneOf](docs/A1099/V2/IW9FormDataModelsOneOf.md)
  - [Model.A1099.V2.IssuerModel](docs/A1099/V2/IssuerModel.md)
  - [Model.A1099.V2.JobResult](docs/A1099/V2/JobResult.md)
  - [Model.A1099.V2.Link](docs/A1099/V2/Link.md)
- - [Model.A1099.V2.PaginatedFormCsvResponse](docs/A1099/V2/PaginatedFormCsvResponse.md)
  - [Model.A1099.V2.PaginatedQueryResultModel](docs/A1099/V2/PaginatedQueryResultModel.md)
  - [Model.A1099.V2.PaginatedQueryResultModelCompanyResponse](docs/A1099/V2/PaginatedQueryResultModelCompanyResponse.md)
  - [Model.A1099.V2.PaginatedQueryResultModelIssuerModel](docs/A1099/V2/PaginatedQueryResultModelIssuerModel.md)
  - [Model.A1099.V2.PaginatedW9FormsModel](docs/A1099/V2/PaginatedW9FormsModel.md)
  - [Model.A1099.V2.ProblemDetails](docs/A1099/V2/ProblemDetails.md)
+ - [Model.A1099.V2.StateAndLocalWithholding](docs/A1099/V2/StateAndLocalWithholding.md)
  - [Model.A1099.V2.StateAndLocalWithholdingDivRequest](docs/A1099/V2/StateAndLocalWithholdingDivRequest.md)
  - [Model.A1099.V2.StateAndLocalWithholdingMiscRequest](docs/A1099/V2/StateAndLocalWithholdingMiscRequest.md)
  - [Model.A1099.V2.StateAndLocalWithholdingNecRequest](docs/A1099/V2/StateAndLocalWithholdingNecRequest.md)
- - [Model.A1099.V2.Update1099FormRequest](docs/A1099/V2/Update1099FormRequest.md)
+ - [Model.A1099.V2.StateEfileStatusDetail](docs/A1099/V2/StateEfileStatusDetail.md)
+ - [Model.A1099.V2.ValidationError](docs/A1099/V2/ValidationError.md)
  - [Model.A1099.V2.W4FormDataModel](docs/A1099/V2/W4FormDataModel.md)
  - [Model.A1099.V2.W8BenESubstantialUsOwnerDataModel](docs/A1099/V2/W8BenESubstantialUsOwnerDataModel.md)
  - [Model.A1099.V2.W8BenFormDataModel](docs/A1099/V2/W8BenFormDataModel.md)

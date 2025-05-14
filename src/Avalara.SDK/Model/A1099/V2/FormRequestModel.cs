@@ -146,7 +146,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets Id
         /// </summary>
         /// <example>d0d09a2f-619e-4e9d-aae4-3311d9e0c67c</example>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Name of your company, set in the W-9 UI</value>
         /// <example>ACME Corp</example>
-        [DataMember(Name = "companyName", EmitDefaultValue = true)]
+        [DataMember(Name = "companyName", EmitDefaultValue = false)]
         public string CompanyName { get; set; }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Contact email of your company, set in the W-9 UI</value>
         /// <example>roadrunner@acmecorp.com</example>
-        [DataMember(Name = "companyEmail", EmitDefaultValue = true)]
+        [DataMember(Name = "companyEmail", EmitDefaultValue = false)]
         public string CompanyEmail { get; set; }
 
         /// <summary>
@@ -178,7 +178,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Your internal identifier for the vendor from whom you are requesting a form</value>
         /// <example>SE-02453450</example>
-        [DataMember(Name = "referenceId", EmitDefaultValue = true)]
+        [DataMember(Name = "referenceId", EmitDefaultValue = false)]
         public string ReferenceId { get; set; }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// URL of PDF representation of just-signed form, otherwise null. Integrations may use this value to offer a \&quot;download for your records\&quot; function after a vendor completes and signs a form. Link expires at the same time as this FormRequest. Treat the format of this URL as opaque and expect it to change in the future.
         /// </summary>
         /// <value>URL of PDF representation of just-signed form, otherwise null. Integrations may use this value to offer a \&quot;download for your records\&quot; function after a vendor completes and signs a form. Link expires at the same time as this FormRequest. Treat the format of this URL as opaque and expect it to change in the future.</value>
-        [DataMember(Name = "signedPdf", EmitDefaultValue = true)]
+        [DataMember(Name = "signedPdf", EmitDefaultValue = false)]
         public string SignedPdf { get; set; }
 
         /// <summary>

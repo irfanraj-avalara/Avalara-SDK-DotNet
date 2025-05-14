@@ -51,7 +51,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="groupName">groupName.</param>
         /// <param name="name">name.</param>
         /// <param name="dbaName">dbaName.</param>
-        /// <param name="shippingAddress">shippingAddress.</param>
+        /// <param name="address">address.</param>
         /// <param name="city">city.</param>
         /// <param name="state">state.</param>
         /// <param name="foreignProvince">foreignProvince.</param>
@@ -66,14 +66,14 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="maxReminderAttempts">maxReminderAttempts.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public CompanyResponse(string id = default(string), string referenceId = default(string), string groupName = default(string), string name = default(string), string dbaName = default(string), string shippingAddress = default(string), string city = default(string), string state = default(string), string foreignProvince = default(string), string zip = default(string), string countryCode = default(string), string email = default(string), string telephone = default(string), string tin = default(string), bool? doTinMatch = default(bool?), bool? resendRequests = default(bool?), int? resendIntervalDays = default(int?), int? maxReminderAttempts = default(int?), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?))
+        public CompanyResponse(string id = default(string), string referenceId = default(string), string groupName = default(string), string name = default(string), string dbaName = default(string), string address = default(string), string city = default(string), string state = default(string), string foreignProvince = default(string), string zip = default(string), string countryCode = default(string), string email = default(string), string telephone = default(string), string tin = default(string), bool? doTinMatch = default(bool?), bool? resendRequests = default(bool?), int? resendIntervalDays = default(int?), int? maxReminderAttempts = default(int?), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?))
         {
             this.Id = id;
             this.ReferenceId = referenceId;
             this.GroupName = groupName;
             this.Name = name;
             this.DbaName = dbaName;
-            this.ShippingAddress = shippingAddress;
+            this.Address = address;
             this.City = city;
             this.State = state;
             this.ForeignProvince = foreignProvince;
@@ -93,7 +93,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -121,10 +121,10 @@ namespace Avalara.SDK.Model.A1099.V2
         public string DbaName { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShippingAddress
+        /// Gets or Sets Address
         /// </summary>
-        [DataMember(Name = "shippingAddress", EmitDefaultValue = true)]
-        public string ShippingAddress { get; set; }
+        [DataMember(Name = "address", EmitDefaultValue = true)]
+        public string Address { get; set; }
 
         /// <summary>
         /// Gets or Sets City
@@ -223,7 +223,7 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  GroupName: ").Append(GroupName).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  DbaName: ").Append(DbaName).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  ForeignProvince: ").Append(ForeignProvince).Append("\n");

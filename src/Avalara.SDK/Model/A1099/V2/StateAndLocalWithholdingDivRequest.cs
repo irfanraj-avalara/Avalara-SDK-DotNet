@@ -65,37 +65,37 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", EmitDefaultValue = true)]
+        [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
         /// Gets or Sets StateIdNumber
         /// </summary>
-        [DataMember(Name = "stateIdNumber", EmitDefaultValue = true)]
+        [DataMember(Name = "stateIdNumber", EmitDefaultValue = false)]
         public string StateIdNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets StateTaxWithheld
         /// </summary>
-        [DataMember(Name = "stateTaxWithheld", EmitDefaultValue = true)]
+        [DataMember(Name = "stateTaxWithheld", EmitDefaultValue = false)]
         public string StateTaxWithheld { get; set; }
 
         /// <summary>
         /// Gets or Sets Locality
         /// </summary>
-        [DataMember(Name = "locality", EmitDefaultValue = true)]
+        [DataMember(Name = "locality", EmitDefaultValue = false)]
         public string Locality { get; set; }
 
         /// <summary>
         /// Gets or Sets LocalityIdNumber
         /// </summary>
-        [DataMember(Name = "localityIdNumber", EmitDefaultValue = true)]
+        [DataMember(Name = "localityIdNumber", EmitDefaultValue = false)]
         public string LocalityIdNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets LocalityTaxWithheld
         /// </summary>
-        [DataMember(Name = "localityTaxWithheld", EmitDefaultValue = true)]
+        [DataMember(Name = "localityTaxWithheld", EmitDefaultValue = false)]
         public string LocalityTaxWithheld { get; set; }
 
         /// <summary>

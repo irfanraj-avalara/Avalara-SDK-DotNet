@@ -98,7 +98,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Company ID
         /// </summary>
         /// <value>Company ID</value>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -134,61 +134,61 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets Address
         /// </summary>
-        [DataMember(Name = "address", EmitDefaultValue = true)]
+        [DataMember(Name = "address", EmitDefaultValue = false)]
         public string Address { get; set; }
 
         /// <summary>
         /// Gets or Sets City
         /// </summary>
-        [DataMember(Name = "city", EmitDefaultValue = true)]
+        [DataMember(Name = "city", EmitDefaultValue = false)]
         public string City { get; set; }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", EmitDefaultValue = true)]
+        [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
         /// Gets or Sets Zip
         /// </summary>
-        [DataMember(Name = "zip", EmitDefaultValue = true)]
+        [DataMember(Name = "zip", EmitDefaultValue = false)]
         public string Zip { get; set; }
 
         /// <summary>
         /// Gets or Sets Telephone
         /// </summary>
-        [DataMember(Name = "telephone", EmitDefaultValue = true)]
+        [DataMember(Name = "telephone", EmitDefaultValue = false)]
         public string Telephone { get; set; }
 
         /// <summary>
         /// Gets or Sets Tin
         /// </summary>
-        [DataMember(Name = "tin", EmitDefaultValue = true)]
+        [DataMember(Name = "tin", EmitDefaultValue = false)]
         public string Tin { get; set; }
 
         /// <summary>
         /// Gets or Sets DbaName
         /// </summary>
-        [DataMember(Name = "dbaName", EmitDefaultValue = true)]
+        [DataMember(Name = "dbaName", EmitDefaultValue = false)]
         public string DbaName { get; set; }
 
         /// <summary>
         /// Gets or Sets ReferenceId
         /// </summary>
-        [DataMember(Name = "referenceId", EmitDefaultValue = true)]
+        [DataMember(Name = "referenceId", EmitDefaultValue = false)]
         public string ReferenceId { get; set; }
 
         /// <summary>
@@ -200,19 +200,19 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets GroupName
         /// </summary>
-        [DataMember(Name = "groupName", EmitDefaultValue = true)]
+        [DataMember(Name = "groupName", EmitDefaultValue = false)]
         public string GroupName { get; set; }
 
         /// <summary>
         /// Gets or Sets ForeignProvince
         /// </summary>
-        [DataMember(Name = "foreignProvince", EmitDefaultValue = true)]
+        [DataMember(Name = "foreignProvince", EmitDefaultValue = false)]
         public string ForeignProvince { get; set; }
 
         /// <summary>
         /// Gets or Sets CountryCode
         /// </summary>
-        [DataMember(Name = "countryCode", EmitDefaultValue = true)]
+        [DataMember(Name = "countryCode", EmitDefaultValue = false)]
         public string CountryCode { get; set; }
 
         /// <summary>

@@ -1995,7 +1995,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets SubstantialUsOwners
         /// </summary>
         /// <example>[]</example>
-        [DataMember(Name = "substantialUsOwners", EmitDefaultValue = true)]
+        [DataMember(Name = "substantialUsOwners", EmitDefaultValue = false)]
         public List<W8BenESubstantialUsOwnerDataModel> SubstantialUsOwners { get; set; }
 
         /// <summary>

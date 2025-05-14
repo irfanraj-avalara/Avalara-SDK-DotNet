@@ -1,0 +1,42 @@
+# Avalara.SDK.Model.A1099.V2.Form1099Base
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **string** |  | [optional] 
+**Type** | **string** |  | [optional] 
+**IssuerId** | **int** |  | [optional] 
+**IssuerReferenceId** | **string** |  | [optional] 
+**IssuerTin** | **string** |  | [optional] 
+**TaxYear** | **int** |  | [optional] 
+**FederalEfile** | **bool** |  | [optional] 
+**FederalEfileStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  | [optional] 
+**StateEfile** | **bool** |  | [optional] 
+**StateEfileStatus** | [**List&lt;StateEfileStatusDetail&gt;**](StateEfileStatusDetail.md) |  | [optional] 
+**PostalMail** | **bool** |  | [optional] 
+**PostalMailStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  | [optional] 
+**TinMatch** | **bool** |  | [optional] 
+**TinMatchStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  | [optional] 
+**AddressVerification** | **bool** |  | [optional] 
+**AddressVerificationStatus** | [**Form1099StatusDetail**](Form1099StatusDetail.md) |  | [optional] 
+**ReferenceId** | **string** |  | [optional] 
+**Email** | **string** |  | [optional] 
+**TypeOfTin** | **string** |  | [optional] 
+**Tin** | **string** |  | [optional] 
+**FirstPayeeName** | **string** |  | [optional] 
+**SecondPayeeName** | **string** |  | [optional] 
+**Address** | **string** |  | [optional] 
+**AddressRecipientSecond** | **string** |  | [optional] 
+**City** | **string** |  | [optional] 
+**State** | **string** |  | [optional] 
+**Zip** | **string** |  | [optional] 
+**ForeignProvince** | **string** |  | [optional] 
+**CountryCode** | **string** |  | [optional] 
+**ValidationErrors** | [**List&lt;ValidationError&gt;**](ValidationError.md) |  | [optional] 
+**CreatedAt** | **DateTime** |  | [optional] 
+**UpdatedAt** | **DateTime** |  | [optional] 
+**StateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  | [optional] 
+
+[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
+
