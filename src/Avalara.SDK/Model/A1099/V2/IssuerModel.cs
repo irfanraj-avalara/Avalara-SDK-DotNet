@@ -120,7 +120,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Optional DBA name or continuation of a long legal name
         /// </summary>
         /// <value>Optional DBA name or continuation of a long legal name</value>
-        [DataMember(Name = "nameDba", EmitDefaultValue = true)]
+        [DataMember(Name = "nameDba", EmitDefaultValue = false)]
         public string NameDba { get; set; }
 
         /// <summary>
@@ -128,14 +128,14 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Tax identification number</value>
         /// <example>23-8234555</example>
-        [DataMember(Name = "tin", EmitDefaultValue = true)]
+        [DataMember(Name = "tin", EmitDefaultValue = false)]
         public string Tin { get; set; }
 
         /// <summary>
         /// Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces.
         /// </summary>
         /// <value>Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces.</value>
-        [DataMember(Name = "referenceId", EmitDefaultValue = true)]
+        [DataMember(Name = "referenceId", EmitDefaultValue = false)]
         public string ReferenceId { get; set; }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>If there is a transfer agent, use the shipping address of the transfer agent.</value>
         /// <example>US</example>
-        [DataMember(Name = "countryCode", EmitDefaultValue = true)]
+        [DataMember(Name = "countryCode", EmitDefaultValue = false)]
         public string CountryCode { get; set; }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Email address</value>
         /// <example>roadrunner@acmecorp.com</example>
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>State</value>
         /// <example>AZ</example>
-        [DataMember(Name = "state", EmitDefaultValue = true)]
+        [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Unique identifier set when the record is created</value>
         /// <example>0</example>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -257,7 +257,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets TransferAgentName
         /// </summary>
-        [DataMember(Name = "transferAgentName", EmitDefaultValue = true)]
+        [DataMember(Name = "transferAgentName", EmitDefaultValue = false)]
         public string TransferAgentName { get; set; }
 
         /// <summary>

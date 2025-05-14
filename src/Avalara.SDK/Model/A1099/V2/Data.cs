@@ -61,25 +61,25 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Attributes
         /// </summary>
-        [DataMember(Name = "attributes", EmitDefaultValue = true)]
+        [DataMember(Name = "attributes", EmitDefaultValue = false)]
         public Attribute Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name = "links", EmitDefaultValue = true)]
+        [DataMember(Name = "links", EmitDefaultValue = false)]
         public Link Links { get; set; }
 
         /// <summary>

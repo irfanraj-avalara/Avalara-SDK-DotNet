@@ -59,7 +59,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The path and query of the API request you want to pre-authorize, omitting the leading /api/</value>
         /// <example>form-pdf?filter[form_type_eq]&#x3D;1099-NEC&amp;filter[reference_id_eq]&#x3D;SE-02453450&amp;filter[tax_year_eq]&#x3D;2023</example>
-        [DataMember(Name = "path", EmitDefaultValue = true)]
+        [DataMember(Name = "path", EmitDefaultValue = false)]
         public string Path { get; set; }
 
         /// <summary>

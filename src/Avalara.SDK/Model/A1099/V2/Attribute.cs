@@ -44,9 +44,40 @@ namespace Avalara.SDK.Model.A1099.V2
     public partial class Attribute : IValidatableObject
     {
         /// <summary>
+        /// Defines Status
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            /// <summary>
+            /// Enum InProgress for value: InProgress
+            /// </summary>
+            [EnumMember(Value = "InProgress")]
+            InProgress = 1,
+
+            /// <summary>
+            /// Enum Success for value: Success
+            /// </summary>
+            [EnumMember(Value = "Success")]
+            Success = 2,
+
+            /// <summary>
+            /// Enum Failed for value: Failed
+            /// </summary>
+            [EnumMember(Value = "Failed")]
+            Failed = 3
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        /// <example>InProgress</example>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public StatusEnum? Status { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Attribute" /> class.
         /// </summary>
-        /// <param name="originalFilename">originalFilename.</param>
         /// <param name="dryRun">dryRun.</param>
         /// <param name="upsert">upsert.</param>
         /// <param name="status">status.</param>
@@ -63,9 +94,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="createdInvalid">createdInvalid.</param>
         /// <param name="createdNoEmail">createdNoEmail.</param>
         /// <param name="createdValid">createdValid.</param>
-        public Attribute(string originalFilename = default(string), bool dryRun = default(bool), bool upsert = default(bool), string status = default(string), string errorMessage = default(string), int totalProcessed = default(int), int totalRows = default(int), int updatedValid = default(int), int updatedNoEmail = default(int), int updatedInvalid = default(int), int skippedDuplicate = default(int), int skippedInvalid = default(int), int skippedMultipleMatches = default(int), int notFound = default(int), int createdInvalid = default(int), int createdNoEmail = default(int), int createdValid = default(int))
+        public Attribute(bool dryRun = default(bool), bool upsert = default(bool), StatusEnum? status = default(StatusEnum?), string errorMessage = default(string), int totalProcessed = default(int), int totalRows = default(int), int updatedValid = default(int), int updatedNoEmail = default(int), int updatedInvalid = default(int), int skippedDuplicate = default(int), int skippedInvalid = default(int), int skippedMultipleMatches = default(int), int notFound = default(int), int createdInvalid = default(int), int createdNoEmail = default(int), int createdValid = default(int))
         {
-            this.OriginalFilename = originalFilename;
             this.DryRun = dryRun;
             this.Upsert = upsert;
             this.Status = status;
@@ -85,12 +115,6 @@ namespace Avalara.SDK.Model.A1099.V2
         }
 
         /// <summary>
-        /// Gets or Sets OriginalFilename
-        /// </summary>
-        [DataMember(Name = "originalFilename", EmitDefaultValue = true)]
-        public string OriginalFilename { get; set; }
-
-        /// <summary>
         /// Gets or Sets DryRun
         /// </summary>
         [DataMember(Name = "dryRun", EmitDefaultValue = true)]
@@ -103,15 +127,9 @@ namespace Avalara.SDK.Model.A1099.V2
         public bool Upsert { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
-        public string Status { get; set; }
-
-        /// <summary>
         /// Gets or Sets ErrorMessage
         /// </summary>
-        [DataMember(Name = "errorMessage", EmitDefaultValue = true)]
+        [DataMember(Name = "errorMessage", EmitDefaultValue = false)]
         public string ErrorMessage { get; set; }
 
         /// <summary>
@@ -194,7 +212,6 @@ namespace Avalara.SDK.Model.A1099.V2
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Attribute {\n");
-            sb.Append("  OriginalFilename: ").Append(OriginalFilename).Append("\n");
             sb.Append("  DryRun: ").Append(DryRun).Append("\n");
             sb.Append("  Upsert: ").Append(Upsert).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");

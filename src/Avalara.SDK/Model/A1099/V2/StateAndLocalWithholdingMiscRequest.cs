@@ -79,19 +79,19 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", EmitDefaultValue = true)]
+        [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
         /// Gets or Sets PayerStateIdNumber
         /// </summary>
-        [DataMember(Name = "payerStateIdNumber", EmitDefaultValue = true)]
+        [DataMember(Name = "payerStateIdNumber", EmitDefaultValue = false)]
         public string PayerStateIdNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets Locality
         /// </summary>
-        [DataMember(Name = "locality", EmitDefaultValue = true)]
+        [DataMember(Name = "locality", EmitDefaultValue = false)]
         public string Locality { get; set; }
 
         /// <summary>

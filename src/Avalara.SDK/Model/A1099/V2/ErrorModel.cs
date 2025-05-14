@@ -67,7 +67,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>HTTP error code in 4xx or 5xx.</value>
         /// <example>https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400</example>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>HTTP error code in 4xx or 5xx.</value>
         /// <example>400</example>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
 
         /// <summary>
@@ -83,14 +83,14 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Description of the HTTP error code.</value>
         /// <example>Bad request</example>
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Detailed error message.
         /// </summary>
         /// <value>Detailed error message.</value>
-        [DataMember(Name = "detail", EmitDefaultValue = true)]
+        [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Error code.</value>
         /// <example>/issuers/12345</example>
-        [DataMember(Name = "instance", EmitDefaultValue = true)]
+        [DataMember(Name = "instance", EmitDefaultValue = false)]
         public string Instance { get; set; }
 
         /// <summary>

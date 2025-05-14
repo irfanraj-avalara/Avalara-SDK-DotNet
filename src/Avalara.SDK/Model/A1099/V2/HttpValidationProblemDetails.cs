@@ -66,7 +66,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets Errors
         /// </summary>
-        [DataMember(Name = "errors", EmitDefaultValue = true)]
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
         public Dictionary<string, List<string>> Errors { get; set; }
 
         /// <summary>

@@ -60,21 +60,21 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets Id
         /// </summary>
         /// <example>d0d09a2f-619e-4e9d-aae4-3311d9e0c67c</example>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Path
         /// </summary>
         /// <example>form-pdf?filter[form_type_eq]&#x3D;1099-NEC&amp;filter[reference_id_eq]&#x3D;SE-02453450&amp;filter[tax_year_eq]&#x3D;2024</example>
-        [DataMember(Name = "path", EmitDefaultValue = true)]
+        [DataMember(Name = "path", EmitDefaultValue = false)]
         public string Path { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiresAt
         /// </summary>
         /// <example>2022-04-29T15:19:42.995-04:00</example>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
+        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
         public string ExpiresAt { get; set; }
 
         /// <summary>

@@ -47,10 +47,10 @@ namespace Avalara.SDK.Model.A1099.V2
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkUpsert1099FormsRequest" /> class
-        /// with the <see cref="Form1099TypeDiv" /> class
+        /// with the <see cref="Form1099DivList" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Form1099TypeDiv.</param>
-        public BulkUpsert1099FormsRequest(Form1099TypeDiv actualInstance)
+        /// <param name="actualInstance">An instance of Form1099DivList.</param>
+        public BulkUpsert1099FormsRequest(Form1099DivList actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -59,10 +59,10 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkUpsert1099FormsRequest" /> class
-        /// with the <see cref="Form1099TypeMisc" /> class
+        /// with the <see cref="Form1099MiscList" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Form1099TypeMisc.</param>
-        public BulkUpsert1099FormsRequest(Form1099TypeMisc actualInstance)
+        /// <param name="actualInstance">An instance of Form1099MiscList.</param>
+        public BulkUpsert1099FormsRequest(Form1099MiscList actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -71,10 +71,10 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkUpsert1099FormsRequest" /> class
-        /// with the <see cref="Form1099TypeNec" /> class
+        /// with the <see cref="Form1099NecList" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Form1099TypeNec.</param>
-        public BulkUpsert1099FormsRequest(Form1099TypeNec actualInstance)
+        /// <param name="actualInstance">An instance of Form1099NecList.</param>
+        public BulkUpsert1099FormsRequest(Form1099NecList actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -95,53 +95,53 @@ namespace Avalara.SDK.Model.A1099.V2
             }
             set
             {
-                if (value.GetType() == typeof(Form1099TypeDiv) || value is Form1099TypeDiv)
+                if (value.GetType() == typeof(Form1099DivList) || value is Form1099DivList)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Form1099TypeMisc) || value is Form1099TypeMisc)
+                else if (value.GetType() == typeof(Form1099MiscList) || value is Form1099MiscList)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Form1099TypeNec) || value is Form1099TypeNec)
+                else if (value.GetType() == typeof(Form1099NecList) || value is Form1099NecList)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099TypeDiv, Form1099TypeMisc, Form1099TypeNec");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099DivList, Form1099MiscList, Form1099NecList");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `Form1099TypeDiv`. If the actual instance is not `Form1099TypeDiv`,
+        /// Get the actual instance of `Form1099DivList`. If the actual instance is not `Form1099DivList`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Form1099TypeDiv</returns>
-        public Form1099TypeDiv GetForm1099TypeDiv()
+        /// <returns>An instance of Form1099DivList</returns>
+        public Form1099DivList GetForm1099DivList()
         {
-            return (Form1099TypeDiv)this.ActualInstance;
+            return (Form1099DivList)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `Form1099TypeMisc`. If the actual instance is not `Form1099TypeMisc`,
+        /// Get the actual instance of `Form1099MiscList`. If the actual instance is not `Form1099MiscList`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Form1099TypeMisc</returns>
-        public Form1099TypeMisc GetForm1099TypeMisc()
+        /// <returns>An instance of Form1099MiscList</returns>
+        public Form1099MiscList GetForm1099MiscList()
         {
-            return (Form1099TypeMisc)this.ActualInstance;
+            return (Form1099MiscList)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `Form1099TypeNec`. If the actual instance is not `Form1099TypeNec`,
+        /// Get the actual instance of `Form1099NecList`. If the actual instance is not `Form1099NecList`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Form1099TypeNec</returns>
-        public Form1099TypeNec GetForm1099TypeNec()
+        /// <returns>An instance of Form1099NecList</returns>
+        public Form1099NecList GetForm1099NecList()
         {
-            return (Form1099TypeNec)this.ActualInstance;
+            return (Form1099NecList)this.ActualInstance;
         }
 
         /// <summary>
@@ -185,61 +185,61 @@ namespace Avalara.SDK.Model.A1099.V2
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Form1099TypeDiv).GetProperty("AdditionalProperties") == null)
+                if (typeof(Form1099DivList).GetProperty("AdditionalProperties") == null)
                 {
-                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099TypeDiv>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099DivList>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
                 }
                 else
                 {
-                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099TypeDiv>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099DivList>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("Form1099TypeDiv");
+                matchedTypes.Add("Form1099DivList");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099TypeDiv: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099DivList: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Form1099TypeMisc).GetProperty("AdditionalProperties") == null)
+                if (typeof(Form1099MiscList).GetProperty("AdditionalProperties") == null)
                 {
-                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099TypeMisc>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099MiscList>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
                 }
                 else
                 {
-                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099TypeMisc>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099MiscList>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("Form1099TypeMisc");
+                matchedTypes.Add("Form1099MiscList");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099TypeMisc: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099MiscList: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Form1099TypeNec).GetProperty("AdditionalProperties") == null)
+                if (typeof(Form1099NecList).GetProperty("AdditionalProperties") == null)
                 {
-                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099TypeNec>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099NecList>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
                 }
                 else
                 {
-                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099TypeNec>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099NecList>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("Form1099TypeNec");
+                matchedTypes.Add("Form1099NecList");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099TypeNec: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099NecList: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

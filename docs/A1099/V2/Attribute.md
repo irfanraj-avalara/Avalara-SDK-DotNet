@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OriginalFilename** | **string** |  | [optional] 
 **DryRun** | **bool** |  | [optional] 
 **Upsert** | **bool** |  | [optional] 
 **Status** | **string** |  | [optional] 
