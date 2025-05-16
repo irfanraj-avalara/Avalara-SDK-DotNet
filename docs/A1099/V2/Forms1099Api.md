@@ -44,7 +44,7 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new BulkUpsert1099FormsRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 0de4619c-694c-4825-922f-a069f0b89ffc;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 10815d0a-2afc-46f1-a216-17ae86c9cce2;  // string | Unique correlation Id in a GUID format
             requestParameters.DryRun = false;  // bool? |  (optional)  (default to false)
             requestParameters.BulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(); // BulkUpsert1099FormsRequest |  (optional) 
 
@@ -129,7 +129,7 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new Create1099FormRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 42d6eff7-b272-47f8-bf55-715402e806e2;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 4da98cdf-6adb-4feb-b290-85f67fb90829;  // string | Unique correlation Id in a GUID format
             requestParameters.ICreateForm1099Request = new ICreateForm1099Request(); // ICreateForm1099Request |  (optional) 
 
             try
@@ -212,7 +212,7 @@ namespace Example
             var requestParameters = new Delete1099FormRequest();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 5406deee-4ba7-41d5-bcf8-30c77acf8775;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = ded42311-7a3e-4a06-9ebb-5a4a9311b891;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -294,7 +294,7 @@ namespace Example
             var requestParameters = new Get1099FormRequest();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 2c06c4e1-22fd-4349-a4a4-fbb2c9c5c9df;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 0bb6bc71-9213-40e7-b65a-254bb9f1b9a9;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -376,7 +376,7 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new List1099FormsRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 151acfe8-5581-4b74-bd7d-1579cd500903;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 922b5b0a-f423-49e2-93df-553c120edc2f;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.    Collections support filtering only on certain fields. An attempt to filter on an unsupported field will receive a 400 Bad Request response.    Supported filtering fields are as follows:        issuerId      issuerReferenceId      taxYear      addressVerificationStatus - possible values are: unknown, pending, failed, incomplete, unchanged, verified      createdAt      edeliveryStatus - possible values are: sent, unscheduled, bad_verify, bad_verify_limit, scheduled, bounced, accepted      email      federalEfileStatus - possible values are: unscheduled, scheduled, sent, corrected_scheduled, accepted, corrected, corrected_accepted, held      firstPayeeName      mailStatus - possible values are: sent, unscheduled, pending, delivered      referenceId      tinMatchStatus - possible values are: none, pending, matched, failed      type - possible values are: 940, 941, 943, 944, 945, 1042, 1042-S, 1095-B, 1095-C, 1097-BTC, 1098, 1098-C, 1098-E, 1098-Q, 1098-T, 3921, 3922, 5498, 5498-ESA, 5498-SA, 1099-MISC, 1099-A, 1099-B, 1099-C, 1099-CAP, 1099-DIV, 1099-G, 1099-INT, 1099-K, 1099-LS, 1099-LTC, 1099-NEC, 1099-OID, 1099-PATR, 1099-Q, 1099-R, 1099-S, 1099-SA, T4A, W-2, W-2G, 1099-HC      updatedAt      validity - possible values are: true, false (optional) 
             requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results.     Used with skip to provide pagination for large datasets.     Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
             requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
@@ -466,7 +466,7 @@ namespace Example
             var requestParameters = new Update1099FormRequest();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = a342af81-0c2a-4e1b-89e5-2f48bba0befc;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = e12bb4dd-9c99-4d53-8e03-1e3542ed5579;  // string | Unique correlation Id in a GUID format
             requestParameters.IUpdateForm1099Request = new IUpdateForm1099Request(); // IUpdateForm1099Request |  (optional) 
 
             try

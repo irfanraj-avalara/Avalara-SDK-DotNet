@@ -40,7 +40,7 @@ namespace Example
             var requestParameters = new GetJobRequest();
             requestParameters.Id = "id_example";  // string | Job id obtained from other API responses, like `/1099/bulk-upsert`.
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 511fa3d6-2763-408d-a22b-8bf9236fa6b7;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 64769466-d956-45c7-a873-fc04fa489b77;  // string | Unique correlation Id in a GUID format
 
             try
             {

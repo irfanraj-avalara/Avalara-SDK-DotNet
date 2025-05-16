@@ -110,7 +110,7 @@ namespace Avalara.SDK.Client
         /// <summary>
         /// Official URL of AvaTax (Sandbox)
         /// </summary>
-        private static readonly string TRACK1099_SERVICE_SBX_URL = "https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io";
+        private static readonly string TRACK1099_SERVICE_SBX_URL = "https://api.sbx.avalara.com/avalara1099";
 
         /// <summary>
         /// Official URL of AvaTax (Production)

@@ -42,7 +42,7 @@ namespace Example
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new CreateCompanyRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = ff47a71f-4a2a-4bfc-ba18-d823ddf3f33f;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = d97ebad7-c099-45f3-b1c1-f088a6bb8c20;  // string | Unique correlation Id in a GUID format
             requestParameters.CompanyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The company to create (optional) 
 
             try
@@ -125,7 +125,7 @@ namespace Example
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new GetCompaniesRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = d297dcc9-01c8-4881-a990-08279c36e9a2;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = f8d8470a-2ce6-4a98-bfe6-de59e2e0e122;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 56;  // int? | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional) 
             requestParameters.Skip = 56;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional) 
@@ -221,7 +221,7 @@ namespace Example
             var requestParameters = new GetCompanyRequest();
             requestParameters.Id = "id_example";  // string | Id of the company
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 29f505a5-3b22-4883-bb12-775f01a889df;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = df429821-9f5c-490b-b4af-067f0c579355;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -306,7 +306,7 @@ namespace Example
             var requestParameters = new UpdateCompanyRequest();
             requestParameters.Id = "id_example";  // string | The ID of the company to update
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 96a58493-ca81-49ca-a0f3-debcab8df46d;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = d284c799-98a8-4503-95b8-44ac9d94c3f7;  // string | Unique correlation Id in a GUID format
             requestParameters.CompanyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The updated company data (optional) 
 
             try
