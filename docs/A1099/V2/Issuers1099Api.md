@@ -43,7 +43,7 @@ namespace Example
             var apiInstance = new Issuers1099Api(apiClient);
             var requestParameters = new CreateIssuerRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = b432de4f-684e-4669-a531-a7231ffb374b;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 64810a93-eaac-47f6-8d19-bc36d641f3f0;  // string | Unique correlation Id in a GUID format
             requestParameters.IssuerModel = new IssuerModel(); // IssuerModel | The issuer to create (optional) 
 
             try
@@ -127,7 +127,7 @@ namespace Example
             var requestParameters = new DeleteIssuerRequest();
             requestParameters.Id = "id_example";  // string | Id of the issuer to delete
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 0aafb313-0ca8-4d58-a2bc-61ac837a5754;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 0f3c94e0-f469-4a88-878e-3e48b5530b31;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -209,7 +209,7 @@ namespace Example
             var requestParameters = new GetIssuerRequest();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = d2a11c0c-74f5-4698-b9a1-6b8de84fe896;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 04ba3af2-81e8-4fb0-9b41-980c022ddf65;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -291,7 +291,7 @@ namespace Example
             var apiInstance = new Issuers1099Api(apiClient);
             var requestParameters = new ListIssuersRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = c1648eb2-3ec9-4889-a71f-1f2003fd5bea;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = b69e2995-cc14-42b4-a639-195982243eca;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
             requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
@@ -383,7 +383,7 @@ namespace Example
             var requestParameters = new UpdateIssuerRequest();
             requestParameters.Id = "id_example";  // string | Id of the issuer to Update
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 7bcf6f27-30a5-4a84-8834-6092c91ed9b1;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 69c0df20-13fe-4322-bde3-7429be4c525d;  // string | Unique correlation Id in a GUID format
             requestParameters.IssuerModel = new IssuerModel(); // IssuerModel | The issuer to update (optional) 
 
             try
