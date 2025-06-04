@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**CreateIssuer**](Issuers1099Api.md#createissuer) | **POST** /1099/issuers | Create an issuer
 [**DeleteIssuer**](Issuers1099Api.md#deleteissuer) | **DELETE** /1099/issuers/{id} | Delete an issuer
 [**GetIssuer**](Issuers1099Api.md#getissuer) | **GET** /1099/issuers/{id} | Get an issuer
-[**ListIssuers**](Issuers1099Api.md#listissuers) | **GET** /1099/issuers | List issuers
+[**GetIssuers**](Issuers1099Api.md#getissuers) | **GET** /1099/issuers | List issuers
 [**UpdateIssuer**](Issuers1099Api.md#updateissuer) | **PUT** /1099/issuers/{id} | Update an issuer
 
 
@@ -43,7 +43,7 @@ namespace Example
             var apiInstance = new Issuers1099Api(apiClient);
             var requestParameters = new CreateIssuerRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 64810a93-eaac-47f6-8d19-bc36d641f3f0;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 255b47b5-cdec-471c-bc0d-fe57c125b72c;  // string | Unique correlation Id in a GUID format
             requestParameters.IssuerModel = new IssuerModel(); // IssuerModel | The issuer to create (optional) 
 
             try
@@ -127,7 +127,7 @@ namespace Example
             var requestParameters = new DeleteIssuerRequest();
             requestParameters.Id = "id_example";  // string | Id of the issuer to delete
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 0f3c94e0-f469-4a88-878e-3e48b5530b31;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = ece7e5a6-fd08-4efc-b3dc-4104cbb892d7;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -209,7 +209,7 @@ namespace Example
             var requestParameters = new GetIssuerRequest();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 04ba3af2-81e8-4fb0-9b41-980c022ddf65;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 5b6e0202-3077-4f2f-92c4-950bd7534957;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -259,9 +259,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-<a name="listissuers"></a>
-# **ListIssuers**
-> PaginatedQueryResultModelIssuerModel ListIssuers (ListIssuersRequest requestParameters)
+<a name="getissuers"></a>
+# **GetIssuers**
+> PaginatedQueryResultModelIssuerResponse GetIssuers (GetIssuersRequest requestParameters)
 
 List issuers
 
@@ -278,7 +278,7 @@ using Avalara.SDK.Model.A1099.V2;
 
 namespace Example
 {
-    public class ListIssuersExample
+    public class GetIssuersExample
     {
         public static void Main()
         {
@@ -289,24 +289,25 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new Issuers1099Api(apiClient);
-            var requestParameters = new ListIssuersRequest();
+            var requestParameters = new GetIssuersRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = b69e2995-cc14-42b4-a639-195982243eca;  // string | Unique correlation Id in a GUID format
-            requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
-            requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
-            requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
+            requestParameters.XCorrelationId = 4724fb66-9c19-47d4-8497-beb179364af5;  // string | Unique correlation Id in a GUID format
+            requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
+            requestParameters.Top = 56;  // int? | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional) 
+            requestParameters.Skip = 56;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional) 
             requestParameters.OrderBy = "orderBy_example";  // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional) 
-            requestParameters.Count = true;  // bool? | When true, returns a @recordSetCount in the result set (optional) 
+            requestParameters.Count = true;  // bool? | If true, return the global count of elements in the collection. (optional) 
+            requestParameters.CountOnly = true;  // bool? | If true, return ONLY the global count of elements in the collection.  It only applies when count=true. (optional) 
 
             try
             {
                 // List issuers
-                PaginatedQueryResultModelIssuerModel result = apiInstance.ListIssuers(requestParameters);
+                PaginatedQueryResultModelIssuerResponse result = apiInstance.GetIssuers(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling Issuers1099Api.ListIssuers: " + e.Message );
+                Debug.Print("Exception when calling Issuers1099Api.GetIssuers: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -321,15 +322,16 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **Filter** | **string**| A filter statement to identify specific records to retrieve. For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;. | [optional] 
- **Top** | **int?**| If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. | [optional] [default to 10]
- **Skip** | **int?**| If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. | [optional] [default to 0]
+ **Filter** | **string**| A filter statement to identify specific records to retrieve.  For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;. | [optional] 
+ **Top** | **int?**| If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. | [optional] 
+ **Skip** | **int?**| If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. | [optional] 
  **OrderBy** | **string**| A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. | [optional] 
- **Count** | **bool?**| When true, returns a @recordSetCount in the result set | [optional] 
+ **Count** | **bool?**| If true, return the global count of elements in the collection. | [optional] 
+ **CountOnly** | **bool?**| If true, return ONLY the global count of elements in the collection.  It only applies when count&#x3D;true. | [optional] 
 
 ### Return type
 
-[**PaginatedQueryResultModelIssuerModel**](PaginatedQueryResultModelIssuerModel.md)
+[**PaginatedQueryResultModelIssuerResponse**](PaginatedQueryResultModelIssuerResponse.md)
 
 ### Authorization
 
@@ -346,6 +348,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | List of issuers |  -  |
 | **400** | Bad request (e.g., invalid sort key) |  -  |
+| **404** | Not Found |  -  |
+| **500** | Server Error |  -  |
 | **401** | Authentication failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
@@ -383,7 +387,7 @@ namespace Example
             var requestParameters = new UpdateIssuerRequest();
             requestParameters.Id = "id_example";  // string | Id of the issuer to Update
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 69c0df20-13fe-4322-bde3-7429be4c525d;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = f3b36dad-d9c8-436e-9afb-cc3475fa32be;  // string | Unique correlation Id in a GUID format
             requestParameters.IssuerModel = new IssuerModel(); // IssuerModel | The issuer to update (optional) 
 
             try

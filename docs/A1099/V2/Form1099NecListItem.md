@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StateAndLocalWithholding** | [**StateAndLocalWithholdingNecRequest**](StateAndLocalWithholdingNecRequest.md) |  | [optional] 
+**StateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  | [optional] 
 **SecondTinNotice** | **bool** |  | [optional] 
 **NonemployeeCompensation** | **double** |  | [optional] 
 **PayerMadeDirectSales** | **bool** |  | [optional] 

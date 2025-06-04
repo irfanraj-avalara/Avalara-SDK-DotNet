@@ -38,7 +38,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
 /// <summary>
-    /// RequiredWhenField
+    /// Mandates for which this field is required
     /// </summary>
     [DataContract(Name = "RequiredWhenField")]
     public partial class RequiredWhenField : IValidatableObject

@@ -38,7 +38,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
 /// <summary>
-    /// WebhooksErrorResponse
+    /// Wrapper for errors occurring during webhook subscription or delivery processing.
     /// </summary>
     [DataContract(Name = "WebhooksErrorResponse")]
     public partial class WebhooksErrorResponse : IValidatableObject

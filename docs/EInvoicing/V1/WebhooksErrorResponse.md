@@ -1,4 +1,5 @@
 # Avalara.SDK.Model.EInvoicing.V1.WebhooksErrorResponse
+Wrapper for errors occurring during webhook subscription or delivery processing.
 
 ## Properties
 

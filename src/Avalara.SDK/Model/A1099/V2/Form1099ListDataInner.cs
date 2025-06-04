@@ -69,6 +69,18 @@ namespace Avalara.SDK.Model.A1099.V2
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Form1099ListDataInner" /> class
+        /// with the <see cref="Form1099R" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1099R.</param>
+        public Form1099ListDataInner(Form1099R actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -91,9 +103,13 @@ namespace Avalara.SDK.Model.A1099.V2
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(Form1099R) || value is Form1099R)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099Misc, Form1099Nec");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099Misc, Form1099Nec, Form1099R");
                 }
             }
         }
@@ -116,6 +132,16 @@ namespace Avalara.SDK.Model.A1099.V2
         public Form1099Nec GetForm1099Nec()
         {
             return (Form1099Nec)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1099R`. If the actual instance is not `Form1099R`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1099R</returns>
+        public Form1099R GetForm1099R()
+        {
+            return (Form1099R)this.ActualInstance;
         }
 
         /// <summary>
@@ -194,6 +220,26 @@ namespace Avalara.SDK.Model.A1099.V2
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099Nec: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1099R).GetProperty("AdditionalProperties") == null)
+                {
+                    newForm1099ListDataInner = new Form1099ListDataInner(JsonConvert.DeserializeObject<Form1099R>(jsonString, Form1099ListDataInner.SerializerSettings));
+                }
+                else
+                {
+                    newForm1099ListDataInner = new Form1099ListDataInner(JsonConvert.DeserializeObject<Form1099R>(jsonString, Form1099ListDataInner.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1099R");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099R: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

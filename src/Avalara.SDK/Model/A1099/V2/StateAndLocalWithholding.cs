@@ -47,20 +47,22 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Initializes a new instance of the <see cref="StateAndLocalWithholding" /> class.
         /// </summary>
         /// <param name="stateTaxWithheld">stateTaxWithheld.</param>
-        /// <param name="localTaxWithheld">localTaxWithheld.</param>
         /// <param name="state">state.</param>
         /// <param name="stateIdNumber">stateIdNumber.</param>
-        /// <param name="locality">locality.</param>
         /// <param name="stateIncome">stateIncome.</param>
+        /// <param name="localTaxWithheld">localTaxWithheld.</param>
+        /// <param name="locality">locality.</param>
+        /// <param name="localityIdNumber">localityIdNumber.</param>
         /// <param name="localIncome">localIncome.</param>
-        public StateAndLocalWithholding(double? stateTaxWithheld = default(double?), double? localTaxWithheld = default(double?), string state = default(string), string stateIdNumber = default(string), string locality = default(string), double? stateIncome = default(double?), double? localIncome = default(double?))
+        public StateAndLocalWithholding(double? stateTaxWithheld = default(double?), string state = default(string), string stateIdNumber = default(string), double? stateIncome = default(double?), double? localTaxWithheld = default(double?), string locality = default(string), string localityIdNumber = default(string), double? localIncome = default(double?))
         {
             this.StateTaxWithheld = stateTaxWithheld;
-            this.LocalTaxWithheld = localTaxWithheld;
             this.State = state;
             this.StateIdNumber = stateIdNumber;
-            this.Locality = locality;
             this.StateIncome = stateIncome;
+            this.LocalTaxWithheld = localTaxWithheld;
+            this.Locality = locality;
+            this.LocalityIdNumber = localityIdNumber;
             this.LocalIncome = localIncome;
         }
 
@@ -69,12 +71,6 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         [DataMember(Name = "stateTaxWithheld", EmitDefaultValue = true)]
         public double? StateTaxWithheld { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LocalTaxWithheld
-        /// </summary>
-        [DataMember(Name = "localTaxWithheld", EmitDefaultValue = true)]
-        public double? LocalTaxWithheld { get; set; }
 
         /// <summary>
         /// Gets or Sets State
@@ -89,16 +85,28 @@ namespace Avalara.SDK.Model.A1099.V2
         public string StateIdNumber { get; set; }
 
         /// <summary>
+        /// Gets or Sets StateIncome
+        /// </summary>
+        [DataMember(Name = "stateIncome", EmitDefaultValue = true)]
+        public double? StateIncome { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LocalTaxWithheld
+        /// </summary>
+        [DataMember(Name = "localTaxWithheld", EmitDefaultValue = true)]
+        public double? LocalTaxWithheld { get; set; }
+
+        /// <summary>
         /// Gets or Sets Locality
         /// </summary>
         [DataMember(Name = "locality", EmitDefaultValue = true)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateIncome
+        /// Gets or Sets LocalityIdNumber
         /// </summary>
-        [DataMember(Name = "stateIncome", EmitDefaultValue = true)]
-        public double? StateIncome { get; set; }
+        [DataMember(Name = "localityIdNumber", EmitDefaultValue = true)]
+        public string LocalityIdNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets LocalIncome
@@ -115,11 +123,12 @@ namespace Avalara.SDK.Model.A1099.V2
             StringBuilder sb = new StringBuilder();
             sb.Append("class StateAndLocalWithholding {\n");
             sb.Append("  StateTaxWithheld: ").Append(StateTaxWithheld).Append("\n");
-            sb.Append("  LocalTaxWithheld: ").Append(LocalTaxWithheld).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  StateIdNumber: ").Append(StateIdNumber).Append("\n");
-            sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("  StateIncome: ").Append(StateIncome).Append("\n");
+            sb.Append("  LocalTaxWithheld: ").Append(LocalTaxWithheld).Append("\n");
+            sb.Append("  Locality: ").Append(Locality).Append("\n");
+            sb.Append("  LocalityIdNumber: ").Append(LocalityIdNumber).Append("\n");
             sb.Append("  LocalIncome: ").Append(LocalIncome).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
