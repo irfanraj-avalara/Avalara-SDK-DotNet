@@ -1,22 +1,3 @@
-/*
- * AvaTax Software Development Kit for C#
- *
- * (c) 2004-2022 Avalara, Inc.
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- * Avalara 1099 & W-9 API Definition
- *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
- *
-
- * @author     Sachin Baijal <sachin.baijal@avalara.com>
- * @author     Jonathan Wenger <jonathan.wenger@avalara.com>
- * @copyright  2004-2022 Avalara, Inc.
- * @license    https://www.apache.org/licenses/LICENSE-2.0
- * @link       https://github.com/avadev/AvaTax-REST-V3-DotNet-SDK
- */
 
 
 using System;
@@ -873,7 +854,7 @@ namespace Avalara.SDK.Api.A1099.V2
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.5.2";
+            this.Client.SdkVersion = "25.5.3";
         }
         
     }

@@ -75,7 +75,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="stateEFile">stateEFile.</param>
         /// <param name="tinMatch">tinMatch.</param>
         /// <param name="addressVerification">addressVerification.</param>
-        public Form1099NecListItem(StateAndLocalWithholdingNecRequest stateAndLocalWithholding = default(StateAndLocalWithholdingNecRequest), bool secondTinNotice = default(bool), double nonemployeeCompensation = default(double), bool payerMadeDirectSales = default(bool), double federalIncomeTaxWithheld = default(double), string issuerId = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), int tinType = default(int), string recipientSecondName = default(string), string streetAddress = default(string), string streetAddressLine2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool))
+        public Form1099NecListItem(StateAndLocalWithholding stateAndLocalWithholding = default(StateAndLocalWithholding), bool secondTinNotice = default(bool), double nonemployeeCompensation = default(double), bool payerMadeDirectSales = default(bool), double federalIncomeTaxWithheld = default(double), string issuerId = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), int tinType = default(int), string recipientSecondName = default(string), string streetAddress = default(string), string streetAddressLine2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool))
         {
             this.StateAndLocalWithholding = stateAndLocalWithholding;
             this.SecondTinNotice = secondTinNotice;
@@ -112,7 +112,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets StateAndLocalWithholding
         /// </summary>
         [DataMember(Name = "stateAndLocalWithholding", EmitDefaultValue = false)]
-        public StateAndLocalWithholdingNecRequest StateAndLocalWithholding { get; set; }
+        public StateAndLocalWithholding StateAndLocalWithholding { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondTinNotice

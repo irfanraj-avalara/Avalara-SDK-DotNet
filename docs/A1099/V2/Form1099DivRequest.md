@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **ExemptInterestDividends** | **string** |  | [optional] 
 **SpecifiedPrivateActivityBondInterestDividends** | **string** |  | [optional] 
 **FatcaFilingRequirement** | **string** |  | [optional] 
-**StateAndLocalWithholding** | [**StateAndLocalWithholdingDivRequest**](StateAndLocalWithholdingDivRequest.md) |  | [optional] 
+**StateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional] 
 **Type** | **string** |  | [optional] 
 **IssuerId** | **string** |  | [optional] 
 **IssuerReferenceId** | **string** |  | [optional] 

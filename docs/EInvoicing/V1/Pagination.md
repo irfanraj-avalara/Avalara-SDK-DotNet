@@ -1,4 +1,5 @@
 # Avalara.SDK.Model.EInvoicing.V1.Pagination
+Pagination information for the dataset.
 
 ## Properties
 

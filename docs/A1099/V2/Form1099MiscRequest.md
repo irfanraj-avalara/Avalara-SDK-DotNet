@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StateAndLocalWithholding** | [**StateAndLocalWithholdingMiscRequest**](StateAndLocalWithholdingMiscRequest.md) |  | [optional] 
+**StateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional] 
 **SecondTinNotice** | **bool** |  | [optional] 
 **Rents** | **double** |  | [optional] 
 **Royalties** | **double** |  | [optional] 

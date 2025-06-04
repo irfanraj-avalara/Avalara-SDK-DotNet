@@ -43,7 +43,7 @@ namespace Example
             var apiInstance = new FormsW9Api(apiClient);
             var requestParameters = new CreateW9FormRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 9c01b80b-9c6b-439d-a650-8c2c96562800;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 805790c3-5742-42c1-893c-df30770c313b;  // string | Unique correlation Id in a GUID format
             requestParameters.IW9FormDataModelsOneOf = new IW9FormDataModelsOneOf(); // IW9FormDataModelsOneOf | Form to be created (optional) 
 
             try
@@ -127,7 +127,7 @@ namespace Example
             var requestParameters = new DeleteW9FormRequest();
             requestParameters.Id = "id_example";  // string | Id of the form to delete
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = c5814105-0ac2-4551-a617-1aade9e8f407;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 881f5faa-9442-4b37-a6dc-edb45cb3b1d3;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -209,7 +209,7 @@ namespace Example
             var requestParameters = new GetW9FormRequest();
             requestParameters.Id = "id_example";  // string | Id of the form
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = efff9a2a-8e30-4949-9d66-3d154554cae9;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 3f59831f-03e0-46e2-8930-95afe63a5f7a;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -293,7 +293,7 @@ namespace Example
             var requestParameters = new GetW9FormRequestRequest();
             requestParameters.FormRequestId = "formRequestId_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = d833955d-d396-4b2e-b9fe-77362ffb5a54;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = a6b408d6-c331-454d-ba6c-00664912a74b;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -375,7 +375,7 @@ namespace Example
             var apiInstance = new FormsW9Api(apiClient);
             var requestParameters = new ListW9FormsRequest();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 8ee485b4-f162-47e4-9ee9-b4153cd6cf9c;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = ce11c914-d887-497a-966b-714ce5bc2156;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
             requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
@@ -465,7 +465,7 @@ namespace Example
             var requestParameters = new UpdateW9FormRequest();
             requestParameters.Id = "id_example";  // string | Id of the form to update
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 8a4c7a06-04ff-4f96-9b7b-8032e01e3409;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 65ce2a6b-9204-423a-93bc-bcacabec7793;  // string | Unique correlation Id in a GUID format
             requestParameters.IW9FormDataModelsOneOf = new IW9FormDataModelsOneOf(); // IW9FormDataModelsOneOf | Form to be updated (optional) 
 
             try
@@ -550,7 +550,7 @@ namespace Example
             var requestParameters = new UploadW9FilesRequest();
             requestParameters.Id = "id_example";  // string | Id of the form
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 8139de4d-4fae-4f5f-ac82-76268b95eb10;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 2ad5385c-ae69-439b-bb9a-283c2cdcffc8;  // string | Unique correlation Id in a GUID format
             requestParameters.File = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter |  (optional) 
 
             try

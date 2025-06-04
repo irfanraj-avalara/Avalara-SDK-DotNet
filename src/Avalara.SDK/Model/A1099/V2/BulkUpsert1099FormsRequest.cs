@@ -81,6 +81,18 @@ namespace Avalara.SDK.Model.A1099.V2
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BulkUpsert1099FormsRequest" /> class
+        /// with the <see cref="Form1099RList" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1099RList.</param>
+        public BulkUpsert1099FormsRequest(Form1099RList actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -107,9 +119,13 @@ namespace Avalara.SDK.Model.A1099.V2
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(Form1099RList) || value is Form1099RList)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099DivList, Form1099MiscList, Form1099NecList");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099DivList, Form1099MiscList, Form1099NecList, Form1099RList");
                 }
             }
         }
@@ -142,6 +158,16 @@ namespace Avalara.SDK.Model.A1099.V2
         public Form1099NecList GetForm1099NecList()
         {
             return (Form1099NecList)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1099RList`. If the actual instance is not `Form1099RList`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1099RList</returns>
+        public Form1099RList GetForm1099RList()
+        {
+            return (Form1099RList)this.ActualInstance;
         }
 
         /// <summary>
@@ -240,6 +266,26 @@ namespace Avalara.SDK.Model.A1099.V2
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099NecList: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1099RList).GetProperty("AdditionalProperties") == null)
+                {
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099RList>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
+                }
+                else
+                {
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1099RList>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1099RList");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099RList: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)
