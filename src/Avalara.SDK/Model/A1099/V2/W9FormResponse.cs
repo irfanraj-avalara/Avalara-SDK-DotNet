@@ -60,6 +60,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="state">The state of the address..</param>
         /// <param name="zip">The ZIP code of the address..</param>
         /// <param name="accountNumber">The account number associated with the form..</param>
+        /// <param name="tinType">The type of TIN provided..</param>
+        /// <param name="tin">The taxpayer identification number (TIN)..</param>
         /// <param name="backupWithholding">Indicates whether backup withholding applies..</param>
         /// <param name="is1099able">Indicates whether the individual or entity should be issued a 1099 form..</param>
         /// <param name="id">The unique identifier for the form..</param>
@@ -68,8 +70,6 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="entryStatusDate">The timestamp for the latest status update..</param>
         /// <param name="referenceId">A reference identifier for the form..</param>
         /// <param name="companyId">The ID of the associated company..</param>
-        /// <param name="typeOfTin">The type of TIN provided..</param>
-        /// <param name="tin">The taxpayer identification number (TIN)..</param>
         /// <param name="displayName">The display name associated with the form..</param>
         /// <param name="email">The email address of the individual associated with the form..</param>
         /// <param name="archived">Indicates whether the form is archived..</param>
@@ -78,7 +78,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="eDeliveryConsentedAt">The date when e-delivery was consented..</param>
         /// <param name="createdAt">The creation date of the form..</param>
         /// <param name="updatedAt">The last updated date of the form..</param>
-        public W9FormResponse(string name = default(string), string businessName = default(string), string businessClassification = default(string), string businessOther = default(string), bool? foreignPartnerOwnerOrBeneficiary = default(bool?), string exemptPayeeCode = default(string), string exemptFatcaCode = default(string), bool? foreignCountryIndicator = default(bool?), string address = default(string), string foreignAddress = default(string), string city = default(string), string state = default(string), string zip = default(string), string accountNumber = default(string), bool? backupWithholding = default(bool?), bool? is1099able = default(bool?), string id = default(string), string type = default(string), string entryStatus = default(string), DateTime? entryStatusDate = default(DateTime?), string referenceId = default(string), string companyId = default(string), string typeOfTin = default(string), string tin = default(string), string displayName = default(string), string email = default(string), bool? archived = default(bool?), string signature = default(string), DateTime? signedDate = default(DateTime?), DateTime? eDeliveryConsentedAt = default(DateTime?), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?))
+        public W9FormResponse(string name = default(string), string businessName = default(string), string businessClassification = default(string), string businessOther = default(string), bool? foreignPartnerOwnerOrBeneficiary = default(bool?), string exemptPayeeCode = default(string), string exemptFatcaCode = default(string), bool? foreignCountryIndicator = default(bool?), string address = default(string), string foreignAddress = default(string), string city = default(string), string state = default(string), string zip = default(string), string accountNumber = default(string), string tinType = default(string), string tin = default(string), bool backupWithholding = default(bool), bool is1099able = default(bool), string id = default(string), string type = default(string), string entryStatus = default(string), DateTime? entryStatusDate = default(DateTime?), string referenceId = default(string), string companyId = default(string), string displayName = default(string), string email = default(string), bool archived = default(bool), string signature = default(string), DateTime? signedDate = default(DateTime?), DateTime? eDeliveryConsentedAt = default(DateTime?), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
         {
             this.Name = name;
             this.BusinessName = businessName;
@@ -94,6 +94,8 @@ namespace Avalara.SDK.Model.A1099.V2
             this.State = state;
             this.Zip = zip;
             this.AccountNumber = accountNumber;
+            this.TinType = tinType;
+            this.Tin = tin;
             this.BackupWithholding = backupWithholding;
             this.Is1099able = is1099able;
             this.Id = id;
@@ -102,8 +104,6 @@ namespace Avalara.SDK.Model.A1099.V2
             this.EntryStatusDate = entryStatusDate;
             this.ReferenceId = referenceId;
             this.CompanyId = companyId;
-            this.TypeOfTin = typeOfTin;
-            this.Tin = tin;
             this.DisplayName = displayName;
             this.Email = email;
             this.Archived = archived;
@@ -119,7 +119,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The name of the individual or entity associated with the form.</value>
         /// <example>John Doe</example>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The classification of the business.</value>
         /// <example>LLC</example>
-        [DataMember(Name = "businessClassification", EmitDefaultValue = true)]
+        [DataMember(Name = "businessClassification", EmitDefaultValue = false)]
         public string BusinessClassification { get; set; }
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The address of the individual or entity.</value>
         /// <example>123 Main St</example>
-        [DataMember(Name = "address", EmitDefaultValue = true)]
+        [DataMember(Name = "address", EmitDefaultValue = false)]
         public string Address { get; set; }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The city of the address.</value>
         /// <example>Anytown</example>
-        [DataMember(Name = "city", EmitDefaultValue = true)]
+        [DataMember(Name = "city", EmitDefaultValue = false)]
         public string City { get; set; }
 
         /// <summary>
@@ -203,7 +203,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The state of the address.</value>
         /// <example>CA</example>
-        [DataMember(Name = "state", EmitDefaultValue = true)]
+        [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
@@ -211,7 +211,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The ZIP code of the address.</value>
         /// <example>90210</example>
-        [DataMember(Name = "zip", EmitDefaultValue = true)]
+        [DataMember(Name = "zip", EmitDefaultValue = false)]
         public string Zip { get; set; }
 
         /// <summary>
@@ -223,12 +223,28 @@ namespace Avalara.SDK.Model.A1099.V2
         public string AccountNumber { get; set; }
 
         /// <summary>
+        /// The type of TIN provided.
+        /// </summary>
+        /// <value>The type of TIN provided.</value>
+        /// <example>EIN</example>
+        [DataMember(Name = "tinType", EmitDefaultValue = false)]
+        public string TinType { get; set; }
+
+        /// <summary>
+        /// The taxpayer identification number (TIN).
+        /// </summary>
+        /// <value>The taxpayer identification number (TIN).</value>
+        /// <example>12-3456789</example>
+        [DataMember(Name = "tin", EmitDefaultValue = false)]
+        public string Tin { get; set; }
+
+        /// <summary>
         /// Indicates whether backup withholding applies.
         /// </summary>
         /// <value>Indicates whether backup withholding applies.</value>
         /// <example>false</example>
         [DataMember(Name = "backupWithholding", EmitDefaultValue = true)]
-        public bool? BackupWithholding { get; set; }
+        public bool BackupWithholding { get; set; }
 
         /// <summary>
         /// Indicates whether the individual or entity should be issued a 1099 form.
@@ -236,7 +252,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <value>Indicates whether the individual or entity should be issued a 1099 form.</value>
         /// <example>true</example>
         [DataMember(Name = "is1099able", EmitDefaultValue = true)]
-        public bool? Is1099able { get; set; }
+        public bool Is1099able { get; set; }
 
         /// <summary>
         /// The unique identifier for the form.
@@ -277,28 +293,14 @@ namespace Avalara.SDK.Model.A1099.V2
         /// The ID of the associated company.
         /// </summary>
         /// <value>The ID of the associated company.</value>
-        [DataMember(Name = "companyId", EmitDefaultValue = true)]
+        [DataMember(Name = "companyId", EmitDefaultValue = false)]
         public string CompanyId { get; set; }
-
-        /// <summary>
-        /// The type of TIN provided.
-        /// </summary>
-        /// <value>The type of TIN provided.</value>
-        [DataMember(Name = "typeOfTin", EmitDefaultValue = true)]
-        public string TypeOfTin { get; set; }
-
-        /// <summary>
-        /// The taxpayer identification number (TIN).
-        /// </summary>
-        /// <value>The taxpayer identification number (TIN).</value>
-        [DataMember(Name = "tin", EmitDefaultValue = true)]
-        public string Tin { get; set; }
 
         /// <summary>
         /// The display name associated with the form.
         /// </summary>
         /// <value>The display name associated with the form.</value>
-        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -313,7 +315,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Indicates whether the form is archived.</value>
         [DataMember(Name = "archived", EmitDefaultValue = true)]
-        public bool? Archived { get; set; }
+        public bool Archived { get; set; }
 
         /// <summary>
         /// The signature of the form.
@@ -340,15 +342,15 @@ namespace Avalara.SDK.Model.A1099.V2
         /// The creation date of the form.
         /// </summary>
         /// <value>The creation date of the form.</value>
-        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
-        public DateTime? CreatedAt { get; set; }
+        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
+        public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// The last updated date of the form.
         /// </summary>
         /// <value>The last updated date of the form.</value>
-        [DataMember(Name = "updatedAt", EmitDefaultValue = true)]
-        public DateTime? UpdatedAt { get; set; }
+        [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
+        public DateTime UpdatedAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -372,6 +374,8 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Zip: ").Append(Zip).Append("\n");
             sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
+            sb.Append("  TinType: ").Append(TinType).Append("\n");
+            sb.Append("  Tin: ").Append(Tin).Append("\n");
             sb.Append("  BackupWithholding: ").Append(BackupWithholding).Append("\n");
             sb.Append("  Is1099able: ").Append(Is1099able).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -380,8 +384,6 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  EntryStatusDate: ").Append(EntryStatusDate).Append("\n");
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
             sb.Append("  CompanyId: ").Append(CompanyId).Append("\n");
-            sb.Append("  TypeOfTin: ").Append(TypeOfTin).Append("\n");
-            sb.Append("  Tin: ").Append(Tin).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Archived: ").Append(Archived).Append("\n");

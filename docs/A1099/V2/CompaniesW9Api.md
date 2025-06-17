@@ -5,6 +5,7 @@ All URIs are relative to *https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io/a
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateCompany**](CompaniesW9Api.md#createcompany) | **POST** /w9/companies | Creates a new company
+[**DeleteCompany**](CompaniesW9Api.md#deletecompany) | **DELETE** /w9/companies/{id} | Deletes a company
 [**GetCompanies**](CompaniesW9Api.md#getcompanies) | **GET** /w9/companies | List companies
 [**GetCompany**](CompaniesW9Api.md#getcompany) | **GET** /w9/companies/{id} | Retrieve a company
 [**UpdateCompany**](CompaniesW9Api.md#updatecompany) | **PUT** /w9/companies/{id} | Update a company
@@ -12,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createcompany"></a>
 # **CreateCompany**
-> CompanyResponseModel CreateCompany (CreateCompanyRequest requestParameters)
+> CompanyResponseModel CreateCompany (CreateCompanyRequestSdk requestParameters)
 
 Creates a new company
 
@@ -40,9 +41,9 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new CompaniesW9Api(apiClient);
-            var requestParameters = new CreateCompanyRequest();
+            var requestParameters = new CreateCompanyRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 01ab6e64-2299-4290-b32a-93e52d2c0084;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 893ccb52-18e2-44e7-997f-a5ff9b64d107;  // string | Unique correlation Id in a GUID format
             requestParameters.CompanyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The company to create (optional) 
 
             try
@@ -93,9 +94,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+<a name="deletecompany"></a>
+# **DeleteCompany**
+> void DeleteCompany (DeleteCompanyRequestSdk requestParameters)
+
+Deletes a company
+
+Deletes a company
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Avalara.SDK.Api.A1099.V2;
+using Avalara.SDK.Client;
+using Avalara.SDK.Model.A1099.V2;
+
+namespace Example
+{
+    public class DeleteCompanyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.Environment = AvalaraEnvironment.Sandbox;
+            config.BearerToken = "<Your Bearer Token>";
+            
+            ApiClient apiClient= new ApiClient(config);
+            
+            var apiInstance = new CompaniesW9Api(apiClient);
+            var requestParameters = new DeleteCompanyRequestSdk();
+            requestParameters.Id = "id_example";  // string | The company to delete
+            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.XCorrelationId = 55075aff-e4ba-419d-be13-8fc2b0f5fbf2;  // string | Unique correlation Id in a GUID format
+
+            try
+            {
+                // Deletes a company
+                apiInstance.DeleteCompany(requestParameters);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CompaniesW9Api.DeleteCompany: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Request Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **string**| The company to delete | 
+ **AvalaraVersion** | **string**| API version | 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer](../../../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Company deleted |  -  |
+| **401** | Authentication failed. |  -  |
+| **404** | Company was not found or your user does not have to permission to delete it. |  -  |
+| **409** | Company can&#39;t be deleted since it still have forms associated with it. |  -  |
+| **500** | An error happened while attempting to delete the company. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 <a name="getcompanies"></a>
 # **GetCompanies**
-> PaginatedQueryResultModelCompanyResponse GetCompanies (GetCompaniesRequest requestParameters)
+> PaginatedQueryResultModelCompanyResponse GetCompanies (GetCompaniesRequestSdk requestParameters)
 
 List companies
 
@@ -123,9 +208,9 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new CompaniesW9Api(apiClient);
-            var requestParameters = new GetCompaniesRequest();
+            var requestParameters = new GetCompaniesRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 88b3e540-ede5-42d1-a1b6-386758d5168e;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 9299848a-bed7-4a09-903a-348e2f730ed3;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 56;  // int? | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional) 
             requestParameters.Skip = 56;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional) 
@@ -190,7 +275,7 @@ Name | Type | Description  | Notes
 
 <a name="getcompany"></a>
 # **GetCompany**
-> CompanyResponse GetCompany (GetCompanyRequest requestParameters)
+> CompanyResponse GetCompany (GetCompanyRequestSdk requestParameters)
 
 Retrieve a company
 
@@ -218,10 +303,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new CompaniesW9Api(apiClient);
-            var requestParameters = new GetCompanyRequest();
+            var requestParameters = new GetCompanyRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the company
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 43d5330c-b28b-4886-a238-1c1c8caad23f;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = eb716a59-0f88-4d4b-b3fb-51b174abe535;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -275,7 +360,7 @@ Name | Type | Description  | Notes
 
 <a name="updatecompany"></a>
 # **UpdateCompany**
-> CompanyResponseModel UpdateCompany (UpdateCompanyRequest requestParameters)
+> CompanyResponseModel UpdateCompany (UpdateCompanyRequestSdk requestParameters)
 
 Update a company
 
@@ -303,10 +388,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new CompaniesW9Api(apiClient);
-            var requestParameters = new UpdateCompanyRequest();
+            var requestParameters = new UpdateCompanyRequestSdk();
             requestParameters.Id = "id_example";  // string | The ID of the company to update
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = e91c8166-491d-4a5f-a3f5-fa44ff4e31d9;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 8ab738df-cd36-48be-8adb-92f01a2c741e;  // string | Unique correlation Id in a GUID format
             requestParameters.CompanyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The updated company data (optional) 
 
             try

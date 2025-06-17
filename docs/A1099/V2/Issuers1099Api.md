@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createissuer"></a>
 # **CreateIssuer**
-> IssuerModel CreateIssuer (CreateIssuerRequest requestParameters)
+> IssuerResponse CreateIssuer (CreateIssuerRequestSdk requestParameters)
 
 Create an issuer
 
@@ -41,15 +41,15 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new Issuers1099Api(apiClient);
-            var requestParameters = new CreateIssuerRequest();
+            var requestParameters = new CreateIssuerRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 255b47b5-cdec-471c-bc0d-fe57c125b72c;  // string | Unique correlation Id in a GUID format
-            requestParameters.IssuerModel = new IssuerModel(); // IssuerModel | The issuer to create (optional) 
+            requestParameters.XCorrelationId = 1fcfc4f6-696e-4b32-b7a8-6364c2e8e6bb;  // string | Unique correlation Id in a GUID format
+            requestParameters.IssuerCommand = new IssuerCommand(); // IssuerCommand | The issuer to create (optional) 
 
             try
             {
                 // Create an issuer
-                IssuerModel result = apiInstance.CreateIssuer(requestParameters);
+                IssuerResponse result = apiInstance.CreateIssuer(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,11 +69,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **IssuerModel** | [**IssuerModel**](IssuerModel.md)| The issuer to create | [optional] 
+ **IssuerCommand** | [**IssuerCommand**](IssuerCommand.md)| The issuer to create | [optional] 
 
 ### Return type
 
-[**IssuerModel**](IssuerModel.md)
+[**IssuerResponse**](IssuerResponse.md)
 
 ### Authorization
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteissuer"></a>
 # **DeleteIssuer**
-> void DeleteIssuer (DeleteIssuerRequest requestParameters)
+> void DeleteIssuer (DeleteIssuerRequestSdk requestParameters)
 
 Delete an issuer
 
@@ -124,10 +124,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new Issuers1099Api(apiClient);
-            var requestParameters = new DeleteIssuerRequest();
+            var requestParameters = new DeleteIssuerRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the issuer to delete
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = ece7e5a6-fd08-4efc-b3dc-4104cbb892d7;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = e4ba543d-b33d-406e-a8aa-2c2e6eb7e21b;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -178,7 +178,7 @@ void (empty response body)
 
 <a name="getissuer"></a>
 # **GetIssuer**
-> IssuerModel GetIssuer (GetIssuerRequest requestParameters)
+> IssuerResponse GetIssuer (GetIssuerRequestSdk requestParameters)
 
 Get an issuer
 
@@ -206,15 +206,15 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new Issuers1099Api(apiClient);
-            var requestParameters = new GetIssuerRequest();
+            var requestParameters = new GetIssuerRequestSdk();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 5b6e0202-3077-4f2f-92c4-950bd7534957;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 43da7538-22ea-47f0-8368-e07aa7df8c5f;  // string | Unique correlation Id in a GUID format
 
             try
             {
                 // Get an issuer
-                IssuerModel result = apiInstance.GetIssuer(requestParameters);
+                IssuerResponse result = apiInstance.GetIssuer(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IssuerModel**](IssuerModel.md)
+[**IssuerResponse**](IssuerResponse.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 <a name="getissuers"></a>
 # **GetIssuers**
-> PaginatedQueryResultModelIssuerResponse GetIssuers (GetIssuersRequest requestParameters)
+> PaginatedQueryResultModelIssuerResponse GetIssuers (GetIssuersRequestSdk requestParameters)
 
 List issuers
 
@@ -289,9 +289,9 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new Issuers1099Api(apiClient);
-            var requestParameters = new GetIssuersRequest();
+            var requestParameters = new GetIssuersRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 4724fb66-9c19-47d4-8497-beb179364af5;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = f45a9d20-ed48-4846-88ae-fcb478a78602;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 56;  // int? | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional) 
             requestParameters.Skip = 56;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional) 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 <a name="updateissuer"></a>
 # **UpdateIssuer**
-> void UpdateIssuer (UpdateIssuerRequest requestParameters)
+> void UpdateIssuer (UpdateIssuerRequestSdk requestParameters)
 
 Update an issuer
 
@@ -384,11 +384,11 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new Issuers1099Api(apiClient);
-            var requestParameters = new UpdateIssuerRequest();
+            var requestParameters = new UpdateIssuerRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the issuer to Update
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = f3b36dad-d9c8-436e-9afb-cc3475fa32be;  // string | Unique correlation Id in a GUID format
-            requestParameters.IssuerModel = new IssuerModel(); // IssuerModel | The issuer to update (optional) 
+            requestParameters.XCorrelationId = 2ef64f49-798c-4ff1-b6fc-02ff199edfa8;  // string | Unique correlation Id in a GUID format
+            requestParameters.IssuerCommand = new IssuerCommand(); // IssuerCommand | The issuer to update (optional) 
 
             try
             {
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
  **Id** | **string**| Id of the issuer to Update | 
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
- **IssuerModel** | [**IssuerModel**](IssuerModel.md)| The issuer to update | [optional] 
+ **IssuerCommand** | [**IssuerCommand**](IssuerCommand.md)| The issuer to update | [optional] 
 
 ### Return type
 

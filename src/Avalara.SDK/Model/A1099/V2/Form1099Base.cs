@@ -64,10 +64,10 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="addressVerificationStatus">addressVerificationStatus.</param>
         /// <param name="referenceId">referenceId.</param>
         /// <param name="email">email.</param>
-        /// <param name="typeOfTin">typeOfTin.</param>
+        /// <param name="tinType">tinType.</param>
         /// <param name="tin">tin.</param>
-        /// <param name="firstPayeeName">firstPayeeName.</param>
-        /// <param name="secondPayeeName">secondPayeeName.</param>
+        /// <param name="recipientName">recipientName.</param>
+        /// <param name="recipientSecondName">recipientSecondName.</param>
         /// <param name="address">address.</param>
         /// <param name="addressRecipientSecond">addressRecipientSecond.</param>
         /// <param name="city">city.</param>
@@ -79,7 +79,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="stateAndLocalWithholding">stateAndLocalWithholding.</param>
-        public Form1099Base(string id = default(string), string type = default(string), int issuerId = default(int), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), bool federalEfile = default(bool), Form1099StatusDetail federalEfileStatus = default(Form1099StatusDetail), bool stateEfile = default(bool), List<StateEfileStatusDetail> stateEfileStatus = default(List<StateEfileStatusDetail>), bool postalMail = default(bool), Form1099StatusDetail postalMailStatus = default(Form1099StatusDetail), bool tinMatch = default(bool), Form1099StatusDetail tinMatchStatus = default(Form1099StatusDetail), bool addressVerification = default(bool), Form1099StatusDetail addressVerificationStatus = default(Form1099StatusDetail), string referenceId = default(string), string email = default(string), string typeOfTin = default(string), string tin = default(string), string firstPayeeName = default(string), string secondPayeeName = default(string), string address = default(string), string addressRecipientSecond = default(string), string city = default(string), string state = default(string), string zip = default(string), string foreignProvince = default(string), string countryCode = default(string), List<ValidationError> validationErrors = default(List<ValidationError>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), StateAndLocalWithholding stateAndLocalWithholding = default(StateAndLocalWithholding))
+        public Form1099Base(string id = default(string), string type = default(string), int issuerId = default(int), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), bool federalEfile = default(bool), Form1099StatusDetail federalEfileStatus = default(Form1099StatusDetail), bool stateEfile = default(bool), List<StateEfileStatusDetail> stateEfileStatus = default(List<StateEfileStatusDetail>), bool postalMail = default(bool), Form1099StatusDetail postalMailStatus = default(Form1099StatusDetail), bool tinMatch = default(bool), Form1099StatusDetail tinMatchStatus = default(Form1099StatusDetail), bool addressVerification = default(bool), Form1099StatusDetail addressVerificationStatus = default(Form1099StatusDetail), string referenceId = default(string), string email = default(string), string tinType = default(string), string tin = default(string), string recipientName = default(string), string recipientSecondName = default(string), string address = default(string), string addressRecipientSecond = default(string), string city = default(string), string state = default(string), string zip = default(string), string foreignProvince = default(string), string countryCode = default(string), List<ValidationError> validationErrors = default(List<ValidationError>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), StateAndLocalWithholding stateAndLocalWithholding = default(StateAndLocalWithholding))
         {
             this.Id = id;
             this.Type = type;
@@ -99,10 +99,10 @@ namespace Avalara.SDK.Model.A1099.V2
             this.AddressVerificationStatus = addressVerificationStatus;
             this.ReferenceId = referenceId;
             this.Email = email;
-            this.TypeOfTin = typeOfTin;
+            this.TinType = tinType;
             this.Tin = tin;
-            this.FirstPayeeName = firstPayeeName;
-            this.SecondPayeeName = secondPayeeName;
+            this.RecipientName = recipientName;
+            this.RecipientSecondName = recipientSecondName;
             this.Address = address;
             this.AddressRecipientSecond = addressRecipientSecond;
             this.City = city;
@@ -225,10 +225,10 @@ namespace Avalara.SDK.Model.A1099.V2
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or Sets TypeOfTin
+        /// Gets or Sets TinType
         /// </summary>
-        [DataMember(Name = "typeOfTin", EmitDefaultValue = true)]
-        public string TypeOfTin { get; set; }
+        [DataMember(Name = "tinType", EmitDefaultValue = true)]
+        public string TinType { get; set; }
 
         /// <summary>
         /// Gets or Sets Tin
@@ -237,16 +237,16 @@ namespace Avalara.SDK.Model.A1099.V2
         public string Tin { get; set; }
 
         /// <summary>
-        /// Gets or Sets FirstPayeeName
+        /// Gets or Sets RecipientName
         /// </summary>
-        [DataMember(Name = "firstPayeeName", EmitDefaultValue = true)]
-        public string FirstPayeeName { get; set; }
+        [DataMember(Name = "recipientName", EmitDefaultValue = true)]
+        public string RecipientName { get; set; }
 
         /// <summary>
-        /// Gets or Sets SecondPayeeName
+        /// Gets or Sets RecipientSecondName
         /// </summary>
-        [DataMember(Name = "secondPayeeName", EmitDefaultValue = true)]
-        public string SecondPayeeName { get; set; }
+        [DataMember(Name = "recipientSecondName", EmitDefaultValue = true)]
+        public string RecipientSecondName { get; set; }
 
         /// <summary>
         /// Gets or Sets Address
@@ -340,10 +340,10 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  AddressVerificationStatus: ").Append(AddressVerificationStatus).Append("\n");
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  TypeOfTin: ").Append(TypeOfTin).Append("\n");
+            sb.Append("  TinType: ").Append(TinType).Append("\n");
             sb.Append("  Tin: ").Append(Tin).Append("\n");
-            sb.Append("  FirstPayeeName: ").Append(FirstPayeeName).Append("\n");
-            sb.Append("  SecondPayeeName: ").Append(SecondPayeeName).Append("\n");
+            sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
+            sb.Append("  RecipientSecondName: ").Append(RecipientSecondName).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  AddressRecipientSecond: ").Append(AddressRecipientSecond).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");

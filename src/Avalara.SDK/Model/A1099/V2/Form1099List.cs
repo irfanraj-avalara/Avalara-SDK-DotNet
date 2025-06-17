@@ -47,7 +47,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Initializes a new instance of the <see cref="Form1099List" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public Form1099List(List<Form1099ListDataInner> data = default(List<Form1099ListDataInner>))
+        public Form1099List(List<Get1099Form200Response> data = default(List<Get1099Form200Response>))
         {
             this.Data = data;
         }
@@ -56,7 +56,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = true)]
-        public List<Form1099ListDataInner> Data { get; set; }
+        public List<Get1099Form200Response> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

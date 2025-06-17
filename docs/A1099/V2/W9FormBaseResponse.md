@@ -10,16 +10,14 @@ Name | Type | Description | Notes
 **EntryStatusDate** | **DateTime?** | The timestamp for the latest status update. | [optional] 
 **ReferenceId** | **string** | A reference identifier for the form. | [optional] 
 **CompanyId** | **string** | The ID of the associated company. | [optional] 
-**TypeOfTin** | **string** | The type of TIN provided. | [optional] 
-**Tin** | **string** | The taxpayer identification number (TIN). | [optional] 
 **DisplayName** | **string** | The display name associated with the form. | [optional] 
 **Email** | **string** | The email address of the individual associated with the form. | [optional] 
-**Archived** | **bool?** | Indicates whether the form is archived. | [optional] 
+**Archived** | **bool** | Indicates whether the form is archived. | [optional] 
 **Signature** | **string** | The signature of the form. | [optional] 
 **SignedDate** | **DateTime?** | The date the form was signed. | [optional] 
 **EDeliveryConsentedAt** | **DateTime?** | The date when e-delivery was consented. | [optional] 
-**CreatedAt** | **DateTime?** | The creation date of the form. | [optional] 
-**UpdatedAt** | **DateTime?** | The last updated date of the form. | [optional] 
+**CreatedAt** | **DateTime** | The creation date of the form. | [optional] 
+**UpdatedAt** | **DateTime** | The last updated date of the form. | [optional] 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

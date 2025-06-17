@@ -9,13 +9,14 @@ Method | HTTP request | Description
 [**GetW9Form**](FormsW9Api.md#getw9form) | **GET** /w9/forms/{id} | Retrieve a W9/W4/W8 form
 [**GetW9FormRequest**](FormsW9Api.md#getw9formrequest) | **GET** /w9/forms/requests/{formRequestId} | Retrieve a form request
 [**ListW9Forms**](FormsW9Api.md#listw9forms) | **GET** /w9/forms | List W9/W4/W8 forms.
+[**SendW9FormEmail**](FormsW9Api.md#sendw9formemail) | **POST** /w9/forms/{id}/$send-email | Sends a W9 email request to a vendor/payee
 [**UpdateW9Form**](FormsW9Api.md#updatew9form) | **PUT** /w9/forms/{id} | Update a W9/W4/W8 form
 [**UploadW9Files**](FormsW9Api.md#uploadw9files) | **PUT** /w9/forms/{id}/attachment | Upload files for a W9/W4/W8 form
 
 
 <a name="createw9form"></a>
 # **CreateW9Form**
-> IW9FormDataModelsOneOf CreateW9Form (CreateW9FormRequest requestParameters)
+> IW9FormDataModelsOneOf CreateW9Form (CreateW9FormRequestSdk requestParameters)
 
 Create a W9/W4/W8 form
 
@@ -41,9 +42,9 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new FormsW9Api(apiClient);
-            var requestParameters = new CreateW9FormRequest();
+            var requestParameters = new CreateW9FormRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 805790c3-5742-42c1-893c-df30770c313b;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 83134e01-b7eb-43d2-8834-b414a5f0b4d0;  // string | Unique correlation Id in a GUID format
             requestParameters.IW9FormDataModelsOneOf = new IW9FormDataModelsOneOf(); // IW9FormDataModelsOneOf | Form to be created (optional) 
 
             try
@@ -96,7 +97,7 @@ Name | Type | Description  | Notes
 
 <a name="deletew9form"></a>
 # **DeleteW9Form**
-> void DeleteW9Form (DeleteW9FormRequest requestParameters)
+> void DeleteW9Form (DeleteW9FormRequestSdk requestParameters)
 
 Delete a form
 
@@ -124,10 +125,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new FormsW9Api(apiClient);
-            var requestParameters = new DeleteW9FormRequest();
+            var requestParameters = new DeleteW9FormRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the form to delete
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 881f5faa-9442-4b37-a6dc-edb45cb3b1d3;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = da693d21-9a72-4124-b137-a6f0ee36146f;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -178,11 +179,11 @@ void (empty response body)
 
 <a name="getw9form"></a>
 # **GetW9Form**
-> IW9FormDataModelsOneOf GetW9Form (GetW9FormRequest requestParameters)
+> IW9FormDataModelsOneOf GetW9Form (GetW9FormRequestSdk requestParameters)
 
 Retrieve a W9/W4/W8 form
 
-Retreive a W9/W4/W8 form
+Retrieve a W9/W4/W8 form
 
 ### Example
 ```csharp
@@ -206,10 +207,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new FormsW9Api(apiClient);
-            var requestParameters = new GetW9FormRequest();
+            var requestParameters = new GetW9FormRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the form
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 3f59831f-03e0-46e2-8930-95afe63a5f7a;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = eb776979-a49e-43ad-8090-f3505c50438e;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -254,15 +255,14 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | W9/W4/W8 form with id |  -  |
-| **400** | Bad request (e.g., invalid sort key) |  -  |
 | **401** | Authentication failed |  -  |
-| **404** | Not Found |  -  |
+| **404** | W9/W4/W8 form not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 <a name="getw9formrequest"></a>
 # **GetW9FormRequest**
-> FormRequestModel GetW9FormRequest (GetW9FormRequestRequest requestParameters)
+> FormRequestModel GetW9FormRequest (GetW9FormRequestRequestSdk requestParameters)
 
 Retrieve a form request
 
@@ -290,10 +290,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new FormsW9Api(apiClient);
-            var requestParameters = new GetW9FormRequestRequest();
+            var requestParameters = new GetW9FormRequestRequestSdk();
             requestParameters.FormRequestId = "formRequestId_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = a6b408d6-c331-454d-ba6c-00664912a74b;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = d5e1ade1-348b-4186-bcd1-5c0e20d3002c;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 <a name="listw9forms"></a>
 # **ListW9Forms**
-> PaginatedW9FormsModel ListW9Forms (ListW9FormsRequest requestParameters)
+> PaginatedW9FormsModel ListW9Forms (ListW9FormsRequestSdk requestParameters)
 
 List W9/W4/W8 forms.
 
@@ -373,9 +373,9 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new FormsW9Api(apiClient);
-            var requestParameters = new ListW9FormsRequest();
+            var requestParameters = new ListW9FormsRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = ce11c914-d887-497a-966b-714ce5bc2156;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = acad4dc1-59ca-4966-96af-68bf223c4b7d;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results. Used with skip to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
             requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
@@ -434,9 +434,90 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+<a name="sendw9formemail"></a>
+# **SendW9FormEmail**
+> IW9FormDataModelsOneOf SendW9FormEmail (SendW9FormEmailRequestSdk requestParameters)
+
+Sends a W9 email request to a vendor/payee
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Avalara.SDK.Api.A1099.V2;
+using Avalara.SDK.Client;
+using Avalara.SDK.Model.A1099.V2;
+
+namespace Example
+{
+    public class SendW9FormEmailExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.Environment = AvalaraEnvironment.Sandbox;
+            config.BearerToken = "<Your Bearer Token>";
+            
+            ApiClient apiClient= new ApiClient(config);
+            
+            var apiInstance = new FormsW9Api(apiClient);
+            var requestParameters = new SendW9FormEmailRequestSdk();
+            requestParameters.Id = "id_example";  // string | The ID of the W9/W4/W8 form.
+            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.XCorrelationId = 764a0326-3dc7-419e-a99d-e99988d3297a;  // string | Unique correlation Id in a GUID format
+
+            try
+            {
+                // Sends a W9 email request to a vendor/payee
+                IW9FormDataModelsOneOf result = apiInstance.SendW9FormEmail(requestParameters);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FormsW9Api.SendW9FormEmail: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Request Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **string**| The ID of the W9/W4/W8 form. | 
+ **AvalaraVersion** | **string**| API version | 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+
+### Return type
+
+[**IW9FormDataModelsOneOf**](IW9FormDataModelsOneOf.md)
+
+### Authorization
+
+[bearer](../../../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated W9/W4/W8 form |  -  |
+| **400** | Bad request (e.g., invalid sort key) |  -  |
+| **401** | Authentication failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 <a name="updatew9form"></a>
 # **UpdateW9Form**
-> IW9FormDataModelsOneOf UpdateW9Form (UpdateW9FormRequest requestParameters)
+> IW9FormDataModelsOneOf UpdateW9Form (UpdateW9FormRequestSdk requestParameters)
 
 Update a W9/W4/W8 form
 
@@ -462,10 +543,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new FormsW9Api(apiClient);
-            var requestParameters = new UpdateW9FormRequest();
+            var requestParameters = new UpdateW9FormRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the form to update
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 65ce2a6b-9204-423a-93bc-bcacabec7793;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = d244bbb7-e88a-49f4-a9aa-05680314db65;  // string | Unique correlation Id in a GUID format
             requestParameters.IW9FormDataModelsOneOf = new IW9FormDataModelsOneOf(); // IW9FormDataModelsOneOf | Form to be updated (optional) 
 
             try
@@ -519,7 +600,7 @@ Name | Type | Description  | Notes
 
 <a name="uploadw9files"></a>
 # **UploadW9Files**
-> string UploadW9Files (UploadW9FilesRequest requestParameters)
+> string UploadW9Files (UploadW9FilesRequestSdk requestParameters)
 
 Upload files for a W9/W4/W8 form
 
@@ -547,10 +628,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new FormsW9Api(apiClient);
-            var requestParameters = new UploadW9FilesRequest();
+            var requestParameters = new UploadW9FilesRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the form
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 2ad5385c-ae69-439b-bb9a-283c2cdcffc8;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 64d61563-6c0e-4aea-9a53-8d51b6821bf1;  // string | Unique correlation Id in a GUID format
             requestParameters.File = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter |  (optional) 
 
             try

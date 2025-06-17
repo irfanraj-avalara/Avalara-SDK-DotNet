@@ -59,7 +59,6 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        /// <example>accepted</example>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 

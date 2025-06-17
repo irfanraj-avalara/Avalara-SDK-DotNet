@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createwebhooksubscription"></a>
 # **CreateWebhookSubscription**
-> SuccessResponse CreateWebhookSubscription (CreateWebhookSubscriptionRequest requestParameters)
+> SuccessResponse CreateWebhookSubscription (CreateWebhookSubscriptionRequestSdk requestParameters)
 
 Create a subscription to events
 
@@ -40,7 +40,7 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new SubscriptionsApi(apiClient);
-            var requestParameters = new CreateWebhookSubscriptionRequest();
+            var requestParameters = new CreateWebhookSubscriptionRequestSdk();
             requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.3\".
             requestParameters.SubscriptionRegistration = new SubscriptionRegistration(); // SubscriptionRegistration | 
             requestParameters.XCorrelationID = "xCorrelationID_example";  // string | A unique identifier for tracking the request and its response (optional) 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 <a name="deletewebhooksubscription"></a>
 # **DeleteWebhookSubscription**
-> void DeleteWebhookSubscription (DeleteWebhookSubscriptionRequest requestParameters)
+> void DeleteWebhookSubscription (DeleteWebhookSubscriptionRequestSdk requestParameters)
 
 Unsubscribe from events
 
@@ -126,7 +126,7 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new SubscriptionsApi(apiClient);
-            var requestParameters = new DeleteWebhookSubscriptionRequest();
+            var requestParameters = new DeleteWebhookSubscriptionRequestSdk();
             requestParameters.SubscriptionId = "subscriptionId_example";  // string | 
             requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.3\".
             requestParameters.XCorrelationID = "xCorrelationID_example";  // string | A unique identifier for tracking the request and its response (optional) 
@@ -183,7 +183,7 @@ void (empty response body)
 
 <a name="getwebhooksubscription"></a>
 # **GetWebhookSubscription**
-> SubscriptionDetail GetWebhookSubscription (GetWebhookSubscriptionRequest requestParameters)
+> SubscriptionDetail GetWebhookSubscription (GetWebhookSubscriptionRequestSdk requestParameters)
 
 Get details of a subscription
 
@@ -211,7 +211,7 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new SubscriptionsApi(apiClient);
-            var requestParameters = new GetWebhookSubscriptionRequest();
+            var requestParameters = new GetWebhookSubscriptionRequestSdk();
             requestParameters.SubscriptionId = "subscriptionId_example";  // string | 
             requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.3\".
             requestParameters.XCorrelationID = "xCorrelationID_example";  // string | A unique identifier for tracking the request and its response (optional) 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 <a name="listwebhooksubscriptions"></a>
 # **ListWebhookSubscriptions**
-> SubscriptionListResponse ListWebhookSubscriptions (ListWebhookSubscriptionsRequest requestParameters)
+> SubscriptionListResponse ListWebhookSubscriptions (ListWebhookSubscriptionsRequestSdk requestParameters)
 
 List all subscriptions
 
@@ -297,7 +297,7 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new SubscriptionsApi(apiClient);
-            var requestParameters = new ListWebhookSubscriptionsRequest();
+            var requestParameters = new ListWebhookSubscriptionsRequestSdk();
             requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.3\".
             requestParameters.XCorrelationID = "xCorrelationID_example";  // string | A unique identifier for tracking the request and its response (optional) 
             requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Client application identification (optional) 

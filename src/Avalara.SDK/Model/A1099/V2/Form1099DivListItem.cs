@@ -65,11 +65,10 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="exemptInterestDividends">exemptInterestDividends.</param>
         /// <param name="specifiedPrivateActivityBondInterestDividends">specifiedPrivateActivityBondInterestDividends.</param>
         /// <param name="fatcaFilingRequirement">fatcaFilingRequirement.</param>
-        /// <param name="stateAndLocalWithholding">stateAndLocalWithholding.</param>
-        /// <param name="issuerId">issuerId.</param>
         /// <param name="issuerReferenceId">issuerReferenceId.</param>
         /// <param name="issuerTin">issuerTin.</param>
         /// <param name="taxYear">taxYear.</param>
+        /// <param name="issuerId">issuerId.</param>
         /// <param name="referenceId">referenceId.</param>
         /// <param name="recipientName">recipientName.</param>
         /// <param name="recipientTin">recipientTin.</param>
@@ -90,7 +89,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="stateEFile">stateEFile.</param>
         /// <param name="tinMatch">tinMatch.</param>
         /// <param name="addressVerification">addressVerification.</param>
-        public Form1099DivListItem(string totalOrdinaryDividends = default(string), string qualifiedDividends = default(string), string totalCapitalGainDistr = default(string), string unrecapSec1250Gain = default(string), string section1202Gain = default(string), string collectiblesGain = default(string), string section897OrdinaryDividends = default(string), string section897CapitalGain = default(string), string nondividendDistributions = default(string), string federalIncomeTaxWithheld = default(string), string section199ADividends = default(string), string investmentExpenses = default(string), string foreignTaxPaid = default(string), string foreignCountryOrUSPossession = default(string), string cashLiquidationDistributions = default(string), string noncashLiquidationDistributions = default(string), string exemptInterestDividends = default(string), string specifiedPrivateActivityBondInterestDividends = default(string), string fatcaFilingRequirement = default(string), StateAndLocalWithholding stateAndLocalWithholding = default(StateAndLocalWithholding), string issuerId = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), int tinType = default(int), string recipientSecondName = default(string), string streetAddress = default(string), string streetAddressLine2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool))
+        /// <param name="stateAndLocalWithholding">stateAndLocalWithholding.</param>
+        public Form1099DivListItem(string totalOrdinaryDividends = default(string), string qualifiedDividends = default(string), string totalCapitalGainDistr = default(string), string unrecapSec1250Gain = default(string), string section1202Gain = default(string), string collectiblesGain = default(string), string section897OrdinaryDividends = default(string), string section897CapitalGain = default(string), string nondividendDistributions = default(string), string federalIncomeTaxWithheld = default(string), string section199ADividends = default(string), string investmentExpenses = default(string), string foreignTaxPaid = default(string), string foreignCountryOrUSPossession = default(string), string cashLiquidationDistributions = default(string), string noncashLiquidationDistributions = default(string), string exemptInterestDividends = default(string), string specifiedPrivateActivityBondInterestDividends = default(string), string fatcaFilingRequirement = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int? taxYear = default(int?), string issuerId = default(string), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), string tinType = default(string), string recipientSecondName = default(string), string streetAddress = default(string), string streetAddressLine2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StateAndLocalWithholding stateAndLocalWithholding = default(StateAndLocalWithholding))
         {
             this.TotalOrdinaryDividends = totalOrdinaryDividends;
             this.QualifiedDividends = qualifiedDividends;
@@ -111,11 +111,10 @@ namespace Avalara.SDK.Model.A1099.V2
             this.ExemptInterestDividends = exemptInterestDividends;
             this.SpecifiedPrivateActivityBondInterestDividends = specifiedPrivateActivityBondInterestDividends;
             this.FatcaFilingRequirement = fatcaFilingRequirement;
-            this.StateAndLocalWithholding = stateAndLocalWithholding;
-            this.IssuerId = issuerId;
             this.IssuerReferenceId = issuerReferenceId;
             this.IssuerTin = issuerTin;
             this.TaxYear = taxYear;
+            this.IssuerId = issuerId;
             this.ReferenceId = referenceId;
             this.RecipientName = recipientName;
             this.RecipientTin = recipientTin;
@@ -136,6 +135,7 @@ namespace Avalara.SDK.Model.A1099.V2
             this.StateEFile = stateEFile;
             this.TinMatch = tinMatch;
             this.AddressVerification = addressVerification;
+            this.StateAndLocalWithholding = stateAndLocalWithholding;
         }
 
         /// <summary>
@@ -253,10 +253,22 @@ namespace Avalara.SDK.Model.A1099.V2
         public string FatcaFilingRequirement { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateAndLocalWithholding
+        /// Gets or Sets IssuerReferenceId
         /// </summary>
-        [DataMember(Name = "stateAndLocalWithholding", EmitDefaultValue = false)]
-        public StateAndLocalWithholding StateAndLocalWithholding { get; set; }
+        [DataMember(Name = "issuerReferenceId", EmitDefaultValue = true)]
+        public string IssuerReferenceId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IssuerTin
+        /// </summary>
+        [DataMember(Name = "issuerTin", EmitDefaultValue = true)]
+        public string IssuerTin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TaxYear
+        /// </summary>
+        [DataMember(Name = "taxYear", EmitDefaultValue = true)]
+        public int? TaxYear { get; set; }
 
         /// <summary>
         /// Gets or Sets IssuerId
@@ -265,27 +277,9 @@ namespace Avalara.SDK.Model.A1099.V2
         public string IssuerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets IssuerReferenceId
-        /// </summary>
-        [DataMember(Name = "issuerReferenceId", EmitDefaultValue = false)]
-        public string IssuerReferenceId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IssuerTin
-        /// </summary>
-        [DataMember(Name = "issuerTin", EmitDefaultValue = false)]
-        public string IssuerTin { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TaxYear
-        /// </summary>
-        [DataMember(Name = "taxYear", EmitDefaultValue = false)]
-        public int TaxYear { get; set; }
-
-        /// <summary>
         /// Gets or Sets ReferenceId
         /// </summary>
-        [DataMember(Name = "referenceId", EmitDefaultValue = false)]
+        [DataMember(Name = "referenceId", EmitDefaultValue = true)]
         public string ReferenceId { get; set; }
 
         /// <summary>
@@ -304,12 +298,12 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets TinType
         /// </summary>
         [DataMember(Name = "tinType", EmitDefaultValue = false)]
-        public int TinType { get; set; }
+        public string TinType { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipientSecondName
         /// </summary>
-        [DataMember(Name = "recipientSecondName", EmitDefaultValue = false)]
+        [DataMember(Name = "recipientSecondName", EmitDefaultValue = true)]
         public string RecipientSecondName { get; set; }
 
         /// <summary>
@@ -321,7 +315,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets StreetAddressLine2
         /// </summary>
-        [DataMember(Name = "streetAddressLine2", EmitDefaultValue = false)]
+        [DataMember(Name = "streetAddressLine2", EmitDefaultValue = true)]
         public string StreetAddressLine2 { get; set; }
 
         /// <summary>
@@ -345,25 +339,25 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets RecipientEmail
         /// </summary>
-        [DataMember(Name = "recipientEmail", EmitDefaultValue = false)]
+        [DataMember(Name = "recipientEmail", EmitDefaultValue = true)]
         public string RecipientEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountNumber
         /// </summary>
-        [DataMember(Name = "accountNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "accountNumber", EmitDefaultValue = true)]
         public string AccountNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets OfficeCode
         /// </summary>
-        [DataMember(Name = "officeCode", EmitDefaultValue = false)]
+        [DataMember(Name = "officeCode", EmitDefaultValue = true)]
         public string OfficeCode { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipientNonUsProvince
         /// </summary>
-        [DataMember(Name = "recipientNonUsProvince", EmitDefaultValue = false)]
+        [DataMember(Name = "recipientNonUsProvince", EmitDefaultValue = true)]
         public string RecipientNonUsProvince { get; set; }
 
         /// <summary>
@@ -403,6 +397,12 @@ namespace Avalara.SDK.Model.A1099.V2
         public bool AddressVerification { get; set; }
 
         /// <summary>
+        /// Gets or Sets StateAndLocalWithholding
+        /// </summary>
+        [DataMember(Name = "stateAndLocalWithholding", EmitDefaultValue = false)]
+        public StateAndLocalWithholding StateAndLocalWithholding { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -429,11 +429,10 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  ExemptInterestDividends: ").Append(ExemptInterestDividends).Append("\n");
             sb.Append("  SpecifiedPrivateActivityBondInterestDividends: ").Append(SpecifiedPrivateActivityBondInterestDividends).Append("\n");
             sb.Append("  FatcaFilingRequirement: ").Append(FatcaFilingRequirement).Append("\n");
-            sb.Append("  StateAndLocalWithholding: ").Append(StateAndLocalWithholding).Append("\n");
-            sb.Append("  IssuerId: ").Append(IssuerId).Append("\n");
             sb.Append("  IssuerReferenceId: ").Append(IssuerReferenceId).Append("\n");
             sb.Append("  IssuerTin: ").Append(IssuerTin).Append("\n");
             sb.Append("  TaxYear: ").Append(TaxYear).Append("\n");
+            sb.Append("  IssuerId: ").Append(IssuerId).Append("\n");
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
             sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
             sb.Append("  RecipientTin: ").Append(RecipientTin).Append("\n");
@@ -454,6 +453,7 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  StateEFile: ").Append(StateEFile).Append("\n");
             sb.Append("  TinMatch: ").Append(TinMatch).Append("\n");
             sb.Append("  AddressVerification: ").Append(AddressVerification).Append("\n");
+            sb.Append("  StateAndLocalWithholding: ").Append(StateAndLocalWithholding).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

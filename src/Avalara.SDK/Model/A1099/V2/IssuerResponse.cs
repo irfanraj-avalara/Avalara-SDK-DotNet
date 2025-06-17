@@ -46,26 +46,23 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Initializes a new instance of the <see cref="IssuerResponse" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="name">name.</param>
-        /// <param name="nameDba">nameDba.</param>
-        /// <param name="tin">tin.</param>
-        /// <param name="referenceId">referenceId.</param>
-        /// <param name="telephone">telephone.</param>
-        /// <param name="taxYear">taxYear.</param>
-        /// <param name="countryCode">countryCode.</param>
-        /// <param name="email">email.</param>
-        /// <param name="address">address.</param>
-        /// <param name="city">city.</param>
-        /// <param name="state">state.</param>
-        /// <param name="zip">zip.</param>
-        /// <param name="foreignProvince">foreignProvince.</param>
-        /// <param name="transferAgentName">transferAgentName.</param>
-        /// <param name="createdAt">createdAt.</param>
-        /// <param name="updatedAt">updatedAt.</param>
-        public IssuerResponse(string id = default(string), string name = default(string), string nameDba = default(string), string tin = default(string), string referenceId = default(string), string telephone = default(string), int? taxYear = default(int?), string countryCode = default(string), string email = default(string), string address = default(string), string city = default(string), string state = default(string), string zip = default(string), string foreignProvince = default(string), string transferAgentName = default(string), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?))
+        /// <param name="name">Legal name, not DBA.</param>
+        /// <param name="nameDba">Optional DBA name or continuation of a long legal name.</param>
+        /// <param name="tin">Tax identification number.</param>
+        /// <param name="referenceId">Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces..</param>
+        /// <param name="telephone">Telephone number.</param>
+        /// <param name="taxYear">Tax year.</param>
+        /// <param name="countryCode">If there is a transfer agent, use the address of the transfer agent..</param>
+        /// <param name="email">Email address.</param>
+        /// <param name="address">Address.</param>
+        /// <param name="city">City.</param>
+        /// <param name="state">State.</param>
+        /// <param name="zip">Zip code.</param>
+        /// <param name="foreignProvince">Foreign province.</param>
+        /// <param name="transferAgentName">Transfer Agent&#39;s Name.</param>
+        /// <param name="lastFiling">Last year of filing for this payer.</param>
+        public IssuerResponse(string name = default(string), string nameDba = default(string), string tin = default(string), string referenceId = default(string), string telephone = default(string), int? taxYear = default(int?), string countryCode = default(string), string email = default(string), string address = default(string), string city = default(string), string state = default(string), string zip = default(string), string foreignProvince = default(string), string transferAgentName = default(string), bool lastFiling = default(bool))
         {
-            this.Id = id;
             this.Name = name;
             this.NameDba = nameDba;
             this.Tin = tin;
@@ -80,112 +77,175 @@ namespace Avalara.SDK.Model.A1099.V2
             this.Zip = zip;
             this.ForeignProvince = foreignProvince;
             this.TransferAgentName = transferAgentName;
-            this.CreatedAt = createdAt;
-            this.UpdatedAt = updatedAt;
+            this.LastFiling = lastFiling;
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier set when the record is created
         /// </summary>
+        /// <value>Unique identifier set when the record is created</value>
+        /// <example>0</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
+        public string Id { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Returns false as Id should not be serialized given that it's read-only.
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeId()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Legal name, not DBA
+        /// </summary>
+        /// <value>Legal name, not DBA</value>
+        /// <example>Acme Corp</example>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets NameDba
+        /// Optional DBA name or continuation of a long legal name
         /// </summary>
-        [DataMember(Name = "nameDba", EmitDefaultValue = true)]
+        /// <value>Optional DBA name or continuation of a long legal name</value>
+        /// <example>Second Name Corp</example>
+        [DataMember(Name = "nameDba", EmitDefaultValue = false)]
         public string NameDba { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tin
+        /// Tax identification number
         /// </summary>
-        [DataMember(Name = "tin", EmitDefaultValue = true)]
+        /// <value>Tax identification number</value>
+        /// <example>23-8234555</example>
+        [DataMember(Name = "tin", EmitDefaultValue = false)]
         public string Tin { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReferenceId
+        /// Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces.
         /// </summary>
-        [DataMember(Name = "referenceId", EmitDefaultValue = true)]
+        /// <value>Optional identifier for your reference, never shown to any agency or recipient.  We will also prefix download filenames with this value, if present.  Can only include letters, numbers, dashes, underscores and spaces.</value>
+        /// <example>1891810-9819891</example>
+        [DataMember(Name = "referenceId", EmitDefaultValue = false)]
         public string ReferenceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Telephone
+        /// Telephone number
         /// </summary>
-        [DataMember(Name = "telephone", EmitDefaultValue = true)]
+        /// <value>Telephone number</value>
+        /// <example>520-555-1234</example>
+        [DataMember(Name = "telephone", EmitDefaultValue = false)]
         public string Telephone { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxYear
+        /// Tax year
         /// </summary>
+        /// <value>Tax year</value>
+        /// <example>2024</example>
         [DataMember(Name = "taxYear", EmitDefaultValue = true)]
         public int? TaxYear { get; set; }
 
         /// <summary>
-        /// Gets or Sets CountryCode
+        /// If there is a transfer agent, use the address of the transfer agent.
         /// </summary>
+        /// <value>If there is a transfer agent, use the address of the transfer agent.</value>
+        /// <example>US</example>
         [DataMember(Name = "countryCode", EmitDefaultValue = true)]
         public string CountryCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// Email address
         /// </summary>
+        /// <value>Email address</value>
+        /// <example>roadrunner@acmecorp.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address
+        /// Address
         /// </summary>
+        /// <value>Address</value>
+        /// <example>1234 Meep Meep Blvd</example>
         [DataMember(Name = "address", EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets City
+        /// City
         /// </summary>
+        /// <value>City</value>
+        /// <example>Tucson</example>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or Sets State
+        /// State
         /// </summary>
+        /// <value>State</value>
+        /// <example>AZ</example>
         [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets Zip
+        /// Zip code
         /// </summary>
+        /// <value>Zip code</value>
+        /// <example>35004</example>
         [DataMember(Name = "zip", EmitDefaultValue = true)]
         public string Zip { get; set; }
 
         /// <summary>
-        /// Gets or Sets ForeignProvince
+        /// Foreign province
         /// </summary>
+        /// <value>Foreign province</value>
+        /// <example>1981981</example>
         [DataMember(Name = "foreignProvince", EmitDefaultValue = true)]
         public string ForeignProvince { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransferAgentName
+        /// Transfer Agent&#39;s Name
         /// </summary>
+        /// <value>Transfer Agent&#39;s Name</value>
+        /// <example>test</example>
         [DataMember(Name = "transferAgentName", EmitDefaultValue = true)]
         public string TransferAgentName { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedAt
+        /// Last year of filing for this payer
         /// </summary>
-        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
-        public DateTime? CreatedAt { get; set; }
+        /// <value>Last year of filing for this payer</value>
+        /// <example>false</example>
+        [DataMember(Name = "lastFiling", EmitDefaultValue = true)]
+        public bool LastFiling { get; set; }
 
         /// <summary>
-        /// Gets or Sets UpdatedAt
+        /// Date time when the issuer was created
         /// </summary>
-        [DataMember(Name = "updatedAt", EmitDefaultValue = true)]
-        public DateTime? UpdatedAt { get; set; }
+        /// <value>Date time when the issuer was created</value>
+        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
+        public DateTime CreatedAt { get; private set; }
 
+        /// <summary>
+        /// Returns false as CreatedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCreatedAt()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Date time when the issuer was updated
+        /// </summary>
+        /// <value>Date time when the issuer was updated</value>
+        [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
+        public DateTime UpdatedAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as UpdatedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeUpdatedAt()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -209,6 +269,7 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  Zip: ").Append(Zip).Append("\n");
             sb.Append("  ForeignProvince: ").Append(ForeignProvince).Append("\n");
             sb.Append("  TransferAgentName: ").Append(TransferAgentName).Append("\n");
+            sb.Append("  LastFiling: ").Append(LastFiling).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("}\n");

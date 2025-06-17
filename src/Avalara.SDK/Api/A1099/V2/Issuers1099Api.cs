@@ -26,7 +26,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <summary>
         /// The issuer to create
         /// </summary>
-        public IssuerModel IssuerModel { get; set; }
+        public IssuerCommand IssuerCommand { get; set; }
     }
 
     /// <summary>
@@ -122,7 +122,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <summary>
         /// The issuer to update
         /// </summary>
-        public IssuerModel IssuerModel { get; set; }
+        public IssuerCommand IssuerCommand { get; set; }
     }
 
 
@@ -140,8 +140,8 @@ namespace Avalara.SDK.Api.A1099.V2
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>IssuerModel</returns>
-        IssuerModel CreateIssuer(CreateIssuerRequestSdk requestParameters);
+        /// <returns>IssuerResponse</returns>
+        IssuerResponse CreateIssuer(CreateIssuerRequestSdk requestParameters);
 
         /// <summary>
         /// Delete an issuer
@@ -162,8 +162,8 @@ namespace Avalara.SDK.Api.A1099.V2
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>IssuerModel</returns>
-        IssuerModel GetIssuer(GetIssuerRequestSdk requestParameters);
+        /// <returns>IssuerResponse</returns>
+        IssuerResponse GetIssuer(GetIssuerRequestSdk requestParameters);
 
         /// <summary>
         /// List issuers
@@ -205,8 +205,8 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IssuerModel</returns>
-        System.Threading.Tasks.Task<IssuerModel> CreateIssuerAsync(CreateIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of IssuerResponse</returns>
+        System.Threading.Tasks.Task<IssuerResponse> CreateIssuerAsync(CreateIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete an issuer
@@ -229,8 +229,8 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IssuerModel</returns>
-        System.Threading.Tasks.Task<IssuerModel> GetIssuerAsync(GetIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of IssuerResponse</returns>
+        System.Threading.Tasks.Task<IssuerResponse> GetIssuerAsync(GetIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List issuers
@@ -303,10 +303,10 @@ namespace Avalara.SDK.Api.A1099.V2
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>IssuerModel</returns>
-        public IssuerModel CreateIssuer(CreateIssuerRequestSdk requestParameters)
+        /// <returns>IssuerResponse</returns>
+        public IssuerResponse CreateIssuer(CreateIssuerRequestSdk requestParameters)
         {
-            Avalara.SDK.Client.ApiResponse<IssuerModel> localVarResponse = CreateIssuerWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<IssuerResponse> localVarResponse = CreateIssuerWithHttpInfo(requestParameters);
             return localVarResponse.Data;
         }
 
@@ -315,8 +315,8 @@ namespace Avalara.SDK.Api.A1099.V2
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of IssuerModel</returns>
-        private Avalara.SDK.Client.ApiResponse<IssuerModel> CreateIssuerWithHttpInfo(CreateIssuerRequestSdk requestParameters)
+        /// <returns>ApiResponse of IssuerResponse</returns>
+        private Avalara.SDK.Client.ApiResponse<IssuerResponse> CreateIssuerWithHttpInfo(CreateIssuerRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -349,10 +349,10 @@ namespace Avalara.SDK.Api.A1099.V2
 
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
-            localVarRequestOptions.Data = requestParameters.IssuerModel;
+            localVarRequestOptions.Data = requestParameters.IssuerCommand;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<IssuerModel>("/1099/issuers", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
+            var localVarResponse = this.Client.Post<IssuerResponse>("/1099/issuers", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
 
             if (this.ExceptionFactory != null)
             {
@@ -369,10 +369,10 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IssuerModel</returns>
-        public async System.Threading.Tasks.Task<IssuerModel> CreateIssuerAsync(CreateIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of IssuerResponse</returns>
+        public async System.Threading.Tasks.Task<IssuerResponse> CreateIssuerAsync(CreateIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Avalara.SDK.Client.ApiResponse<IssuerModel> localVarResponse = await CreateIssuerWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<IssuerResponse> localVarResponse = await CreateIssuerWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -382,8 +382,8 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IssuerModel)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<IssuerModel>> CreateIssuerWithHttpInfoAsync(CreateIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (IssuerResponse)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<IssuerResponse>> CreateIssuerWithHttpInfoAsync(CreateIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -418,10 +418,10 @@ namespace Avalara.SDK.Api.A1099.V2
 
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
-            localVarRequestOptions.Data = requestParameters.IssuerModel;
+            localVarRequestOptions.Data = requestParameters.IssuerCommand;
 
             // make the HTTP request
-			var localVarResponse = await this.Client.PostAsync<IssuerModel>("/1099/issuers", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<IssuerResponse>("/1099/issuers", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -571,10 +571,10 @@ namespace Avalara.SDK.Api.A1099.V2
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>IssuerModel</returns>
-        public IssuerModel GetIssuer(GetIssuerRequestSdk requestParameters)
+        /// <returns>IssuerResponse</returns>
+        public IssuerResponse GetIssuer(GetIssuerRequestSdk requestParameters)
         {
-            Avalara.SDK.Client.ApiResponse<IssuerModel> localVarResponse = GetIssuerWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<IssuerResponse> localVarResponse = GetIssuerWithHttpInfo(requestParameters);
             return localVarResponse.Data;
         }
 
@@ -583,8 +583,8 @@ namespace Avalara.SDK.Api.A1099.V2
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of IssuerModel</returns>
-        private Avalara.SDK.Client.ApiResponse<IssuerModel> GetIssuerWithHttpInfo(GetIssuerRequestSdk requestParameters)
+        /// <returns>ApiResponse of IssuerResponse</returns>
+        private Avalara.SDK.Client.ApiResponse<IssuerResponse> GetIssuerWithHttpInfo(GetIssuerRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -621,7 +621,7 @@ namespace Avalara.SDK.Api.A1099.V2
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IssuerModel>("/1099/issuers/{id}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
+            var localVarResponse = this.Client.Get<IssuerResponse>("/1099/issuers/{id}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
 
             if (this.ExceptionFactory != null)
             {
@@ -638,10 +638,10 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IssuerModel</returns>
-        public async System.Threading.Tasks.Task<IssuerModel> GetIssuerAsync(GetIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of IssuerResponse</returns>
+        public async System.Threading.Tasks.Task<IssuerResponse> GetIssuerAsync(GetIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Avalara.SDK.Client.ApiResponse<IssuerModel> localVarResponse = await GetIssuerWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<IssuerResponse> localVarResponse = await GetIssuerWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -651,8 +651,8 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IssuerModel)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<IssuerModel>> GetIssuerWithHttpInfoAsync(GetIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (IssuerResponse)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<IssuerResponse>> GetIssuerWithHttpInfoAsync(GetIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -691,7 +691,7 @@ namespace Avalara.SDK.Api.A1099.V2
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<IssuerModel>("/1099/issuers/{id}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<IssuerResponse>("/1099/issuers/{id}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -931,7 +931,7 @@ namespace Avalara.SDK.Api.A1099.V2
             localVarRequestOptions.PathParameters.Add("id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.Id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
-            localVarRequestOptions.Data = requestParameters.IssuerModel;
+            localVarRequestOptions.Data = requestParameters.IssuerCommand;
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Object>("/1099/issuers/{id}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
@@ -1004,7 +1004,7 @@ namespace Avalara.SDK.Api.A1099.V2
             localVarRequestOptions.PathParameters.Add("id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.Id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("avalara-version", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.AvalaraVersion)); // header parameter
             localVarRequestOptions.HeaderParameters.Add("X-Correlation-Id", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XCorrelationId)); // header parameter
-            localVarRequestOptions.Data = requestParameters.IssuerModel;
+            localVarRequestOptions.Data = requestParameters.IssuerCommand;
 
             // make the HTTP request
 			var localVarResponse = await this.Client.PutAsync<Object>("/1099/issuers/{id}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
@@ -1027,7 +1027,7 @@ namespace Avalara.SDK.Api.A1099.V2
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.5.3";
+            this.Client.SdkVersion = "25.6.0";
         }
         
     }

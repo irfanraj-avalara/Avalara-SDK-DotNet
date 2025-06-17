@@ -1,0 +1,34 @@
+# Avalara.SDK.Model.A1099.V2.FormRequestCsvBase
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**IssuerReferenceId** | **string** |  | [optional] 
+**IssuerTin** | **string** |  | [optional] 
+**TaxYear** | **int?** |  | [optional] 
+**IssuerId** | **string** |  | [optional] 
+**ReferenceId** | **string** |  | [optional] 
+**RecipientName** | **string** |  | [optional] 
+**RecipientTin** | **string** |  | [optional] 
+**TinType** | **string** |  | [optional] 
+**RecipientSecondName** | **string** |  | [optional] 
+**StreetAddress** | **string** |  | [optional] 
+**StreetAddressLine2** | **string** |  | [optional] 
+**City** | **string** |  | [optional] 
+**State** | **string** |  | [optional] 
+**Zip** | **string** |  | [optional] 
+**RecipientEmail** | **string** |  | [optional] 
+**AccountNumber** | **string** |  | [optional] 
+**OfficeCode** | **string** |  | [optional] 
+**RecipientNonUsProvince** | **string** |  | [optional] 
+**CountryCode** | **string** |  | [optional] 
+**FederalEFile** | **bool** |  | [optional] 
+**PostalMail** | **bool** |  | [optional] 
+**StateEFile** | **bool** |  | [optional] 
+**TinMatch** | **bool** |  | [optional] 
+**AddressVerification** | **bool** |  | [optional] 
+**StateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  | [optional] 
+
+[[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
+
