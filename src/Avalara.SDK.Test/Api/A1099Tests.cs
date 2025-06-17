@@ -30,6 +30,7 @@ namespace Avalara.SDK.Test.Api
     {
         private Issuers1099Api issuersApi;
         private CompaniesW9Api companiesW9Api;
+        private FormsW9Api formwW9Api;
         private ApiClient apiClient;
 
         public A1099Tests()
@@ -46,6 +47,7 @@ namespace Avalara.SDK.Test.Api
 
             apiClient = new ApiClient(configuration);
             issuersApi = new Issuers1099Api(apiClient);
+            formwW9Api = new FormsW9Api(apiClient);
             companiesW9Api = new CompaniesW9Api(apiClient);
         }
 
@@ -115,6 +117,35 @@ namespace Avalara.SDK.Test.Api
 
             // Act
             var response = await companiesW9Api.GetCompaniesAsync(request);
+
+            Console.WriteLine(response.ToJson());
+
+            // Assert
+            Assert.NotNull(response);
+            Assert.NotNull(response.Value);
+        }
+
+        /// <summary>
+        /// Test ListW9Forms
+        /// </summary>
+        [Fact]
+        public async Task ListW9FormsTest()
+        {
+            // Arrange
+            var request = new ListW9FormsRequestSdk
+            {
+                AvalaraVersion = "2.0",
+                XCorrelationId = Guid.NewGuid().ToString(),
+                // Optional parameters
+                Filter = null,
+                Top = 10,
+                Skip = 0,
+                OrderBy = null,
+                Count = true,
+            };
+
+            // Act
+            var response = await formwW9Api.ListW9FormsAsync(request);
 
             Console.WriteLine(response.ToJson());
 
