@@ -29,6 +29,7 @@ namespace Avalara.SDK.Test.Api
     public class A1099Tests : IDisposable
     {
         private Issuers1099Api issuersApi;
+        private CompaniesW9Api companiesW9Api;
         private ApiClient apiClient;
 
         public A1099Tests()
@@ -45,6 +46,7 @@ namespace Avalara.SDK.Test.Api
 
             apiClient = new ApiClient(configuration);
             issuersApi = new Issuers1099Api(apiClient);
+            companiesW9Api = new CompaniesW9Api(apiClient);
         }
 
         public void Dispose()
@@ -83,6 +85,36 @@ namespace Avalara.SDK.Test.Api
 
             // Act
             var response = await issuersApi.GetIssuersAsync(request);
+
+            // Console.WriteLine(response.ToJson());
+
+            // Assert
+            Assert.NotNull(response);
+            Assert.NotNull(response.Value);
+        }
+
+        /// <summary>
+        /// Test GetCompanies
+        /// </summary>
+        [Fact]
+        public async Task GetCompaniesTest()
+        {
+            // Arrange
+            var request = new GetCompaniesRequestSdk
+            {
+                AvalaraVersion = "2.0",
+                XCorrelationId = Guid.NewGuid().ToString(),
+                // Optional parameters
+                Filter = null,
+                Top = 10,
+                Skip = 0,
+                OrderBy = null,
+                Count = true,
+                CountOnly = false
+            };
+
+            // Act
+            var response = await companiesW9Api.GetCompaniesAsync(request);
 
             Console.WriteLine(response.ToJson());
 
