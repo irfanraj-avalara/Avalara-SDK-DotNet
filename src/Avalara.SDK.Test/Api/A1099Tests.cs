@@ -8,14 +8,11 @@
  */
 
 using System;
-using System.IO;
 using Xunit;
 
 using Avalara.SDK.Client;
-using Avalara.SDK.Helpers;
 using Avalara.SDK.Api.A1099.V2;
 using System.Threading.Tasks;
-using System.Linq;
 
 namespace Avalara.SDK.Test.Api
 {
