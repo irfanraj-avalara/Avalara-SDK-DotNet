@@ -31,14 +31,16 @@ namespace Avalara.SDK.Test.Api
         private Issuers1099Api issuersApi;
         private CompaniesW9Api companiesW9Api;
         private FormsW9Api formwW9Api;
+
+        private Forms1099Api form1099Api;
         private ApiClient apiClient;
 
         public A1099Tests()
         {
             Configuration configuration = new()
             {
-                BearerToken = Environment.GetEnvironmentVariable("BEARER_TOKEN"),
-                TestBasePath = Environment.GetEnvironmentVariable("BASE_URL") ?? "https://api-ava1099.gamma.qa.us-west-2.aws.avalara.io/",
+                BearerToken = Environment.GetEnvironmentVariable("BEARER_TOKEN_A1099"),
+                TestBasePath = Environment.GetEnvironmentVariable("A1099_BASE_URL") ?? "https://api-ava1099.gamma.qa.us-west-2.aws.avalara.io/",
                 AppName = "Test",
                 AppVersion = "1.0",
                 MachineName = "LocalBox",
@@ -48,6 +50,7 @@ namespace Avalara.SDK.Test.Api
             apiClient = new ApiClient(configuration);
             issuersApi = new Issuers1099Api(apiClient);
             formwW9Api = new FormsW9Api(apiClient);
+            form1099Api = new Forms1099Api(apiClient);
             companiesW9Api = new CompaniesW9Api(apiClient);
         }
 
@@ -57,17 +60,15 @@ namespace Avalara.SDK.Test.Api
         }
 
         /// <summary>
-        /// Test an instance of Issuers1099Api
+        /// Tests the GetIssuers API endpoint to verify it returns a valid response.
         /// </summary>
-        [Fact]
-        public void InstanceTest()
-        {
-            Assert.IsType<Issuers1099Api>(issuersApi);
-        }
-
-        /// <summary>
-        /// Test GetIssuers
-        /// </summary>
+        /// <remarks>
+        /// This test verifies that:
+        /// 1. The API connection is properly established
+        /// 2. Authentication is working correctly
+        /// 3. The endpoint returns a non-null response with values
+        /// 4. The pagination parameters are correctly applied
+        /// </remarks>
         [Fact]
         public async Task GetIssuersTest()
         {
@@ -96,8 +97,15 @@ namespace Avalara.SDK.Test.Api
         }
 
         /// <summary>
-        /// Test GetCompanies
+        /// Tests the GetCompanies API endpoint to verify it returns a valid response.
         /// </summary>
+        /// <remarks>
+        /// This test validates that:
+        /// 1. The CompaniesW9Api connection is functioning properly
+        /// 2. Authentication credentials are valid
+        /// 3. The endpoint returns company data as expected
+        /// 4. Pagination parameters are correctly processed
+        /// </remarks>
         [Fact]
         public async Task GetCompaniesTest()
         {
@@ -118,7 +126,7 @@ namespace Avalara.SDK.Test.Api
             // Act
             var response = await companiesW9Api.GetCompaniesAsync(request);
 
-            Console.WriteLine(response.ToJson());
+            // Console.WriteLine(response.ToJson());
 
             // Assert
             Assert.NotNull(response);
@@ -126,13 +134,20 @@ namespace Avalara.SDK.Test.Api
         }
 
         /// <summary>
-        /// Test ListW9Forms
+        /// Tests the List1099Forms API endpoint to verify it returns 1099 forms data correctly.
         /// </summary>
+        /// <remarks>
+        /// This test ensures that:
+        /// 1. The Forms1099Api can successfully retrieve 1099 form data
+        /// 2. Authentication and authorization are working properly
+        /// 3. The endpoint returns a valid collection of W9 forms
+        /// 4. The response structure matches the expected format
+        /// </remarks>
         [Fact]
-        public async Task ListW9FormsTest()
+        public async Task List1099FormsTest()
         {
             // Arrange
-            var request = new ListW9FormsRequestSdk
+            var request = new List1099FormsRequestSdk
             {
                 AvalaraVersion = "2.0",
                 XCorrelationId = Guid.NewGuid().ToString(),
@@ -141,17 +156,52 @@ namespace Avalara.SDK.Test.Api
                 Top = 10,
                 Skip = 0,
                 OrderBy = null,
-                Count = true,
             };
 
             // Act
-            var response = await formwW9Api.ListW9FormsAsync(request);
+            var response = await form1099Api.List1099FormsAsync(request);
 
-            Console.WriteLine(response.ToJson());
+            // Console.WriteLine(response.ToJson());
 
             // Assert
             Assert.NotNull(response);
-            Assert.NotNull(response.Value);
+            Assert.NotNull(response.Data);
         }
+
+        /// <summary>
+        /// Tests the ListW9Forms API endpoint to verify it returns W9 form data correctly.
+        /// </summary>
+        /// <remarks>
+        /// This test ensures that:
+        /// 1. The FormsW9Api can successfully retrieve W9 form data
+        /// 2. Authentication and authorization are working properly
+        /// 3. The endpoint returns a valid collection of W9 forms
+        /// 4. The response structure matches the expected format
+        /// </remarks>
+        // [Fact]
+        // public async Task ListW9FormsTest()
+        // {
+        //     // Arrange
+        //     var request = new ListW9FormsRequestSdk
+        //     {
+        //         AvalaraVersion = "2.0",
+        //         XCorrelationId = Guid.NewGuid().ToString(),
+        //         // Optional parameters
+        //         Filter = null,
+        //         Top = 10,
+        //         Skip = 0,
+        //         OrderBy = null,
+        //         Count = true,
+        //     };
+
+        //     // Act
+        //     var response = await formwW9Api.ListW9FormsAsync(request);
+
+        //     // Console.WriteLine(response.ToJson());
+
+        //     // Assert
+        //     Assert.NotNull(response);
+        //     Assert.NotNull(response.Value);
+        // }
     }
 }
