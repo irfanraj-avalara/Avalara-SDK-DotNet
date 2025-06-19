@@ -11,26 +11,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Retrieve bearer token for E-Invoicing
-        id: get_bearer_token_e_invoicing
+      - uses: actions/checkout@v3
+      - name: Retrieve bearer token for EInvoicing
+        id: get_bearer_token_einvoicing
         run: |
           response=$(curl -X POST ${{secrets.OKTA_ACCESS_TOKEN_URL}}/connect/token \
             -H "Content-Type: application/x-www-form-urlencoded" \
             -d "grant_type=client_credentials&client_id=${{secrets.OKTA_CLIENT_ID}}&client_secret=${{secrets.OKTA_CLIENT_SECRET}}")
           token=$(echo $response | jq -r '.access_token')
           echo "BEARER_TOKEN_EINVOICING=${token}" >> $GITHUB_ENV
-          echo "CLIENT_ID=${{secrets.CLIENT_ID}}" >> $GITHUB_ENV
-      # - name: Retrieve bearer token for Track1099
-      #   id: get_bearer_token_track1099
-      #   run: |
-      #     response=$(curl -X POST https://identity.qa.avalara.io/connect/token \
-      #       -H "Content-Type: application/x-www-form-urlencoded" \
-      #       -d "grant_type=client_credentials&client_id=${{secrets.AI_CLIENT_ID}}&client_secret=${{secrets.AI_CLIENT_SECRET}}")
-      #     token=$(echo $response | jq -r '.access_token')
-      #     echo "BEARER_TOKEN_TRACK1099=${token}" >> $GITHUB_ENV
+
+      - name: Retrieve bearer token for A1099
+        id: get_bearer_token_a1099
+        run: |
+          response=$(curl -X POST ${{secrets.AI_SBX_URL}}/connect/token \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=client_credentials&client_id=${{secrets.AI_CLIENT_ID_A1099}}&client_secret=${{secrets.AI_CLIENT_SECRET_A1099}}")
+          token=$(echo $response | jq -r '.access_token')
+          echo "BEARER_TOKEN_A1099=${token}" >> $GITHUB_ENV
+
       - name: Setup .NET
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
             7.0.x
@@ -40,6 +41,7 @@ jobs:
       - name: Build Package
         run: dotnet build --no-restore --configuration Release
       - name: Test cases with EInvoicing only for now
-        run: dotnet test --verbosity normal --configuration Release --filter FullyQualifiedName~Avalara.SDK.Test.Api.EInvoicingTests
+        run: dotnet test --verbosity normal --configuration Release
         env:
           BEARER_TOKEN_EINVOICING: ${{ env.BEARER_TOKEN_EINVOICING }}
+          BEARER_TOKEN_A1099: ${{ env.BEARER_TOKEN_A1099 }}

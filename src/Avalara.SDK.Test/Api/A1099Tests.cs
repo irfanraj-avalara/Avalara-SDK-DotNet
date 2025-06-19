@@ -36,12 +36,11 @@ namespace Avalara.SDK.Test.Api
         {
             Configuration configuration = new()
             {
-                BearerToken = Environment.GetEnvironmentVariable("A1099_BEARER_TOKEN"),
-                TestBasePath = Environment.GetEnvironmentVariable("A1099_BASE_URL") ?? "https://api-ava1099.gamma.qa.us-west-2.aws.avalara.io/",
+                BearerToken = Environment.GetEnvironmentVariable("BEARER_TOKEN_A1099"),
                 AppName = "Test",
                 AppVersion = "1.0",
                 MachineName = "LocalBox",
-                Environment = AvalaraEnvironment.QA
+                Environment = AvalaraEnvironment.Sandbox
             };
 
             apiClient = new ApiClient(configuration);
