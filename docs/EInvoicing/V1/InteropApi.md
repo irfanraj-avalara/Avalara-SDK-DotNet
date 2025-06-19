@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="submitinteropdocument"></a>
 # **SubmitInteropDocument**
-> SubmitInteropDocument202Response SubmitInteropDocument (SubmitInteropDocumentRequest requestParameters)
+> SubmitInteropDocument202Response SubmitInteropDocument (SubmitInteropDocumentRequestSdk requestParameters)
 
 Submit a document
 
@@ -37,7 +37,7 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new InteropApi(apiClient);
-            var requestParameters = new SubmitInteropDocumentRequest();
+            var requestParameters = new SubmitInteropDocumentRequestSdk();
             requestParameters.DocumentType = "ubl-invoice-2.1";  // string | Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents.
             requestParameters.InterchangeType = "FI-B2B-TIEKE";  // string | Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges.
             requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used

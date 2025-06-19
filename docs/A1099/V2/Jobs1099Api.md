@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getjob"></a>
 # **GetJob**
-> JobResult GetJob (GetJobRequest requestParameters)
+> JobResult GetJob (GetJobRequestSdk requestParameters)
 
 Retrieves information about the job
 
@@ -37,10 +37,10 @@ namespace Example
             ApiClient apiClient= new ApiClient(config);
             
             var apiInstance = new Jobs1099Api(apiClient);
-            var requestParameters = new GetJobRequest();
+            var requestParameters = new GetJobRequestSdk();
             requestParameters.Id = "id_example";  // string | Job id obtained from other API responses, like `/1099/bulk-upsert`.
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 8dd6b852-5727-43f6-bdaa-01ed9e2bed82;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = fa09d4a4-a054-46a4-a142-701d8ae95235;  // string | Unique correlation Id in a GUID format
 
             try
             {

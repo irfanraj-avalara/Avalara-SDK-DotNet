@@ -48,7 +48,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <param name="title">title.</param>
         /// <param name="errors">errors.</param>
-        public ErrorResponse(string title = default(string), List<GetIssuer400Response> errors = default(List<GetIssuer400Response>))
+        public ErrorResponse(string title = default(string), List<ErrorResponseErrorsInner> errors = default(List<ErrorResponseErrorsInner>))
         {
             this.Title = title;
             this.Errors = errors;
@@ -64,7 +64,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets Errors
         /// </summary>
         [DataMember(Name = "errors", EmitDefaultValue = true)]
-        public List<GetIssuer400Response> Errors { get; set; }
+        public List<ErrorResponseErrorsInner> Errors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

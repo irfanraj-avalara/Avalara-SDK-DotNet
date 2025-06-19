@@ -23,15 +23,14 @@ Name | Type | Description | Notes
 **ExemptInterestDividends** | **string** |  | [optional] 
 **SpecifiedPrivateActivityBondInterestDividends** | **string** |  | [optional] 
 **FatcaFilingRequirement** | **string** |  | [optional] 
-**StateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  | [optional] 
-**IssuerId** | **string** |  | [optional] 
 **IssuerReferenceId** | **string** |  | [optional] 
 **IssuerTin** | **string** |  | [optional] 
-**TaxYear** | **int** |  | [optional] 
+**TaxYear** | **int?** |  | [optional] 
+**IssuerId** | **string** |  | [optional] 
 **ReferenceId** | **string** |  | [optional] 
 **RecipientName** | **string** |  | [optional] 
 **RecipientTin** | **string** |  | [optional] 
-**TinType** | **int** |  | [optional] 
+**TinType** | **string** |  | [optional] 
 **RecipientSecondName** | **string** |  | [optional] 
 **StreetAddress** | **string** |  | [optional] 
 **StreetAddressLine2** | **string** |  | [optional] 
@@ -48,6 +47,7 @@ Name | Type | Description | Notes
 **StateEFile** | **bool** |  | [optional] 
 **TinMatch** | **bool** |  | [optional] 
 **AddressVerification** | **bool** |  | [optional] 
+**StateAndLocalWithholding** | [**StateAndLocalWithholding**](StateAndLocalWithholding.md) |  | [optional] 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

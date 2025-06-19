@@ -112,21 +112,23 @@ Class | Method | HTTP request | Description
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CompaniesW9Api* | [**CreateCompany**](docs/A1099/V2/CompaniesW9Api.md#createcompany) | **POST** /w9/companies | Creates a new company
+*CompaniesW9Api* | [**DeleteCompany**](docs/A1099/V2/CompaniesW9Api.md#deletecompany) | **DELETE** /w9/companies/{id} | Deletes a company
 *CompaniesW9Api* | [**GetCompanies**](docs/A1099/V2/CompaniesW9Api.md#getcompanies) | **GET** /w9/companies | List companies
 *CompaniesW9Api* | [**GetCompany**](docs/A1099/V2/CompaniesW9Api.md#getcompany) | **GET** /w9/companies/{id} | Retrieve a company
 *CompaniesW9Api* | [**UpdateCompany**](docs/A1099/V2/CompaniesW9Api.md#updatecompany) | **PUT** /w9/companies/{id} | Update a company
-*Forms1099Api* | [**BulkUpsert1099Forms**](docs/A1099/V2/Forms1099Api.md#bulkupsert1099forms) | **POST** /1099/forms/$bulk-upsert | Create or update multiple 1099 forms.
-*Forms1099Api* | [**Create1099Form**](docs/A1099/V2/Forms1099Api.md#create1099form) | **POST** /1099/forms | Create a 1099 form.
-*Forms1099Api* | [**Delete1099Form**](docs/A1099/V2/Forms1099Api.md#delete1099form) | **DELETE** /1099/forms/{id} | Delete a 1099 form.
-*Forms1099Api* | [**Get1099Form**](docs/A1099/V2/Forms1099Api.md#get1099form) | **GET** /1099/forms/{id} | Retrieve a 1099 form.
-*Forms1099Api* | [**Get1099FormPdf**](docs/A1099/V2/Forms1099Api.md#get1099formpdf) | **GET** /1099/forms/{id}/pdf | Retrieve the PDF file for a single 1099 by form id.
-*Forms1099Api* | [**List1099Forms**](docs/A1099/V2/Forms1099Api.md#list1099forms) | **GET** /1099/forms | Retrieve a list of 1099 forms based on query parameters.
-*Forms1099Api* | [**Update1099Form**](docs/A1099/V2/Forms1099Api.md#update1099form) | **PUT** /1099/forms/{id} | Update a 1099 form.
+*Forms1099Api* | [**BulkUpsert1099Forms**](docs/A1099/V2/Forms1099Api.md#bulkupsert1099forms) | **POST** /1099/forms/$bulk-upsert | Creates or updates multiple 1099 forms.
+*Forms1099Api* | [**Create1099Form**](docs/A1099/V2/Forms1099Api.md#create1099form) | **POST** /1099/forms | Creates a 1099 form.
+*Forms1099Api* | [**Delete1099Form**](docs/A1099/V2/Forms1099Api.md#delete1099form) | **DELETE** /1099/forms/{id} | Deletes a 1099 form.
+*Forms1099Api* | [**Get1099Form**](docs/A1099/V2/Forms1099Api.md#get1099form) | **GET** /1099/forms/{id} | Retrieves a 1099 form.
+*Forms1099Api* | [**Get1099FormPdf**](docs/A1099/V2/Forms1099Api.md#get1099formpdf) | **GET** /1099/forms/{id}/pdf | Retrieves the PDF file for a single 1099 by form id.
+*Forms1099Api* | [**List1099Forms**](docs/A1099/V2/Forms1099Api.md#list1099forms) | **GET** /1099/forms | Retrieves a list of 1099 forms based on query parameters.
+*Forms1099Api* | [**Update1099Form**](docs/A1099/V2/Forms1099Api.md#update1099form) | **PUT** /1099/forms/{id} | Updates a 1099 form.
 *FormsW9Api* | [**CreateW9Form**](docs/A1099/V2/FormsW9Api.md#createw9form) | **POST** /w9/forms | Create a W9/W4/W8 form
 *FormsW9Api* | [**DeleteW9Form**](docs/A1099/V2/FormsW9Api.md#deletew9form) | **DELETE** /w9/forms/{id} | Delete a form
 *FormsW9Api* | [**GetW9Form**](docs/A1099/V2/FormsW9Api.md#getw9form) | **GET** /w9/forms/{id} | Retrieve a W9/W4/W8 form
 *FormsW9Api* | [**GetW9FormRequest**](docs/A1099/V2/FormsW9Api.md#getw9formrequest) | **GET** /w9/forms/requests/{formRequestId} | Retrieve a form request
 *FormsW9Api* | [**ListW9Forms**](docs/A1099/V2/FormsW9Api.md#listw9forms) | **GET** /w9/forms | List W9/W4/W8 forms.
+*FormsW9Api* | [**SendW9FormEmail**](docs/A1099/V2/FormsW9Api.md#sendw9formemail) | **POST** /w9/forms/{id}/$send-email | Sends a W9 email request to a vendor/payee
 *FormsW9Api* | [**UpdateW9Form**](docs/A1099/V2/FormsW9Api.md#updatew9form) | **PUT** /w9/forms/{id} | Update a W9/W4/W8 form
 *FormsW9Api* | [**UploadW9Files**](docs/A1099/V2/FormsW9Api.md#uploadw9files) | **PUT** /w9/forms/{id}/attachment | Upload files for a W9/W4/W8 form
 *Issuers1099Api* | [**CreateIssuer**](docs/A1099/V2/Issuers1099Api.md#createissuer) | **POST** /1099/issuers | Create an issuer
@@ -221,12 +223,16 @@ Class | Method | HTTP request | Description
  - [Model.A1099.V2.Data](docs/A1099/V2/Data.md)
  - [Model.A1099.V2.ErrorModel](docs/A1099/V2/ErrorModel.md)
  - [Model.A1099.V2.ErrorResponse](docs/A1099/V2/ErrorResponse.md)
+ - [Model.A1099.V2.ErrorResponseErrorsInner](docs/A1099/V2/ErrorResponseErrorsInner.md)
  - [Model.A1099.V2.Form1099Base](docs/A1099/V2/Form1099Base.md)
  - [Model.A1099.V2.Form1099DivList](docs/A1099/V2/Form1099DivList.md)
  - [Model.A1099.V2.Form1099DivListItem](docs/A1099/V2/Form1099DivListItem.md)
  - [Model.A1099.V2.Form1099DivRequest](docs/A1099/V2/Form1099DivRequest.md)
+ - [Model.A1099.V2.Form1099K](docs/A1099/V2/Form1099K.md)
+ - [Model.A1099.V2.Form1099KList](docs/A1099/V2/Form1099KList.md)
+ - [Model.A1099.V2.Form1099KListItem](docs/A1099/V2/Form1099KListItem.md)
+ - [Model.A1099.V2.Form1099KRequest](docs/A1099/V2/Form1099KRequest.md)
  - [Model.A1099.V2.Form1099List](docs/A1099/V2/Form1099List.md)
- - [Model.A1099.V2.Form1099ListDataInner](docs/A1099/V2/Form1099ListDataInner.md)
  - [Model.A1099.V2.Form1099Misc](docs/A1099/V2/Form1099Misc.md)
  - [Model.A1099.V2.Form1099MiscList](docs/A1099/V2/Form1099MiscList.md)
  - [Model.A1099.V2.Form1099MiscListItem](docs/A1099/V2/Form1099MiscListItem.md)
@@ -242,15 +248,16 @@ Class | Method | HTTP request | Description
  - [Model.A1099.V2.Form1099RRequest](docs/A1099/V2/Form1099RRequest.md)
  - [Model.A1099.V2.Form1099StatusDetail](docs/A1099/V2/Form1099StatusDetail.md)
  - [Model.A1099.V2.FormRequestBase](docs/A1099/V2/FormRequestBase.md)
+ - [Model.A1099.V2.FormRequestCsvBase](docs/A1099/V2/FormRequestCsvBase.md)
  - [Model.A1099.V2.FormRequestModel](docs/A1099/V2/FormRequestModel.md)
  - [Model.A1099.V2.FormResponseBase](docs/A1099/V2/FormResponseBase.md)
  - [Model.A1099.V2.FormSingleRequestBase](docs/A1099/V2/FormSingleRequestBase.md)
- - [Model.A1099.V2.GetIssuer400Response](docs/A1099/V2/GetIssuer400Response.md)
+ - [Model.A1099.V2.Get1099Form200Response](docs/A1099/V2/Get1099Form200Response.md)
  - [Model.A1099.V2.HttpValidationProblemDetails](docs/A1099/V2/HttpValidationProblemDetails.md)
  - [Model.A1099.V2.ICreateForm1099Request](docs/A1099/V2/ICreateForm1099Request.md)
  - [Model.A1099.V2.IUpdateForm1099Request](docs/A1099/V2/IUpdateForm1099Request.md)
  - [Model.A1099.V2.IW9FormDataModelsOneOf](docs/A1099/V2/IW9FormDataModelsOneOf.md)
- - [Model.A1099.V2.IssuerModel](docs/A1099/V2/IssuerModel.md)
+ - [Model.A1099.V2.IssuerCommand](docs/A1099/V2/IssuerCommand.md)
  - [Model.A1099.V2.IssuerResponse](docs/A1099/V2/IssuerResponse.md)
  - [Model.A1099.V2.JobResult](docs/A1099/V2/JobResult.md)
  - [Model.A1099.V2.Link](docs/A1099/V2/Link.md)
@@ -262,12 +269,17 @@ Class | Method | HTTP request | Description
  - [Model.A1099.V2.StateAndLocalWithholding](docs/A1099/V2/StateAndLocalWithholding.md)
  - [Model.A1099.V2.StateAndLocalWithholdingRequest](docs/A1099/V2/StateAndLocalWithholdingRequest.md)
  - [Model.A1099.V2.StateEfileStatusDetail](docs/A1099/V2/StateEfileStatusDetail.md)
+ - [Model.A1099.V2.SubstantialUsOwnerResponse](docs/A1099/V2/SubstantialUsOwnerResponse.md)
  - [Model.A1099.V2.ValidationError](docs/A1099/V2/ValidationError.md)
  - [Model.A1099.V2.W4FormDataModel](docs/A1099/V2/W4FormDataModel.md)
+ - [Model.A1099.V2.W4FormResponse](docs/A1099/V2/W4FormResponse.md)
+ - [Model.A1099.V2.W8BenEFormResponse](docs/A1099/V2/W8BenEFormResponse.md)
  - [Model.A1099.V2.W8BenESubstantialUsOwnerDataModel](docs/A1099/V2/W8BenESubstantialUsOwnerDataModel.md)
  - [Model.A1099.V2.W8BenFormDataModel](docs/A1099/V2/W8BenFormDataModel.md)
+ - [Model.A1099.V2.W8BenFormResponse](docs/A1099/V2/W8BenFormResponse.md)
  - [Model.A1099.V2.W8BeneFormDataModel](docs/A1099/V2/W8BeneFormDataModel.md)
  - [Model.A1099.V2.W8ImyFormDataModel](docs/A1099/V2/W8ImyFormDataModel.md)
+ - [Model.A1099.V2.W8ImyFormResponse](docs/A1099/V2/W8ImyFormResponse.md)
  - [Model.A1099.V2.W9FormBaseResponse](docs/A1099/V2/W9FormBaseResponse.md)
  - [Model.A1099.V2.W9FormDataModel](docs/A1099/V2/W9FormDataModel.md)
  - [Model.A1099.V2.W9FormResponse](docs/A1099/V2/W9FormResponse.md)
