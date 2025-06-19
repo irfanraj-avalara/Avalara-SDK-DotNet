@@ -40,6 +40,6 @@ jobs:
       - name: Build Package
         run: dotnet build --no-restore --configuration Release
       - name: Test cases with EInvoicing only for now
-        run: dotnet test --verbosity normal --configuration Release --filter ClassName=EInvoicingTests
+        run: dotnet test --verbosity normal --configuration Release --filter FullyQualifiedName~Avalara.SDK.Test.Api.EInvoicingTests
         env:
           BEARER_TOKEN_EINVOICING: ${{ env.BEARER_TOKEN_EINVOICING }}
