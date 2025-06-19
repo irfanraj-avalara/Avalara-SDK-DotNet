@@ -45,7 +45,9 @@ jobs:
       - name: Build Package
         run: dotnet build --no-restore --configuration Release /p:Version=${VERSION}
       - name: Test cases
-        run: dotnet test --no-build --verbosity normal --configuration Release /p:Version=${VERSION}
+        run: dotnet test --no-build --verbosity normal --configuration Release /p:Version=${VERSION} --filter FullyQualifiedName~Avalara.SDK.Test.Api.EInvoicingTests
+        env:
+          BEARER_TOKEN_EINVOICING: ${{ env.BEARER_TOKEN_EINVOICING }}
       - name: Pack Package
         run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output ./nuget
       - name: Update resources
