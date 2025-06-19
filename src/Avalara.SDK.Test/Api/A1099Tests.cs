@@ -40,7 +40,7 @@ namespace Avalara.SDK.Test.Api
                 AppName = "Test",
                 AppVersion = "1.0",
                 MachineName = "LocalBox",
-                Environment = AvalaraEnvironment.Sandbox
+                Environment = Enum.TryParse<AvalaraEnvironment>(Environment.GetEnvironmentVariable("ENVIRONMENT_A1099"), true, out var env) ? env : AvalaraEnvironment.Sandbox
             };
 
             apiClient = new ApiClient(configuration);
