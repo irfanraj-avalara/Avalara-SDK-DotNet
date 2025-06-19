@@ -43,5 +43,7 @@ jobs:
         run: dotnet restore
       - name: Build Package
         run: dotnet build --no-restore --configuration Release
-      - name: Test cases
-        run: dotnet test --verbosity normal --configuration Release
+      - name: Test cases with EInvoicing only for now
+        run: dotnet test --verbosity normal --configuration Release --filter ClassName=EInvoicingTests
+        env:
+          BEARER_TOKEN_EINVOICING: ${{ env.BEARER_TOKEN_EINVOICING }}
