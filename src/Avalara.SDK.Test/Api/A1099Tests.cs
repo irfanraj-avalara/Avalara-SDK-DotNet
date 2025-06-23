@@ -36,8 +36,9 @@ namespace Avalara.SDK.Test.Api
         {
             Configuration configuration = new()
             {
-                BearerToken = Environment.GetEnvironmentVariable("BEARER_TOKEN_A1099"),
+
                 Environment = Enum.TryParse<AvalaraEnvironment>(Environment.GetEnvironmentVariable("ENVIRONMENT"), true, out var env) ? env : AvalaraEnvironment.Sandbox,
+                BearerToken = Environment.GetEnvironmentVariable("BEARER_TOKEN_A1099"),
                 AppName = "Test",
                 AppVersion = "1.0",
                 MachineName = "LocalBox"
