@@ -38,7 +38,7 @@ namespace Avalara.SDK.Test.Api
             DotEnv.Load(dotenv);
             Configuration configuration = new Configuration
             {
-                Environment = AvalaraEnvironment.Sandbox,
+                Environment = Enum.TryParse<AvalaraEnvironment>(Environment.GetEnvironmentVariable("ENVIRONMENT"), true, out var env) ? env : AvalaraEnvironment.Sandbox,
                 BearerToken = Environment.GetEnvironmentVariable("BEARER_TOKEN_EINVOICING"),
                 AppName = "Test",
                 AppVersion = "1.0",
