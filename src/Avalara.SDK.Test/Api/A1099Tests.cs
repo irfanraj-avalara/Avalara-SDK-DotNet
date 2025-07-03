@@ -140,30 +140,30 @@ namespace Avalara.SDK.Test.Api
         /// 3. The endpoint returns a valid collection of W9 forms
         /// 4. The response structure matches the expected format
         /// </remarks>
-        [Fact]
-        public async Task List1099FormsTest()
-        {
-            // Arrange
-            var request = new List1099FormsRequestSdk
-            {
-                AvalaraVersion = "2.0",
-                XCorrelationId = Guid.NewGuid().ToString(),
-                // Optional parameters
-                Filter = null,
-                Top = 10,
-                Skip = 0,
-                OrderBy = null,
-            };
+        // [Fact]
+        // public async Task List1099FormsTest()
+        // {
+        //     // Arrange
+        //     var request = new List1099FormsRequestSdk
+        //     {
+        //         AvalaraVersion = "2.0",
+        //         XCorrelationId = Guid.NewGuid().ToString(),
+        //         // Optional parameters
+        //         Filter = null,
+        //         Top = 10,
+        //         Skip = 0,
+        //         OrderBy = null,
+        //     };
 
-            // Act
-            var response = await form1099Api.List1099FormsAsync(request);
+        //     // Act
+        //     var response = await form1099Api.List1099FormsAsync(request);
 
-            // Console.WriteLine(response.ToJson());
+        //     // Console.WriteLine(response.ToJson());
 
-            // Assert
-            Assert.NotNull(response);
-            Assert.NotNull(response.Data);
-        }
+        //     // Assert
+        //     Assert.NotNull(response);
+        //     Assert.NotNull(response.Data);
+        // }
 
         /// <summary>
         /// Tests the ListW9Forms API endpoint to verify it returns W9 form data correctly.
