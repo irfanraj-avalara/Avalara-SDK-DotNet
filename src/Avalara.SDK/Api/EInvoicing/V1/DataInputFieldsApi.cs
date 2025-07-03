@@ -28,13 +28,13 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         public string Filter { get; set; }
         /// <summary>
-        /// If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records.
+        /// The number of items to include in the result.
         /// </summary>
         public decimal? Top { get; set; }
         /// <summary>
         /// If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets.
         /// </summary>
-        public decimal? Skip { get; set; }
+        public string Skip { get; set; }
         /// <summary>
         /// When set to true, the count of the collection is also returned in the response body
         /// </summary>

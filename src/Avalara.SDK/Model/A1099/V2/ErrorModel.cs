@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.A1099.V2
 {
-    /// <summary>
+/// <summary>
     /// Error model returned in response for all API errors
     /// </summary>
     [DataContract(Name = "ErrorModel")]
@@ -145,5 +145,4 @@ namespace Avalara.SDK.Model.A1099.V2
             yield break;
         }
     }
-
 }

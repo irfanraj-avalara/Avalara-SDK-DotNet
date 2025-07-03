@@ -40,7 +40,8 @@ namespace Example
             var requestParameters = new GetJobRequestSdk();
             requestParameters.Id = "id_example";  // string | Job id obtained from other API responses, like `/1099/bulk-upsert`.
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 27e8a96c-0c06-4f02-8f3e-4d3f1277835c;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = d3818ce7-5a7f-4e6c-b255-503f5ac98e78;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
             {
@@ -65,7 +66,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **string**| Job id obtained from other API responses, like &#x60;/1099/bulk-upsert&#x60;. | 
  **AvalaraVersion** | **string**| API version | 
- **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
+ **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
 
 ### Return type
 
