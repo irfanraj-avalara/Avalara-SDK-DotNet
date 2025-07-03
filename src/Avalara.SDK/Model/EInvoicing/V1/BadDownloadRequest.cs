@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Returns an HTTP status code and message for a &#39;bad request&#39;
     /// </summary>
     [DataContract(Name = "BadDownloadRequest")]
@@ -114,5 +114,4 @@ namespace Avalara.SDK.Model.EInvoicing.V1
             yield break;
         }
     }
-
 }

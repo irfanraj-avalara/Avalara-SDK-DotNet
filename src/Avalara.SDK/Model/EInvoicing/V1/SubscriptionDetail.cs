@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// SubscriptionDetail
     /// </summary>
     [DataContract(Name = "SubscriptionDetail")]
@@ -152,5 +152,4 @@ namespace Avalara.SDK.Model.EInvoicing.V1
             yield break;
         }
     }
-
 }

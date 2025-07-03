@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Creates or updates multiple 1099 forms.
 
-This endpoint allows you to create or update multiple 1099 forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  ```json  {     \"formType\": \"1099-MISC\",     \"forms\": [         {             \"IssuerId\": \"123456\",             \"IssuerReferenceId\": \"REF123\",             \"IssuerTin\": \"12-3456789\",             \"TaxYear\": 2023,             \"ReferenceId\": \"FORM123456\",             \"RecipientName\": \"John Doe\",             \"RecipientTin\": \"987-65-4321\",             \"TinType\": \"IEN\",             \"RecipientSecondName\": \"Jane Doe\",             \"StreetAddress\": \"123 Main Street\",             \"StreetAddressLine2\": \"Apt 4B\",             \"City\": \"New York\",             \"State\": \"NY\",             \"Zip\": \"10001\",             \"RecipientEmail\": \"john.doe@email.com\",             \"AccountNumber\": \"ACC123456\",             \"OfficeCode\": \"NYC01\",             \"SecondTinNotice\": false,             \"RecipientNonUsProvince\": \"\",             \"CountryCode\": \"US\",             \"Rents\": 12000.00,             \"Royalties\": 5000.00,             \"OtherIncome\": 3000.00,             \"FishingBoatProceeds\": 0.00,             \"MedicalHealthCarePayments\": 15000.00,             \"SubstitutePayments\": 1000.00,             \"CropInsuranceProceeds\": 0.00,             \"GrossProceedsPaidToAttorney\": 7500.00,             \"FishPurchasedForResale\": 0.00,             \"FedIncomeTaxWithheld\": 5000.00,             \"Section409ADeferrals\": 0.00,             \"ExcessGoldenParachutePayments\": 0.00,             \"NonqualifiedDeferredCompensation\": 0.00,             \"PayerMadeDirectSales\": false,             \"FatcaFilingRequirement\": false,             \"StateAndLocalWithholding\": {               \"StateTaxWithheld\": 2500.00,               \"LocalTaxWithheld\": 1000.00,               \"State\": \"NY\",               \"StateIdNumber\": \"NY123456\",               \"Locality\": \"New York City\",               \"StateIncome\": 35000.00,               \"LocalIncome\": 35000.00             }         }     ]  }  ```                **Form 1099-NEC:**  ```json  {    \"formType\": \"1099-NEC\",    \"forms\": [      {        \"issuerID\": \"180337282\",        \"issuerReferenceId\": \"ISS123\",        \"issuerTin\": \"12-3000000\",        \"taxYear\": 2024,        \"referenceID\": \"REF-002\",        \"recipientName\": \"Jane Smith\",        \"recipientSecondName\": \"\",        \"recipientTin\": \"987-65-4321\",        \"tinType\": \"IEN\",        \"streetAddress\": \"123 Center St\",        \"streetAddressLine2\": \"\",        \"city\": \"Santa Monica\",        \"state\": \"CA\",        \"zip\": \"90401\",        \"countryCode\": \"US\",        \"recipientNonUsProvince\": \"\",        \"recipientEmail\": \"\",        \"accountNumber\": \"\",        \"officeCode\": \"\",        \"secondTinNotice\": false,        \"nonemployeeCompensation\": 123.45,        \"payerMadeDirectSales\": false,        \"federalIncomeTaxWithheld\": 12.34,        \"stateAndLocalWithholding\": {          \"state\": \"CA\",          \"stateIdNumber\": \"123123123\"          \"stateIncome\": 123.45,          \"stateTaxWithheld\": 12.34,          \"locality\": \"Santa Monica\",          \"localityIdNumber\": \"456456\",          \"localTaxWithheld\": 12.34          \"localIncome\": 50000.00         },        \"federalEFile\": true,        \"postalMail\": true,        \"stateEFile\": true,        \"tinMatch\": true,        \"addressVerification\": true       }     ]   }  ```  For the full version of the payload and its schema details, refer to the Swagger schemas section.
+This endpoint allows you to create or update multiple 1099 forms.  You can use one of the following payload structures:                **Form 1099-MISC:**  ```json  {     \"formType\": \"1099-MISC\",     \"forms\": [         {             \"IssuerId\": \"123456\",             \"IssuerReferenceId\": \"REF123\",             \"IssuerTin\": \"12-3456789\",             \"TaxYear\": 2023,             \"ReferenceId\": \"FORM123456\",             \"RecipientName\": \"John Doe\",             \"RecipientTin\": \"987-65-4321\",             \"TinType\": \"IEN\",             \"RecipientSecondName\": \"Jane Doe\",             \"Address\": \"123 Main Street\",             \"Address2\": \"Apt 4B\",             \"City\": \"New York\",             \"State\": \"NY\",             \"Zip\": \"10001\",             \"RecipientEmail\": \"john.doe@email.com\",             \"AccountNumber\": \"ACC123456\",             \"OfficeCode\": \"NYC01\",             \"SecondTinNotice\": false,             \"RecipientNonUsProvince\": \"\",             \"CountryCode\": \"US\",             \"Rents\": 12000.00,             \"Royalties\": 5000.00,             \"OtherIncome\": 3000.00,             \"FishingBoatProceeds\": 0.00,             \"MedicalHealthCarePayments\": 15000.00,             \"SubstitutePayments\": 1000.00,             \"CropInsuranceProceeds\": 0.00,             \"GrossProceedsPaidToAttorney\": 7500.00,             \"FishPurchasedForResale\": 0.00,             \"FedIncomeTaxWithheld\": 5000.00,             \"Section409ADeferrals\": 0.00,             \"ExcessGoldenParachutePayments\": 0.00,             \"NonqualifiedDeferredCompensation\": 0.00,             \"PayerMadeDirectSales\": false,             \"FatcaFilingRequirement\": false,             \"StateAndLocalWithholding\": {               \"StateTaxWithheld\": 2500.00,               \"LocalTaxWithheld\": 1000.00,               \"State\": \"NY\",               \"StateIdNumber\": \"NY123456\",               \"Locality\": \"New York City\",               \"StateIncome\": 35000.00,               \"LocalIncome\": 35000.00             }         }     ]  }  ```                **Form 1099-NEC:**  ```json  {    \"formType\": \"1099-NEC\",    \"forms\": [      {        \"issuerID\": \"180337282\",        \"issuerReferenceId\": \"ISS123\",        \"issuerTin\": \"12-3000000\",        \"taxYear\": 2024,        \"referenceID\": \"REF-002\",        \"recipientName\": \"Jane Smith\",        \"recipientSecondName\": \"\",        \"recipientTin\": \"987-65-4321\",        \"tinType\": \"IEN\",        \"address\": \"123 Center St\",        \"address2\": \"\",        \"city\": \"Santa Monica\",        \"state\": \"CA\",        \"zip\": \"90401\",        \"countryCode\": \"US\",        \"recipientNonUsProvince\": \"\",        \"recipientEmail\": \"\",        \"accountNumber\": \"\",        \"officeCode\": \"\",        \"secondTinNotice\": false,        \"nonemployeeCompensation\": 123.45,        \"payerMadeDirectSales\": false,        \"federalIncomeTaxWithheld\": 12.34,        \"stateAndLocalWithholding\": {          \"state\": \"CA\",          \"stateIdNumber\": \"123123123\"          \"stateIncome\": 123.45,          \"stateTaxWithheld\": 12.34,          \"locality\": \"Santa Monica\",          \"localityIdNumber\": \"456456\",          \"localTaxWithheld\": 12.34          \"localIncome\": 50000.00         },        \"federalEFile\": true,        \"postalMail\": true,        \"stateEFile\": true,        \"tinMatch\": true,        \"addressVerification\": true       }     ]   }  ```  For the full version of the payload and its schema details, refer to the Swagger schemas section.
 
 ### Example
 ```csharp
@@ -45,8 +45,9 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new BulkUpsert1099FormsRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = c44a4769-68e2-4c6a-8a72-6ca740dacea9;  // string | Unique correlation Id in a GUID format
             requestParameters.DryRun = false;  // bool? |  (optional)  (default to false)
+            requestParameters.XCorrelationId = 03f2da7e-e2e3-47f3-a5bf-e461dbf16ede;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
             requestParameters.BulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(); // BulkUpsert1099FormsRequest |  (optional) 
 
             try
@@ -71,8 +72,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **AvalaraVersion** | **string**| API version | 
- **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
  **DryRun** | **bool?**|  | [optional] [default to false]
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
+ **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
  **BulkUpsert1099FormsRequest** | [**BulkUpsert1099FormsRequest**](BulkUpsert1099FormsRequest.md)|  | [optional] 
 
 ### Return type
@@ -130,7 +132,8 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new Create1099FormRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = f140708f-84e1-4913-92a5-61194b6098e5;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 94fb0cad-d88b-4121-8c5a-37df80bed379;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
             requestParameters.ICreateForm1099Request = new ICreateForm1099Request(); // ICreateForm1099Request |  (optional) 
 
             try
@@ -155,7 +158,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **AvalaraVersion** | **string**| API version | 
- **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
+ **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
  **ICreateForm1099Request** | [**ICreateForm1099Request**](ICreateForm1099Request.md)|  | [optional] 
 
 ### Return type
@@ -213,7 +217,8 @@ namespace Example
             var requestParameters = new Delete1099FormRequestSdk();
             requestParameters.Id = "id_example";  // string | The unique identifier of the desired form to delete.
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 524fb3a4-0740-4e04-a396-62839ccf2c72;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 033590c4-cb24-4a8f-9785-af545069a5f1;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
             {
@@ -237,7 +242,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **string**| The unique identifier of the desired form to delete. | 
  **AvalaraVersion** | **string**| API version | 
- **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
+ **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
 
 ### Return type
 
@@ -296,7 +302,8 @@ namespace Example
             var requestParameters = new Get1099FormRequestSdk();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 0c755bc3-aa08-4178-ac35-b18132f5e9be;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 8fc49b61-3ff1-45bf-810d-09d07e6853ef;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
             {
@@ -321,7 +328,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **string**|  | 
  **AvalaraVersion** | **string**| API version | 
- **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
+ **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
 
 ### Return type
 
@@ -350,7 +358,7 @@ Name | Type | Description  | Notes
 
 <a name="get1099formpdf"></a>
 # **Get1099FormPdf**
-> FormResponseBase Get1099FormPdf (Get1099FormPdfRequestSdk requestParameters)
+> Update1099Form200Response Get1099FormPdf (Get1099FormPdfRequestSdk requestParameters)
 
 Retrieves the PDF file for a single 1099 by form id.
 
@@ -379,13 +387,14 @@ namespace Example
             var requestParameters = new Get1099FormPdfRequestSdk();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = d1137739-9ffd-4f10-b30d-63c9931066e1;  // string | Unique correlation Id in a GUID format
             requestParameters.MarkEdelivered = true;  // bool? | The parameter for marked e-delivered (optional) 
+            requestParameters.XCorrelationId = 56c17c3c-a976-44be-b456-716ab3758aad;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
             {
                 // Retrieves the PDF file for a single 1099 by form id.
-                FormResponseBase result = apiInstance.Get1099FormPdf(requestParameters);
+                Update1099Form200Response result = apiInstance.Get1099FormPdf(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -405,12 +414,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **string**|  | 
  **AvalaraVersion** | **string**| API version | 
- **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
  **MarkEdelivered** | **bool?**| The parameter for marked e-delivered | [optional] 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
+ **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
 
 ### Return type
 
-[**FormResponseBase**](FormResponseBase.md)
+[**Update1099Form200Response**](Update1099Form200Response.md)
 
 ### Authorization
 
@@ -463,11 +473,12 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new List1099FormsRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 1a3f5d5f-2c12-41e8-a1a5-8d454ff698a9;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.    Collections support filtering only on certain fields. An attempt to filter on an unsupported field will receive a 400 Bad Request response.    Supported filtering fields are as follows:        issuerId      issuerReferenceId      taxYear      addressVerificationStatus - possible values are: unknown, pending, failed, incomplete, unchanged, verified      createdAt      edeliveryStatus - possible values are: sent, unscheduled, bad_verify, bad_verify_limit, scheduled, bounced, accepted      email      federalEfileStatus - possible values are: unscheduled, scheduled, sent, corrected_scheduled, accepted, corrected, corrected_accepted, held      recipientName      mailStatus - possible values are: sent, unscheduled, pending, delivered      referenceId      tinMatchStatus - possible values are: none, pending, matched, failed      type - possible values are: 940, 941, 943, 944, 945, 1042, 1042-S, 1095-B, 1095-C, 1097-BTC, 1098, 1098-C, 1098-E, 1098-Q, 1098-T, 3921, 3922, 5498, 5498-ESA, 5498-SA, 1099-MISC, 1099-A, 1099-B, 1099-C, 1099-CAP, 1099-DIV, 1099-G, 1099-INT, 1099-K, 1099-LS, 1099-LTC, 1099-NEC, 1099-OID, 1099-PATR, 1099-Q, 1099-R, 1099-S, 1099-SA, T4A, W-2, W-2G, 1099-HC      updatedAt      validity - possible values are: true, false (optional) 
             requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results.     Used with skip to provide pagination for large datasets.     Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
             requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
             requestParameters.OrderBy = "orderBy_example";  // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example issuerReferenceId ASC.    Supported sorting fields are:         issuerReferenceId       taxYear       createdAt       recipientName      updatedAt (optional) 
+            requestParameters.XCorrelationId = ac8020da-27c4-4932-aa3f-d411073ec141;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
             {
@@ -491,11 +502,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **AvalaraVersion** | **string**| API version | 
- **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
  **Filter** | **string**| A filter statement to identify specific records to retrieve. For more information on filtering, see &lt;a href&#x3D;\&quot;https://developer.avalara.com/avatax/filtering-in-rest/\&quot;&gt;Filtering in REST&lt;/a&gt;.    Collections support filtering only on certain fields. An attempt to filter on an unsupported field will receive a 400 Bad Request response.    Supported filtering fields are as follows:        issuerId      issuerReferenceId      taxYear      addressVerificationStatus - possible values are: unknown, pending, failed, incomplete, unchanged, verified      createdAt      edeliveryStatus - possible values are: sent, unscheduled, bad_verify, bad_verify_limit, scheduled, bounced, accepted      email      federalEfileStatus - possible values are: unscheduled, scheduled, sent, corrected_scheduled, accepted, corrected, corrected_accepted, held      recipientName      mailStatus - possible values are: sent, unscheduled, pending, delivered      referenceId      tinMatchStatus - possible values are: none, pending, matched, failed      type - possible values are: 940, 941, 943, 944, 945, 1042, 1042-S, 1095-B, 1095-C, 1097-BTC, 1098, 1098-C, 1098-E, 1098-Q, 1098-T, 3921, 3922, 5498, 5498-ESA, 5498-SA, 1099-MISC, 1099-A, 1099-B, 1099-C, 1099-CAP, 1099-DIV, 1099-G, 1099-INT, 1099-K, 1099-LS, 1099-LTC, 1099-NEC, 1099-OID, 1099-PATR, 1099-Q, 1099-R, 1099-S, 1099-SA, T4A, W-2, W-2G, 1099-HC      updatedAt      validity - possible values are: true, false | [optional] 
  **Top** | **int?**| If nonzero, return no more than this number of results.     Used with skip to provide pagination for large datasets.     Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. | [optional] [default to 10]
  **Skip** | **int?**| If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. | [optional] [default to 0]
  **OrderBy** | **string**| A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example issuerReferenceId ASC.    Supported sorting fields are:         issuerReferenceId       taxYear       createdAt       recipientName      updatedAt | [optional] 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
+ **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
 
 ### Return type
 
@@ -524,7 +536,7 @@ Name | Type | Description  | Notes
 
 <a name="update1099form"></a>
 # **Update1099Form**
-> FormResponseBase Update1099Form (Update1099FormRequestSdk requestParameters)
+> Update1099Form200Response Update1099Form (Update1099FormRequestSdk requestParameters)
 
 Updates a 1099 form.
 
@@ -553,13 +565,14 @@ namespace Example
             var requestParameters = new Update1099FormRequestSdk();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = a163f816-6003-4e0a-854a-b6b105f26d9f;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 3f73b4d7-bfe0-40ae-a783-e49dd8d24e49;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
             requestParameters.IUpdateForm1099Request = new IUpdateForm1099Request(); // IUpdateForm1099Request |  (optional) 
 
             try
             {
                 // Updates a 1099 form.
-                FormResponseBase result = apiInstance.Update1099Form(requestParameters);
+                Update1099Form200Response result = apiInstance.Update1099Form(requestParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -579,12 +592,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **string**|  | 
  **AvalaraVersion** | **string**| API version | 
- **XCorrelationId** | **string**| Unique correlation Id in a GUID format | 
+ **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
+ **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
  **IUpdateForm1099Request** | [**IUpdateForm1099Request**](IUpdateForm1099Request.md)|  | [optional] 
 
 ### Return type
 
-[**FormResponseBase**](FormResponseBase.md)
+[**Update1099Form200Response**](Update1099Form200Response.md)
 
 ### Authorization
 

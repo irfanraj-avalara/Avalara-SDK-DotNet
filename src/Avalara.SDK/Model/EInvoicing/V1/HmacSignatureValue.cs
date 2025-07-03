@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-    /// <summary>
+/// <summary>
     /// Contains the HMAC algorithm and the resulting signature value used for verifying message integrity.
     /// </summary>
     [DataContract(Name = "HmacSignatureValue")]
@@ -127,5 +127,4 @@ namespace Avalara.SDK.Model.EInvoicing.V1
             yield break;
         }
     }
-
 }

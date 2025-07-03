@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.A1099.V2
 {
-    /// <summary>
+/// <summary>
     /// Form1099ProccessResult
     /// </summary>
     [DataContract(Name = "Form1099ProccessResult")]
@@ -90,5 +90,4 @@ namespace Avalara.SDK.Model.A1099.V2
             yield break;
         }
     }
-
 }

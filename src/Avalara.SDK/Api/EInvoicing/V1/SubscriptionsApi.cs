@@ -96,11 +96,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The number of items to include in the result.
         /// </summary>
-        public int? Top { get; set; }
+        public decimal? Top { get; set; }
         /// <summary>
         /// The number of items to skip in the result.
         /// </summary>
-        public int? Skip { get; set; }
+        public decimal? Skip { get; set; }
         /// <summary>
         /// Whether to include the total count of records in the result.
         /// </summary>
