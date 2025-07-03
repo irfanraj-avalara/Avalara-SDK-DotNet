@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-/// <summary>
+    /// <summary>
     /// The namespace of the UBL element
     /// </summary>
     [DataContract(Name = "MandateDataInputField_namespace")]
@@ -102,4 +102,5 @@ namespace Avalara.SDK.Model.EInvoicing.V1
             yield break;
         }
     }
+
 }

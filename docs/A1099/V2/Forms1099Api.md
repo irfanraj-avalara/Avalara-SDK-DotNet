@@ -45,7 +45,7 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new BulkUpsert1099FormsRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 34ea1cb3-7fa3-4ad7-909e-9590640fec31;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = c44a4769-68e2-4c6a-8a72-6ca740dacea9;  // string | Unique correlation Id in a GUID format
             requestParameters.DryRun = false;  // bool? |  (optional)  (default to false)
             requestParameters.BulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(); // BulkUpsert1099FormsRequest |  (optional) 
 
@@ -130,7 +130,7 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new Create1099FormRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = dee5a6a6-5954-47a1-8da4-9a0139108a63;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = f140708f-84e1-4913-92a5-61194b6098e5;  // string | Unique correlation Id in a GUID format
             requestParameters.ICreateForm1099Request = new ICreateForm1099Request(); // ICreateForm1099Request |  (optional) 
 
             try
@@ -213,7 +213,7 @@ namespace Example
             var requestParameters = new Delete1099FormRequestSdk();
             requestParameters.Id = "id_example";  // string | The unique identifier of the desired form to delete.
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 64088514-6171-4f91-a5fe-373d5b3506c8;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 524fb3a4-0740-4e04-a396-62839ccf2c72;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -296,7 +296,7 @@ namespace Example
             var requestParameters = new Get1099FormRequestSdk();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 94b092e9-46b6-4a81-9d18-c596660f2d2c;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 0c755bc3-aa08-4178-ac35-b18132f5e9be;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -379,7 +379,7 @@ namespace Example
             var requestParameters = new Get1099FormPdfRequestSdk();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = bf60a95c-1309-446f-bca0-5ef78cd9da9f;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = d1137739-9ffd-4f10-b30d-63c9931066e1;  // string | Unique correlation Id in a GUID format
             requestParameters.MarkEdelivered = true;  // bool? | The parameter for marked e-delivered (optional) 
 
             try
@@ -463,7 +463,7 @@ namespace Example
             var apiInstance = new Forms1099Api(apiClient);
             var requestParameters = new List1099FormsRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = a53971a2-91a0-4eb7-aa6d-63ebe245d8dd;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 1a3f5d5f-2c12-41e8-a1a5-8d454ff698a9;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve. For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>.    Collections support filtering only on certain fields. An attempt to filter on an unsupported field will receive a 400 Bad Request response.    Supported filtering fields are as follows:        issuerId      issuerReferenceId      taxYear      addressVerificationStatus - possible values are: unknown, pending, failed, incomplete, unchanged, verified      createdAt      edeliveryStatus - possible values are: sent, unscheduled, bad_verify, bad_verify_limit, scheduled, bounced, accepted      email      federalEfileStatus - possible values are: unscheduled, scheduled, sent, corrected_scheduled, accepted, corrected, corrected_accepted, held      recipientName      mailStatus - possible values are: sent, unscheduled, pending, delivered      referenceId      tinMatchStatus - possible values are: none, pending, matched, failed      type - possible values are: 940, 941, 943, 944, 945, 1042, 1042-S, 1095-B, 1095-C, 1097-BTC, 1098, 1098-C, 1098-E, 1098-Q, 1098-T, 3921, 3922, 5498, 5498-ESA, 5498-SA, 1099-MISC, 1099-A, 1099-B, 1099-C, 1099-CAP, 1099-DIV, 1099-G, 1099-INT, 1099-K, 1099-LS, 1099-LTC, 1099-NEC, 1099-OID, 1099-PATR, 1099-Q, 1099-R, 1099-S, 1099-SA, T4A, W-2, W-2G, 1099-HC      updatedAt      validity - possible values are: true, false (optional) 
             requestParameters.Top = 10;  // int? | If nonzero, return no more than this number of results.     Used with skip to provide pagination for large datasets.     Unless otherwise specified, the maximum number of records that can be returned from an API call is 1,000 records. (optional)  (default to 10)
             requestParameters.Skip = 0;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional)  (default to 0)
@@ -553,7 +553,7 @@ namespace Example
             var requestParameters = new Update1099FormRequestSdk();
             requestParameters.Id = "id_example";  // string | 
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 8d2111b1-01d9-44d9-99ed-dcccaed4adbe;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = a163f816-6003-4e0a-854a-b6b105f26d9f;  // string | Unique correlation Id in a GUID format
             requestParameters.IUpdateForm1099Request = new IUpdateForm1099Request(); // IUpdateForm1099Request |  (optional) 
 
             try

@@ -43,7 +43,7 @@ namespace Example
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new CreateCompanyRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 893ccb52-18e2-44e7-997f-a5ff9b64d107;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = 01fb70f8-7352-472b-9e88-f8d107fade54;  // string | Unique correlation Id in a GUID format
             requestParameters.CompanyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The company to create (optional) 
 
             try
@@ -127,7 +127,7 @@ namespace Example
             var requestParameters = new DeleteCompanyRequestSdk();
             requestParameters.Id = "id_example";  // string | The company to delete
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 55075aff-e4ba-419d-be13-8fc2b0f5fbf2;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = e85e414d-08be-4790-a67d-37c3f2691e91;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -210,7 +210,7 @@ namespace Example
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new GetCompaniesRequestSdk();
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 9299848a-bed7-4a09-903a-348e2f730ed3;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = c42a4194-0a8c-49c0-a2dd-9c8900120ebd;  // string | Unique correlation Id in a GUID format
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 56;  // int? | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional) 
             requestParameters.Skip = 56;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional) 
@@ -306,7 +306,7 @@ namespace Example
             var requestParameters = new GetCompanyRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the company
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = eb716a59-0f88-4d4b-b3fb-51b174abe535;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = e64e0372-8932-49ec-b942-665b20e3a34c;  // string | Unique correlation Id in a GUID format
 
             try
             {
@@ -391,7 +391,7 @@ namespace Example
             var requestParameters = new UpdateCompanyRequestSdk();
             requestParameters.Id = "id_example";  // string | The ID of the company to update
             requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 8ab738df-cd36-48be-8adb-92f01a2c741e;  // string | Unique correlation Id in a GUID format
+            requestParameters.XCorrelationId = b1ebc708-145c-4dd6-afb1-cc15c49219f6;  // string | Unique correlation Id in a GUID format
             requestParameters.CompanyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The updated company data (optional) 
 
             try

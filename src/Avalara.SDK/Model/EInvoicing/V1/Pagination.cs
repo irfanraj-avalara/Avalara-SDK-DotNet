@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-/// <summary>
+    /// <summary>
     /// Pagination information for the dataset.
     /// </summary>
     [DataContract(Name = "Pagination")]
@@ -101,4 +101,5 @@ namespace Avalara.SDK.Model.EInvoicing.V1
             yield break;
         }
     }
+
 }

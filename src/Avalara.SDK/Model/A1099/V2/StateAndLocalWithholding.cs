@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.A1099.V2
 {
-/// <summary>
+    /// <summary>
     /// StateAndLocalWithholding
     /// </summary>
     [DataContract(Name = "StateAndLocalWithholding")]
@@ -153,4 +153,5 @@ namespace Avalara.SDK.Model.A1099.V2
             yield break;
         }
     }
+
 }

@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.A1099.V2
 {
-/// <summary>
+    /// <summary>
     /// Paginated model for W9/W4/W8 forms query response data
     /// </summary>
     [DataContract(Name = "PaginatedW9FormsModel")]
@@ -109,4 +109,5 @@ namespace Avalara.SDK.Model.A1099.V2
             yield break;
         }
     }
+
 }
