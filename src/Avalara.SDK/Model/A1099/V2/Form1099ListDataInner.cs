@@ -31,6 +31,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = Avalara.SDK.Client.FileParameter;
 using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
@@ -45,6 +46,18 @@ namespace Avalara.SDK.Model.A1099.V2
     [DataContract(Name = "Form1099List_data_inner")]
     public partial class Form1099ListDataInner : AbstractOpenAPISchema, IValidatableObject
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Form1099ListDataInner" /> class
+        /// with the <see cref="Form1099K" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1099K.</param>
+        public Form1099ListDataInner(Form1099K actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Form1099ListDataInner" /> class
         /// with the <see cref="Form1099Misc" /> class
@@ -95,7 +108,11 @@ namespace Avalara.SDK.Model.A1099.V2
             }
             set
             {
-                if (value.GetType() == typeof(Form1099Misc) || value is Form1099Misc)
+                if (value.GetType() == typeof(Form1099K) || value is Form1099K)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(Form1099Misc) || value is Form1099Misc)
                 {
                     this._actualInstance = value;
                 }
@@ -109,9 +126,19 @@ namespace Avalara.SDK.Model.A1099.V2
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099Misc, Form1099Nec, Form1099R");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099K, Form1099Misc, Form1099Nec, Form1099R");
                 }
             }
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1099K`. If the actual instance is not `Form1099K`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1099K</returns>
+        public Form1099K GetForm1099K()
+        {
+            return (Form1099K)this.ActualInstance;
         }
 
         /// <summary>
@@ -181,6 +208,26 @@ namespace Avalara.SDK.Model.A1099.V2
             }
             int match = 0;
             List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1099K).GetProperty("AdditionalProperties") == null)
+                {
+                    newForm1099ListDataInner = new Form1099ListDataInner(JsonConvert.DeserializeObject<Form1099K>(jsonString, Form1099ListDataInner.SerializerSettings));
+                }
+                else
+                {
+                    newForm1099ListDataInner = new Form1099ListDataInner(JsonConvert.DeserializeObject<Form1099K>(jsonString, Form1099ListDataInner.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1099K");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099K: {1}", jsonString, exception.ToString()));
+            }
 
             try
             {

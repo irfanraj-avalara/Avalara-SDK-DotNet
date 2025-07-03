@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-/// <summary>
+    /// <summary>
     /// DirectorySearchResponseValueInnerAddressesInner
     /// </summary>
     [DataContract(Name = "DirectorySearchResponse_value_inner_addresses_inner")]
@@ -131,4 +131,5 @@ namespace Avalara.SDK.Model.EInvoicing.V1
             yield break;
         }
     }
+
 }

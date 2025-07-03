@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-/// <summary>
+    /// <summary>
     /// Key value pairs of metadata for a document submission &lt;br&gt;&lt;pre&gt;{  \&quot;workflowId\&quot;: \&quot;partner-einvoicing\&quot;, \&quot;dataFormat\&quot;: \&quot;ubl-invoice\&quot;, \&quot;dataFormatVersion\&quot;: \&quot;2.1\&quot;, \&quot;countryCode\&quot;: \&quot;SA\&quot;, \&quot;countryMandate\&quot;: \&quot;SA-Phase1-B2B\&quot; }&lt;/pre&gt; &lt;br&gt; 
     /// </summary>
     [DataContract(Name = "SubmitDocument_metadata")]
@@ -188,4 +188,5 @@ namespace Avalara.SDK.Model.EInvoicing.V1
             yield break;
         }
     }
+
 }

@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
-/// <summary>
+    /// <summary>
     /// Structure for reporting errors encountered during API operations, including title, status, and detailed message.
     /// </summary>
     [DataContract(Name = "ErrorResponse")]
@@ -121,4 +121,5 @@ namespace Avalara.SDK.Model.EInvoicing.V1
             yield break;
         }
     }
+
 }

@@ -37,7 +37,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 
 namespace Avalara.SDK.Model.A1099.V2
 {
-/// <summary>
+    /// <summary>
     /// Generic paginated model to wrap query response data
     /// </summary>
     [DataContract(Name = "PaginatedQueryResultModel_IssuerResponse")]
@@ -109,4 +109,5 @@ namespace Avalara.SDK.Model.A1099.V2
             yield break;
         }
     }
+
 }

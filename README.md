@@ -233,6 +233,7 @@ Class | Method | HTTP request | Description
  - [Model.A1099.V2.Form1099KListItem](docs/A1099/V2/Form1099KListItem.md)
  - [Model.A1099.V2.Form1099KRequest](docs/A1099/V2/Form1099KRequest.md)
  - [Model.A1099.V2.Form1099List](docs/A1099/V2/Form1099List.md)
+ - [Model.A1099.V2.Form1099ListDataInner](docs/A1099/V2/Form1099ListDataInner.md)
  - [Model.A1099.V2.Form1099Misc](docs/A1099/V2/Form1099Misc.md)
  - [Model.A1099.V2.Form1099MiscList](docs/A1099/V2/Form1099MiscList.md)
  - [Model.A1099.V2.Form1099MiscListItem](docs/A1099/V2/Form1099MiscListItem.md)
