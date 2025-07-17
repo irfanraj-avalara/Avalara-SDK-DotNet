@@ -6,15 +6,15 @@
     <AssemblyName>Avalara.SDK</AssemblyName>
     <PackageId>Avalara.SDK</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>OpenAPI</Authors>
-    <Company>OpenAPI</Company>
+    <Authors>Avalara</Authors>
+    <Company>Avalara</Company>
     <AssemblyTitle>Avalara</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
+    <Description>A library generated from a OpenAPI doc for Avalara APIs</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>Avalara.SDK</RootNamespace>
-    <Version></Version>
+    <Version>25.7.2</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Avalara.SDK.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/avadev/Avalara-SDK-DotNet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
   </PropertyGroup>
