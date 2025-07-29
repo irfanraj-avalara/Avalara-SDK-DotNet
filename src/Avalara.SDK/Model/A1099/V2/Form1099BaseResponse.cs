@@ -396,7 +396,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Creation time
         /// </summary>
         /// <value>Creation time</value>
-        /// <example>2025-07-29T15:26:03.302645900Z</example>
+        /// <example>2025-07-29T15:37:04.970443200Z</example>
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; private set; }
 
@@ -412,7 +412,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Update time
         /// </summary>
         /// <value>Update time</value>
-        /// <example>2025-07-29T15:26:03.302646500Z</example>
+        /// <example>2025-07-29T15:37:04.970443700Z</example>
         [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; private set; }
 
