@@ -133,7 +133,7 @@ namespace Example
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional) 
             requestParameters.Filter = countryMandate eq DE-B2G-PEPPOL;  // string | Filter by field name and value. This filter only supports <code>eq</code> and <code>contains</code>. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. (optional) 
             requestParameters.Top = 56;  // int? | The number of items to include in the result. (optional) 
-            requestParameters.Skip = 10;  // decimal? | If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional) 
+            requestParameters.Skip = 56;  // int? | The number of items to skip in the result. (optional) 
             requestParameters.Count = true;  // bool? | When set to true, the count of the collection is also returned in the response body. (optional) 
             requestParameters.CountOnly = true;  // bool? | When set to true, only the count of the collection is returned (optional) 
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
  **XAvalaraClient** | **string**| You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. | [optional] 
  **Filter** | **string**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;contains&lt;/code&gt;. Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. | [optional] 
  **Top** | **int?**| The number of items to include in the result. | [optional] 
- **Skip** | **decimal?**| If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. | [optional] 
+ **Skip** | **int?**| The number of items to skip in the result. | [optional] 
  **Count** | **bool?**| When set to true, the count of the collection is also returned in the response body. | [optional] 
  **CountOnly** | **bool?**| When set to true, only the count of the collection is returned | [optional] 
 

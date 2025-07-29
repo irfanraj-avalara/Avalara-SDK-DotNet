@@ -176,9 +176,9 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         public int? Top { get; set; }
         /// <summary>
-        /// If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets.
+        /// The number of items to skip in the result.
         /// </summary>
-        public string Skip { get; set; }
+        public int? Skip { get; set; }
         /// <summary>
         /// The &lt;code&gt;$orderBy&lt;/code&gt; query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space.
         /// </summary>
@@ -218,9 +218,9 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         public int? Top { get; set; }
         /// <summary>
-        /// If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets.
+        /// The number of items to skip in the result.
         /// </summary>
-        public string Skip { get; set; }
+        public int? Skip { get; set; }
         /// <summary>
         /// The &lt;code&gt;$orderBy&lt;/code&gt; query parameter specifies the field and sorting direction for ordering the result set. The value is a string that combines a field name and a sorting direction (asc for ascending or desc for descending), separated by a space.
         /// </summary>

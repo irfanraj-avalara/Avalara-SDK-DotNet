@@ -58,7 +58,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// The date the form is scheduled for or the time the status last changed
         /// </summary>
         /// <value>The date the form is scheduled for or the time the status last changed</value>
-        /// <example>2025-07-29T15:37:04.9526888Z</example>
+        /// <example>2025-07-29T15:47:39.3790485Z</example>
         [DataMember(Name = "time", EmitDefaultValue = true)]
         public string Time { get; set; }
 
