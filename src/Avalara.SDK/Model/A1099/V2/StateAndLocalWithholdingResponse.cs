@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -46,14 +46,14 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Initializes a new instance of the <see cref="StateAndLocalWithholdingResponse" /> class.
         /// </summary>
-        /// <param name="stateTaxWithheld">stateTaxWithheld.</param>
-        /// <param name="state">state.</param>
-        /// <param name="stateIdNumber">stateIdNumber.</param>
-        /// <param name="stateIncome">stateIncome.</param>
-        /// <param name="localTaxWithheld">localTaxWithheld.</param>
-        /// <param name="locality">locality.</param>
-        /// <param name="localityIdNumber">localityIdNumber.</param>
-        /// <param name="localIncome">localIncome.</param>
+        /// <param name="stateTaxWithheld">Amount of state tax that was withheld.</param>
+        /// <param name="state">US state.</param>
+        /// <param name="stateIdNumber">State ID number of the entity issuing the form.</param>
+        /// <param name="stateIncome">Amount of state income.</param>
+        /// <param name="localTaxWithheld">Amount of local tax that was withheld.</param>
+        /// <param name="locality">Locality name.</param>
+        /// <param name="localityIdNumber">Locality ID number of the entity issuing the form.</param>
+        /// <param name="localIncome">Amount of local income.</param>
         public StateAndLocalWithholdingResponse(double stateTaxWithheld = default(double), string state = default(string), string stateIdNumber = default(string), double stateIncome = default(double), double localTaxWithheld = default(double), string locality = default(string), string localityIdNumber = default(string), double localIncome = default(double))
         {
             this.StateTaxWithheld = stateTaxWithheld;
@@ -67,50 +67,58 @@ namespace Avalara.SDK.Model.A1099.V2
         }
 
         /// <summary>
-        /// Gets or Sets StateTaxWithheld
+        /// Amount of state tax that was withheld
         /// </summary>
+        /// <value>Amount of state tax that was withheld</value>
         [DataMember(Name = "stateTaxWithheld", EmitDefaultValue = false)]
         public double StateTaxWithheld { get; set; }
 
         /// <summary>
-        /// Gets or Sets State
+        /// US state
         /// </summary>
+        /// <value>US state</value>
         [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateIdNumber
+        /// State ID number of the entity issuing the form
         /// </summary>
+        /// <value>State ID number of the entity issuing the form</value>
         [DataMember(Name = "stateIdNumber", EmitDefaultValue = false)]
         public string StateIdNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateIncome
+        /// Amount of state income
         /// </summary>
+        /// <value>Amount of state income</value>
         [DataMember(Name = "stateIncome", EmitDefaultValue = false)]
         public double StateIncome { get; set; }
 
         /// <summary>
-        /// Gets or Sets LocalTaxWithheld
+        /// Amount of local tax that was withheld
         /// </summary>
+        /// <value>Amount of local tax that was withheld</value>
         [DataMember(Name = "localTaxWithheld", EmitDefaultValue = false)]
         public double LocalTaxWithheld { get; set; }
 
         /// <summary>
-        /// Gets or Sets Locality
+        /// Locality name
         /// </summary>
+        /// <value>Locality name</value>
         [DataMember(Name = "locality", EmitDefaultValue = false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// Gets or Sets LocalityIdNumber
+        /// Locality ID number of the entity issuing the form
         /// </summary>
+        /// <value>Locality ID number of the entity issuing the form</value>
         [DataMember(Name = "localityIdNumber", EmitDefaultValue = true)]
         public string LocalityIdNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets LocalIncome
+        /// Amount of local income
         /// </summary>
+        /// <value>Amount of local income</value>
         [DataMember(Name = "localIncome", EmitDefaultValue = false)]
         public double LocalIncome { get; set; }
 

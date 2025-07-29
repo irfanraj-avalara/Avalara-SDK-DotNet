@@ -38,7 +38,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
 /// <summary>
-    /// Basic configuration for a webhook subscription, including description and target notification URL.
+    /// SubscriptionCommon
     /// </summary>
     [DataContract(Name = "SubscriptionCommon")]
     public partial class SubscriptionCommon : IValidatableObject

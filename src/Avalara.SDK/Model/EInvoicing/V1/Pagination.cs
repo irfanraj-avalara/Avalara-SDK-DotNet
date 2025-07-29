@@ -38,7 +38,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
 /// <summary>
-    /// Pagination information for the dataset.
+    /// Pagination
     /// </summary>
     [DataContract(Name = "Pagination")]
     public partial class Pagination : IValidatableObject

@@ -38,7 +38,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
 /// <summary>
-    /// Structure for reporting errors encountered during API operations, including title, status, and detailed message.
+    /// Standard format for API error responses.
     /// </summary>
     [DataContract(Name = "ErrorResponse")]
     public partial class ErrorResponse : IValidatableObject

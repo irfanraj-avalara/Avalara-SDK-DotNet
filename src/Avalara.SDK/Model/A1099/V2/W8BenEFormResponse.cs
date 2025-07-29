@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -845,6 +845,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The date the start-up company was formed on (or, in case of new line of business, the date of board resolution approving the  new line of business).</value>
         [DataMember(Name = "startupFormationOrResolutionDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? StartupFormationOrResolutionDate { get; set; }
 
         /// <summary>
@@ -860,6 +861,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The filed date for a plan of reorganization, liquidation or bankruptcy.</value>
         [DataMember(Name = "nonfinancialEntityFilingDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? NonfinancialEntityFilingDate { get; set; }
 
         /// <summary>
@@ -875,6 +877,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The date of the IRS determination letter confirming the entity’s section 501(c) status.</value>
         [DataMember(Name = "determinationLetterDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? DeterminationLetterDate { get; set; }
 
         /// <summary>

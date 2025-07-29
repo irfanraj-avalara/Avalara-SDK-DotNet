@@ -60,7 +60,7 @@ namespace Avalara.SDK.Api.A1099.V2
     /// </summary>
     public class GetIssuerRequestSdk {
         /// <summary>
-        /// 
+        /// Id of the issuer to retrieve
         /// </summary>
         public string Id { get; set; }
         /// <summary>
@@ -124,7 +124,7 @@ namespace Avalara.SDK.Api.A1099.V2
     /// </summary>
     public class UpdateIssuerRequestSdk {
         /// <summary>
-        /// Id of the issuer to Update
+        /// Id of the issuer to update
         /// </summary>
         public string Id { get; set; }
         /// <summary>
@@ -156,7 +156,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Create an issuer
         /// </summary>
         /// <remarks>
-        /// Create a new issuer
+        /// Create an issuer (also known as a Payer).
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -167,7 +167,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Delete an issuer
         /// </summary>
         /// <remarks>
-        /// Delete an issuer
+        /// Delete an issuer (also known as a Payer).
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -175,10 +175,10 @@ namespace Avalara.SDK.Api.A1099.V2
         void DeleteIssuer(DeleteIssuerRequestSdk requestParameters);
 
         /// <summary>
-        /// Get an issuer
+        /// Retrieve an issuer
         /// </summary>
         /// <remarks>
-        /// Get an issuer
+        /// Retrieve an issuer (also known as a Payer).
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -189,7 +189,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// List issuers
         /// </summary>
         /// <remarks>
-        /// List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+        /// List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -200,7 +200,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Update an issuer
         /// </summary>
         /// <remarks>
-        /// Update an existing issuer
+        /// Update an issuer (also known as a Payer).
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -220,7 +220,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Create an issuer
         /// </summary>
         /// <remarks>
-        /// Create a new issuer
+        /// Create an issuer (also known as a Payer).
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -232,7 +232,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Delete an issuer
         /// </summary>
         /// <remarks>
-        /// Delete an issuer
+        /// Delete an issuer (also known as a Payer).
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -241,10 +241,10 @@ namespace Avalara.SDK.Api.A1099.V2
         System.Threading.Tasks.Task DeleteIssuerAsync(DeleteIssuerRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get an issuer
+        /// Retrieve an issuer
         /// </summary>
         /// <remarks>
-        /// Get an issuer
+        /// Retrieve an issuer (also known as a Payer).
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -256,7 +256,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// List issuers
         /// </summary>
         /// <remarks>
-        /// List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+        /// List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -268,7 +268,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Update an issuer
         /// </summary>
         /// <remarks>
-        /// Update an existing issuer
+        /// Update an issuer (also known as a Payer).
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -319,7 +319,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Create an issuer Create a new issuer
+        /// Create an issuer Create an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -331,7 +331,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Create an issuer Create a new issuer
+        /// Create an issuer Create an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -387,7 +387,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Create an issuer Create a new issuer
+        /// Create an issuer Create an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -400,7 +400,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Create an issuer Create a new issuer
+        /// Create an issuer Create an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -459,7 +459,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Delete an issuer Delete an issuer
+        /// Delete an issuer Delete an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -470,7 +470,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Delete an issuer Delete an issuer
+        /// Delete an issuer Delete an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -527,7 +527,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Delete an issuer Delete an issuer
+        /// Delete an issuer Delete an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -539,7 +539,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Delete an issuer Delete an issuer
+        /// Delete an issuer Delete an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -599,7 +599,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Get an issuer Get an issuer
+        /// Retrieve an issuer Retrieve an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -611,7 +611,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Get an issuer Get an issuer
+        /// Retrieve an issuer Retrieve an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -668,7 +668,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Get an issuer Get an issuer
+        /// Retrieve an issuer Retrieve an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -681,7 +681,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Get an issuer Get an issuer
+        /// Retrieve an issuer Retrieve an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -741,7 +741,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// List issuers List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+        /// List issuers List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -753,7 +753,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// List issuers List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+        /// List issuers List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -829,7 +829,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// List issuers List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+        /// List issuers List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -842,7 +842,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// List issuers List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+        /// List issuers List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -921,7 +921,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update an issuer Update an existing issuer
+        /// Update an issuer Update an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -932,7 +932,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update an issuer Update an existing issuer
+        /// Update an issuer Update an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -993,7 +993,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update an issuer Update an existing issuer
+        /// Update an issuer Update an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1005,7 +1005,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update an issuer Update an existing issuer
+        /// Update an issuer Update an issuer (also known as a Payer).
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1077,7 +1077,7 @@ namespace Avalara.SDK.Api.A1099.V2
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.7.2";
+            this.Client.SdkVersion = "25.8.0";
         }
         
     }

@@ -40,7 +40,7 @@ namespace Example
             var requestParameters = new SubmitInteropDocumentRequestSdk();
             requestParameters.DocumentType = "ubl-invoice-2.1";  // string | Type of the document being uploaded. Partners will be configured in Avalara system to send only certain types of documents.
             requestParameters.InterchangeType = "FI-B2B-TIEKE";  // string | Type of interchange (codes in Avalara system that uniquely identifies a type of interchange). Partners will be configured in Avalara system to send documents belonging to certain types of interchanges.
-            requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used
+            requestParameters.AvalaraVersion = 1.4;  // string | The HTTP Header meant to specify the version of the API intended to be used
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a \"Fingerprint\" (optional) 
             requestParameters.XCorrelationID = f3f0d19a-01a1-4748-8a58-f000d0424f43;  // string | The caller can use this as an identifier to use as a correlation id to trace the call. (optional) 
             requestParameters.FileName = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The file to be uploaded (e.g., UBL XML, CII XML). (optional) 

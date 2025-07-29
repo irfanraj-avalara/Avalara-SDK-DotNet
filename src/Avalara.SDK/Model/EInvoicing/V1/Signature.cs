@@ -38,7 +38,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
 /// <summary>
-    /// Defines the signature configuration, specifying whether and how messages are signed for webhook delivery.
+    /// Signature
     /// </summary>
     [DataContract(Name = "Signature")]
     public partial class Signature : IValidatableObject

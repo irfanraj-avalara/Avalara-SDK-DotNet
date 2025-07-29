@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateIssuer**](Issuers1099Api.md#createissuer) | **POST** /1099/issuers | Create an issuer
 [**DeleteIssuer**](Issuers1099Api.md#deleteissuer) | **DELETE** /1099/issuers/{id} | Delete an issuer
-[**GetIssuer**](Issuers1099Api.md#getissuer) | **GET** /1099/issuers/{id} | Get an issuer
+[**GetIssuer**](Issuers1099Api.md#getissuer) | **GET** /1099/issuers/{id} | Retrieve an issuer
 [**GetIssuers**](Issuers1099Api.md#getissuers) | **GET** /1099/issuers | List issuers
 [**UpdateIssuer**](Issuers1099Api.md#updateissuer) | **PUT** /1099/issuers/{id} | Update an issuer
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create an issuer
 
-Create a new issuer
+Create an issuer (also known as a Payer).
 
 ### Example
 ```csharp
@@ -42,8 +42,8 @@ namespace Example
             
             var apiInstance = new Issuers1099Api(apiClient);
             var requestParameters = new CreateIssuerRequestSdk();
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = fa8cab77-a162-404b-8bd9-a580287c744f;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
+            requestParameters.XCorrelationId = 790d12c4-e473-4e06-8104-e1391469363d;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
             requestParameters.IssuerCommand = new IssuerCommand(); // IssuerCommand | The issuer to create (optional) 
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 Delete an issuer
 
-Delete an issuer
+Delete an issuer (also known as a Payer).
 
 ### Example
 ```csharp
@@ -128,8 +128,8 @@ namespace Example
             var apiInstance = new Issuers1099Api(apiClient);
             var requestParameters = new DeleteIssuerRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the issuer to delete
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = b341ad72-1306-4af4-9c02-a742c55d8d97;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
+            requestParameters.XCorrelationId = f4fbae4e-795e-458a-aec2-5e5232efb33b;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
@@ -184,9 +184,9 @@ void (empty response body)
 # **GetIssuer**
 > IssuerResponse GetIssuer (GetIssuerRequestSdk requestParameters)
 
-Get an issuer
+Retrieve an issuer
 
-Get an issuer
+Retrieve an issuer (also known as a Payer).
 
 ### Example
 ```csharp
@@ -211,14 +211,14 @@ namespace Example
             
             var apiInstance = new Issuers1099Api(apiClient);
             var requestParameters = new GetIssuerRequestSdk();
-            requestParameters.Id = "id_example";  // string | 
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 7d676bbe-e39a-4d59-a548-f9a8e026beed;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.Id = "id_example";  // string | Id of the issuer to retrieve
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
+            requestParameters.XCorrelationId = 826bf1b5-f556-485c-be41-e57e14e5cae9;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
             {
-                // Get an issuer
+                // Retrieve an issuer
                 IssuerResponse result = apiInstance.GetIssuer(requestParameters);
                 Debug.WriteLine(result);
             }
@@ -237,7 +237,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **string**|  | 
+ **Id** | **string**| Id of the issuer to retrieve | 
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
  **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 List issuers
 
-List issuers for a given tax year. Filterable fields are name, referenceId and taxYear
+List issuers (also known as Payers). Filterable fields are name, referenceId and taxYear.
 
 ### Example
 ```csharp
@@ -296,14 +296,14 @@ namespace Example
             
             var apiInstance = new Issuers1099Api(apiClient);
             var requestParameters = new GetIssuersRequestSdk();
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 56;  // int? | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional) 
             requestParameters.Skip = 56;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional) 
             requestParameters.OrderBy = "orderBy_example";  // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional) 
             requestParameters.Count = true;  // bool? | If true, return the global count of elements in the collection. (optional) 
             requestParameters.CountOnly = true;  // bool? | If true, return ONLY the global count of elements in the collection.  It only applies when count=true. (optional) 
-            requestParameters.XCorrelationId = 84029679-b1eb-4ebf-8c73-2612f83c1981;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XCorrelationId = 12264f5a-c0c1-4cb2-8ab1-e5434d55b73f;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 Update an issuer
 
-Update an existing issuer
+Update an issuer (also known as a Payer).
 
 ### Example
 ```csharp
@@ -393,9 +393,9 @@ namespace Example
             
             var apiInstance = new Issuers1099Api(apiClient);
             var requestParameters = new UpdateIssuerRequestSdk();
-            requestParameters.Id = "id_example";  // string | Id of the issuer to Update
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 5eac330a-bb0c-4122-9f83-ec27fc871b05;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.Id = "id_example";  // string | Id of the issuer to update
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
+            requestParameters.XCorrelationId = 73758ef3-adb6-4b4b-ab1b-96f87332b71d;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
             requestParameters.IssuerCommand = new IssuerCommand(); // IssuerCommand | The issuer to update (optional) 
 
@@ -419,7 +419,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **string**| Id of the issuer to Update | 
+ **Id** | **string**| Id of the issuer to update | 
  **AvalaraVersion** | **string**| API version | 
  **XCorrelationId** | **string**| Unique correlation Id in a GUID format | [optional] 
  **XAvalaraClient** | **string**| Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . | [optional] 

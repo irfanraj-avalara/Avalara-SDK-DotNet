@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -78,7 +78,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="eDeliveryConsentedAt">The date when e-delivery was consented..</param>
         /// <param name="createdAt">The creation date of the form..</param>
         /// <param name="updatedAt">The last updated date of the form..</param>
-        public W9FormResponse(string name = default(string), string businessName = default(string), string businessClassification = default(string), string businessOther = default(string), bool? foreignPartnerOwnerOrBeneficiary = default(bool?), string exemptPayeeCode = default(string), string exemptFatcaCode = default(string), bool? foreignCountryIndicator = default(bool?), string address = default(string), string foreignAddress = default(string), string city = default(string), string state = default(string), string zip = default(string), string accountNumber = default(string), string tinType = default(string), string tin = default(string), bool backupWithholding = default(bool), bool is1099able = default(bool), string id = default(string), string type = default(string), string entryStatus = default(string), DateTime? entryStatusDate = default(DateTime?), string referenceId = default(string), string companyId = default(string), string displayName = default(string), string email = default(string), bool archived = default(bool), string signature = default(string), DateTime? signedDate = default(DateTime?), DateTime? eDeliveryConsentedAt = default(DateTime?), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
+        public W9FormResponse(string name = default(string), string businessName = default(string), string businessClassification = default(string), string businessOther = default(string), bool foreignPartnerOwnerOrBeneficiary = default(bool), string exemptPayeeCode = default(string), string exemptFatcaCode = default(string), bool foreignCountryIndicator = default(bool), string address = default(string), string foreignAddress = default(string), string city = default(string), string state = default(string), string zip = default(string), string accountNumber = default(string), string tinType = default(string), string tin = default(string), bool backupWithholding = default(bool), bool is1099able = default(bool), string id = default(string), string type = default(string), string entryStatus = default(string), DateTime? entryStatusDate = default(DateTime?), string referenceId = default(string), string companyId = default(string), string displayName = default(string), string email = default(string), bool archived = default(bool), string signature = default(string), DateTime? signedDate = default(DateTime?), DateTime? eDeliveryConsentedAt = default(DateTime?), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
         {
             this.Name = name;
             this.BusinessName = businessName;
@@ -151,7 +151,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <value>Indicates whether the individual is a foreign partner, owner, or beneficiary.</value>
         /// <example>false</example>
         [DataMember(Name = "foreignPartnerOwnerOrBeneficiary", EmitDefaultValue = true)]
-        public bool? ForeignPartnerOwnerOrBeneficiary { get; set; }
+        public bool ForeignPartnerOwnerOrBeneficiary { get; set; }
 
         /// <summary>
         /// The exempt payee code.
@@ -173,7 +173,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <value>Indicates whether the individual or entity is in a foreign country.</value>
         /// <example>false</example>
         [DataMember(Name = "foreignCountryIndicator", EmitDefaultValue = true)]
-        public bool? ForeignCountryIndicator { get; set; }
+        public bool ForeignCountryIndicator { get; set; }
 
         /// <summary>
         /// The address of the individual or entity.
@@ -195,7 +195,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The city of the address.</value>
         /// <example>Anytown</example>
-        [DataMember(Name = "city", EmitDefaultValue = false)]
+        [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
@@ -203,7 +203,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The state of the address.</value>
         /// <example>CA</example>
-        [DataMember(Name = "state", EmitDefaultValue = false)]
+        [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; set; }
 
         /// <summary>
@@ -211,7 +211,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>The ZIP code of the address.</value>
         /// <example>90210</example>
-        [DataMember(Name = "zip", EmitDefaultValue = false)]
+        [DataMember(Name = "zip", EmitDefaultValue = true)]
         public string Zip { get; set; }
 
         /// <summary>

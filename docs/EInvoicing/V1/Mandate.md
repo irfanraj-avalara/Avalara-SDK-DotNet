@@ -1,5 +1,4 @@
 # Avalara.SDK.Model.EInvoicing.V1.Mandate
-An object representing the country mandate
 
 ## Properties
 

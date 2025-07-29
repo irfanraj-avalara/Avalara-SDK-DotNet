@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -45,6 +45,18 @@ namespace Avalara.SDK.Model.A1099.V2
     [DataContract(Name = "BulkUpsert1099Forms_request")]
     public partial class BulkUpsert1099FormsRequest : AbstractOpenAPISchema, IValidatableObject
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BulkUpsert1099FormsRequest" /> class
+        /// with the <see cref="Form1042SList" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1042SList.</param>
+        public BulkUpsert1099FormsRequest(Form1042SList actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkUpsert1099FormsRequest" /> class
         /// with the <see cref="Form1095BList" /> class
@@ -131,7 +143,11 @@ namespace Avalara.SDK.Model.A1099.V2
             }
             set
             {
-                if (value.GetType() == typeof(Form1095BList) || value is Form1095BList)
+                if (value.GetType() == typeof(Form1042SList) || value is Form1042SList)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(Form1095BList) || value is Form1095BList)
                 {
                     this._actualInstance = value;
                 }
@@ -157,9 +173,19 @@ namespace Avalara.SDK.Model.A1099.V2
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1095BList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SList, Form1095BList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList");
                 }
             }
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1042SList`. If the actual instance is not `Form1042SList`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1042SList</returns>
+        public Form1042SList GetForm1042SList()
+        {
+            return (Form1042SList)this.ActualInstance;
         }
 
         /// <summary>
@@ -259,6 +285,26 @@ namespace Avalara.SDK.Model.A1099.V2
             }
             int match = 0;
             List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1042SList).GetProperty("AdditionalProperties") == null)
+                {
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1042SList>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
+                }
+                else
+                {
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1042SList>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1042SList");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1042SList: {1}", jsonString, exception.ToString()));
+            }
 
             try
             {

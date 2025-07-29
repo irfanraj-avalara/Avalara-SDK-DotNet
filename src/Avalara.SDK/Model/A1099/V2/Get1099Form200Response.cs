@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -47,10 +47,10 @@ namespace Avalara.SDK.Model.A1099.V2
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Get1099Form200Response" /> class
-        /// with the <see cref="Form1095B" /> class
+        /// with the <see cref="Form1099BaseResponse" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Form1095B.</param>
-        public Get1099Form200Response(Form1095B actualInstance)
+        /// <param name="actualInstance">An instance of Form1099BaseResponse.</param>
+        public Get1099Form200Response(Form1099BaseResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -59,10 +59,10 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Get1099Form200Response" /> class
-        /// with the <see cref="Form1099K" /> class
+        /// with the <see cref="Form1042SListItemResponse" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Form1099K.</param>
-        public Get1099Form200Response(Form1099K actualInstance)
+        /// <param name="actualInstance">An instance of Form1042SListItemResponse.</param>
+        public Get1099Form200Response(Form1042SListItemResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -71,10 +71,10 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Get1099Form200Response" /> class
-        /// with the <see cref="Form1099Misc" /> class
+        /// with the <see cref="Form1095BListItemResponse" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Form1099Misc.</param>
-        public Get1099Form200Response(Form1099Misc actualInstance)
+        /// <param name="actualInstance">An instance of Form1095BListItemResponse.</param>
+        public Get1099Form200Response(Form1095BListItemResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -83,10 +83,10 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Get1099Form200Response" /> class
-        /// with the <see cref="Form1099Nec" /> class
+        /// with the <see cref="Form1099KListItemResponse" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Form1099Nec.</param>
-        public Get1099Form200Response(Form1099Nec actualInstance)
+        /// <param name="actualInstance">An instance of Form1099KListItemResponse.</param>
+        public Get1099Form200Response(Form1099KListItemResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -95,10 +95,34 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Get1099Form200Response" /> class
-        /// with the <see cref="Form1099R" /> class
+        /// with the <see cref="Form1099MiscListItemResponse" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Form1099R.</param>
-        public Get1099Form200Response(Form1099R actualInstance)
+        /// <param name="actualInstance">An instance of Form1099MiscListItemResponse.</param>
+        public Get1099Form200Response(Form1099MiscListItemResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Get1099Form200Response" /> class
+        /// with the <see cref="Form1099NecListItemResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1099NecListItemResponse.</param>
+        public Get1099Form200Response(Form1099NecListItemResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Get1099Form200Response" /> class
+        /// with the <see cref="Form1099RListItemResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1099RListItemResponse.</param>
+        public Get1099Form200Response(Form1099RListItemResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -119,81 +143,109 @@ namespace Avalara.SDK.Model.A1099.V2
             }
             set
             {
-                if (value.GetType() == typeof(Form1095B) || value is Form1095B)
+                if (value.GetType() == typeof(Form1042SListItemResponse) || value is Form1042SListItemResponse)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Form1099K) || value is Form1099K)
+                else if (value.GetType() == typeof(Form1095BListItemResponse) || value is Form1095BListItemResponse)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Form1099Misc) || value is Form1099Misc)
+                else if (value.GetType() == typeof(Form1099BaseResponse) || value is Form1099BaseResponse)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Form1099Nec) || value is Form1099Nec)
+                else if (value.GetType() == typeof(Form1099KListItemResponse) || value is Form1099KListItemResponse)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Form1099R) || value is Form1099R)
+                else if (value.GetType() == typeof(Form1099MiscListItemResponse) || value is Form1099MiscListItemResponse)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(Form1099NecListItemResponse) || value is Form1099NecListItemResponse)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(Form1099RListItemResponse) || value is Form1099RListItemResponse)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1095B, Form1099K, Form1099Misc, Form1099Nec, Form1099R");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `Form1095B`. If the actual instance is not `Form1095B`,
+        /// Get the actual instance of `Form1099BaseResponse`. If the actual instance is not `Form1099BaseResponse`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Form1095B</returns>
-        public Form1095B GetForm1095B()
+        /// <returns>An instance of Form1099BaseResponse</returns>
+        public Form1099BaseResponse GetForm1099BaseResponse()
         {
-            return (Form1095B)this.ActualInstance;
+            return (Form1099BaseResponse)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `Form1099K`. If the actual instance is not `Form1099K`,
+        /// Get the actual instance of `Form1042SListItemResponse`. If the actual instance is not `Form1042SListItemResponse`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Form1099K</returns>
-        public Form1099K GetForm1099K()
+        /// <returns>An instance of Form1042SListItemResponse</returns>
+        public Form1042SListItemResponse GetForm1042SListItemResponse()
         {
-            return (Form1099K)this.ActualInstance;
+            return (Form1042SListItemResponse)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `Form1099Misc`. If the actual instance is not `Form1099Misc`,
+        /// Get the actual instance of `Form1095BListItemResponse`. If the actual instance is not `Form1095BListItemResponse`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Form1099Misc</returns>
-        public Form1099Misc GetForm1099Misc()
+        /// <returns>An instance of Form1095BListItemResponse</returns>
+        public Form1095BListItemResponse GetForm1095BListItemResponse()
         {
-            return (Form1099Misc)this.ActualInstance;
+            return (Form1095BListItemResponse)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `Form1099Nec`. If the actual instance is not `Form1099Nec`,
+        /// Get the actual instance of `Form1099KListItemResponse`. If the actual instance is not `Form1099KListItemResponse`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Form1099Nec</returns>
-        public Form1099Nec GetForm1099Nec()
+        /// <returns>An instance of Form1099KListItemResponse</returns>
+        public Form1099KListItemResponse GetForm1099KListItemResponse()
         {
-            return (Form1099Nec)this.ActualInstance;
+            return (Form1099KListItemResponse)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `Form1099R`. If the actual instance is not `Form1099R`,
+        /// Get the actual instance of `Form1099MiscListItemResponse`. If the actual instance is not `Form1099MiscListItemResponse`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Form1099R</returns>
-        public Form1099R GetForm1099R()
+        /// <returns>An instance of Form1099MiscListItemResponse</returns>
+        public Form1099MiscListItemResponse GetForm1099MiscListItemResponse()
         {
-            return (Form1099R)this.ActualInstance;
+            return (Form1099MiscListItemResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1099NecListItemResponse`. If the actual instance is not `Form1099NecListItemResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1099NecListItemResponse</returns>
+        public Form1099NecListItemResponse GetForm1099NecListItemResponse()
+        {
+            return (Form1099NecListItemResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1099RListItemResponse`. If the actual instance is not `Form1099RListItemResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1099RListItemResponse</returns>
+        public Form1099RListItemResponse GetForm1099RListItemResponse()
+        {
+            return (Form1099RListItemResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -237,101 +289,141 @@ namespace Avalara.SDK.Model.A1099.V2
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Form1095B).GetProperty("AdditionalProperties") == null)
+                if (typeof(Form1042SListItemResponse).GetProperty("AdditionalProperties") == null)
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1095B>(jsonString, Get1099Form200Response.SerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1042SListItemResponse>(jsonString, Get1099Form200Response.SerializerSettings));
                 }
                 else
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1095B>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1042SListItemResponse>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("Form1095B");
+                matchedTypes.Add("Form1042SListItemResponse");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1095B: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1042SListItemResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Form1099K).GetProperty("AdditionalProperties") == null)
+                if (typeof(Form1095BListItemResponse).GetProperty("AdditionalProperties") == null)
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099K>(jsonString, Get1099Form200Response.SerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1095BListItemResponse>(jsonString, Get1099Form200Response.SerializerSettings));
                 }
                 else
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099K>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1095BListItemResponse>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("Form1099K");
+                matchedTypes.Add("Form1095BListItemResponse");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099K: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1095BListItemResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Form1099Misc).GetProperty("AdditionalProperties") == null)
+                if (typeof(Form1099BaseResponse).GetProperty("AdditionalProperties") == null)
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099Misc>(jsonString, Get1099Form200Response.SerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099BaseResponse>(jsonString, Get1099Form200Response.SerializerSettings));
                 }
                 else
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099Misc>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099BaseResponse>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("Form1099Misc");
+                matchedTypes.Add("Form1099BaseResponse");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099Misc: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099BaseResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Form1099Nec).GetProperty("AdditionalProperties") == null)
+                if (typeof(Form1099KListItemResponse).GetProperty("AdditionalProperties") == null)
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099Nec>(jsonString, Get1099Form200Response.SerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099KListItemResponse>(jsonString, Get1099Form200Response.SerializerSettings));
                 }
                 else
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099Nec>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099KListItemResponse>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("Form1099Nec");
+                matchedTypes.Add("Form1099KListItemResponse");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099Nec: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099KListItemResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Form1099R).GetProperty("AdditionalProperties") == null)
+                if (typeof(Form1099MiscListItemResponse).GetProperty("AdditionalProperties") == null)
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099R>(jsonString, Get1099Form200Response.SerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099MiscListItemResponse>(jsonString, Get1099Form200Response.SerializerSettings));
                 }
                 else
                 {
-                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099R>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099MiscListItemResponse>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("Form1099R");
+                matchedTypes.Add("Form1099MiscListItemResponse");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099R: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099MiscListItemResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1099NecListItemResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099NecListItemResponse>(jsonString, Get1099Form200Response.SerializerSettings));
+                }
+                else
+                {
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099NecListItemResponse>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1099NecListItemResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099NecListItemResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1099RListItemResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099RListItemResponse>(jsonString, Get1099Form200Response.SerializerSettings));
+                }
+                else
+                {
+                    newGet1099Form200Response = new Get1099Form200Response(JsonConvert.DeserializeObject<Form1099RListItemResponse>(jsonString, Get1099Form200Response.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1099RListItemResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099RListItemResponse: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

@@ -42,7 +42,7 @@ namespace Example
             
             var apiInstance = new DocumentsApi(apiClient);
             var requestParameters = new DownloadDocumentRequestSdk();
-            requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used
+            requestParameters.AvalaraVersion = 1.4;  // string | The HTTP Header meant to specify the version of the API intended to be used
             requestParameters.Accept = application/pdf;  // string | This header indicates the MIME type of the document
             requestParameters.DocumentId = "documentId_example";  // string | The unique ID for this document that was returned in the POST /einvoicing/document response body
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional) 
@@ -129,7 +129,7 @@ namespace Example
             
             var apiInstance = new DocumentsApi(apiClient);
             var requestParameters = new FetchDocumentsRequestSdk();
-            requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used
+            requestParameters.AvalaraVersion = 1.4;  // string | The HTTP Header meant to specify the version of the API intended to be used
             requestParameters.FetchDocumentsRequest = new FetchDocumentsRequest(); // FetchDocumentsRequest | 
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional) 
 
@@ -213,7 +213,7 @@ namespace Example
             
             var apiInstance = new DocumentsApi(apiClient);
             var requestParameters = new GetDocumentListRequestSdk();
-            requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used
+            requestParameters.AvalaraVersion = 1.4;  // string | The HTTP Header meant to specify the version of the API intended to be used
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional) 
             requestParameters.StartDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | Start date of documents to return. This defaults to the previous month. (optional) 
             requestParameters.EndDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | End date of documents to return. This defaults to the current date. (optional) 
@@ -221,7 +221,7 @@ namespace Example
             requestParameters.Count = true;  // string | When set to true, the count of the collection is also returned in the response body (optional) 
             requestParameters.CountOnly = false;  // string | When set to true, only the count of the collection is returned (optional) 
             requestParameters.Filter = id eq 52f60401-44d0-4667-ad47-4afe519abb53;  // string | Filter by field name and value. This filter only supports <code>eq</code> . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. (optional) 
-            requestParameters.Top = 8.14D;  // decimal? | The number of items to include in the result. (optional) 
+            requestParameters.Top = 10;  // decimal? | If nonzero, return no more than this number of results. Used with <code>$skip</code> to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. (optional) 
             requestParameters.Skip = 10;  // string | If nonzero, skip this number of results before returning data. Used with <code>$top</code> to provide pagination for large datasets. (optional) 
 
             try
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
  **Count** | **string**| When set to true, the count of the collection is also returned in the response body | [optional] 
  **CountOnly** | **string**| When set to true, only the count of the collection is returned | [optional] 
  **Filter** | **string**| Filter by field name and value. This filter only supports &lt;code&gt;eq&lt;/code&gt; . Refer to [https://developer.avalara.com/avatax/filtering-in-rest/](https://developer.avalara.com/avatax/filtering-in-rest/) for more information on filtering. Filtering will be done over the provided startDate and endDate. If no startDate or endDate is provided, defaults will be assumed. | [optional] 
- **Top** | **decimal?**| The number of items to include in the result. | [optional] 
+ **Top** | **decimal?**| If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records. | [optional] 
  **Skip** | **string**| If nonzero, skip this number of results before returning data. Used with &lt;code&gt;$top&lt;/code&gt; to provide pagination for large datasets. | [optional] 
 
 ### Return type
@@ -311,7 +311,7 @@ namespace Example
             
             var apiInstance = new DocumentsApi(apiClient);
             var requestParameters = new GetDocumentStatusRequestSdk();
-            requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used
+            requestParameters.AvalaraVersion = 1.4;  // string | The HTTP Header meant to specify the version of the API intended to be used
             requestParameters.DocumentId = "documentId_example";  // string | The unique ID for this document that was returned in the POST /einvoicing/documents response body
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional) 
 
@@ -395,7 +395,7 @@ namespace Example
             
             var apiInstance = new DocumentsApi(apiClient);
             var requestParameters = new SubmitDocumentRequestSdk();
-            requestParameters.AvalaraVersion = 1.2;  // string | The HTTP Header meant to specify the version of the API intended to be used
+            requestParameters.AvalaraVersion = 1.4;  // string | The HTTP Header meant to specify the version of the API intended to be used
             requestParameters.Metadata = new SubmitDocumentMetadata(); // SubmitDocumentMetadata | 
             requestParameters.Data = new Object(); // Object | The document to be submitted, as indicated by the metadata fields 'dataFormat' and 'dataFormatVersion'
             requestParameters.XAvalaraClient = John's E-Invoicing-API Client;  // string | You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint. (optional) 

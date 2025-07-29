@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SecondTinNotice** | **bool** |  | [optional] 
 **NonemployeeCompensation** | **double** |  | [optional] 
-**PayerMadeDirectSales** | **bool** |  | [optional] 
+**DirectSalesIndicator** | **bool** |  | [optional] 
 **FederalIncomeTaxWithheld** | **double** |  | [optional] 
 **Type** | **string** |  | [optional] [readonly] 
 **CreatedAt** | **DateTime** |  | [optional] 
@@ -39,11 +39,11 @@ Name | Type | Description | Notes
 **TinMatch** | **bool** |  | [optional] 
 **AddressVerification** | **bool** |  | [optional] 
 **FederalEfileStatus** | [**StatusDetail**](StatusDetail.md) |  | [optional] 
-**StateEfileStatus** | [**List&lt;StateEfileStatusDetailApp&gt;**](StateEfileStatusDetailApp.md) |  | [optional] 
+**StateEfileStatus** | [**List&lt;StateEfileStatusDetailResponse&gt;**](StateEfileStatusDetailResponse.md) |  | [optional] 
 **PostalMailStatus** | [**StatusDetail**](StatusDetail.md) |  | [optional] 
 **TinMatchStatus** | [**StatusDetail**](StatusDetail.md) |  | [optional] 
 **AddressVerificationStatus** | [**StatusDetail**](StatusDetail.md) |  | [optional] 
-**ValidationErrors** | [**List&lt;ValidationErrorApp&gt;**](ValidationErrorApp.md) |  | [optional] 
+**ValidationErrors** | [**List&lt;ValidationErrorResponse&gt;**](ValidationErrorResponse.md) |  | [optional] 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

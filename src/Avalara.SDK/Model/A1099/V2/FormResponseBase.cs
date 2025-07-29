@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -50,47 +50,53 @@ namespace Avalara.SDK.Model.A1099.V2
         public enum TypeEnum
         {
             /// <summary>
-            /// Enum Form1099Nec for value: Form1099Nec
+            /// Enum _1099NEC for value: 1099-NEC
             /// </summary>
-            [EnumMember(Value = "Form1099Nec")]
-            Form1099Nec = 1,
+            [EnumMember(Value = "1099-NEC")]
+            _1099NEC = 1,
 
             /// <summary>
-            /// Enum Form1099Misc for value: Form1099Misc
+            /// Enum _1099MISC for value: 1099-MISC
             /// </summary>
-            [EnumMember(Value = "Form1099Misc")]
-            Form1099Misc = 2,
+            [EnumMember(Value = "1099-MISC")]
+            _1099MISC = 2,
 
             /// <summary>
-            /// Enum Form1099Div for value: Form1099Div
+            /// Enum _1099DIV for value: 1099-DIV
             /// </summary>
-            [EnumMember(Value = "Form1099Div")]
-            Form1099Div = 3,
+            [EnumMember(Value = "1099-DIV")]
+            _1099DIV = 3,
 
             /// <summary>
-            /// Enum Form1099R for value: Form1099R
+            /// Enum _1099R for value: 1099-R
             /// </summary>
-            [EnumMember(Value = "Form1099R")]
-            Form1099R = 4,
+            [EnumMember(Value = "1099-R")]
+            _1099R = 4,
 
             /// <summary>
-            /// Enum Form1099K for value: Form1099K
+            /// Enum _1099K for value: 1099-K
             /// </summary>
-            [EnumMember(Value = "Form1099K")]
-            Form1099K = 5,
+            [EnumMember(Value = "1099-K")]
+            _1099K = 5,
 
             /// <summary>
-            /// Enum Form1095B for value: Form1095B
+            /// Enum _1095B for value: 1095-B
             /// </summary>
-            [EnumMember(Value = "Form1095B")]
-            Form1095B = 6
+            [EnumMember(Value = "1095-B")]
+            _1095B = 6,
+
+            /// <summary>
+            /// Enum _1042S for value: 1042-S
+            /// </summary>
+            [EnumMember(Value = "1042-S")]
+            _1042S = 7
         }
 
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        /// <example>Form1099Nec</example>
+        /// <example>1099-NEC</example>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
 
@@ -178,7 +184,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="tinMatchStatus">tinMatchStatus.</param>
         /// <param name="addressVerificationStatus">addressVerificationStatus.</param>
         /// <param name="validationErrors">validationErrors.</param>
-        public FormResponseBase(DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), string userId = default(string), StateAndLocalWithholdingResponse stateAndLocalWithholding = default(StateAndLocalWithholdingResponse), TinTypeEnum? tinType = default(TinTypeEnum?), string id = default(string), string issuerId = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StatusDetail federalEfileStatus = default(StatusDetail), List<StateEfileStatusDetailApp> stateEfileStatus = default(List<StateEfileStatusDetailApp>), StatusDetail postalMailStatus = default(StatusDetail), StatusDetail tinMatchStatus = default(StatusDetail), StatusDetail addressVerificationStatus = default(StatusDetail), List<ValidationErrorApp> validationErrors = default(List<ValidationErrorApp>))
+        public FormResponseBase(DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), string userId = default(string), StateAndLocalWithholdingResponse stateAndLocalWithholding = default(StateAndLocalWithholdingResponse), TinTypeEnum? tinType = default(TinTypeEnum?), string id = default(string), string issuerId = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StatusDetail federalEfileStatus = default(StatusDetail), List<StateEfileStatusDetailResponse> stateEfileStatus = default(List<StateEfileStatusDetailResponse>), StatusDetail postalMailStatus = default(StatusDetail), StatusDetail tinMatchStatus = default(StatusDetail), StatusDetail addressVerificationStatus = default(StatusDetail), List<ValidationErrorResponse> validationErrors = default(List<ValidationErrorResponse>))
         {
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
@@ -395,7 +401,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets StateEfileStatus
         /// </summary>
         [DataMember(Name = "stateEfileStatus", EmitDefaultValue = true)]
-        public List<StateEfileStatusDetailApp> StateEfileStatus { get; set; }
+        public List<StateEfileStatusDetailResponse> StateEfileStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets PostalMailStatus
@@ -419,7 +425,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets ValidationErrors
         /// </summary>
         [DataMember(Name = "validationErrors", EmitDefaultValue = true)]
-        public List<ValidationErrorApp> ValidationErrors { get; set; }
+        public List<ValidationErrorResponse> ValidationErrors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

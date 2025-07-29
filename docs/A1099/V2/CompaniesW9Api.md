@@ -4,8 +4,8 @@ All URIs are relative to *https://api-ava1099.eta.sbx.us-east-1.aws.avalara.io/a
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCompany**](CompaniesW9Api.md#createcompany) | **POST** /w9/companies | Creates a new company
-[**DeleteCompany**](CompaniesW9Api.md#deletecompany) | **DELETE** /w9/companies/{id} | Deletes a company
+[**CreateCompany**](CompaniesW9Api.md#createcompany) | **POST** /w9/companies | Create a company
+[**DeleteCompany**](CompaniesW9Api.md#deletecompany) | **DELETE** /w9/companies/{id} | Delete a company
 [**GetCompanies**](CompaniesW9Api.md#getcompanies) | **GET** /w9/companies | List companies
 [**GetCompany**](CompaniesW9Api.md#getcompany) | **GET** /w9/companies/{id} | Retrieve a company
 [**UpdateCompany**](CompaniesW9Api.md#updatecompany) | **PUT** /w9/companies/{id} | Update a company
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 # **CreateCompany**
 > CompanyResponseModel CreateCompany (CreateCompanyRequestSdk requestParameters)
 
-Creates a new company
+Create a company
 
-Creates a new company
+Create a company.
 
 ### Example
 ```csharp
@@ -42,14 +42,14 @@ namespace Example
             
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new CreateCompanyRequestSdk();
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = d0e29cf5-55bc-44e6-9894-3e1cd2923e5a;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
+            requestParameters.XCorrelationId = fe0b2c61-3b02-476a-ab45-cffe1b04e41a;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
             requestParameters.CompanyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The company to create (optional) 
 
             try
             {
-                // Creates a new company
+                // Create a company
                 CompanyResponseModel result = apiInstance.CreateCompany(requestParameters);
                 Debug.WriteLine(result);
             }
@@ -100,9 +100,9 @@ Name | Type | Description  | Notes
 # **DeleteCompany**
 > void DeleteCompany (DeleteCompanyRequestSdk requestParameters)
 
-Deletes a company
+Delete a company
 
-Deletes a company
+Delete a company.
 
 ### Example
 ```csharp
@@ -128,13 +128,13 @@ namespace Example
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new DeleteCompanyRequestSdk();
             requestParameters.Id = "id_example";  // string | The company to delete
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = 713ec82b-b94e-4e2f-8b82-0cecc0abb124;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
+            requestParameters.XCorrelationId = 250cdf61-a491-4fce-9544-33316d95a0a2;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
             {
-                // Deletes a company
+                // Delete a company
                 apiInstance.DeleteCompany(requestParameters);
             }
             catch (ApiException  e)
@@ -213,14 +213,14 @@ namespace Example
             
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new GetCompaniesRequestSdk();
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
             requestParameters.Filter = "filter_example";  // string | A filter statement to identify specific records to retrieve.  For more information on filtering, see <a href=\"https://developer.avalara.com/avatax/filtering-in-rest/\">Filtering in REST</a>. (optional) 
             requestParameters.Top = 56;  // int? | If zero or greater than 1000, return at most 1000 results.  Otherwise, return this number of results.  Used with skip to provide pagination for large datasets. (optional) 
             requestParameters.Skip = 56;  // int? | If nonzero, skip this number of results before returning data. Used with top to provide pagination for large datasets. (optional) 
             requestParameters.OrderBy = "orderBy_example";  // string | A comma separated list of sort statements in the format (fieldname) [ASC|DESC], for example id ASC. (optional) 
             requestParameters.Count = true;  // bool? | If true, return the global count of elements in the collection. (optional) 
             requestParameters.CountOnly = true;  // bool? | If true, return ONLY the global count of elements in the collection.  It only applies when count=true. (optional) 
-            requestParameters.XCorrelationId = 38d61b75-2ccf-4a20-8fc0-6fc047805ec3;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.XCorrelationId = 9bc362f8-548a-4a98-b44b-37da159b8126;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 Retrieve a company
 
-Retrieve an existing company
+Retrieve a company.
 
 ### Example
 ```csharp
@@ -311,8 +311,8 @@ namespace Example
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new GetCompanyRequestSdk();
             requestParameters.Id = "id_example";  // string | Id of the company
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = dccf03ba-f1c1-4540-a0ab-3a642cb46223;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
+            requestParameters.XCorrelationId = 1c9d767c-523c-42c5-bbcb-5158761b48a0;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
 
             try
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 Update a company
 
-Update a company
+Update a company.
 
 ### Example
 ```csharp
@@ -398,8 +398,8 @@ namespace Example
             var apiInstance = new CompaniesW9Api(apiClient);
             var requestParameters = new UpdateCompanyRequestSdk();
             requestParameters.Id = "id_example";  // string | The ID of the company to update
-            requestParameters.AvalaraVersion = 2.0;  // string | API version
-            requestParameters.XCorrelationId = e5197be7-4ab7-4f90-a190-c0a491ebb8e1;  // string | Unique correlation Id in a GUID format (optional) 
+            requestParameters.AvalaraVersion = 2.0.0;  // string | API version
+            requestParameters.XCorrelationId = 03774e95-4208-4f91-a5c8-e218fcb3c0a4;  // string | Unique correlation Id in a GUID format (optional) 
             requestParameters.XAvalaraClient = Swagger UI; 22.1.0;  // string | Identifies the software you are using to call this API. For more information on the client header, see [Client Headers](https://developer.avalara.com/avatax/client-headers/) . (optional) 
             requestParameters.CompanyCreateUpdateRequestModel = new CompanyCreateUpdateRequestModel(); // CompanyCreateUpdateRequestModel | The updated company data (optional) 
 
