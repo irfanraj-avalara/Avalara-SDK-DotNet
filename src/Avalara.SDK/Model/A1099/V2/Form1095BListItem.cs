@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -44,64 +44,67 @@ namespace Avalara.SDK.Model.A1099.V2
     public partial class Form1095BListItem : IValidatableObject
     {
         /// <summary>
-        /// Defines OriginOfHealthCoverageCode
+        /// Origin of health coverage code
         /// </summary>
+        /// <value>Origin of health coverage code</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OriginOfHealthCoverageCodeEnum
         {
             /// <summary>
-            /// Enum SmallBusinessHealthOptionsProgram for value: SmallBusinessHealthOptionsProgram
+            /// Enum A for value: A
             /// </summary>
-            [EnumMember(Value = "SmallBusinessHealthOptionsProgram")]
-            SmallBusinessHealthOptionsProgram = 1,
+            [EnumMember(Value = "A")]
+            A = 1,
 
             /// <summary>
-            /// Enum EmployerSponsored for value: EmployerSponsored
+            /// Enum B for value: B
             /// </summary>
-            [EnumMember(Value = "EmployerSponsored")]
-            EmployerSponsored = 2,
+            [EnumMember(Value = "B")]
+            B = 2,
 
             /// <summary>
-            /// Enum GovernmentSponsored for value: GovernmentSponsored
+            /// Enum C for value: C
             /// </summary>
-            [EnumMember(Value = "GovernmentSponsored")]
-            GovernmentSponsored = 3,
+            [EnumMember(Value = "C")]
+            C = 3,
 
             /// <summary>
-            /// Enum IndividualMarket for value: IndividualMarket
+            /// Enum D for value: D
             /// </summary>
-            [EnumMember(Value = "IndividualMarket")]
-            IndividualMarket = 4,
+            [EnumMember(Value = "D")]
+            D = 4,
 
             /// <summary>
-            /// Enum MultiemployerPlan for value: MultiemployerPlan
+            /// Enum E for value: E
             /// </summary>
-            [EnumMember(Value = "MultiemployerPlan")]
-            MultiemployerPlan = 5,
+            [EnumMember(Value = "E")]
+            E = 5,
 
             /// <summary>
-            /// Enum OtherDesignatedMinimumEssentialCoverage for value: OtherDesignatedMinimumEssentialCoverage
+            /// Enum F for value: F
             /// </summary>
-            [EnumMember(Value = "OtherDesignatedMinimumEssentialCoverage")]
-            OtherDesignatedMinimumEssentialCoverage = 6,
+            [EnumMember(Value = "F")]
+            F = 6,
 
             /// <summary>
-            /// Enum EmployerSponsoredIndividualHra for value: EmployerSponsoredIndividualHra
+            /// Enum G for value: G
             /// </summary>
-            [EnumMember(Value = "EmployerSponsoredIndividualHra")]
-            EmployerSponsoredIndividualHra = 7
+            [EnumMember(Value = "G")]
+            G = 7
         }
 
 
         /// <summary>
-        /// Gets or Sets OriginOfHealthCoverageCode
+        /// Origin of health coverage code
         /// </summary>
-        /// <example>SmallBusinessHealthOptionsProgram</example>
+        /// <value>Origin of health coverage code</value>
+        /// <example>A</example>
         [DataMember(Name = "originOfHealthCoverageCode", EmitDefaultValue = false)]
         public OriginOfHealthCoverageCodeEnum? OriginOfHealthCoverageCode { get; set; }
         /// <summary>
-        /// Defines TinType
+        /// Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
         /// </summary>
+        /// <value>Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TinTypeEnum
         {
@@ -132,45 +135,75 @@ namespace Avalara.SDK.Model.A1099.V2
 
 
         /// <summary>
-        /// Gets or Sets TinType
+        /// Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
         /// </summary>
+        /// <value>Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN</value>
         /// <example>EIN</example>
         [DataMember(Name = "tinType", EmitDefaultValue = false)]
         public TinTypeEnum? TinType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Form1095BListItem" /> class.
         /// </summary>
-        /// <param name="employeeFirstName">employeeFirstName.</param>
-        /// <param name="employeeMiddleName">employeeMiddleName.</param>
-        /// <param name="employeeLastName">employeeLastName.</param>
-        /// <param name="employeeNameSuffix">employeeNameSuffix.</param>
-        /// <param name="employeeDateOfBirth">employeeDateOfBirth.</param>
-        /// <param name="originOfHealthCoverageCode">originOfHealthCoverageCode.</param>
-        /// <param name="coveredIndividuals">coveredIndividuals.</param>
-        /// <param name="issuerId">issuerId.</param>
-        /// <param name="referenceId">referenceId.</param>
-        /// <param name="recipientName">recipientName.</param>
-        /// <param name="recipientTin">recipientTin.</param>
-        /// <param name="tinType">tinType.</param>
-        /// <param name="recipientSecondName">recipientSecondName.</param>
-        /// <param name="address">address.</param>
-        /// <param name="address2">address2.</param>
-        /// <param name="city">city.</param>
-        /// <param name="state">state.</param>
-        /// <param name="zip">zip.</param>
-        /// <param name="recipientEmail">recipientEmail.</param>
-        /// <param name="accountNumber">accountNumber.</param>
-        /// <param name="officeCode">officeCode.</param>
-        /// <param name="recipientNonUsProvince">recipientNonUsProvince.</param>
-        /// <param name="countryCode">countryCode.</param>
-        /// <param name="federalEFile">federalEFile.</param>
-        /// <param name="postalMail">postalMail.</param>
-        /// <param name="stateEFile">stateEFile.</param>
-        /// <param name="tinMatch">tinMatch.</param>
-        /// <param name="addressVerification">addressVerification.</param>
-        /// <param name="stateAndLocalWithholding">stateAndLocalWithholding.</param>
-        public Form1095BListItem(string employeeFirstName = default(string), string employeeMiddleName = default(string), string employeeLastName = default(string), string employeeNameSuffix = default(string), DateTime? employeeDateOfBirth = default(DateTime?), OriginOfHealthCoverageCodeEnum? originOfHealthCoverageCode = default(OriginOfHealthCoverageCodeEnum?), List<CoveredIndividualRequest> coveredIndividuals = default(List<CoveredIndividualRequest>), string issuerId = default(string), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), TinTypeEnum? tinType = default(TinTypeEnum?), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StateAndLocalWithholdingRequest stateAndLocalWithholding = default(StateAndLocalWithholdingRequest))
+        [JsonConstructorAttribute]
+        protected Form1095BListItem() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Form1095BListItem" /> class.
+        /// </summary>
+        /// <param name="employeeFirstName">Employee&#39;s first name.</param>
+        /// <param name="employeeMiddleName">Employee&#39;s middle name.</param>
+        /// <param name="employeeLastName">Employee&#39;s last name.</param>
+        /// <param name="employeeNameSuffix">Employee&#39;s name suffix.</param>
+        /// <param name="employeeDateOfBirth">Employee&#39;s date of birth.</param>
+        /// <param name="originOfHealthCoverageCode">Origin of health coverage code.</param>
+        /// <param name="coveredIndividuals">Covered individuals information.</param>
+        /// <param name="issuerId">Issuer ID.</param>
+        /// <param name="referenceId">Reference ID.</param>
+        /// <param name="recipientTin">Recipient Tax ID Number.</param>
+        /// <param name="recipientName">Recipient name (required).</param>
+        /// <param name="tinType">Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN.</param>
+        /// <param name="recipientSecondName">Recipient second name.</param>
+        /// <param name="address">Address (required).</param>
+        /// <param name="address2">Address line 2.</param>
+        /// <param name="city">City (required).</param>
+        /// <param name="state">US state. Required if CountryCode is \&quot;US\&quot;..</param>
+        /// <param name="zip">Zip/postal code.</param>
+        /// <param name="recipientEmail">Recipient email address.</param>
+        /// <param name="accountNumber">Account number.</param>
+        /// <param name="officeCode">Office code.</param>
+        /// <param name="recipientNonUsProvince">Foreign province.</param>
+        /// <param name="countryCode">Country code, as defined at https://www.irs.gov/e-file-providers/country-codes (required).</param>
+        /// <param name="federalEFile">Boolean indicating that federal e-filing should be scheduled for this form.</param>
+        /// <param name="postalMail">Boolean indicating that postal mailing to the recipient should be scheduled for this form.</param>
+        /// <param name="stateEFile">Boolean indicating that state e-filing should be scheduled for this form.</param>
+        /// <param name="tinMatch">Boolean indicating that TIN Matching should be scheduled for this form.</param>
+        /// <param name="addressVerification">Boolean indicating that address verification should be scheduled for this form.</param>
+        /// <param name="stateAndLocalWithholding">State and local withholding information.</param>
+        public Form1095BListItem(string employeeFirstName = default(string), string employeeMiddleName = default(string), string employeeLastName = default(string), string employeeNameSuffix = default(string), DateTime? employeeDateOfBirth = default(DateTime?), OriginOfHealthCoverageCodeEnum? originOfHealthCoverageCode = default(OriginOfHealthCoverageCodeEnum?), List<CoveredIndividualRequest> coveredIndividuals = default(List<CoveredIndividualRequest>), string issuerId = default(string), string referenceId = default(string), string recipientTin = default(string), string recipientName = default(string), TinTypeEnum? tinType = default(TinTypeEnum?), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StateAndLocalWithholdingRequest stateAndLocalWithholding = default(StateAndLocalWithholdingRequest))
         {
+            // to ensure "recipientName" is required (not null)
+            if (recipientName == null)
+            {
+                throw new ArgumentNullException("recipientName is a required property for Form1095BListItem and cannot be null");
+            }
+            this.RecipientName = recipientName;
+            // to ensure "address" is required (not null)
+            if (address == null)
+            {
+                throw new ArgumentNullException("address is a required property for Form1095BListItem and cannot be null");
+            }
+            this.Address = address;
+            // to ensure "city" is required (not null)
+            if (city == null)
+            {
+                throw new ArgumentNullException("city is a required property for Form1095BListItem and cannot be null");
+            }
+            this.City = city;
+            // to ensure "countryCode" is required (not null)
+            if (countryCode == null)
+            {
+                throw new ArgumentNullException("countryCode is a required property for Form1095BListItem and cannot be null");
+            }
+            this.CountryCode = countryCode;
             this.EmployeeFirstName = employeeFirstName;
             this.EmployeeMiddleName = employeeMiddleName;
             this.EmployeeLastName = employeeLastName;
@@ -180,20 +213,16 @@ namespace Avalara.SDK.Model.A1099.V2
             this.CoveredIndividuals = coveredIndividuals;
             this.IssuerId = issuerId;
             this.ReferenceId = referenceId;
-            this.RecipientName = recipientName;
             this.RecipientTin = recipientTin;
             this.TinType = tinType;
             this.RecipientSecondName = recipientSecondName;
-            this.Address = address;
             this.Address2 = address2;
-            this.City = city;
             this.State = state;
             this.Zip = zip;
             this.RecipientEmail = recipientEmail;
             this.AccountNumber = accountNumber;
             this.OfficeCode = officeCode;
             this.RecipientNonUsProvince = recipientNonUsProvince;
-            this.CountryCode = countryCode;
             this.FederalEFile = federalEFile;
             this.PostalMail = postalMail;
             this.StateEFile = stateEFile;
@@ -203,164 +232,191 @@ namespace Avalara.SDK.Model.A1099.V2
         }
 
         /// <summary>
-        /// Gets or Sets EmployeeFirstName
+        /// Employee&#39;s first name
         /// </summary>
+        /// <value>Employee&#39;s first name</value>
         [DataMember(Name = "employeeFirstName", EmitDefaultValue = false)]
         public string EmployeeFirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets EmployeeMiddleName
+        /// Employee&#39;s middle name
         /// </summary>
+        /// <value>Employee&#39;s middle name</value>
         [DataMember(Name = "employeeMiddleName", EmitDefaultValue = true)]
         public string EmployeeMiddleName { get; set; }
 
         /// <summary>
-        /// Gets or Sets EmployeeLastName
+        /// Employee&#39;s last name
         /// </summary>
+        /// <value>Employee&#39;s last name</value>
         [DataMember(Name = "employeeLastName", EmitDefaultValue = false)]
         public string EmployeeLastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets EmployeeNameSuffix
+        /// Employee&#39;s name suffix
         /// </summary>
+        /// <value>Employee&#39;s name suffix</value>
         [DataMember(Name = "employeeNameSuffix", EmitDefaultValue = true)]
         public string EmployeeNameSuffix { get; set; }
 
         /// <summary>
-        /// Gets or Sets EmployeeDateOfBirth
+        /// Employee&#39;s date of birth
         /// </summary>
+        /// <value>Employee&#39;s date of birth</value>
         [DataMember(Name = "employeeDateOfBirth", EmitDefaultValue = true)]
         public DateTime? EmployeeDateOfBirth { get; set; }
 
         /// <summary>
-        /// Gets or Sets CoveredIndividuals
+        /// Covered individuals information
         /// </summary>
+        /// <value>Covered individuals information</value>
         [DataMember(Name = "coveredIndividuals", EmitDefaultValue = false)]
         public List<CoveredIndividualRequest> CoveredIndividuals { get; set; }
 
         /// <summary>
-        /// Gets or Sets IssuerId
+        /// Issuer ID
         /// </summary>
+        /// <value>Issuer ID</value>
         [DataMember(Name = "issuerId", EmitDefaultValue = true)]
         public string IssuerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReferenceId
+        /// Reference ID
         /// </summary>
+        /// <value>Reference ID</value>
         [DataMember(Name = "referenceId", EmitDefaultValue = true)]
         public string ReferenceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientName
+        /// Recipient Tax ID Number
         /// </summary>
-        [DataMember(Name = "recipientName", EmitDefaultValue = true)]
-        public string RecipientName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RecipientTin
-        /// </summary>
+        /// <value>Recipient Tax ID Number</value>
         [DataMember(Name = "recipientTin", EmitDefaultValue = false)]
         public string RecipientTin { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientSecondName
+        /// Recipient name
         /// </summary>
-        [DataMember(Name = "recipientSecondName", EmitDefaultValue = false)]
+        /// <value>Recipient name</value>
+        [DataMember(Name = "recipientName", IsRequired = true, EmitDefaultValue = true)]
+        public string RecipientName { get; set; }
+
+        /// <summary>
+        /// Recipient second name
+        /// </summary>
+        /// <value>Recipient second name</value>
+        [DataMember(Name = "recipientSecondName", EmitDefaultValue = true)]
         public string RecipientSecondName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address
+        /// Address
         /// </summary>
-        [DataMember(Name = "address", EmitDefaultValue = false)]
+        /// <value>Address</value>
+        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address2
+        /// Address line 2
         /// </summary>
+        /// <value>Address line 2</value>
         [DataMember(Name = "address2", EmitDefaultValue = true)]
         public string Address2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets City
+        /// City
         /// </summary>
-        [DataMember(Name = "city", EmitDefaultValue = false)]
+        /// <value>City</value>
+        [DataMember(Name = "city", IsRequired = true, EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or Sets State
+        /// US state. Required if CountryCode is \&quot;US\&quot;.
         /// </summary>
+        /// <value>US state. Required if CountryCode is \&quot;US\&quot;.</value>
         [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets Zip
+        /// Zip/postal code
         /// </summary>
+        /// <value>Zip/postal code</value>
         [DataMember(Name = "zip", EmitDefaultValue = false)]
         public string Zip { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientEmail
+        /// Recipient email address
         /// </summary>
+        /// <value>Recipient email address</value>
         [DataMember(Name = "recipientEmail", EmitDefaultValue = true)]
         public string RecipientEmail { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccountNumber
+        /// Account number
         /// </summary>
+        /// <value>Account number</value>
         [DataMember(Name = "accountNumber", EmitDefaultValue = true)]
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets OfficeCode
+        /// Office code
         /// </summary>
+        /// <value>Office code</value>
         [DataMember(Name = "officeCode", EmitDefaultValue = true)]
         public string OfficeCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientNonUsProvince
+        /// Foreign province
         /// </summary>
+        /// <value>Foreign province</value>
         [DataMember(Name = "recipientNonUsProvince", EmitDefaultValue = true)]
         public string RecipientNonUsProvince { get; set; }
 
         /// <summary>
-        /// Gets or Sets CountryCode
+        /// Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
         /// </summary>
-        [DataMember(Name = "countryCode", EmitDefaultValue = false)]
+        /// <value>Country code, as defined at https://www.irs.gov/e-file-providers/country-codes</value>
+        [DataMember(Name = "countryCode", IsRequired = true, EmitDefaultValue = true)]
         public string CountryCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets FederalEFile
+        /// Boolean indicating that federal e-filing should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that federal e-filing should be scheduled for this form</value>
         [DataMember(Name = "federalEFile", EmitDefaultValue = true)]
         public bool FederalEFile { get; set; }
 
         /// <summary>
-        /// Gets or Sets PostalMail
+        /// Boolean indicating that postal mailing to the recipient should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that postal mailing to the recipient should be scheduled for this form</value>
         [DataMember(Name = "postalMail", EmitDefaultValue = true)]
         public bool PostalMail { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateEFile
+        /// Boolean indicating that state e-filing should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that state e-filing should be scheduled for this form</value>
         [DataMember(Name = "stateEFile", EmitDefaultValue = true)]
         public bool StateEFile { get; set; }
 
         /// <summary>
-        /// Gets or Sets TinMatch
+        /// Boolean indicating that TIN Matching should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that TIN Matching should be scheduled for this form</value>
         [DataMember(Name = "tinMatch", EmitDefaultValue = true)]
         public bool TinMatch { get; set; }
 
         /// <summary>
-        /// Gets or Sets AddressVerification
+        /// Boolean indicating that address verification should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that address verification should be scheduled for this form</value>
         [DataMember(Name = "addressVerification", EmitDefaultValue = true)]
         public bool AddressVerification { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateAndLocalWithholding
+        /// State and local withholding information
         /// </summary>
+        /// <value>State and local withholding information</value>
         [DataMember(Name = "stateAndLocalWithholding", EmitDefaultValue = false)]
         public StateAndLocalWithholdingRequest StateAndLocalWithholding { get; set; }
 
@@ -381,8 +437,8 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  CoveredIndividuals: ").Append(CoveredIndividuals).Append("\n");
             sb.Append("  IssuerId: ").Append(IssuerId).Append("\n");
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
-            sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
             sb.Append("  RecipientTin: ").Append(RecipientTin).Append("\n");
+            sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
             sb.Append("  TinType: ").Append(TinType).Append("\n");
             sb.Append("  RecipientSecondName: ").Append(RecipientSecondName).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
@@ -421,6 +477,30 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // RecipientName (string) minLength
+            if (this.RecipientName != null && this.RecipientName.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for RecipientName, length must be greater than 1.", new [] { "RecipientName" });
+            }
+
+            // Address (string) minLength
+            if (this.Address != null && this.Address.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
+            }
+
+            // City (string) minLength
+            if (this.City != null && this.City.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for City, length must be greater than 1.", new [] { "City" });
+            }
+
+            // CountryCode (string) minLength
+            if (this.CountryCode != null && this.CountryCode.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for CountryCode, length must be greater than 1.", new [] { "CountryCode" });
+            }
+
             yield break;
         }
     }

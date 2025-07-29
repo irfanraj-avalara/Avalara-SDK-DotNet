@@ -153,10 +153,10 @@ namespace Avalara.SDK.Api.A1099.V2
     {
         #region Synchronous Operations
         /// <summary>
-        /// Creates a new company
+        /// Create a company
         /// </summary>
         /// <remarks>
-        /// Creates a new company
+        /// Create a company.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -164,10 +164,10 @@ namespace Avalara.SDK.Api.A1099.V2
         CompanyResponseModel CreateCompany(CreateCompanyRequestSdk requestParameters);
 
         /// <summary>
-        /// Deletes a company
+        /// Delete a company
         /// </summary>
         /// <remarks>
-        /// Deletes a company
+        /// Delete a company.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -189,7 +189,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Retrieve a company
         /// </summary>
         /// <remarks>
-        /// Retrieve an existing company
+        /// Retrieve a company.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -200,7 +200,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Update a company
         /// </summary>
         /// <remarks>
-        /// Update a company
+        /// Update a company.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -217,10 +217,10 @@ namespace Avalara.SDK.Api.A1099.V2
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Creates a new company
+        /// Create a company
         /// </summary>
         /// <remarks>
-        /// Creates a new company
+        /// Create a company.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -229,10 +229,10 @@ namespace Avalara.SDK.Api.A1099.V2
         System.Threading.Tasks.Task<CompanyResponseModel> CreateCompanyAsync(CreateCompanyRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deletes a company
+        /// Delete a company
         /// </summary>
         /// <remarks>
-        /// Deletes a company
+        /// Delete a company.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -256,7 +256,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Retrieve a company
         /// </summary>
         /// <remarks>
-        /// Retrieve an existing company
+        /// Retrieve a company.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -268,7 +268,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Update a company
         /// </summary>
         /// <remarks>
-        /// Update a company
+        /// Update a company.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -319,7 +319,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Creates a new company Creates a new company
+        /// Create a company Create a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -331,7 +331,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Creates a new company Creates a new company
+        /// Create a company Create a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -387,7 +387,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Creates a new company Creates a new company
+        /// Create a company Create a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -400,7 +400,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Creates a new company Creates a new company
+        /// Create a company Create a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -459,7 +459,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Deletes a company Deletes a company
+        /// Delete a company Delete a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -470,7 +470,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Deletes a company Deletes a company
+        /// Delete a company Delete a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -527,7 +527,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Deletes a company Deletes a company
+        /// Delete a company Delete a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -539,7 +539,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Deletes a company Deletes a company
+        /// Delete a company Delete a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -779,7 +779,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Retrieve a company Retrieve an existing company
+        /// Retrieve a company Retrieve a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -791,7 +791,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Retrieve a company Retrieve an existing company
+        /// Retrieve a company Retrieve a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -848,7 +848,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Retrieve a company Retrieve an existing company
+        /// Retrieve a company Retrieve a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -861,7 +861,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Retrieve a company Retrieve an existing company
+        /// Retrieve a company Retrieve a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -921,7 +921,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update a company Update a company
+        /// Update a company Update a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -933,7 +933,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update a company Update a company
+        /// Update a company Update a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -994,7 +994,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update a company Update a company
+        /// Update a company Update a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1007,7 +1007,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update a company Update a company
+        /// Update a company Update a company.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1079,7 +1079,7 @@ namespace Avalara.SDK.Api.A1099.V2
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.7.2";
+            this.Client.SdkVersion = "25.8.0";
         }
         
     }

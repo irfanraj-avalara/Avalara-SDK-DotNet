@@ -4,29 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** |  | [optional] [readonly] 
-**IssuerId** | **string** |  | [optional] 
-**ReferenceId** | **string** |  | [optional] 
-**RecipientName** | **string** |  | [optional] 
-**RecipientTin** | **string** |  | [optional] 
-**TinType** | **string** |  | [optional] 
-**RecipientSecondName** | **string** |  | [optional] 
-**Address** | **string** |  | [optional] 
-**Address2** | **string** |  | [optional] 
-**City** | **string** |  | [optional] 
-**State** | **string** |  | [optional] 
-**Zip** | **string** |  | [optional] 
-**RecipientEmail** | **string** |  | [optional] 
-**AccountNumber** | **string** |  | [optional] 
-**OfficeCode** | **string** |  | [optional] 
-**RecipientNonUsProvince** | **string** |  | [optional] 
-**CountryCode** | **string** |  | [optional] 
-**FederalEFile** | **bool** |  | [optional] 
-**PostalMail** | **bool** |  | [optional] 
-**StateEFile** | **bool** |  | [optional] 
-**TinMatch** | **bool** |  | [optional] 
-**AddressVerification** | **bool** |  | [optional] 
-**StateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) |  | [optional] 
+**Type** | **string** |  | [optional] 
+**IssuerId** | **string** | Issuer ID | [optional] 
+**ReferenceId** | **string** | Reference ID | [optional] 
+**RecipientTin** | **string** | Recipient Tax ID Number | [optional] 
+**RecipientName** | **string** | Recipient name | 
+**TinType** | **string** | Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN | [optional] 
+**RecipientSecondName** | **string** | Recipient second name | [optional] 
+**Address** | **string** | Address | 
+**Address2** | **string** | Address line 2 | [optional] 
+**City** | **string** | City | 
+**State** | **string** | US state. Required if CountryCode is \&quot;US\&quot;. | [optional] 
+**Zip** | **string** | Zip/postal code | [optional] 
+**RecipientEmail** | **string** | Recipient email address | [optional] 
+**AccountNumber** | **string** | Account number | [optional] 
+**OfficeCode** | **string** | Office code | [optional] 
+**RecipientNonUsProvince** | **string** | Foreign province | [optional] 
+**CountryCode** | **string** | Country code, as defined at https://www.irs.gov/e-file-providers/country-codes | 
+**FederalEFile** | **bool** | Boolean indicating that federal e-filing should be scheduled for this form | [optional] 
+**PostalMail** | **bool** | Boolean indicating that postal mailing to the recipient should be scheduled for this form | [optional] 
+**StateEFile** | **bool** | Boolean indicating that state e-filing should be scheduled for this form | [optional] 
+**TinMatch** | **bool** | Boolean indicating that TIN Matching should be scheduled for this form | [optional] 
+**AddressVerification** | **bool** | Boolean indicating that address verification should be scheduled for this form | [optional] 
+**StateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) | State and local withholding information | [optional] 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

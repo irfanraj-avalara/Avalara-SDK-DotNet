@@ -38,7 +38,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
 /// <summary>
-    /// An object representing the country mandate
+    /// Mandate
     /// </summary>
     [DataContract(Name = "Mandate")]
     public partial class Mandate : IValidatableObject

@@ -41,7 +41,7 @@ namespace Example
             
             var apiInstance = new SubscriptionsApi(apiClient);
             var requestParameters = new CreateWebhookSubscriptionRequestSdk();
-            requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.3\".
+            requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.4\".
             requestParameters.SubscriptionRegistration = new SubscriptionRegistration(); // SubscriptionRegistration | 
             requestParameters.XCorrelationID = "xCorrelationID_example";  // string | A unique identifier for tracking the request and its response (optional) 
             requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Client application identification (optional) 
@@ -67,7 +67,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **AvalaraVersion** | **string**| The version of the API to use, e.g., \&quot;1.3\&quot;. | 
+ **AvalaraVersion** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. | 
  **SubscriptionRegistration** | [**SubscriptionRegistration**](SubscriptionRegistration.md)|  | 
  **XCorrelationID** | **string**| A unique identifier for tracking the request and its response | [optional] 
  **XAvalaraClient** | **string**| Client application identification | [optional] 
@@ -128,7 +128,7 @@ namespace Example
             var apiInstance = new SubscriptionsApi(apiClient);
             var requestParameters = new DeleteWebhookSubscriptionRequestSdk();
             requestParameters.SubscriptionId = "subscriptionId_example";  // string | 
-            requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.3\".
+            requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.4\".
             requestParameters.XCorrelationID = "xCorrelationID_example";  // string | A unique identifier for tracking the request and its response (optional) 
             requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Client application identification (optional) 
 
@@ -153,7 +153,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SubscriptionId** | **string**|  | 
- **AvalaraVersion** | **string**| The version of the API to use, e.g., \&quot;1.3\&quot;. | 
+ **AvalaraVersion** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. | 
  **XCorrelationID** | **string**| A unique identifier for tracking the request and its response | [optional] 
  **XAvalaraClient** | **string**| Client application identification | [optional] 
 
@@ -213,7 +213,7 @@ namespace Example
             var apiInstance = new SubscriptionsApi(apiClient);
             var requestParameters = new GetWebhookSubscriptionRequestSdk();
             requestParameters.SubscriptionId = "subscriptionId_example";  // string | 
-            requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.3\".
+            requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.4\".
             requestParameters.XCorrelationID = "xCorrelationID_example";  // string | A unique identifier for tracking the request and its response (optional) 
             requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Client application identification (optional) 
 
@@ -239,7 +239,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SubscriptionId** | **string**|  | 
- **AvalaraVersion** | **string**| The version of the API to use, e.g., \&quot;1.3\&quot;. | 
+ **AvalaraVersion** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. | 
  **XCorrelationID** | **string**| A unique identifier for tracking the request and its response | [optional] 
  **XAvalaraClient** | **string**| Client application identification | [optional] 
 
@@ -298,11 +298,11 @@ namespace Example
             
             var apiInstance = new SubscriptionsApi(apiClient);
             var requestParameters = new ListWebhookSubscriptionsRequestSdk();
-            requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.3\".
+            requestParameters.AvalaraVersion = "avalaraVersion_example";  // string | The version of the API to use, e.g., \"1.4\".
             requestParameters.XCorrelationID = "xCorrelationID_example";  // string | A unique identifier for tracking the request and its response (optional) 
             requestParameters.XAvalaraClient = "xAvalaraClient_example";  // string | Client application identification (optional) 
-            requestParameters.Top = 8.14D;  // decimal? | The number of items to include in the result. (optional) 
-            requestParameters.Skip = 8.14D;  // decimal? | The number of items to skip in the result. (optional) 
+            requestParameters.Top = 56;  // int? | The number of items to include in the result. (optional) 
+            requestParameters.Skip = 56;  // int? | The number of items to skip in the result. (optional) 
             requestParameters.Count = true;  // bool? | Whether to include the total count of records in the result. (optional) 
             requestParameters.CountOnly = true;  // bool? | Whether to return only the count of records, without the list of records. (optional) 
 
@@ -327,11 +327,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **AvalaraVersion** | **string**| The version of the API to use, e.g., \&quot;1.3\&quot;. | 
+ **AvalaraVersion** | **string**| The version of the API to use, e.g., \&quot;1.4\&quot;. | 
  **XCorrelationID** | **string**| A unique identifier for tracking the request and its response | [optional] 
  **XAvalaraClient** | **string**| Client application identification | [optional] 
- **Top** | **decimal?**| The number of items to include in the result. | [optional] 
- **Skip** | **decimal?**| The number of items to skip in the result. | [optional] 
+ **Top** | **int?**| The number of items to include in the result. | [optional] 
+ **Skip** | **int?**| The number of items to skip in the result. | [optional] 
  **Count** | **bool?**| Whether to include the total count of records in the result. | [optional] 
  **CountOnly** | **bool?**| Whether to return only the count of records, without the list of records. | [optional] 
 

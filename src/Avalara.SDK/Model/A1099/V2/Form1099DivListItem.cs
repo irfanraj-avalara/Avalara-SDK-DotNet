@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -44,8 +44,9 @@ namespace Avalara.SDK.Model.A1099.V2
     public partial class Form1099DivListItem : IValidatableObject
     {
         /// <summary>
-        /// Defines TinType
+        /// Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
         /// </summary>
+        /// <value>Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TinTypeEnum
         {
@@ -76,60 +77,91 @@ namespace Avalara.SDK.Model.A1099.V2
 
 
         /// <summary>
-        /// Gets or Sets TinType
+        /// Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
         /// </summary>
+        /// <value>Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN</value>
         /// <example>EIN</example>
         [DataMember(Name = "tinType", EmitDefaultValue = false)]
         public TinTypeEnum? TinType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Form1099DivListItem" /> class.
         /// </summary>
-        /// <param name="totalOrdinaryDividends">totalOrdinaryDividends.</param>
-        /// <param name="qualifiedDividends">qualifiedDividends.</param>
-        /// <param name="totalCapitalGainDistr">totalCapitalGainDistr.</param>
-        /// <param name="unrecapSec1250Gain">unrecapSec1250Gain.</param>
-        /// <param name="section1202Gain">section1202Gain.</param>
-        /// <param name="collectiblesGain">collectiblesGain.</param>
-        /// <param name="section897OrdinaryDividends">section897OrdinaryDividends.</param>
-        /// <param name="section897CapitalGain">section897CapitalGain.</param>
-        /// <param name="nondividendDistributions">nondividendDistributions.</param>
-        /// <param name="federalIncomeTaxWithheld">federalIncomeTaxWithheld.</param>
-        /// <param name="section199ADividends">section199ADividends.</param>
-        /// <param name="investmentExpenses">investmentExpenses.</param>
-        /// <param name="foreignTaxPaid">foreignTaxPaid.</param>
-        /// <param name="foreignCountryOrUSPossession">foreignCountryOrUSPossession.</param>
-        /// <param name="cashLiquidationDistributions">cashLiquidationDistributions.</param>
-        /// <param name="noncashLiquidationDistributions">noncashLiquidationDistributions.</param>
-        /// <param name="exemptInterestDividends">exemptInterestDividends.</param>
-        /// <param name="specifiedPrivateActivityBondInterestDividends">specifiedPrivateActivityBondInterestDividends.</param>
-        /// <param name="fatcaFilingRequirement">fatcaFilingRequirement.</param>
-        /// <param name="issuerReferenceId">issuerReferenceId.</param>
-        /// <param name="issuerTin">issuerTin.</param>
-        /// <param name="taxYear">taxYear.</param>
-        /// <param name="issuerId">issuerId.</param>
-        /// <param name="referenceId">referenceId.</param>
-        /// <param name="recipientName">recipientName.</param>
-        /// <param name="recipientTin">recipientTin.</param>
-        /// <param name="tinType">tinType.</param>
-        /// <param name="recipientSecondName">recipientSecondName.</param>
-        /// <param name="address">address.</param>
-        /// <param name="address2">address2.</param>
-        /// <param name="city">city.</param>
-        /// <param name="state">state.</param>
-        /// <param name="zip">zip.</param>
-        /// <param name="recipientEmail">recipientEmail.</param>
-        /// <param name="accountNumber">accountNumber.</param>
-        /// <param name="officeCode">officeCode.</param>
-        /// <param name="recipientNonUsProvince">recipientNonUsProvince.</param>
-        /// <param name="countryCode">countryCode.</param>
-        /// <param name="federalEFile">federalEFile.</param>
-        /// <param name="postalMail">postalMail.</param>
-        /// <param name="stateEFile">stateEFile.</param>
-        /// <param name="tinMatch">tinMatch.</param>
-        /// <param name="addressVerification">addressVerification.</param>
-        /// <param name="stateAndLocalWithholding">stateAndLocalWithholding.</param>
-        public Form1099DivListItem(string totalOrdinaryDividends = default(string), string qualifiedDividends = default(string), string totalCapitalGainDistr = default(string), string unrecapSec1250Gain = default(string), string section1202Gain = default(string), string collectiblesGain = default(string), string section897OrdinaryDividends = default(string), string section897CapitalGain = default(string), string nondividendDistributions = default(string), string federalIncomeTaxWithheld = default(string), string section199ADividends = default(string), string investmentExpenses = default(string), string foreignTaxPaid = default(string), string foreignCountryOrUSPossession = default(string), string cashLiquidationDistributions = default(string), string noncashLiquidationDistributions = default(string), string exemptInterestDividends = default(string), string specifiedPrivateActivityBondInterestDividends = default(string), string fatcaFilingRequirement = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string issuerId = default(string), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), TinTypeEnum? tinType = default(TinTypeEnum?), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StateAndLocalWithholdingRequest stateAndLocalWithholding = default(StateAndLocalWithholdingRequest))
+        [JsonConstructorAttribute]
+        protected Form1099DivListItem() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Form1099DivListItem" /> class.
+        /// </summary>
+        /// <param name="totalOrdinaryDividends">Total ordinary dividends.</param>
+        /// <param name="qualifiedDividends">Qualified dividends.</param>
+        /// <param name="totalCapitalGainDistr">Total capital gain distributions.</param>
+        /// <param name="unrecapSec1250Gain">Unrecaptured Section 1250 gain.</param>
+        /// <param name="section1202Gain">Section 1202 gain.</param>
+        /// <param name="collectiblesGain">Collectibles (28%) gain.</param>
+        /// <param name="section897OrdinaryDividends">Section 897 ordinary dividends.</param>
+        /// <param name="section897CapitalGain">Section 897 capital gain.</param>
+        /// <param name="nondividendDistributions">Nondividend distributions.</param>
+        /// <param name="federalIncomeTaxWithheld">Federal income tax withheld.</param>
+        /// <param name="section199ADividends">Section 199A dividends.</param>
+        /// <param name="investmentExpenses">Investment expenses.</param>
+        /// <param name="foreignTaxPaid">Foreign tax paid.</param>
+        /// <param name="foreignCountryOrUSPossession">Foreign country or U.S. possession.</param>
+        /// <param name="cashLiquidationDistributions">Cash liquidation distributions.</param>
+        /// <param name="noncashLiquidationDistributions">Noncash liquidation distributions.</param>
+        /// <param name="exemptInterestDividends">Exempt-interest dividends.</param>
+        /// <param name="specifiedPrivateActivityBondInterestDividends">Specified private activity bond interest dividends.</param>
+        /// <param name="fatcaFilingRequirement">FATCA filing requirement.</param>
+        /// <param name="issuerReferenceId">Issuer Reference ID. One of &#x60;issuerReferenceId&#x60; or &#x60;issuerTin&#x60; is required..</param>
+        /// <param name="issuerTin">Issuer TIN. One of &#x60;issuerReferenceId&#x60; or &#x60;issuerTin&#x60; is required..</param>
+        /// <param name="taxYear">Tax year (required).</param>
+        /// <param name="issuerId">Issuer ID.</param>
+        /// <param name="referenceId">Reference ID.</param>
+        /// <param name="recipientTin">Recipient Tax ID Number.</param>
+        /// <param name="recipientName">Recipient name (required).</param>
+        /// <param name="tinType">Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN.</param>
+        /// <param name="recipientSecondName">Recipient second name.</param>
+        /// <param name="address">Address (required).</param>
+        /// <param name="address2">Address line 2.</param>
+        /// <param name="city">City (required).</param>
+        /// <param name="state">US state. Required if CountryCode is \&quot;US\&quot;..</param>
+        /// <param name="zip">Zip/postal code.</param>
+        /// <param name="recipientEmail">Recipient email address.</param>
+        /// <param name="accountNumber">Account number.</param>
+        /// <param name="officeCode">Office code.</param>
+        /// <param name="recipientNonUsProvince">Foreign province.</param>
+        /// <param name="countryCode">Country code, as defined at https://www.irs.gov/e-file-providers/country-codes (required).</param>
+        /// <param name="federalEFile">Boolean indicating that federal e-filing should be scheduled for this form.</param>
+        /// <param name="postalMail">Boolean indicating that postal mailing to the recipient should be scheduled for this form.</param>
+        /// <param name="stateEFile">Boolean indicating that state e-filing should be scheduled for this form.</param>
+        /// <param name="tinMatch">Boolean indicating that TIN Matching should be scheduled for this form.</param>
+        /// <param name="addressVerification">Boolean indicating that address verification should be scheduled for this form.</param>
+        /// <param name="stateAndLocalWithholding">State and local withholding information.</param>
+        public Form1099DivListItem(string totalOrdinaryDividends = default(string), string qualifiedDividends = default(string), string totalCapitalGainDistr = default(string), string unrecapSec1250Gain = default(string), string section1202Gain = default(string), string collectiblesGain = default(string), string section897OrdinaryDividends = default(string), string section897CapitalGain = default(string), string nondividendDistributions = default(string), string federalIncomeTaxWithheld = default(string), string section199ADividends = default(string), string investmentExpenses = default(string), string foreignTaxPaid = default(string), string foreignCountryOrUSPossession = default(string), string cashLiquidationDistributions = default(string), string noncashLiquidationDistributions = default(string), string exemptInterestDividends = default(string), string specifiedPrivateActivityBondInterestDividends = default(string), string fatcaFilingRequirement = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string issuerId = default(string), string referenceId = default(string), string recipientTin = default(string), string recipientName = default(string), TinTypeEnum? tinType = default(TinTypeEnum?), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StateAndLocalWithholdingRequest stateAndLocalWithholding = default(StateAndLocalWithholdingRequest))
         {
+            this.TaxYear = taxYear;
+            // to ensure "recipientName" is required (not null)
+            if (recipientName == null)
+            {
+                throw new ArgumentNullException("recipientName is a required property for Form1099DivListItem and cannot be null");
+            }
+            this.RecipientName = recipientName;
+            // to ensure "address" is required (not null)
+            if (address == null)
+            {
+                throw new ArgumentNullException("address is a required property for Form1099DivListItem and cannot be null");
+            }
+            this.Address = address;
+            // to ensure "city" is required (not null)
+            if (city == null)
+            {
+                throw new ArgumentNullException("city is a required property for Form1099DivListItem and cannot be null");
+            }
+            this.City = city;
+            // to ensure "countryCode" is required (not null)
+            if (countryCode == null)
+            {
+                throw new ArgumentNullException("countryCode is a required property for Form1099DivListItem and cannot be null");
+            }
+            this.CountryCode = countryCode;
             this.TotalOrdinaryDividends = totalOrdinaryDividends;
             this.QualifiedDividends = qualifiedDividends;
             this.TotalCapitalGainDistr = totalCapitalGainDistr;
@@ -151,23 +183,18 @@ namespace Avalara.SDK.Model.A1099.V2
             this.FatcaFilingRequirement = fatcaFilingRequirement;
             this.IssuerReferenceId = issuerReferenceId;
             this.IssuerTin = issuerTin;
-            this.TaxYear = taxYear;
             this.IssuerId = issuerId;
             this.ReferenceId = referenceId;
-            this.RecipientName = recipientName;
             this.RecipientTin = recipientTin;
             this.TinType = tinType;
             this.RecipientSecondName = recipientSecondName;
-            this.Address = address;
             this.Address2 = address2;
-            this.City = city;
             this.State = state;
             this.Zip = zip;
             this.RecipientEmail = recipientEmail;
             this.AccountNumber = accountNumber;
             this.OfficeCode = officeCode;
             this.RecipientNonUsProvince = recipientNonUsProvince;
-            this.CountryCode = countryCode;
             this.FederalEFile = federalEFile;
             this.PostalMail = postalMail;
             this.StateEFile = stateEFile;
@@ -177,260 +204,303 @@ namespace Avalara.SDK.Model.A1099.V2
         }
 
         /// <summary>
-        /// Gets or Sets TotalOrdinaryDividends
+        /// Total ordinary dividends
         /// </summary>
+        /// <value>Total ordinary dividends</value>
         [DataMember(Name = "totalOrdinaryDividends", EmitDefaultValue = false)]
         public string TotalOrdinaryDividends { get; set; }
 
         /// <summary>
-        /// Gets or Sets QualifiedDividends
+        /// Qualified dividends
         /// </summary>
+        /// <value>Qualified dividends</value>
         [DataMember(Name = "qualifiedDividends", EmitDefaultValue = false)]
         public string QualifiedDividends { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalCapitalGainDistr
+        /// Total capital gain distributions
         /// </summary>
+        /// <value>Total capital gain distributions</value>
         [DataMember(Name = "totalCapitalGainDistr", EmitDefaultValue = false)]
         public string TotalCapitalGainDistr { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnrecapSec1250Gain
+        /// Unrecaptured Section 1250 gain
         /// </summary>
+        /// <value>Unrecaptured Section 1250 gain</value>
         [DataMember(Name = "unrecapSec1250Gain", EmitDefaultValue = false)]
         public string UnrecapSec1250Gain { get; set; }
 
         /// <summary>
-        /// Gets or Sets Section1202Gain
+        /// Section 1202 gain
         /// </summary>
+        /// <value>Section 1202 gain</value>
         [DataMember(Name = "section1202Gain", EmitDefaultValue = false)]
         public string Section1202Gain { get; set; }
 
         /// <summary>
-        /// Gets or Sets CollectiblesGain
+        /// Collectibles (28%) gain
         /// </summary>
+        /// <value>Collectibles (28%) gain</value>
         [DataMember(Name = "collectiblesGain", EmitDefaultValue = false)]
         public string CollectiblesGain { get; set; }
 
         /// <summary>
-        /// Gets or Sets Section897OrdinaryDividends
+        /// Section 897 ordinary dividends
         /// </summary>
+        /// <value>Section 897 ordinary dividends</value>
         [DataMember(Name = "section897OrdinaryDividends", EmitDefaultValue = false)]
         public string Section897OrdinaryDividends { get; set; }
 
         /// <summary>
-        /// Gets or Sets Section897CapitalGain
+        /// Section 897 capital gain
         /// </summary>
+        /// <value>Section 897 capital gain</value>
         [DataMember(Name = "section897CapitalGain", EmitDefaultValue = false)]
         public string Section897CapitalGain { get; set; }
 
         /// <summary>
-        /// Gets or Sets NondividendDistributions
+        /// Nondividend distributions
         /// </summary>
+        /// <value>Nondividend distributions</value>
         [DataMember(Name = "nondividendDistributions", EmitDefaultValue = false)]
         public string NondividendDistributions { get; set; }
 
         /// <summary>
-        /// Gets or Sets FederalIncomeTaxWithheld
+        /// Federal income tax withheld
         /// </summary>
+        /// <value>Federal income tax withheld</value>
         [DataMember(Name = "federalIncomeTaxWithheld", EmitDefaultValue = false)]
         public string FederalIncomeTaxWithheld { get; set; }
 
         /// <summary>
-        /// Gets or Sets Section199ADividends
+        /// Section 199A dividends
         /// </summary>
+        /// <value>Section 199A dividends</value>
         [DataMember(Name = "section199ADividends", EmitDefaultValue = false)]
         public string Section199ADividends { get; set; }
 
         /// <summary>
-        /// Gets or Sets InvestmentExpenses
+        /// Investment expenses
         /// </summary>
+        /// <value>Investment expenses</value>
         [DataMember(Name = "investmentExpenses", EmitDefaultValue = false)]
         public string InvestmentExpenses { get; set; }
 
         /// <summary>
-        /// Gets or Sets ForeignTaxPaid
+        /// Foreign tax paid
         /// </summary>
+        /// <value>Foreign tax paid</value>
         [DataMember(Name = "foreignTaxPaid", EmitDefaultValue = false)]
         public string ForeignTaxPaid { get; set; }
 
         /// <summary>
-        /// Gets or Sets ForeignCountryOrUSPossession
+        /// Foreign country or U.S. possession
         /// </summary>
+        /// <value>Foreign country or U.S. possession</value>
         [DataMember(Name = "foreignCountryOrUSPossession", EmitDefaultValue = false)]
         public string ForeignCountryOrUSPossession { get; set; }
 
         /// <summary>
-        /// Gets or Sets CashLiquidationDistributions
+        /// Cash liquidation distributions
         /// </summary>
+        /// <value>Cash liquidation distributions</value>
         [DataMember(Name = "cashLiquidationDistributions", EmitDefaultValue = false)]
         public string CashLiquidationDistributions { get; set; }
 
         /// <summary>
-        /// Gets or Sets NoncashLiquidationDistributions
+        /// Noncash liquidation distributions
         /// </summary>
+        /// <value>Noncash liquidation distributions</value>
         [DataMember(Name = "noncashLiquidationDistributions", EmitDefaultValue = false)]
         public string NoncashLiquidationDistributions { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExemptInterestDividends
+        /// Exempt-interest dividends
         /// </summary>
+        /// <value>Exempt-interest dividends</value>
         [DataMember(Name = "exemptInterestDividends", EmitDefaultValue = false)]
         public string ExemptInterestDividends { get; set; }
 
         /// <summary>
-        /// Gets or Sets SpecifiedPrivateActivityBondInterestDividends
+        /// Specified private activity bond interest dividends
         /// </summary>
+        /// <value>Specified private activity bond interest dividends</value>
         [DataMember(Name = "specifiedPrivateActivityBondInterestDividends", EmitDefaultValue = false)]
         public string SpecifiedPrivateActivityBondInterestDividends { get; set; }
 
         /// <summary>
-        /// Gets or Sets FatcaFilingRequirement
+        /// FATCA filing requirement
         /// </summary>
+        /// <value>FATCA filing requirement</value>
         [DataMember(Name = "fatcaFilingRequirement", EmitDefaultValue = false)]
         public string FatcaFilingRequirement { get; set; }
 
         /// <summary>
-        /// Gets or Sets IssuerReferenceId
+        /// Issuer Reference ID. One of &#x60;issuerReferenceId&#x60; or &#x60;issuerTin&#x60; is required.
         /// </summary>
+        /// <value>Issuer Reference ID. One of &#x60;issuerReferenceId&#x60; or &#x60;issuerTin&#x60; is required.</value>
         [DataMember(Name = "issuerReferenceId", EmitDefaultValue = false)]
         public string IssuerReferenceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets IssuerTin
+        /// Issuer TIN. One of &#x60;issuerReferenceId&#x60; or &#x60;issuerTin&#x60; is required.
         /// </summary>
+        /// <value>Issuer TIN. One of &#x60;issuerReferenceId&#x60; or &#x60;issuerTin&#x60; is required.</value>
         [DataMember(Name = "issuerTin", EmitDefaultValue = false)]
         public string IssuerTin { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxYear
+        /// Tax year
         /// </summary>
-        [DataMember(Name = "taxYear", EmitDefaultValue = false)]
+        /// <value>Tax year</value>
+        [DataMember(Name = "taxYear", IsRequired = true, EmitDefaultValue = true)]
         public int TaxYear { get; set; }
 
         /// <summary>
-        /// Gets or Sets IssuerId
+        /// Issuer ID
         /// </summary>
+        /// <value>Issuer ID</value>
         [DataMember(Name = "issuerId", EmitDefaultValue = true)]
         public string IssuerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReferenceId
+        /// Reference ID
         /// </summary>
+        /// <value>Reference ID</value>
         [DataMember(Name = "referenceId", EmitDefaultValue = true)]
         public string ReferenceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientName
+        /// Recipient Tax ID Number
         /// </summary>
-        [DataMember(Name = "recipientName", EmitDefaultValue = true)]
-        public string RecipientName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RecipientTin
-        /// </summary>
+        /// <value>Recipient Tax ID Number</value>
         [DataMember(Name = "recipientTin", EmitDefaultValue = false)]
         public string RecipientTin { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientSecondName
+        /// Recipient name
         /// </summary>
-        [DataMember(Name = "recipientSecondName", EmitDefaultValue = false)]
+        /// <value>Recipient name</value>
+        [DataMember(Name = "recipientName", IsRequired = true, EmitDefaultValue = true)]
+        public string RecipientName { get; set; }
+
+        /// <summary>
+        /// Recipient second name
+        /// </summary>
+        /// <value>Recipient second name</value>
+        [DataMember(Name = "recipientSecondName", EmitDefaultValue = true)]
         public string RecipientSecondName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address
+        /// Address
         /// </summary>
-        [DataMember(Name = "address", EmitDefaultValue = false)]
+        /// <value>Address</value>
+        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address2
+        /// Address line 2
         /// </summary>
+        /// <value>Address line 2</value>
         [DataMember(Name = "address2", EmitDefaultValue = true)]
         public string Address2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets City
+        /// City
         /// </summary>
-        [DataMember(Name = "city", EmitDefaultValue = false)]
+        /// <value>City</value>
+        [DataMember(Name = "city", IsRequired = true, EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or Sets State
+        /// US state. Required if CountryCode is \&quot;US\&quot;.
         /// </summary>
+        /// <value>US state. Required if CountryCode is \&quot;US\&quot;.</value>
         [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets Zip
+        /// Zip/postal code
         /// </summary>
+        /// <value>Zip/postal code</value>
         [DataMember(Name = "zip", EmitDefaultValue = false)]
         public string Zip { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientEmail
+        /// Recipient email address
         /// </summary>
+        /// <value>Recipient email address</value>
         [DataMember(Name = "recipientEmail", EmitDefaultValue = true)]
         public string RecipientEmail { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccountNumber
+        /// Account number
         /// </summary>
+        /// <value>Account number</value>
         [DataMember(Name = "accountNumber", EmitDefaultValue = true)]
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets OfficeCode
+        /// Office code
         /// </summary>
+        /// <value>Office code</value>
         [DataMember(Name = "officeCode", EmitDefaultValue = true)]
         public string OfficeCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientNonUsProvince
+        /// Foreign province
         /// </summary>
+        /// <value>Foreign province</value>
         [DataMember(Name = "recipientNonUsProvince", EmitDefaultValue = true)]
         public string RecipientNonUsProvince { get; set; }
 
         /// <summary>
-        /// Gets or Sets CountryCode
+        /// Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
         /// </summary>
-        [DataMember(Name = "countryCode", EmitDefaultValue = false)]
+        /// <value>Country code, as defined at https://www.irs.gov/e-file-providers/country-codes</value>
+        [DataMember(Name = "countryCode", IsRequired = true, EmitDefaultValue = true)]
         public string CountryCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets FederalEFile
+        /// Boolean indicating that federal e-filing should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that federal e-filing should be scheduled for this form</value>
         [DataMember(Name = "federalEFile", EmitDefaultValue = true)]
         public bool FederalEFile { get; set; }
 
         /// <summary>
-        /// Gets or Sets PostalMail
+        /// Boolean indicating that postal mailing to the recipient should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that postal mailing to the recipient should be scheduled for this form</value>
         [DataMember(Name = "postalMail", EmitDefaultValue = true)]
         public bool PostalMail { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateEFile
+        /// Boolean indicating that state e-filing should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that state e-filing should be scheduled for this form</value>
         [DataMember(Name = "stateEFile", EmitDefaultValue = true)]
         public bool StateEFile { get; set; }
 
         /// <summary>
-        /// Gets or Sets TinMatch
+        /// Boolean indicating that TIN Matching should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that TIN Matching should be scheduled for this form</value>
         [DataMember(Name = "tinMatch", EmitDefaultValue = true)]
         public bool TinMatch { get; set; }
 
         /// <summary>
-        /// Gets or Sets AddressVerification
+        /// Boolean indicating that address verification should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that address verification should be scheduled for this form</value>
         [DataMember(Name = "addressVerification", EmitDefaultValue = true)]
         public bool AddressVerification { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateAndLocalWithholding
+        /// State and local withholding information
         /// </summary>
+        /// <value>State and local withholding information</value>
         [DataMember(Name = "stateAndLocalWithholding", EmitDefaultValue = false)]
         public StateAndLocalWithholdingRequest StateAndLocalWithholding { get; set; }
 
@@ -466,8 +536,8 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  TaxYear: ").Append(TaxYear).Append("\n");
             sb.Append("  IssuerId: ").Append(IssuerId).Append("\n");
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
-            sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
             sb.Append("  RecipientTin: ").Append(RecipientTin).Append("\n");
+            sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
             sb.Append("  TinType: ").Append(TinType).Append("\n");
             sb.Append("  RecipientSecondName: ").Append(RecipientSecondName).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
@@ -506,6 +576,30 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // RecipientName (string) minLength
+            if (this.RecipientName != null && this.RecipientName.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for RecipientName, length must be greater than 1.", new [] { "RecipientName" });
+            }
+
+            // Address (string) minLength
+            if (this.Address != null && this.Address.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
+            }
+
+            // City (string) minLength
+            if (this.City != null && this.City.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for City, length must be greater than 1.", new [] { "City" });
+            }
+
+            // CountryCode (string) minLength
+            if (this.CountryCode != null && this.CountryCode.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for CountryCode, length must be greater than 1.", new [] { "CountryCode" });
+            }
+
             yield break;
         }
     }

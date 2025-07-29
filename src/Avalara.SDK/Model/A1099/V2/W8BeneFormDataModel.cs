@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -1248,18 +1248,21 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets Part19FormationOrResolutionDate
         /// </summary>
         [DataMember(Name = "part19FormationOrResolutionDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? Part19FormationOrResolutionDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Part20FilingDate
         /// </summary>
         [DataMember(Name = "part20FilingDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? Part20FilingDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Part21DeterminationDate
         /// </summary>
         [DataMember(Name = "part21DeterminationDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? Part21DeterminationDate { get; set; }
 
         /// <summary>
@@ -2011,12 +2014,14 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Gets or Sets Box35FormedOnDate
         /// </summary>
         [DataMember(Name = "box35FormedOnDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? Box35FormedOnDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Box36FiledOnDate
         /// </summary>
         [DataMember(Name = "box36FiledOnDate", EmitDefaultValue = true)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? Box36FiledOnDate { get; set; }
 
         /// <summary>

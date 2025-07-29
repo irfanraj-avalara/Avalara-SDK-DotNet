@@ -1,5 +1,4 @@
 # Avalara.SDK.Model.EInvoicing.V1.SignatureValue
-Includes the actual signature applied to a webhook message along with the algorithm used.
 
 ## Properties
 

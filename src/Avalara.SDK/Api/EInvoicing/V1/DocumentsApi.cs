@@ -18,7 +18,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// This header indicates the MIME type of the document
         /// </summary>
@@ -40,7 +40,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// 
         /// </summary>
@@ -58,7 +58,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// You can freely use any text you wish for this value. This feature can help you diagnose and solve problems with your software. The header can be treated like a fingerprint.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         public string Filter { get; set; }
         /// <summary>
-        /// The number of items to include in the result.
+        /// If nonzero, return no more than this number of results. Used with &lt;code&gt;$skip&lt;/code&gt; to provide pagination for large datasets. Unless otherwise specified, the maximum number of records that can be returned from an API call is 200 records.
         /// </summary>
         public decimal? Top { get; set; }
         /// <summary>
@@ -104,7 +104,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// The unique ID for this document that was returned in the POST /einvoicing/documents response body
         /// </summary>
@@ -122,7 +122,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The HTTP Header meant to specify the version of the API intended to be used
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// 
         /// </summary>
@@ -1073,7 +1073,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.7.2";
+            this.Client.SdkVersion = "25.8.0";
         }
         
     }

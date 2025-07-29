@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -51,6 +51,18 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <param name="actualInstance">An instance of FormResponseBase.</param>
         public Update1099Form200Response(FormResponseBase actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Update1099Form200Response" /> class
+        /// with the <see cref="Form1042SResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1042SResponse.</param>
+        public Update1099Form200Response(Form1042SResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -107,7 +119,11 @@ namespace Avalara.SDK.Model.A1099.V2
             }
             set
             {
-                if (value.GetType() == typeof(Form1099DivResponse) || value is Form1099DivResponse)
+                if (value.GetType() == typeof(Form1042SResponse) || value is Form1042SResponse)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(Form1099DivResponse) || value is Form1099DivResponse)
                 {
                     this._actualInstance = value;
                 }
@@ -125,7 +141,7 @@ namespace Avalara.SDK.Model.A1099.V2
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099DivResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SResponse, Form1099DivResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase");
                 }
             }
         }
@@ -138,6 +154,16 @@ namespace Avalara.SDK.Model.A1099.V2
         public FormResponseBase GetFormResponseBase()
         {
             return (FormResponseBase)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1042SResponse`. If the actual instance is not `Form1042SResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1042SResponse</returns>
+        public Form1042SResponse GetForm1042SResponse()
+        {
+            return (Form1042SResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -207,6 +233,26 @@ namespace Avalara.SDK.Model.A1099.V2
             }
             int match = 0;
             List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1042SResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newUpdate1099Form200Response = new Update1099Form200Response(JsonConvert.DeserializeObject<Form1042SResponse>(jsonString, Update1099Form200Response.SerializerSettings));
+                }
+                else
+                {
+                    newUpdate1099Form200Response = new Update1099Form200Response(JsonConvert.DeserializeObject<Form1042SResponse>(jsonString, Update1099Form200Response.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1042SResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1042SResponse: {1}", jsonString, exception.ToString()));
+            }
 
             try
             {

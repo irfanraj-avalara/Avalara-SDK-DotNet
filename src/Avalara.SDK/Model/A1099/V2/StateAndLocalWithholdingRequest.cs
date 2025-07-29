@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -54,7 +54,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="locality">locality.</param>
         /// <param name="localityIdNumber">localityIdNumber.</param>
         /// <param name="localIncome">localIncome.</param>
-        public StateAndLocalWithholdingRequest(double stateTaxWithheld = default(double), string state = default(string), string stateIdNumber = default(string), double stateIncome = default(double), double localTaxWithheld = default(double), string locality = default(string), string localityIdNumber = default(string), double localIncome = default(double))
+        public StateAndLocalWithholdingRequest(double stateTaxWithheld = default(double), string state = default(string), string stateIdNumber = default(string), double? stateIncome = default(double?), double? localTaxWithheld = default(double?), string locality = default(string), string localityIdNumber = default(string), double? localIncome = default(double?))
         {
             this.StateTaxWithheld = stateTaxWithheld;
             this.State = state;
@@ -87,19 +87,19 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets StateIncome
         /// </summary>
-        [DataMember(Name = "stateIncome", EmitDefaultValue = false)]
-        public double StateIncome { get; set; }
+        [DataMember(Name = "stateIncome", EmitDefaultValue = true)]
+        public double? StateIncome { get; set; }
 
         /// <summary>
         /// Gets or Sets LocalTaxWithheld
         /// </summary>
-        [DataMember(Name = "localTaxWithheld", EmitDefaultValue = false)]
-        public double LocalTaxWithheld { get; set; }
+        [DataMember(Name = "localTaxWithheld", EmitDefaultValue = true)]
+        public double? LocalTaxWithheld { get; set; }
 
         /// <summary>
         /// Gets or Sets Locality
         /// </summary>
-        [DataMember(Name = "locality", EmitDefaultValue = false)]
+        [DataMember(Name = "locality", EmitDefaultValue = true)]
         public string Locality { get; set; }
 
         /// <summary>
@@ -111,8 +111,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Gets or Sets LocalIncome
         /// </summary>
-        [DataMember(Name = "localIncome", EmitDefaultValue = false)]
-        public double LocalIncome { get; set; }
+        [DataMember(Name = "localIncome", EmitDefaultValue = true)]
+        public double? LocalIncome { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

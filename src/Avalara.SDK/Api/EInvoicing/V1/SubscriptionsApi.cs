@@ -16,9 +16,9 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// </summary>
     public class CreateWebhookSubscriptionRequestSdk {
         /// <summary>
-        /// The version of the API to use, e.g., \&quot;1.3\&quot;.
+        /// The version of the API to use, e.g., \&quot;1.4\&quot;.
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// 
         /// </summary>
@@ -42,9 +42,9 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         public string SubscriptionId { get; set; }
         /// <summary>
-        /// The version of the API to use, e.g., \&quot;1.3\&quot;.
+        /// The version of the API to use, e.g., \&quot;1.4\&quot;.
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// A unique identifier for tracking the request and its response
         /// </summary>
@@ -64,9 +64,9 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// </summary>
         public string SubscriptionId { get; set; }
         /// <summary>
-        /// The version of the API to use, e.g., \&quot;1.3\&quot;.
+        /// The version of the API to use, e.g., \&quot;1.4\&quot;.
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// A unique identifier for tracking the request and its response
         /// </summary>
@@ -82,9 +82,9 @@ namespace Avalara.SDK.Api.EInvoicing.V1
     /// </summary>
     public class ListWebhookSubscriptionsRequestSdk {
         /// <summary>
-        /// The version of the API to use, e.g., \&quot;1.3\&quot;.
+        /// The version of the API to use, e.g., \&quot;1.4\&quot;.
         /// </summary>
-        public string? AvalaraVersion { get; set; } = "1.3";
+        public string? AvalaraVersion { get; set; } = "1.4";
         /// <summary>
         /// A unique identifier for tracking the request and its response
         /// </summary>
@@ -96,11 +96,11 @@ namespace Avalara.SDK.Api.EInvoicing.V1
         /// <summary>
         /// The number of items to include in the result.
         /// </summary>
-        public decimal? Top { get; set; }
+        public int? Top { get; set; }
         /// <summary>
         /// The number of items to skip in the result.
         /// </summary>
-        public decimal? Skip { get; set; }
+        public int? Skip { get; set; }
         /// <summary>
         /// Whether to include the total count of records in the result.
         /// </summary>
@@ -860,7 +860,7 @@ namespace Avalara.SDK.Api.EInvoicing.V1
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.7.2";
+            this.Client.SdkVersion = "25.8.0";
         }
         
     }

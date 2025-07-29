@@ -38,7 +38,7 @@ using OpenAPIDateConverter = Avalara.SDK.Client.OpenAPIDateConverter;
 namespace Avalara.SDK.Model.EInvoicing.V1
 {
 /// <summary>
-    /// Schema for batch search list
+    /// Response schema for listing batch search details.
     /// </summary>
     [DataContract(Name = "BatchSearchListResponse")]
     public partial class BatchSearchListResponse : IValidatableObject
@@ -46,9 +46,9 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchSearchListResponse" /> class.
         /// </summary>
-        /// <param name="recordSetCount">The count of records in the result set.</param>
+        /// <param name="recordSetCount">The count of records in the result set..</param>
         /// <param name="nextLink">Next Link.</param>
-        /// <param name="value">value.</param>
+        /// <param name="value">List of batch search records..</param>
         public BatchSearchListResponse(int recordSetCount = default(int), string nextLink = default(string), List<BatchSearch> value = default(List<BatchSearch>))
         {
             this.RecordSetCount = recordSetCount;
@@ -57,9 +57,9 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         }
 
         /// <summary>
-        /// The count of records in the result set
+        /// The count of records in the result set.
         /// </summary>
-        /// <value>The count of records in the result set</value>
+        /// <value>The count of records in the result set.</value>
         [DataMember(Name = "@recordSetCount", EmitDefaultValue = false)]
         public int RecordSetCount { get; set; }
 
@@ -71,8 +71,9 @@ namespace Avalara.SDK.Model.EInvoicing.V1
         public string NextLink { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// List of batch search records.
         /// </summary>
+        /// <value>List of batch search records.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public List<BatchSearch> Value { get; set; }
 

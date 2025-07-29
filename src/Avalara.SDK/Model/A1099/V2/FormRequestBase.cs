@@ -8,7 +8,7 @@
  *
  * Avalara 1099 & W-9 API Definition
  *
- * ## 🔐 Authentication  Use **username/password** or generate a **license key** from: *Avalara Portal → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
+ * ## 🔐 Authentication  Generate a **license key** from: *[Avalara Portal](https://www.avalara.com/us/en/signin.html) → Settings → License and API Keys*.  [More on authentication methods](https://developer.avalara.com/avatax-dm-combined-erp/common-setup/authentication/authentication-methods/)  [Test your credentials](https://developer.avalara.com/avatax/test-credentials/)  ## 📘 API & SDK Documentation  [Avalara SDK (.NET) on GitHub](https://github.com/avadev/Avalara-SDK-DotNet#avalarasdk- -the-unified-c-library-for-next-gen-avalara-services)  [Code Examples – 1099 API](https://github.com/avadev/Avalara-SDK-DotNet/blob/main/docs/A1099/V2/Class1099IssuersApi.md#call1099issuersget)
  *
 
  * @author     Sachin Baijal <sachin.baijal@avalara.com>
@@ -44,8 +44,9 @@ namespace Avalara.SDK.Model.A1099.V2
     public partial class FormRequestBase : IValidatableObject
     {
         /// <summary>
-        /// Defines TinType
+        /// Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
         /// </summary>
+        /// <value>Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TinTypeEnum
         {
@@ -76,54 +77,80 @@ namespace Avalara.SDK.Model.A1099.V2
 
 
         /// <summary>
-        /// Gets or Sets TinType
+        /// Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN
         /// </summary>
+        /// <value>Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN</value>
         /// <example>EIN</example>
         [DataMember(Name = "tinType", EmitDefaultValue = false)]
         public TinTypeEnum? TinType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FormRequestBase" /> class.
         /// </summary>
-        /// <param name="issuerId">issuerId.</param>
-        /// <param name="referenceId">referenceId.</param>
-        /// <param name="recipientName">recipientName.</param>
-        /// <param name="recipientTin">recipientTin.</param>
-        /// <param name="tinType">tinType.</param>
-        /// <param name="recipientSecondName">recipientSecondName.</param>
-        /// <param name="address">address.</param>
-        /// <param name="address2">address2.</param>
-        /// <param name="city">city.</param>
-        /// <param name="state">state.</param>
-        /// <param name="zip">zip.</param>
-        /// <param name="recipientEmail">recipientEmail.</param>
-        /// <param name="accountNumber">accountNumber.</param>
-        /// <param name="officeCode">officeCode.</param>
-        /// <param name="recipientNonUsProvince">recipientNonUsProvince.</param>
-        /// <param name="countryCode">countryCode.</param>
-        /// <param name="federalEFile">federalEFile.</param>
-        /// <param name="postalMail">postalMail.</param>
-        /// <param name="stateEFile">stateEFile.</param>
-        /// <param name="tinMatch">tinMatch.</param>
-        /// <param name="addressVerification">addressVerification.</param>
-        /// <param name="stateAndLocalWithholding">stateAndLocalWithholding.</param>
-        public FormRequestBase(string issuerId = default(string), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), TinTypeEnum? tinType = default(TinTypeEnum?), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StateAndLocalWithholdingRequest stateAndLocalWithholding = default(StateAndLocalWithholdingRequest))
+        [JsonConstructorAttribute]
+        protected FormRequestBase() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FormRequestBase" /> class.
+        /// </summary>
+        /// <param name="issuerId">Issuer ID.</param>
+        /// <param name="referenceId">Reference ID.</param>
+        /// <param name="recipientTin">Recipient Tax ID Number.</param>
+        /// <param name="recipientName">Recipient name (required).</param>
+        /// <param name="tinType">Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN.</param>
+        /// <param name="recipientSecondName">Recipient second name.</param>
+        /// <param name="address">Address (required).</param>
+        /// <param name="address2">Address line 2.</param>
+        /// <param name="city">City (required).</param>
+        /// <param name="state">US state. Required if CountryCode is \&quot;US\&quot;..</param>
+        /// <param name="zip">Zip/postal code.</param>
+        /// <param name="recipientEmail">Recipient email address.</param>
+        /// <param name="accountNumber">Account number.</param>
+        /// <param name="officeCode">Office code.</param>
+        /// <param name="recipientNonUsProvince">Foreign province.</param>
+        /// <param name="countryCode">Country code, as defined at https://www.irs.gov/e-file-providers/country-codes (required).</param>
+        /// <param name="federalEFile">Boolean indicating that federal e-filing should be scheduled for this form.</param>
+        /// <param name="postalMail">Boolean indicating that postal mailing to the recipient should be scheduled for this form.</param>
+        /// <param name="stateEFile">Boolean indicating that state e-filing should be scheduled for this form.</param>
+        /// <param name="tinMatch">Boolean indicating that TIN Matching should be scheduled for this form.</param>
+        /// <param name="addressVerification">Boolean indicating that address verification should be scheduled for this form.</param>
+        /// <param name="stateAndLocalWithholding">State and local withholding information.</param>
+        public FormRequestBase(string issuerId = default(string), string referenceId = default(string), string recipientTin = default(string), string recipientName = default(string), TinTypeEnum? tinType = default(TinTypeEnum?), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StateAndLocalWithholdingRequest stateAndLocalWithholding = default(StateAndLocalWithholdingRequest))
         {
+            // to ensure "recipientName" is required (not null)
+            if (recipientName == null)
+            {
+                throw new ArgumentNullException("recipientName is a required property for FormRequestBase and cannot be null");
+            }
+            this.RecipientName = recipientName;
+            // to ensure "address" is required (not null)
+            if (address == null)
+            {
+                throw new ArgumentNullException("address is a required property for FormRequestBase and cannot be null");
+            }
+            this.Address = address;
+            // to ensure "city" is required (not null)
+            if (city == null)
+            {
+                throw new ArgumentNullException("city is a required property for FormRequestBase and cannot be null");
+            }
+            this.City = city;
+            // to ensure "countryCode" is required (not null)
+            if (countryCode == null)
+            {
+                throw new ArgumentNullException("countryCode is a required property for FormRequestBase and cannot be null");
+            }
+            this.CountryCode = countryCode;
             this.IssuerId = issuerId;
             this.ReferenceId = referenceId;
-            this.RecipientName = recipientName;
             this.RecipientTin = recipientTin;
             this.TinType = tinType;
             this.RecipientSecondName = recipientSecondName;
-            this.Address = address;
             this.Address2 = address2;
-            this.City = city;
             this.State = state;
             this.Zip = zip;
             this.RecipientEmail = recipientEmail;
             this.AccountNumber = accountNumber;
             this.OfficeCode = officeCode;
             this.RecipientNonUsProvince = recipientNonUsProvince;
-            this.CountryCode = countryCode;
             this.FederalEFile = federalEFile;
             this.PostalMail = postalMail;
             this.StateEFile = stateEFile;
@@ -133,128 +160,149 @@ namespace Avalara.SDK.Model.A1099.V2
         }
 
         /// <summary>
-        /// Gets or Sets IssuerId
+        /// Issuer ID
         /// </summary>
+        /// <value>Issuer ID</value>
         [DataMember(Name = "issuerId", EmitDefaultValue = true)]
         public string IssuerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReferenceId
+        /// Reference ID
         /// </summary>
+        /// <value>Reference ID</value>
         [DataMember(Name = "referenceId", EmitDefaultValue = true)]
         public string ReferenceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientName
+        /// Recipient Tax ID Number
         /// </summary>
-        [DataMember(Name = "recipientName", EmitDefaultValue = true)]
-        public string RecipientName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RecipientTin
-        /// </summary>
+        /// <value>Recipient Tax ID Number</value>
         [DataMember(Name = "recipientTin", EmitDefaultValue = false)]
         public string RecipientTin { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientSecondName
+        /// Recipient name
         /// </summary>
-        [DataMember(Name = "recipientSecondName", EmitDefaultValue = false)]
+        /// <value>Recipient name</value>
+        [DataMember(Name = "recipientName", IsRequired = true, EmitDefaultValue = true)]
+        public string RecipientName { get; set; }
+
+        /// <summary>
+        /// Recipient second name
+        /// </summary>
+        /// <value>Recipient second name</value>
+        [DataMember(Name = "recipientSecondName", EmitDefaultValue = true)]
         public string RecipientSecondName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address
+        /// Address
         /// </summary>
-        [DataMember(Name = "address", EmitDefaultValue = false)]
+        /// <value>Address</value>
+        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address2
+        /// Address line 2
         /// </summary>
+        /// <value>Address line 2</value>
         [DataMember(Name = "address2", EmitDefaultValue = true)]
         public string Address2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets City
+        /// City
         /// </summary>
-        [DataMember(Name = "city", EmitDefaultValue = false)]
+        /// <value>City</value>
+        [DataMember(Name = "city", IsRequired = true, EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or Sets State
+        /// US state. Required if CountryCode is \&quot;US\&quot;.
         /// </summary>
+        /// <value>US state. Required if CountryCode is \&quot;US\&quot;.</value>
         [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets Zip
+        /// Zip/postal code
         /// </summary>
+        /// <value>Zip/postal code</value>
         [DataMember(Name = "zip", EmitDefaultValue = false)]
         public string Zip { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientEmail
+        /// Recipient email address
         /// </summary>
+        /// <value>Recipient email address</value>
         [DataMember(Name = "recipientEmail", EmitDefaultValue = true)]
         public string RecipientEmail { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccountNumber
+        /// Account number
         /// </summary>
+        /// <value>Account number</value>
         [DataMember(Name = "accountNumber", EmitDefaultValue = true)]
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets OfficeCode
+        /// Office code
         /// </summary>
+        /// <value>Office code</value>
         [DataMember(Name = "officeCode", EmitDefaultValue = true)]
         public string OfficeCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientNonUsProvince
+        /// Foreign province
         /// </summary>
+        /// <value>Foreign province</value>
         [DataMember(Name = "recipientNonUsProvince", EmitDefaultValue = true)]
         public string RecipientNonUsProvince { get; set; }
 
         /// <summary>
-        /// Gets or Sets CountryCode
+        /// Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
         /// </summary>
-        [DataMember(Name = "countryCode", EmitDefaultValue = false)]
+        /// <value>Country code, as defined at https://www.irs.gov/e-file-providers/country-codes</value>
+        [DataMember(Name = "countryCode", IsRequired = true, EmitDefaultValue = true)]
         public string CountryCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets FederalEFile
+        /// Boolean indicating that federal e-filing should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that federal e-filing should be scheduled for this form</value>
         [DataMember(Name = "federalEFile", EmitDefaultValue = true)]
         public bool FederalEFile { get; set; }
 
         /// <summary>
-        /// Gets or Sets PostalMail
+        /// Boolean indicating that postal mailing to the recipient should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that postal mailing to the recipient should be scheduled for this form</value>
         [DataMember(Name = "postalMail", EmitDefaultValue = true)]
         public bool PostalMail { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateEFile
+        /// Boolean indicating that state e-filing should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that state e-filing should be scheduled for this form</value>
         [DataMember(Name = "stateEFile", EmitDefaultValue = true)]
         public bool StateEFile { get; set; }
 
         /// <summary>
-        /// Gets or Sets TinMatch
+        /// Boolean indicating that TIN Matching should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that TIN Matching should be scheduled for this form</value>
         [DataMember(Name = "tinMatch", EmitDefaultValue = true)]
         public bool TinMatch { get; set; }
 
         /// <summary>
-        /// Gets or Sets AddressVerification
+        /// Boolean indicating that address verification should be scheduled for this form
         /// </summary>
+        /// <value>Boolean indicating that address verification should be scheduled for this form</value>
         [DataMember(Name = "addressVerification", EmitDefaultValue = true)]
         public bool AddressVerification { get; set; }
 
         /// <summary>
-        /// Gets or Sets StateAndLocalWithholding
+        /// State and local withholding information
         /// </summary>
+        /// <value>State and local withholding information</value>
         [DataMember(Name = "stateAndLocalWithholding", EmitDefaultValue = false)]
         public StateAndLocalWithholdingRequest StateAndLocalWithholding { get; set; }
 
@@ -268,8 +316,8 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("class FormRequestBase {\n");
             sb.Append("  IssuerId: ").Append(IssuerId).Append("\n");
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
-            sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
             sb.Append("  RecipientTin: ").Append(RecipientTin).Append("\n");
+            sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
             sb.Append("  TinType: ").Append(TinType).Append("\n");
             sb.Append("  RecipientSecondName: ").Append(RecipientSecondName).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
@@ -308,6 +356,30 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // RecipientName (string) minLength
+            if (this.RecipientName != null && this.RecipientName.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for RecipientName, length must be greater than 1.", new [] { "RecipientName" });
+            }
+
+            // Address (string) minLength
+            if (this.Address != null && this.Address.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
+            }
+
+            // City (string) minLength
+            if (this.City != null && this.City.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for City, length must be greater than 1.", new [] { "City" });
+            }
+
+            // CountryCode (string) minLength
+            if (this.CountryCode != null && this.CountryCode.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for CountryCode, length must be greater than 1.", new [] { "CountryCode" });
+            }
+
             yield break;
         }
     }

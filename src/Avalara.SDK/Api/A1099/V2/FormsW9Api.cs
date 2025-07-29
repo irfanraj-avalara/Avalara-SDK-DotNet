@@ -30,7 +30,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <summary>
         /// Form to be created
         /// </summary>
-        public IW9FormDataModelsOneOf IW9FormDataModelsOneOf { get; set; }
+        public CreateW9FormRequest CreateW9FormRequest { get; set; }
     }
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Avalara.SDK.Api.A1099.V2
     /// </summary>
     public class DeleteW9FormRequestSdk {
         /// <summary>
-        /// Id of the form to delete
+        /// ID of the form to delete
         /// </summary>
         public string Id { get; set; }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Avalara.SDK.Api.A1099.V2
     /// </summary>
     public class GetW9FormRequestSdk {
         /// <summary>
-        /// Id of the form
+        /// ID of the form
         /// </summary>
         public string Id { get; set; }
         /// <summary>
@@ -142,7 +142,7 @@ namespace Avalara.SDK.Api.A1099.V2
     /// </summary>
     public class UpdateW9FormRequestSdk {
         /// <summary>
-        /// Id of the form to update
+        /// ID of the form to update
         /// </summary>
         public string Id { get; set; }
         /// <summary>
@@ -199,16 +199,19 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <summary>
         /// Create a W9/W4/W8 form
         /// </summary>
+        /// <remarks>
+        /// Create a W9/W4/W8 form.
+        /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>IW9FormDataModelsOneOf</returns>
-        IW9FormDataModelsOneOf CreateW9Form(CreateW9FormRequestSdk requestParameters);
+        /// <returns>CreateW9Form201Response</returns>
+        CreateW9Form201Response CreateW9Form(CreateW9FormRequestSdk requestParameters);
 
         /// <summary>
-        /// Delete a form
+        /// Delete a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// Delete a form
+        /// Delete a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -219,15 +222,15 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Retrieve a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// Retrieve a W9/W4/W8 form
+        /// Retrieve a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>IW9FormDataModelsOneOf</returns>
-        IW9FormDataModelsOneOf GetW9Form(GetW9FormRequestSdk requestParameters);
+        /// <returns>CreateW9Form201Response</returns>
+        CreateW9Form201Response GetW9Form(GetW9FormRequestSdk requestParameters);
 
         /// <summary>
-        /// List W9/W4/W8 forms.
+        /// List W9/W4/W8 forms
         /// </summary>
         /// <remarks>
         /// List W9/W4/W8 forms.
@@ -238,8 +241,11 @@ namespace Avalara.SDK.Api.A1099.V2
         PaginatedW9FormsModel ListW9Forms(ListW9FormsRequestSdk requestParameters);
 
         /// <summary>
-        /// Sends a W9 email request to a vendor/payee
+        /// Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
         /// </summary>
+        /// <remarks>
+        /// Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
+        /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>IW9FormDataModelsOneOf</returns>
@@ -248,21 +254,24 @@ namespace Avalara.SDK.Api.A1099.V2
         /// <summary>
         /// Update a W9/W4/W8 form
         /// </summary>
+        /// <remarks>
+        /// Update a W9/W4/W8 form.
+        /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <returns>IW9FormDataModelsOneOf</returns>
         IW9FormDataModelsOneOf UpdateW9Form(UpdateW9FormRequestSdk requestParameters);
 
         /// <summary>
-        /// Upload files for a W9/W4/W8 form
+        /// Replace the PDF file for a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// Upload files for a W9/W4/W8 form
+        /// Replaces the PDF file for a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>string</returns>
-        string UploadW9Files(UploadW9FilesRequestSdk requestParameters);
+        /// <returns></returns>
+        void UploadW9Files(UploadW9FilesRequestSdk requestParameters);
 
         #endregion Synchronous Operations
     }
@@ -277,19 +286,19 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Create a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// 
+        /// Create a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IW9FormDataModelsOneOf</returns>
-        System.Threading.Tasks.Task<IW9FormDataModelsOneOf> CreateW9FormAsync(CreateW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CreateW9Form201Response</returns>
+        System.Threading.Tasks.Task<CreateW9Form201Response> CreateW9FormAsync(CreateW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete a form
+        /// Delete a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// Delete a form
+        /// Delete a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -301,16 +310,16 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Retrieve a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// Retrieve a W9/W4/W8 form
+        /// Retrieve a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IW9FormDataModelsOneOf</returns>
-        System.Threading.Tasks.Task<IW9FormDataModelsOneOf> GetW9FormAsync(GetW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CreateW9Form201Response</returns>
+        System.Threading.Tasks.Task<CreateW9Form201Response> GetW9FormAsync(GetW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List W9/W4/W8 forms.
+        /// List W9/W4/W8 forms
         /// </summary>
         /// <remarks>
         /// List W9/W4/W8 forms.
@@ -322,10 +331,10 @@ namespace Avalara.SDK.Api.A1099.V2
         System.Threading.Tasks.Task<PaginatedW9FormsModel> ListW9FormsAsync(ListW9FormsRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Sends a W9 email request to a vendor/payee
+        /// Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -337,7 +346,7 @@ namespace Avalara.SDK.Api.A1099.V2
         /// Update a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// 
+        /// Update a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -346,16 +355,16 @@ namespace Avalara.SDK.Api.A1099.V2
         System.Threading.Tasks.Task<IW9FormDataModelsOneOf> UpdateW9FormAsync(UpdateW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Upload files for a W9/W4/W8 form
+        /// Replace the PDF file for a W9/W4/W8 form
         /// </summary>
         /// <remarks>
-        /// Upload files for a W9/W4/W8 form
+        /// Replaces the PDF file for a W9/W4/W8 form.
         /// </remarks>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> UploadW9FilesAsync(UploadW9FilesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UploadW9FilesAsync(UploadW9FilesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         #endregion Asynchronous Operations
     }
@@ -400,24 +409,24 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Create a W9/W4/W8 form 
+        /// Create a W9/W4/W8 form Create a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>IW9FormDataModelsOneOf</returns>
-        public IW9FormDataModelsOneOf CreateW9Form(CreateW9FormRequestSdk requestParameters)
+        /// <returns>CreateW9Form201Response</returns>
+        public CreateW9Form201Response CreateW9Form(CreateW9FormRequestSdk requestParameters)
         {
-            Avalara.SDK.Client.ApiResponse<IW9FormDataModelsOneOf> localVarResponse = CreateW9FormWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<CreateW9Form201Response> localVarResponse = CreateW9FormWithHttpInfo(requestParameters);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a W9/W4/W8 form 
+        /// Create a W9/W4/W8 form Create a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of IW9FormDataModelsOneOf</returns>
-        private Avalara.SDK.Client.ApiResponse<IW9FormDataModelsOneOf> CreateW9FormWithHttpInfo(CreateW9FormRequestSdk requestParameters)
+        /// <returns>ApiResponse of CreateW9Form201Response</returns>
+        private Avalara.SDK.Client.ApiResponse<CreateW9Form201Response> CreateW9FormWithHttpInfo(CreateW9FormRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -453,10 +462,10 @@ namespace Avalara.SDK.Api.A1099.V2
             {
                 localVarRequestOptions.HeaderParameters.Add("X-Avalara-Client", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XAvalaraClient)); // header parameter
             }
-            localVarRequestOptions.Data = requestParameters.IW9FormDataModelsOneOf;
+            localVarRequestOptions.Data = requestParameters.CreateW9FormRequest;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<IW9FormDataModelsOneOf>("/w9/forms", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
+            var localVarResponse = this.Client.Post<CreateW9Form201Response>("/w9/forms", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
 
             if (this.ExceptionFactory != null)
             {
@@ -468,26 +477,26 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Create a W9/W4/W8 form 
+        /// Create a W9/W4/W8 form Create a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IW9FormDataModelsOneOf</returns>
-        public async System.Threading.Tasks.Task<IW9FormDataModelsOneOf> CreateW9FormAsync(CreateW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CreateW9Form201Response</returns>
+        public async System.Threading.Tasks.Task<CreateW9Form201Response> CreateW9FormAsync(CreateW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Avalara.SDK.Client.ApiResponse<IW9FormDataModelsOneOf> localVarResponse = await CreateW9FormWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<CreateW9Form201Response> localVarResponse = await CreateW9FormWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a W9/W4/W8 form 
+        /// Create a W9/W4/W8 form Create a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IW9FormDataModelsOneOf)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<IW9FormDataModelsOneOf>> CreateW9FormWithHttpInfoAsync(CreateW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CreateW9Form201Response)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<CreateW9Form201Response>> CreateW9FormWithHttpInfoAsync(CreateW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -525,10 +534,10 @@ namespace Avalara.SDK.Api.A1099.V2
             {
                 localVarRequestOptions.HeaderParameters.Add("X-Avalara-Client", Avalara.SDK.Client.ClientUtils.ParameterToString(requestParameters.XAvalaraClient)); // header parameter
             }
-            localVarRequestOptions.Data = requestParameters.IW9FormDataModelsOneOf;
+            localVarRequestOptions.Data = requestParameters.CreateW9FormRequest;
 
             // make the HTTP request
-			var localVarResponse = await this.Client.PostAsync<IW9FormDataModelsOneOf>("/w9/forms", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<CreateW9Form201Response>("/w9/forms", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -540,7 +549,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Delete a form Delete a form
+        /// Delete a W9/W4/W8 form Delete a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -551,7 +560,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Delete a form Delete a form
+        /// Delete a W9/W4/W8 form Delete a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -608,7 +617,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Delete a form Delete a form
+        /// Delete a W9/W4/W8 form Delete a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -620,7 +629,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Delete a form Delete a form
+        /// Delete a W9/W4/W8 form Delete a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -680,24 +689,24 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Retrieve a W9/W4/W8 form Retrieve a W9/W4/W8 form
+        /// Retrieve a W9/W4/W8 form Retrieve a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>IW9FormDataModelsOneOf</returns>
-        public IW9FormDataModelsOneOf GetW9Form(GetW9FormRequestSdk requestParameters)
+        /// <returns>CreateW9Form201Response</returns>
+        public CreateW9Form201Response GetW9Form(GetW9FormRequestSdk requestParameters)
         {
-            Avalara.SDK.Client.ApiResponse<IW9FormDataModelsOneOf> localVarResponse = GetW9FormWithHttpInfo(requestParameters);
+            Avalara.SDK.Client.ApiResponse<CreateW9Form201Response> localVarResponse = GetW9FormWithHttpInfo(requestParameters);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve a W9/W4/W8 form Retrieve a W9/W4/W8 form
+        /// Retrieve a W9/W4/W8 form Retrieve a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of IW9FormDataModelsOneOf</returns>
-        private Avalara.SDK.Client.ApiResponse<IW9FormDataModelsOneOf> GetW9FormWithHttpInfo(GetW9FormRequestSdk requestParameters)
+        /// <returns>ApiResponse of CreateW9Form201Response</returns>
+        private Avalara.SDK.Client.ApiResponse<CreateW9Form201Response> GetW9FormWithHttpInfo(GetW9FormRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -737,7 +746,7 @@ namespace Avalara.SDK.Api.A1099.V2
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IW9FormDataModelsOneOf>("/w9/forms/{id}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
+            var localVarResponse = this.Client.Get<CreateW9Form201Response>("/w9/forms/{id}", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
 
             if (this.ExceptionFactory != null)
             {
@@ -749,26 +758,26 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Retrieve a W9/W4/W8 form Retrieve a W9/W4/W8 form
+        /// Retrieve a W9/W4/W8 form Retrieve a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IW9FormDataModelsOneOf</returns>
-        public async System.Threading.Tasks.Task<IW9FormDataModelsOneOf> GetW9FormAsync(GetW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CreateW9Form201Response</returns>
+        public async System.Threading.Tasks.Task<CreateW9Form201Response> GetW9FormAsync(GetW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Avalara.SDK.Client.ApiResponse<IW9FormDataModelsOneOf> localVarResponse = await GetW9FormWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
+            Avalara.SDK.Client.ApiResponse<CreateW9Form201Response> localVarResponse = await GetW9FormWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve a W9/W4/W8 form Retrieve a W9/W4/W8 form
+        /// Retrieve a W9/W4/W8 form Retrieve a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IW9FormDataModelsOneOf)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<IW9FormDataModelsOneOf>> GetW9FormWithHttpInfoAsync(GetW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CreateW9Form201Response)</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<CreateW9Form201Response>> GetW9FormWithHttpInfoAsync(GetW9FormRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -810,7 +819,7 @@ namespace Avalara.SDK.Api.A1099.V2
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.GetAsync<IW9FormDataModelsOneOf>("/w9/forms/{id}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.GetAsync<CreateW9Form201Response>("/w9/forms/{id}", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -822,7 +831,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// List W9/W4/W8 forms. List W9/W4/W8 forms.
+        /// List W9/W4/W8 forms List W9/W4/W8 forms.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -834,7 +843,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// List W9/W4/W8 forms. List W9/W4/W8 forms.
+        /// List W9/W4/W8 forms List W9/W4/W8 forms.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -906,7 +915,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// List W9/W4/W8 forms. List W9/W4/W8 forms.
+        /// List W9/W4/W8 forms List W9/W4/W8 forms.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -919,7 +928,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// List W9/W4/W8 forms. List W9/W4/W8 forms.
+        /// List W9/W4/W8 forms List W9/W4/W8 forms.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -994,7 +1003,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Sends a W9 email request to a vendor/payee 
+        /// Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1006,7 +1015,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Sends a W9 email request to a vendor/payee 
+        /// Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1063,7 +1072,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Sends a W9 email request to a vendor/payee 
+        /// Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1076,7 +1085,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Sends a W9 email request to a vendor/payee 
+        /// Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form Send an email to the vendor/payee requesting they fill out a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1136,7 +1145,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update a W9/W4/W8 form 
+        /// Update a W9/W4/W8 form Update a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1148,7 +1157,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update a W9/W4/W8 form 
+        /// Update a W9/W4/W8 form Update a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1209,7 +1218,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update a W9/W4/W8 form 
+        /// Update a W9/W4/W8 form Update a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1222,7 +1231,7 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Update a W9/W4/W8 form 
+        /// Update a W9/W4/W8 form Update a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
@@ -1286,24 +1295,23 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Upload files for a W9/W4/W8 form Upload files for a W9/W4/W8 form
+        /// Replace the PDF file for a W9/W4/W8 form Replaces the PDF file for a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>string</returns>
-        public string UploadW9Files(UploadW9FilesRequestSdk requestParameters)
+        /// <returns></returns>
+        public void UploadW9Files(UploadW9FilesRequestSdk requestParameters)
         {
-            Avalara.SDK.Client.ApiResponse<string> localVarResponse = UploadW9FilesWithHttpInfo(requestParameters);
-            return localVarResponse.Data;
+            UploadW9FilesWithHttpInfo(requestParameters);
         }
 
         /// <summary>
-        /// Upload files for a W9/W4/W8 form Upload files for a W9/W4/W8 form
+        /// Replace the PDF file for a W9/W4/W8 form Replaces the PDF file for a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
-        /// <returns>ApiResponse of string</returns>
-        private Avalara.SDK.Client.ApiResponse<string> UploadW9FilesWithHttpInfo(UploadW9FilesRequestSdk requestParameters)
+        /// <returns>ApiResponse of Object(void)</returns>
+        private Avalara.SDK.Client.ApiResponse<Object> UploadW9FilesWithHttpInfo(UploadW9FilesRequestSdk requestParameters)
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -1348,7 +1356,7 @@ namespace Avalara.SDK.Api.A1099.V2
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<string>("/w9/forms/{id}/attachment", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
+            var localVarResponse = this.Client.Post<Object>("/w9/forms/{id}/attachment", localVarRequestOptions, requiredScopes, AvalaraMicroservice.A1099);
 
             if (this.ExceptionFactory != null)
             {
@@ -1360,26 +1368,25 @@ namespace Avalara.SDK.Api.A1099.V2
         }
 
         /// <summary>
-        /// Upload files for a W9/W4/W8 form Upload files for a W9/W4/W8 form
+        /// Replace the PDF file for a W9/W4/W8 form Replaces the PDF file for a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> UploadW9FilesAsync(UploadW9FilesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UploadW9FilesAsync(UploadW9FilesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Avalara.SDK.Client.ApiResponse<string> localVarResponse = await UploadW9FilesWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await UploadW9FilesWithHttpInfoAsync(requestParameters, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Upload files for a W9/W4/W8 form Upload files for a W9/W4/W8 form
+        /// Replace the PDF file for a W9/W4/W8 form Replaces the PDF file for a W9/W4/W8 form.
         /// </summary>
         /// <exception cref="Avalara.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestParameters">Request Object for the API</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<string>> UploadW9FilesWithHttpInfoAsync(UploadW9FilesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        private async System.Threading.Tasks.Task<Avalara.SDK.Client.ApiResponse<Object>> UploadW9FilesWithHttpInfoAsync(UploadW9FilesRequestSdk requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             //OAuth2 Scopes
             String requiredScopes = "";
@@ -1426,7 +1433,7 @@ namespace Avalara.SDK.Api.A1099.V2
             }
 
             // make the HTTP request
-			var localVarResponse = await this.Client.PutAsync<string>("/w9/forms/{id}/attachment", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
+			var localVarResponse = await this.Client.PostAsync<Object>("/w9/forms/{id}/attachment", localVarRequestOptions, cancellationToken, requiredScopes, AvalaraMicroservice.A1099).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1446,7 +1453,7 @@ namespace Avalara.SDK.Api.A1099.V2
             if (client.Configuration == null) throw new ArgumentNullException("ApiClient.Configuration");
 
             this.Client = (IInternalApiClient)client;
-            this.Client.SdkVersion = "25.7.2";
+            this.Client.SdkVersion = "25.8.0";
         }
         
     }

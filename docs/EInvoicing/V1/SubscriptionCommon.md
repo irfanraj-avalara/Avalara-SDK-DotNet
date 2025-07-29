@@ -1,5 +1,4 @@
 # Avalara.SDK.Model.EInvoicing.V1.SubscriptionCommon
-Basic configuration for a webhook subscription, including description and target notification URL.
 
 ## Properties
 
