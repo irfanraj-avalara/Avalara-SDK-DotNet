@@ -183,6 +183,7 @@ Name | Type | Description | Notes
 **AccountNumber** | **string** | The account number associated with the form. | [optional] 
 **BackupWithholding** | **bool** | Indicates whether backup withholding applies. | [optional] 
 **Is1099able** | **bool** | Indicates whether the individual or entity should be issued a 1099 form. | [optional] 
+**TinMatchStatus** | [**TinMatchStatusResponse**](TinMatchStatusResponse.md) | The TIN Match status from IRS. | [optional] 
 
 [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to README]](../../../README.md)
 

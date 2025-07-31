@@ -71,6 +71,18 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkUpsert1099FormsRequest" /> class
+        /// with the <see cref="Form1095CList" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1095CList.</param>
+        public BulkUpsert1099FormsRequest(Form1095CList actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BulkUpsert1099FormsRequest" /> class
         /// with the <see cref="Form1099DivList" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Form1099DivList.</param>
@@ -151,6 +163,10 @@ namespace Avalara.SDK.Model.A1099.V2
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(Form1095CList) || value is Form1095CList)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(Form1099DivList) || value is Form1099DivList)
                 {
                     this._actualInstance = value;
@@ -173,7 +189,7 @@ namespace Avalara.SDK.Model.A1099.V2
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SList, Form1095BList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SList, Form1095BList, Form1095CList, Form1099DivList, Form1099KList, Form1099MiscList, Form1099NecList, Form1099RList");
                 }
             }
         }
@@ -196,6 +212,16 @@ namespace Avalara.SDK.Model.A1099.V2
         public Form1095BList GetForm1095BList()
         {
             return (Form1095BList)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1095CList`. If the actual instance is not `Form1095CList`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1095CList</returns>
+        public Form1095CList GetForm1095CList()
+        {
+            return (Form1095CList)this.ActualInstance;
         }
 
         /// <summary>
@@ -324,6 +350,26 @@ namespace Avalara.SDK.Model.A1099.V2
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1095BList: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1095CList).GetProperty("AdditionalProperties") == null)
+                {
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1095CList>(jsonString, BulkUpsert1099FormsRequest.SerializerSettings));
+                }
+                else
+                {
+                    newBulkUpsert1099FormsRequest = new BulkUpsert1099FormsRequest(JsonConvert.DeserializeObject<Form1095CList>(jsonString, BulkUpsert1099FormsRequest.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1095CList");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1095CList: {1}", jsonString, exception.ToString()));
             }
 
             try

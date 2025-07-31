@@ -52,20 +52,20 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="nameSuffix">Covered individual&#39;s name suffix.</param>
         /// <param name="tin">Covered individual&#39;s TIN (SSN or ITIN).</param>
         /// <param name="birthDate">Covered individual&#39;s date of birth.</param>
-        /// <param name="coveredMonthIndicator0">Coverage indicator for all 12 months.</param>
-        /// <param name="coveredMonthIndicator1">Coverage indicator for January.</param>
-        /// <param name="coveredMonthIndicator2">Coverage indicator for February.</param>
-        /// <param name="coveredMonthIndicator3">Coverage indicator for March.</param>
-        /// <param name="coveredMonthIndicator4">Coverage indicator for April.</param>
-        /// <param name="coveredMonthIndicator5">Coverage indicator for May.</param>
-        /// <param name="coveredMonthIndicator6">Coverage indicator for June.</param>
-        /// <param name="coveredMonthIndicator7">Coverage indicator for July.</param>
-        /// <param name="coveredMonthIndicator8">Coverage indicator for August.</param>
-        /// <param name="coveredMonthIndicator9">Coverage indicator for September.</param>
-        /// <param name="coveredMonthIndicator10">Coverage indicator for October.</param>
-        /// <param name="coveredMonthIndicator11">Coverage indicator for November.</param>
-        /// <param name="coveredMonthIndicator12">Coverage indicator for December.</param>
-        public CoveredIndividualRequest(string firstName = default(string), string middleName = default(string), string lastName = default(string), string nameSuffix = default(string), string tin = default(string), DateTime? birthDate = default(DateTime?), bool coveredMonthIndicator0 = default(bool), bool coveredMonthIndicator1 = default(bool), bool coveredMonthIndicator2 = default(bool), bool coveredMonthIndicator3 = default(bool), bool coveredMonthIndicator4 = default(bool), bool coveredMonthIndicator5 = default(bool), bool coveredMonthIndicator6 = default(bool), bool coveredMonthIndicator7 = default(bool), bool coveredMonthIndicator8 = default(bool), bool coveredMonthIndicator9 = default(bool), bool coveredMonthIndicator10 = default(bool), bool coveredMonthIndicator11 = default(bool), bool coveredMonthIndicator12 = default(bool))
+        /// <param name="coveredAllMonths">Coverage indicator for all 12 months.</param>
+        /// <param name="coveredJanuary">Coverage indicator for January.</param>
+        /// <param name="coveredFebruary">Coverage indicator for February.</param>
+        /// <param name="coveredMarch">Coverage indicator for March.</param>
+        /// <param name="coveredApril">Coverage indicator for April.</param>
+        /// <param name="coveredMay">Coverage indicator for May.</param>
+        /// <param name="coveredJune">Coverage indicator for June.</param>
+        /// <param name="coveredJuly">Coverage indicator for July.</param>
+        /// <param name="coveredAugust">Coverage indicator for August.</param>
+        /// <param name="coveredSeptember">Coverage indicator for September.</param>
+        /// <param name="coveredOctober">Coverage indicator for October.</param>
+        /// <param name="coveredNovember">Coverage indicator for November.</param>
+        /// <param name="coveredDecember">Coverage indicator for December.</param>
+        public CoveredIndividualRequest(string firstName = default(string), string middleName = default(string), string lastName = default(string), string nameSuffix = default(string), string tin = default(string), DateTime? birthDate = default(DateTime?), bool coveredAllMonths = default(bool), bool coveredJanuary = default(bool), bool coveredFebruary = default(bool), bool coveredMarch = default(bool), bool coveredApril = default(bool), bool coveredMay = default(bool), bool coveredJune = default(bool), bool coveredJuly = default(bool), bool coveredAugust = default(bool), bool coveredSeptember = default(bool), bool coveredOctober = default(bool), bool coveredNovember = default(bool), bool coveredDecember = default(bool))
         {
             this.FirstName = firstName;
             this.MiddleName = middleName;
@@ -73,19 +73,19 @@ namespace Avalara.SDK.Model.A1099.V2
             this.NameSuffix = nameSuffix;
             this.Tin = tin;
             this.BirthDate = birthDate;
-            this.CoveredMonthIndicator0 = coveredMonthIndicator0;
-            this.CoveredMonthIndicator1 = coveredMonthIndicator1;
-            this.CoveredMonthIndicator2 = coveredMonthIndicator2;
-            this.CoveredMonthIndicator3 = coveredMonthIndicator3;
-            this.CoveredMonthIndicator4 = coveredMonthIndicator4;
-            this.CoveredMonthIndicator5 = coveredMonthIndicator5;
-            this.CoveredMonthIndicator6 = coveredMonthIndicator6;
-            this.CoveredMonthIndicator7 = coveredMonthIndicator7;
-            this.CoveredMonthIndicator8 = coveredMonthIndicator8;
-            this.CoveredMonthIndicator9 = coveredMonthIndicator9;
-            this.CoveredMonthIndicator10 = coveredMonthIndicator10;
-            this.CoveredMonthIndicator11 = coveredMonthIndicator11;
-            this.CoveredMonthIndicator12 = coveredMonthIndicator12;
+            this.CoveredAllMonths = coveredAllMonths;
+            this.CoveredJanuary = coveredJanuary;
+            this.CoveredFebruary = coveredFebruary;
+            this.CoveredMarch = coveredMarch;
+            this.CoveredApril = coveredApril;
+            this.CoveredMay = coveredMay;
+            this.CoveredJune = coveredJune;
+            this.CoveredJuly = coveredJuly;
+            this.CoveredAugust = coveredAugust;
+            this.CoveredSeptember = coveredSeptember;
+            this.CoveredOctober = coveredOctober;
+            this.CoveredNovember = coveredNovember;
+            this.CoveredDecember = coveredDecember;
         }
 
         /// <summary>
@@ -134,92 +134,92 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Coverage indicator for all 12 months
         /// </summary>
         /// <value>Coverage indicator for all 12 months</value>
-        [DataMember(Name = "coveredMonthIndicator0", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator0 { get; set; }
+        [DataMember(Name = "coveredAllMonths", EmitDefaultValue = true)]
+        public bool CoveredAllMonths { get; set; }
 
         /// <summary>
         /// Coverage indicator for January
         /// </summary>
         /// <value>Coverage indicator for January</value>
-        [DataMember(Name = "coveredMonthIndicator1", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator1 { get; set; }
+        [DataMember(Name = "coveredJanuary", EmitDefaultValue = true)]
+        public bool CoveredJanuary { get; set; }
 
         /// <summary>
         /// Coverage indicator for February
         /// </summary>
         /// <value>Coverage indicator for February</value>
-        [DataMember(Name = "coveredMonthIndicator2", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator2 { get; set; }
+        [DataMember(Name = "coveredFebruary", EmitDefaultValue = true)]
+        public bool CoveredFebruary { get; set; }
 
         /// <summary>
         /// Coverage indicator for March
         /// </summary>
         /// <value>Coverage indicator for March</value>
-        [DataMember(Name = "coveredMonthIndicator3", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator3 { get; set; }
+        [DataMember(Name = "coveredMarch", EmitDefaultValue = true)]
+        public bool CoveredMarch { get; set; }
 
         /// <summary>
         /// Coverage indicator for April
         /// </summary>
         /// <value>Coverage indicator for April</value>
-        [DataMember(Name = "coveredMonthIndicator4", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator4 { get; set; }
+        [DataMember(Name = "coveredApril", EmitDefaultValue = true)]
+        public bool CoveredApril { get; set; }
 
         /// <summary>
         /// Coverage indicator for May
         /// </summary>
         /// <value>Coverage indicator for May</value>
-        [DataMember(Name = "coveredMonthIndicator5", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator5 { get; set; }
+        [DataMember(Name = "coveredMay", EmitDefaultValue = true)]
+        public bool CoveredMay { get; set; }
 
         /// <summary>
         /// Coverage indicator for June
         /// </summary>
         /// <value>Coverage indicator for June</value>
-        [DataMember(Name = "coveredMonthIndicator6", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator6 { get; set; }
+        [DataMember(Name = "coveredJune", EmitDefaultValue = true)]
+        public bool CoveredJune { get; set; }
 
         /// <summary>
         /// Coverage indicator for July
         /// </summary>
         /// <value>Coverage indicator for July</value>
-        [DataMember(Name = "coveredMonthIndicator7", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator7 { get; set; }
+        [DataMember(Name = "coveredJuly", EmitDefaultValue = true)]
+        public bool CoveredJuly { get; set; }
 
         /// <summary>
         /// Coverage indicator for August
         /// </summary>
         /// <value>Coverage indicator for August</value>
-        [DataMember(Name = "coveredMonthIndicator8", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator8 { get; set; }
+        [DataMember(Name = "coveredAugust", EmitDefaultValue = true)]
+        public bool CoveredAugust { get; set; }
 
         /// <summary>
         /// Coverage indicator for September
         /// </summary>
         /// <value>Coverage indicator for September</value>
-        [DataMember(Name = "coveredMonthIndicator9", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator9 { get; set; }
+        [DataMember(Name = "coveredSeptember", EmitDefaultValue = true)]
+        public bool CoveredSeptember { get; set; }
 
         /// <summary>
         /// Coverage indicator for October
         /// </summary>
         /// <value>Coverage indicator for October</value>
-        [DataMember(Name = "coveredMonthIndicator10", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator10 { get; set; }
+        [DataMember(Name = "coveredOctober", EmitDefaultValue = true)]
+        public bool CoveredOctober { get; set; }
 
         /// <summary>
         /// Coverage indicator for November
         /// </summary>
         /// <value>Coverage indicator for November</value>
-        [DataMember(Name = "coveredMonthIndicator11", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator11 { get; set; }
+        [DataMember(Name = "coveredNovember", EmitDefaultValue = true)]
+        public bool CoveredNovember { get; set; }
 
         /// <summary>
         /// Coverage indicator for December
         /// </summary>
         /// <value>Coverage indicator for December</value>
-        [DataMember(Name = "coveredMonthIndicator12", EmitDefaultValue = true)]
-        public bool CoveredMonthIndicator12 { get; set; }
+        [DataMember(Name = "coveredDecember", EmitDefaultValue = true)]
+        public bool CoveredDecember { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -235,19 +235,19 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  NameSuffix: ").Append(NameSuffix).Append("\n");
             sb.Append("  Tin: ").Append(Tin).Append("\n");
             sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
-            sb.Append("  CoveredMonthIndicator0: ").Append(CoveredMonthIndicator0).Append("\n");
-            sb.Append("  CoveredMonthIndicator1: ").Append(CoveredMonthIndicator1).Append("\n");
-            sb.Append("  CoveredMonthIndicator2: ").Append(CoveredMonthIndicator2).Append("\n");
-            sb.Append("  CoveredMonthIndicator3: ").Append(CoveredMonthIndicator3).Append("\n");
-            sb.Append("  CoveredMonthIndicator4: ").Append(CoveredMonthIndicator4).Append("\n");
-            sb.Append("  CoveredMonthIndicator5: ").Append(CoveredMonthIndicator5).Append("\n");
-            sb.Append("  CoveredMonthIndicator6: ").Append(CoveredMonthIndicator6).Append("\n");
-            sb.Append("  CoveredMonthIndicator7: ").Append(CoveredMonthIndicator7).Append("\n");
-            sb.Append("  CoveredMonthIndicator8: ").Append(CoveredMonthIndicator8).Append("\n");
-            sb.Append("  CoveredMonthIndicator9: ").Append(CoveredMonthIndicator9).Append("\n");
-            sb.Append("  CoveredMonthIndicator10: ").Append(CoveredMonthIndicator10).Append("\n");
-            sb.Append("  CoveredMonthIndicator11: ").Append(CoveredMonthIndicator11).Append("\n");
-            sb.Append("  CoveredMonthIndicator12: ").Append(CoveredMonthIndicator12).Append("\n");
+            sb.Append("  CoveredAllMonths: ").Append(CoveredAllMonths).Append("\n");
+            sb.Append("  CoveredJanuary: ").Append(CoveredJanuary).Append("\n");
+            sb.Append("  CoveredFebruary: ").Append(CoveredFebruary).Append("\n");
+            sb.Append("  CoveredMarch: ").Append(CoveredMarch).Append("\n");
+            sb.Append("  CoveredApril: ").Append(CoveredApril).Append("\n");
+            sb.Append("  CoveredMay: ").Append(CoveredMay).Append("\n");
+            sb.Append("  CoveredJune: ").Append(CoveredJune).Append("\n");
+            sb.Append("  CoveredJuly: ").Append(CoveredJuly).Append("\n");
+            sb.Append("  CoveredAugust: ").Append(CoveredAugust).Append("\n");
+            sb.Append("  CoveredSeptember: ").Append(CoveredSeptember).Append("\n");
+            sb.Append("  CoveredOctober: ").Append(CoveredOctober).Append("\n");
+            sb.Append("  CoveredNovember: ").Append(CoveredNovember).Append("\n");
+            sb.Append("  CoveredDecember: ").Append(CoveredDecember).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

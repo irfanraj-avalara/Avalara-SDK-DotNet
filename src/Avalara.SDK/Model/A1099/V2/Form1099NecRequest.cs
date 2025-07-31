@@ -89,7 +89,13 @@ namespace Avalara.SDK.Model.A1099.V2
             /// Enum _1042S for value: 1042-S
             /// </summary>
             [EnumMember(Value = "1042-S")]
-            _1042S = 7
+            _1042S = 7,
+
+            /// <summary>
+            /// Enum _1095C for value: 1095-C
+            /// </summary>
+            [EnumMember(Value = "1095-C")]
+            _1095C = 8
         }
 
 
@@ -147,7 +153,6 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Initializes a new instance of the <see cref="Form1099NecRequest" /> class.
         /// </summary>
-        /// <param name="secondTinNotice">Second TIN notice.</param>
         /// <param name="nonemployeeCompensation">Nonemployee compensation (required).</param>
         /// <param name="directSalesIndicator">Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale.</param>
         /// <param name="federalIncomeTaxWithheld">Federal income tax withheld.</param>
@@ -155,7 +160,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="issuerId">Issuer ID.</param>
         /// <param name="referenceId">Reference ID.</param>
         /// <param name="recipientTin">Recipient Tax ID Number.</param>
-        /// <param name="recipientName">Recipient name (required).</param>
+        /// <param name="recipientName">Recipient name.</param>
         /// <param name="tinType">Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN.</param>
         /// <param name="recipientSecondName">Recipient second name.</param>
         /// <param name="address">Address (required).</param>
@@ -163,26 +168,22 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="city">City (required).</param>
         /// <param name="state">US state. Required if CountryCode is \&quot;US\&quot;..</param>
         /// <param name="zip">Zip/postal code.</param>
-        /// <param name="recipientEmail">Recipient email address.</param>
+        /// <param name="email">Recipient email address.</param>
         /// <param name="accountNumber">Account number.</param>
         /// <param name="officeCode">Office code.</param>
-        /// <param name="recipientNonUsProvince">Foreign province.</param>
+        /// <param name="nonUsProvince">Foreign province.</param>
         /// <param name="countryCode">Country code, as defined at https://www.irs.gov/e-file-providers/country-codes (required).</param>
         /// <param name="federalEFile">Boolean indicating that federal e-filing should be scheduled for this form.</param>
         /// <param name="postalMail">Boolean indicating that postal mailing to the recipient should be scheduled for this form.</param>
         /// <param name="stateEFile">Boolean indicating that state e-filing should be scheduled for this form.</param>
         /// <param name="tinMatch">Boolean indicating that TIN Matching should be scheduled for this form.</param>
+        /// <param name="noTin">Indicates whether the recipient has no TIN.</param>
+        /// <param name="secondTinNotice">Second TIN notice in three years.</param>
         /// <param name="addressVerification">Boolean indicating that address verification should be scheduled for this form.</param>
         /// <param name="stateAndLocalWithholding">State and local withholding information.</param>
-        public Form1099NecRequest(bool secondTinNotice = default(bool), double nonemployeeCompensation = default(double), bool directSalesIndicator = default(bool), double federalIncomeTaxWithheld = default(double), TypeEnum? type = default(TypeEnum?), string issuerId = default(string), string referenceId = default(string), string recipientTin = default(string), string recipientName = default(string), TinTypeEnum? tinType = default(TinTypeEnum?), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StateAndLocalWithholdingRequest stateAndLocalWithholding = default(StateAndLocalWithholdingRequest))
+        public Form1099NecRequest(double nonemployeeCompensation = default(double), bool directSalesIndicator = default(bool), double federalIncomeTaxWithheld = default(double), TypeEnum? type = default(TypeEnum?), string issuerId = default(string), string referenceId = default(string), string recipientTin = default(string), string recipientName = default(string), TinTypeEnum? tinType = default(TinTypeEnum?), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string email = default(string), string accountNumber = default(string), string officeCode = default(string), string nonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool noTin = default(bool), bool? secondTinNotice = default(bool?), bool addressVerification = default(bool), StateAndLocalWithholdingRequest stateAndLocalWithholding = default(StateAndLocalWithholdingRequest))
         {
             this.NonemployeeCompensation = nonemployeeCompensation;
-            // to ensure "recipientName" is required (not null)
-            if (recipientName == null)
-            {
-                throw new ArgumentNullException("recipientName is a required property for Form1099NecRequest and cannot be null");
-            }
-            this.RecipientName = recipientName;
             // to ensure "address" is required (not null)
             if (address == null)
             {
@@ -201,36 +202,31 @@ namespace Avalara.SDK.Model.A1099.V2
                 throw new ArgumentNullException("countryCode is a required property for Form1099NecRequest and cannot be null");
             }
             this.CountryCode = countryCode;
-            this.SecondTinNotice = secondTinNotice;
             this.DirectSalesIndicator = directSalesIndicator;
             this.FederalIncomeTaxWithheld = federalIncomeTaxWithheld;
             this.Type = type;
             this.IssuerId = issuerId;
             this.ReferenceId = referenceId;
             this.RecipientTin = recipientTin;
+            this.RecipientName = recipientName;
             this.TinType = tinType;
             this.RecipientSecondName = recipientSecondName;
             this.Address2 = address2;
             this.State = state;
             this.Zip = zip;
-            this.RecipientEmail = recipientEmail;
+            this.Email = email;
             this.AccountNumber = accountNumber;
             this.OfficeCode = officeCode;
-            this.RecipientNonUsProvince = recipientNonUsProvince;
+            this.NonUsProvince = nonUsProvince;
             this.FederalEFile = federalEFile;
             this.PostalMail = postalMail;
             this.StateEFile = stateEFile;
             this.TinMatch = tinMatch;
+            this.NoTin = noTin;
+            this.SecondTinNotice = secondTinNotice;
             this.AddressVerification = addressVerification;
             this.StateAndLocalWithholding = stateAndLocalWithholding;
         }
-
-        /// <summary>
-        /// Second TIN notice
-        /// </summary>
-        /// <value>Second TIN notice</value>
-        [DataMember(Name = "secondTinNotice", EmitDefaultValue = true)]
-        public bool SecondTinNotice { get; set; }
 
         /// <summary>
         /// Nonemployee compensation
@@ -278,7 +274,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Recipient name
         /// </summary>
         /// <value>Recipient name</value>
-        [DataMember(Name = "recipientName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recipientName", EmitDefaultValue = true)]
         public string RecipientName { get; set; }
 
         /// <summary>
@@ -327,8 +323,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Recipient email address
         /// </summary>
         /// <value>Recipient email address</value>
-        [DataMember(Name = "recipientEmail", EmitDefaultValue = true)]
-        public string RecipientEmail { get; set; }
+        [DataMember(Name = "email", EmitDefaultValue = true)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Account number
@@ -348,8 +344,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Foreign province
         /// </summary>
         /// <value>Foreign province</value>
-        [DataMember(Name = "recipientNonUsProvince", EmitDefaultValue = true)]
-        public string RecipientNonUsProvince { get; set; }
+        [DataMember(Name = "nonUsProvince", EmitDefaultValue = true)]
+        public string NonUsProvince { get; set; }
 
         /// <summary>
         /// Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
@@ -387,6 +383,20 @@ namespace Avalara.SDK.Model.A1099.V2
         public bool TinMatch { get; set; }
 
         /// <summary>
+        /// Indicates whether the recipient has no TIN
+        /// </summary>
+        /// <value>Indicates whether the recipient has no TIN</value>
+        [DataMember(Name = "noTin", EmitDefaultValue = true)]
+        public bool NoTin { get; set; }
+
+        /// <summary>
+        /// Second TIN notice in three years
+        /// </summary>
+        /// <value>Second TIN notice in three years</value>
+        [DataMember(Name = "secondTinNotice", EmitDefaultValue = true)]
+        public bool? SecondTinNotice { get; set; }
+
+        /// <summary>
         /// Boolean indicating that address verification should be scheduled for this form
         /// </summary>
         /// <value>Boolean indicating that address verification should be scheduled for this form</value>
@@ -397,7 +407,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// State and local withholding information
         /// </summary>
         /// <value>State and local withholding information</value>
-        [DataMember(Name = "stateAndLocalWithholding", EmitDefaultValue = false)]
+        [DataMember(Name = "stateAndLocalWithholding", EmitDefaultValue = true)]
         public StateAndLocalWithholdingRequest StateAndLocalWithholding { get; set; }
 
         /// <summary>
@@ -408,7 +418,6 @@ namespace Avalara.SDK.Model.A1099.V2
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Form1099NecRequest {\n");
-            sb.Append("  SecondTinNotice: ").Append(SecondTinNotice).Append("\n");
             sb.Append("  NonemployeeCompensation: ").Append(NonemployeeCompensation).Append("\n");
             sb.Append("  DirectSalesIndicator: ").Append(DirectSalesIndicator).Append("\n");
             sb.Append("  FederalIncomeTaxWithheld: ").Append(FederalIncomeTaxWithheld).Append("\n");
@@ -424,15 +433,17 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Zip: ").Append(Zip).Append("\n");
-            sb.Append("  RecipientEmail: ").Append(RecipientEmail).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
             sb.Append("  OfficeCode: ").Append(OfficeCode).Append("\n");
-            sb.Append("  RecipientNonUsProvince: ").Append(RecipientNonUsProvince).Append("\n");
+            sb.Append("  NonUsProvince: ").Append(NonUsProvince).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  FederalEFile: ").Append(FederalEFile).Append("\n");
             sb.Append("  PostalMail: ").Append(PostalMail).Append("\n");
             sb.Append("  StateEFile: ").Append(StateEFile).Append("\n");
             sb.Append("  TinMatch: ").Append(TinMatch).Append("\n");
+            sb.Append("  NoTin: ").Append(NoTin).Append("\n");
+            sb.Append("  SecondTinNotice: ").Append(SecondTinNotice).Append("\n");
             sb.Append("  AddressVerification: ").Append(AddressVerification).Append("\n");
             sb.Append("  StateAndLocalWithholding: ").Append(StateAndLocalWithholding).Append("\n");
             sb.Append("}\n");
@@ -455,12 +466,6 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // RecipientName (string) minLength
-            if (this.RecipientName != null && this.RecipientName.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for RecipientName, length must be greater than 1.", new [] { "RecipientName" });
-            }
-
             // Address (string) minLength
             if (this.Address != null && this.Address.Length < 1)
             {

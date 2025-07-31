@@ -4,13 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SecondTinNotice** | **bool** | Second TIN notice | [optional] 
 **Rents** | **double** | Rents | [optional] 
 **Royalties** | **double** | Royalties | [optional] 
 **OtherIncome** | **double** | Other income | [optional] 
 **FedIncomeTaxWithheld** | **double** | Federal income tax withheld | [optional] 
 **FishingBoatProceeds** | **double** | Fishing boat proceeds | [optional] 
-**MedicalHealthCarePayments** | **double** | Medical and health care payments | [optional] 
+**MedicalAndHealthCarePayments** | **double** | Medical and health care payments | [optional] 
 **DirectSalesIndicator** | **bool** | Payer made direct sales totaling $5,000 or more of consumer products to recipient for resale | [optional] 
 **SubstitutePayments** | **double** | Substitute payments in lieu of dividends or interest | [optional] 
 **CropInsuranceProceeds** | **double** | Crop insurance proceeds | [optional] 
@@ -26,7 +25,7 @@ Name | Type | Description | Notes
 **IssuerId** | **string** | Issuer ID | [optional] 
 **ReferenceId** | **string** | Reference ID | [optional] 
 **RecipientTin** | **string** | Recipient Tax ID Number | [optional] 
-**RecipientName** | **string** | Recipient name | 
+**RecipientName** | **string** | Recipient name | [optional] 
 **TinType** | **string** | Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN | [optional] 
 **RecipientSecondName** | **string** | Recipient second name | [optional] 
 **Address** | **string** | Address | 
@@ -34,15 +33,17 @@ Name | Type | Description | Notes
 **City** | **string** | City | 
 **State** | **string** | US state. Required if CountryCode is \&quot;US\&quot;. | [optional] 
 **Zip** | **string** | Zip/postal code | [optional] 
-**RecipientEmail** | **string** | Recipient email address | [optional] 
+**Email** | **string** | Recipient email address | [optional] 
 **AccountNumber** | **string** | Account number | [optional] 
 **OfficeCode** | **string** | Office code | [optional] 
-**RecipientNonUsProvince** | **string** | Foreign province | [optional] 
+**NonUsProvince** | **string** | Foreign province | [optional] 
 **CountryCode** | **string** | Country code, as defined at https://www.irs.gov/e-file-providers/country-codes | 
 **FederalEFile** | **bool** | Boolean indicating that federal e-filing should be scheduled for this form | [optional] 
 **PostalMail** | **bool** | Boolean indicating that postal mailing to the recipient should be scheduled for this form | [optional] 
 **StateEFile** | **bool** | Boolean indicating that state e-filing should be scheduled for this form | [optional] 
 **TinMatch** | **bool** | Boolean indicating that TIN Matching should be scheduled for this form | [optional] 
+**NoTin** | **bool** | Indicates whether the recipient has no TIN | [optional] 
+**SecondTinNotice** | **bool?** | Second TIN notice in three years | [optional] 
 **AddressVerification** | **bool** | Boolean indicating that address verification should be scheduled for this form | [optional] 
 **StateAndLocalWithholding** | [**StateAndLocalWithholdingRequest**](StateAndLocalWithholdingRequest.md) | State and local withholding information | [optional] 
 

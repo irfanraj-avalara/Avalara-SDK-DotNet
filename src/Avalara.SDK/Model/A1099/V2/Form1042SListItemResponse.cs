@@ -89,6 +89,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="email">Recipient email address.</param>
         /// <param name="tinType">Type of TIN (Tax ID Number). Will be one of:  * SSN  * EIN  * ITIN  * ATIN.</param>
         /// <param name="tin">Recipient Tax ID Number.</param>
+        /// <param name="secondTinNotice">Second Tin Notice.</param>
         /// <param name="recipientName">Recipient name.</param>
         /// <param name="recipientSecondName">Recipient second name.</param>
         /// <param name="address">Address.</param>
@@ -96,10 +97,13 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="city">City.</param>
         /// <param name="state">US state.</param>
         /// <param name="zip">Zip/postal code.</param>
-        /// <param name="foreignProvince">Foreign province.</param>
+        /// <param name="nonUsProvince">Foreign province.</param>
         /// <param name="countryCode">Country code, as defined at https://www.irs.gov/e-file-providers/country-codes.</param>
+        /// <param name="accountNumber">Account Number.</param>
+        /// <param name="officeCode">Office Code.</param>
+        /// <param name="fatcaFilingRequirement">FATCA filing requirement.</param>
         /// <param name="stateAndLocalWithholding">stateAndLocalWithholding.</param>
-        public Form1042SListItemResponse(string uniqueFormId = default(string), bool? noTin = default(bool?), DateTime? recipientDateOfBirth = default(DateTime?), string recipientGiin = default(string), string recipientForeignTin = default(string), string lobCode = default(string), string incomeCode = default(string), double grossIncome = default(double), string withholdingIndicator = default(string), string taxCountryCode = default(string), string exemptionCodeChap3 = default(string), string exemptionCodeChap4 = default(string), string taxRateChap3 = default(string), double? withholdingAllowance = default(double?), double? federalTaxWithheld = default(double?), bool? taxNotDepositedIndicator = default(bool?), bool? academicIndicator = default(bool?), double? taxWithheldOtherAgents = default(double?), double? amountRepaid = default(double?), double? taxPaidAgent = default(double?), string chap3StatusCode = default(string), string chap4StatusCode = default(string), PrimaryWithholdingAgentResponse primaryWithholdingAgent = default(PrimaryWithholdingAgentResponse), IntermediaryOrFlowThroughResponse intermediaryOrFlowThrough = default(IntermediaryOrFlowThroughResponse), string type = default(string), int issuerId = default(int), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), bool federalEfile = default(bool), bool stateEfile = default(bool), bool postalMail = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), string referenceId = default(string), string email = default(string), string tinType = default(string), string tin = default(string), string recipientName = default(string), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string foreignProvince = default(string), string countryCode = default(string), StateAndLocalWithholdingResponse stateAndLocalWithholding = default(StateAndLocalWithholdingResponse))
+        public Form1042SListItemResponse(string uniqueFormId = default(string), bool? noTin = default(bool?), DateTime? recipientDateOfBirth = default(DateTime?), string recipientGiin = default(string), string recipientForeignTin = default(string), string lobCode = default(string), string incomeCode = default(string), double grossIncome = default(double), string withholdingIndicator = default(string), string taxCountryCode = default(string), string exemptionCodeChap3 = default(string), string exemptionCodeChap4 = default(string), string taxRateChap3 = default(string), double? withholdingAllowance = default(double?), double? federalTaxWithheld = default(double?), bool? taxNotDepositedIndicator = default(bool?), bool? academicIndicator = default(bool?), double? taxWithheldOtherAgents = default(double?), double? amountRepaid = default(double?), double? taxPaidAgent = default(double?), string chap3StatusCode = default(string), string chap4StatusCode = default(string), PrimaryWithholdingAgentResponse primaryWithholdingAgent = default(PrimaryWithholdingAgentResponse), IntermediaryOrFlowThroughResponse intermediaryOrFlowThrough = default(IntermediaryOrFlowThroughResponse), string type = default(string), int issuerId = default(int), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), bool federalEfile = default(bool), bool stateEfile = default(bool), bool postalMail = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), string referenceId = default(string), string email = default(string), string tinType = default(string), string tin = default(string), bool? secondTinNotice = default(bool?), string recipientName = default(string), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string nonUsProvince = default(string), string countryCode = default(string), string accountNumber = default(string), string officeCode = default(string), bool? fatcaFilingRequirement = default(bool?), StateAndLocalWithholdingResponse stateAndLocalWithholding = default(StateAndLocalWithholdingResponse))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -144,6 +148,7 @@ namespace Avalara.SDK.Model.A1099.V2
             this.Email = email;
             this.TinType = tinType;
             this.Tin = tin;
+            this.SecondTinNotice = secondTinNotice;
             this.RecipientName = recipientName;
             this.RecipientSecondName = recipientSecondName;
             this.Address = address;
@@ -151,8 +156,11 @@ namespace Avalara.SDK.Model.A1099.V2
             this.City = city;
             this.State = state;
             this.Zip = zip;
-            this.ForeignProvince = foreignProvince;
+            this.NonUsProvince = nonUsProvince;
             this.CountryCode = countryCode;
+            this.AccountNumber = accountNumber;
+            this.OfficeCode = officeCode;
+            this.FatcaFilingRequirement = fatcaFilingRequirement;
             this.StateAndLocalWithholding = stateAndLocalWithholding;
         }
 
@@ -168,6 +176,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// No TIN indicator
         /// </summary>
         /// <value>No TIN indicator</value>
+        /// <example>false</example>
         [DataMember(Name = "noTin", EmitDefaultValue = true)]
         public bool? NoTin { get; set; }
 
@@ -396,7 +405,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Federal e-file status</value>
         [DataMember(Name = "federalEfileStatus", EmitDefaultValue = false)]
-        public Form1099StatusDetailResponse FederalEfileStatus { get; private set; }
+        public StatusDetail FederalEfileStatus { get; private set; }
 
         /// <summary>
         /// Returns false as FederalEfileStatus should not be serialized given that it's read-only.
@@ -442,7 +451,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Postal mail to recipient status</value>
         [DataMember(Name = "postalMailStatus", EmitDefaultValue = true)]
-        public Form1099StatusDetailResponse PostalMailStatus { get; private set; }
+        public StatusDetail PostalMailStatus { get; private set; }
 
         /// <summary>
         /// Returns false as PostalMailStatus should not be serialized given that it's read-only.
@@ -465,7 +474,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>TIN Match status</value>
         [DataMember(Name = "tinMatchStatus", EmitDefaultValue = true)]
-        public Form1099StatusDetailResponse TinMatchStatus { get; private set; }
+        public StatusDetail TinMatchStatus { get; private set; }
 
         /// <summary>
         /// Returns false as TinMatchStatus should not be serialized given that it's read-only.
@@ -488,13 +497,28 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         /// <value>Address verification status</value>
         [DataMember(Name = "addressVerificationStatus", EmitDefaultValue = true)]
-        public Form1099StatusDetailResponse AddressVerificationStatus { get; private set; }
+        public StatusDetail AddressVerificationStatus { get; private set; }
 
         /// <summary>
         /// Returns false as AddressVerificationStatus should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
         public bool ShouldSerializeAddressVerificationStatus()
+        {
+            return false;
+        }
+        /// <summary>
+        /// EDelivery status
+        /// </summary>
+        /// <value>EDelivery status</value>
+        [DataMember(Name = "eDeliveryStatus", EmitDefaultValue = true)]
+        public StatusDetail EDeliveryStatus { get; private set; }
+
+        /// <summary>
+        /// Returns false as EDeliveryStatus should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeEDeliveryStatus()
         {
             return false;
         }
@@ -527,6 +551,13 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <value>Recipient Tax ID Number</value>
         [DataMember(Name = "tin", EmitDefaultValue = true)]
         public string Tin { get; set; }
+
+        /// <summary>
+        /// Second Tin Notice
+        /// </summary>
+        /// <value>Second Tin Notice</value>
+        [DataMember(Name = "secondTinNotice", EmitDefaultValue = true)]
+        public bool? SecondTinNotice { get; set; }
 
         /// <summary>
         /// Recipient name
@@ -585,8 +616,8 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Foreign province
         /// </summary>
         /// <value>Foreign province</value>
-        [DataMember(Name = "foreignProvince", EmitDefaultValue = true)]
-        public string ForeignProvince { get; set; }
+        [DataMember(Name = "nonUsProvince", EmitDefaultValue = true)]
+        public string NonUsProvince { get; set; }
 
         /// <summary>
         /// Country code, as defined at https://www.irs.gov/e-file-providers/country-codes
@@ -595,6 +626,27 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <example>US</example>
         [DataMember(Name = "countryCode", EmitDefaultValue = true)]
         public string CountryCode { get; set; }
+
+        /// <summary>
+        /// Account Number
+        /// </summary>
+        /// <value>Account Number</value>
+        [DataMember(Name = "accountNumber", EmitDefaultValue = true)]
+        public string AccountNumber { get; set; }
+
+        /// <summary>
+        /// Office Code
+        /// </summary>
+        /// <value>Office Code</value>
+        [DataMember(Name = "officeCode", EmitDefaultValue = true)]
+        public string OfficeCode { get; set; }
+
+        /// <summary>
+        /// FATCA filing requirement
+        /// </summary>
+        /// <value>FATCA filing requirement</value>
+        [DataMember(Name = "fatcaFilingRequirement", EmitDefaultValue = true)]
+        public bool? FatcaFilingRequirement { get; set; }
 
         /// <summary>
         /// Validation errors
@@ -615,7 +667,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Creation time
         /// </summary>
         /// <value>Creation time</value>
-        /// <example>2025-07-29T15:47:39.396860Z</example>
+        /// <example>2025-07-31T02:07:40.939073500Z</example>
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; private set; }
 
@@ -631,7 +683,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// Update time
         /// </summary>
         /// <value>Update time</value>
-        /// <example>2025-07-29T15:47:39.396860500Z</example>
+        /// <example>2025-07-31T02:07:40.939074300Z</example>
         [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; private set; }
 
@@ -697,10 +749,12 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  TinMatchStatus: ").Append(TinMatchStatus).Append("\n");
             sb.Append("  AddressVerification: ").Append(AddressVerification).Append("\n");
             sb.Append("  AddressVerificationStatus: ").Append(AddressVerificationStatus).Append("\n");
+            sb.Append("  EDeliveryStatus: ").Append(EDeliveryStatus).Append("\n");
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  TinType: ").Append(TinType).Append("\n");
             sb.Append("  Tin: ").Append(Tin).Append("\n");
+            sb.Append("  SecondTinNotice: ").Append(SecondTinNotice).Append("\n");
             sb.Append("  RecipientName: ").Append(RecipientName).Append("\n");
             sb.Append("  RecipientSecondName: ").Append(RecipientSecondName).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
@@ -708,8 +762,11 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Zip: ").Append(Zip).Append("\n");
-            sb.Append("  ForeignProvince: ").Append(ForeignProvince).Append("\n");
+            sb.Append("  NonUsProvince: ").Append(NonUsProvince).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
+            sb.Append("  OfficeCode: ").Append(OfficeCode).Append("\n");
+            sb.Append("  FatcaFilingRequirement: ").Append(FatcaFilingRequirement).Append("\n");
             sb.Append("  ValidationErrors: ").Append(ValidationErrors).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");

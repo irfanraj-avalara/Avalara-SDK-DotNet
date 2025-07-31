@@ -64,6 +64,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="tin">The taxpayer identification number (TIN)..</param>
         /// <param name="backupWithholding">Indicates whether backup withholding applies..</param>
         /// <param name="is1099able">Indicates whether the individual or entity should be issued a 1099 form..</param>
+        /// <param name="tinMatchStatus">The TIN Match status from IRS..</param>
         /// <param name="id">The unique identifier for the form..</param>
         /// <param name="type">The form type..</param>
         /// <param name="entryStatus">The form status..</param>
@@ -78,7 +79,7 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="eDeliveryConsentedAt">The date when e-delivery was consented..</param>
         /// <param name="createdAt">The creation date of the form..</param>
         /// <param name="updatedAt">The last updated date of the form..</param>
-        public W9FormResponse(string name = default(string), string businessName = default(string), string businessClassification = default(string), string businessOther = default(string), bool foreignPartnerOwnerOrBeneficiary = default(bool), string exemptPayeeCode = default(string), string exemptFatcaCode = default(string), bool foreignCountryIndicator = default(bool), string address = default(string), string foreignAddress = default(string), string city = default(string), string state = default(string), string zip = default(string), string accountNumber = default(string), string tinType = default(string), string tin = default(string), bool backupWithholding = default(bool), bool is1099able = default(bool), string id = default(string), string type = default(string), string entryStatus = default(string), DateTime? entryStatusDate = default(DateTime?), string referenceId = default(string), string companyId = default(string), string displayName = default(string), string email = default(string), bool archived = default(bool), string signature = default(string), DateTime? signedDate = default(DateTime?), DateTime? eDeliveryConsentedAt = default(DateTime?), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
+        public W9FormResponse(string name = default(string), string businessName = default(string), string businessClassification = default(string), string businessOther = default(string), bool foreignPartnerOwnerOrBeneficiary = default(bool), string exemptPayeeCode = default(string), string exemptFatcaCode = default(string), bool foreignCountryIndicator = default(bool), string address = default(string), string foreignAddress = default(string), string city = default(string), string state = default(string), string zip = default(string), string accountNumber = default(string), string tinType = default(string), string tin = default(string), bool backupWithholding = default(bool), bool is1099able = default(bool), TinMatchStatusResponse tinMatchStatus = default(TinMatchStatusResponse), string id = default(string), string type = default(string), string entryStatus = default(string), DateTime? entryStatusDate = default(DateTime?), string referenceId = default(string), string companyId = default(string), string displayName = default(string), string email = default(string), bool archived = default(bool), string signature = default(string), DateTime? signedDate = default(DateTime?), DateTime? eDeliveryConsentedAt = default(DateTime?), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
         {
             this.Name = name;
             this.BusinessName = businessName;
@@ -98,6 +99,7 @@ namespace Avalara.SDK.Model.A1099.V2
             this.Tin = tin;
             this.BackupWithholding = backupWithholding;
             this.Is1099able = is1099able;
+            this.TinMatchStatus = tinMatchStatus;
             this.Id = id;
             this.Type = type;
             this.EntryStatus = entryStatus;
@@ -255,6 +257,13 @@ namespace Avalara.SDK.Model.A1099.V2
         public bool Is1099able { get; set; }
 
         /// <summary>
+        /// The TIN Match status from IRS.
+        /// </summary>
+        /// <value>The TIN Match status from IRS.</value>
+        [DataMember(Name = "tinMatchStatus", EmitDefaultValue = false)]
+        public TinMatchStatusResponse TinMatchStatus { get; set; }
+
+        /// <summary>
         /// The unique identifier for the form.
         /// </summary>
         /// <value>The unique identifier for the form.</value>
@@ -378,6 +387,7 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  Tin: ").Append(Tin).Append("\n");
             sb.Append("  BackupWithholding: ").Append(BackupWithholding).Append("\n");
             sb.Append("  Is1099able: ").Append(Is1099able).Append("\n");
+            sb.Append("  TinMatchStatus: ").Append(TinMatchStatus).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  EntryStatus: ").Append(EntryStatus).Append("\n");
