@@ -89,7 +89,13 @@ namespace Avalara.SDK.Model.A1099.V2
             /// Enum _1042S for value: 1042-S
             /// </summary>
             [EnumMember(Value = "1042-S")]
-            _1042S = 7
+            _1042S = 7,
+
+            /// <summary>
+            /// Enum _1095C for value: 1095-C
+            /// </summary>
+            [EnumMember(Value = "1095-C")]
+            _1095C = 8
         }
 
 
@@ -149,13 +155,11 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <summary>
         /// Initializes a new instance of the <see cref="Form1099NecResponse" /> class.
         /// </summary>
-        /// <param name="secondTinNotice">secondTinNotice.</param>
         /// <param name="nonemployeeCompensation">nonemployeeCompensation.</param>
         /// <param name="directSalesIndicator">directSalesIndicator.</param>
         /// <param name="federalIncomeTaxWithheld">federalIncomeTaxWithheld.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        /// <param name="userId">userId.</param>
         /// <param name="stateAndLocalWithholding">stateAndLocalWithholding.</param>
         /// <param name="tinType">tinType.</param>
         /// <param name="id">id.</param>
@@ -172,31 +176,32 @@ namespace Avalara.SDK.Model.A1099.V2
         /// <param name="city">city.</param>
         /// <param name="state">state.</param>
         /// <param name="zip">zip.</param>
-        /// <param name="recipientEmail">recipientEmail.</param>
+        /// <param name="email">email.</param>
         /// <param name="accountNumber">accountNumber.</param>
         /// <param name="officeCode">officeCode.</param>
-        /// <param name="recipientNonUsProvince">recipientNonUsProvince.</param>
+        /// <param name="nonUsProvince">nonUsProvince.</param>
         /// <param name="countryCode">countryCode.</param>
         /// <param name="federalEFile">federalEFile.</param>
         /// <param name="postalMail">postalMail.</param>
         /// <param name="stateEFile">stateEFile.</param>
         /// <param name="tinMatch">tinMatch.</param>
+        /// <param name="noTin">noTin.</param>
+        /// <param name="secondTinNotice">secondTinNotice.</param>
         /// <param name="addressVerification">addressVerification.</param>
         /// <param name="federalEfileStatus">federalEfileStatus.</param>
+        /// <param name="eDeliveryStatus">eDeliveryStatus.</param>
         /// <param name="stateEfileStatus">stateEfileStatus.</param>
         /// <param name="postalMailStatus">postalMailStatus.</param>
         /// <param name="tinMatchStatus">tinMatchStatus.</param>
         /// <param name="addressVerificationStatus">addressVerificationStatus.</param>
         /// <param name="validationErrors">validationErrors.</param>
-        public Form1099NecResponse(bool secondTinNotice = default(bool), double nonemployeeCompensation = default(double), bool directSalesIndicator = default(bool), double federalIncomeTaxWithheld = default(double), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), string userId = default(string), StateAndLocalWithholdingResponse stateAndLocalWithholding = default(StateAndLocalWithholdingResponse), TinTypeEnum? tinType = default(TinTypeEnum?), string id = default(string), string issuerId = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string recipientEmail = default(string), string accountNumber = default(string), string officeCode = default(string), string recipientNonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool addressVerification = default(bool), StatusDetail federalEfileStatus = default(StatusDetail), List<StateEfileStatusDetailResponse> stateEfileStatus = default(List<StateEfileStatusDetailResponse>), StatusDetail postalMailStatus = default(StatusDetail), StatusDetail tinMatchStatus = default(StatusDetail), StatusDetail addressVerificationStatus = default(StatusDetail), List<ValidationErrorResponse> validationErrors = default(List<ValidationErrorResponse>))
+        public Form1099NecResponse(double nonemployeeCompensation = default(double), bool directSalesIndicator = default(bool), double federalIncomeTaxWithheld = default(double), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), StateAndLocalWithholdingResponse stateAndLocalWithholding = default(StateAndLocalWithholdingResponse), TinTypeEnum? tinType = default(TinTypeEnum?), string id = default(string), string issuerId = default(string), string issuerReferenceId = default(string), string issuerTin = default(string), int taxYear = default(int), string referenceId = default(string), string recipientName = default(string), string recipientTin = default(string), string recipientSecondName = default(string), string address = default(string), string address2 = default(string), string city = default(string), string state = default(string), string zip = default(string), string email = default(string), string accountNumber = default(string), string officeCode = default(string), string nonUsProvince = default(string), string countryCode = default(string), bool federalEFile = default(bool), bool postalMail = default(bool), bool stateEFile = default(bool), bool tinMatch = default(bool), bool noTin = default(bool), bool secondTinNotice = default(bool), bool addressVerification = default(bool), StatusDetail federalEfileStatus = default(StatusDetail), StatusDetail eDeliveryStatus = default(StatusDetail), List<StateEfileStatusDetailResponse> stateEfileStatus = default(List<StateEfileStatusDetailResponse>), StatusDetail postalMailStatus = default(StatusDetail), StatusDetail tinMatchStatus = default(StatusDetail), StatusDetail addressVerificationStatus = default(StatusDetail), List<ValidationErrorResponse> validationErrors = default(List<ValidationErrorResponse>))
         {
-            this.SecondTinNotice = secondTinNotice;
             this.NonemployeeCompensation = nonemployeeCompensation;
             this.DirectSalesIndicator = directSalesIndicator;
             this.FederalIncomeTaxWithheld = federalIncomeTaxWithheld;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            this.UserId = userId;
             this.StateAndLocalWithholding = stateAndLocalWithholding;
             this.TinType = tinType;
             this.Id = id;
@@ -213,29 +218,26 @@ namespace Avalara.SDK.Model.A1099.V2
             this.City = city;
             this.State = state;
             this.Zip = zip;
-            this.RecipientEmail = recipientEmail;
+            this.Email = email;
             this.AccountNumber = accountNumber;
             this.OfficeCode = officeCode;
-            this.RecipientNonUsProvince = recipientNonUsProvince;
+            this.NonUsProvince = nonUsProvince;
             this.CountryCode = countryCode;
             this.FederalEFile = federalEFile;
             this.PostalMail = postalMail;
             this.StateEFile = stateEFile;
             this.TinMatch = tinMatch;
+            this.NoTin = noTin;
+            this.SecondTinNotice = secondTinNotice;
             this.AddressVerification = addressVerification;
             this.FederalEfileStatus = federalEfileStatus;
+            this.EDeliveryStatus = eDeliveryStatus;
             this.StateEfileStatus = stateEfileStatus;
             this.PostalMailStatus = postalMailStatus;
             this.TinMatchStatus = tinMatchStatus;
             this.AddressVerificationStatus = addressVerificationStatus;
             this.ValidationErrors = validationErrors;
         }
-
-        /// <summary>
-        /// Gets or Sets SecondTinNotice
-        /// </summary>
-        [DataMember(Name = "secondTinNotice", EmitDefaultValue = true)]
-        public bool SecondTinNotice { get; set; }
 
         /// <summary>
         /// Gets or Sets NonemployeeCompensation
@@ -266,12 +268,6 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UserId
-        /// </summary>
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
-        public string UserId { get; set; }
 
         /// <summary>
         /// Gets or Sets StateAndLocalWithholding
@@ -364,10 +360,10 @@ namespace Avalara.SDK.Model.A1099.V2
         public string Zip { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientEmail
+        /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name = "recipientEmail", EmitDefaultValue = false)]
-        public string RecipientEmail { get; set; }
+        [DataMember(Name = "email", EmitDefaultValue = false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountNumber
@@ -382,10 +378,10 @@ namespace Avalara.SDK.Model.A1099.V2
         public string OfficeCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecipientNonUsProvince
+        /// Gets or Sets NonUsProvince
         /// </summary>
-        [DataMember(Name = "recipientNonUsProvince", EmitDefaultValue = false)]
-        public string RecipientNonUsProvince { get; set; }
+        [DataMember(Name = "nonUsProvince", EmitDefaultValue = false)]
+        public string NonUsProvince { get; set; }
 
         /// <summary>
         /// Gets or Sets CountryCode
@@ -418,6 +414,18 @@ namespace Avalara.SDK.Model.A1099.V2
         public bool TinMatch { get; set; }
 
         /// <summary>
+        /// Gets or Sets NoTin
+        /// </summary>
+        [DataMember(Name = "noTin", EmitDefaultValue = true)]
+        public bool NoTin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SecondTinNotice
+        /// </summary>
+        [DataMember(Name = "secondTinNotice", EmitDefaultValue = true)]
+        public bool SecondTinNotice { get; set; }
+
+        /// <summary>
         /// Gets or Sets AddressVerification
         /// </summary>
         [DataMember(Name = "addressVerification", EmitDefaultValue = true)]
@@ -428,6 +436,12 @@ namespace Avalara.SDK.Model.A1099.V2
         /// </summary>
         [DataMember(Name = "federalEfileStatus", EmitDefaultValue = true)]
         public StatusDetail FederalEfileStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EDeliveryStatus
+        /// </summary>
+        [DataMember(Name = "eDeliveryStatus", EmitDefaultValue = true)]
+        public StatusDetail EDeliveryStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets StateEfileStatus
@@ -467,14 +481,12 @@ namespace Avalara.SDK.Model.A1099.V2
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Form1099NecResponse {\n");
-            sb.Append("  SecondTinNotice: ").Append(SecondTinNotice).Append("\n");
             sb.Append("  NonemployeeCompensation: ").Append(NonemployeeCompensation).Append("\n");
             sb.Append("  DirectSalesIndicator: ").Append(DirectSalesIndicator).Append("\n");
             sb.Append("  FederalIncomeTaxWithheld: ").Append(FederalIncomeTaxWithheld).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  StateAndLocalWithholding: ").Append(StateAndLocalWithholding).Append("\n");
             sb.Append("  TinType: ").Append(TinType).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -491,17 +503,20 @@ namespace Avalara.SDK.Model.A1099.V2
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Zip: ").Append(Zip).Append("\n");
-            sb.Append("  RecipientEmail: ").Append(RecipientEmail).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
             sb.Append("  OfficeCode: ").Append(OfficeCode).Append("\n");
-            sb.Append("  RecipientNonUsProvince: ").Append(RecipientNonUsProvince).Append("\n");
+            sb.Append("  NonUsProvince: ").Append(NonUsProvince).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  FederalEFile: ").Append(FederalEFile).Append("\n");
             sb.Append("  PostalMail: ").Append(PostalMail).Append("\n");
             sb.Append("  StateEFile: ").Append(StateEFile).Append("\n");
             sb.Append("  TinMatch: ").Append(TinMatch).Append("\n");
+            sb.Append("  NoTin: ").Append(NoTin).Append("\n");
+            sb.Append("  SecondTinNotice: ").Append(SecondTinNotice).Append("\n");
             sb.Append("  AddressVerification: ").Append(AddressVerification).Append("\n");
             sb.Append("  FederalEfileStatus: ").Append(FederalEfileStatus).Append("\n");
+            sb.Append("  EDeliveryStatus: ").Append(EDeliveryStatus).Append("\n");
             sb.Append("  StateEfileStatus: ").Append(StateEfileStatus).Append("\n");
             sb.Append("  PostalMailStatus: ").Append(PostalMailStatus).Append("\n");
             sb.Append("  TinMatchStatus: ").Append(TinMatchStatus).Append("\n");

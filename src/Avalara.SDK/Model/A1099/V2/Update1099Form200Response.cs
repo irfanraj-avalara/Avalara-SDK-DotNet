@@ -83,6 +83,18 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Update1099Form200Response" /> class
+        /// with the <see cref="Form1099KResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1099KResponse.</param>
+        public Update1099Form200Response(Form1099KResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Update1099Form200Response" /> class
         /// with the <see cref="Form1099MiscResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Form1099MiscResponse.</param>
@@ -127,6 +139,10 @@ namespace Avalara.SDK.Model.A1099.V2
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(Form1099KResponse) || value is Form1099KResponse)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(Form1099MiscResponse) || value is Form1099MiscResponse)
                 {
                     this._actualInstance = value;
@@ -141,7 +157,7 @@ namespace Avalara.SDK.Model.A1099.V2
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SResponse, Form1099DivResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SResponse, Form1099DivResponse, Form1099KResponse, Form1099MiscResponse, Form1099NecResponse, FormResponseBase");
                 }
             }
         }
@@ -174,6 +190,16 @@ namespace Avalara.SDK.Model.A1099.V2
         public Form1099DivResponse GetForm1099DivResponse()
         {
             return (Form1099DivResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1099KResponse`. If the actual instance is not `Form1099KResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1099KResponse</returns>
+        public Form1099KResponse GetForm1099KResponse()
+        {
+            return (Form1099KResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -272,6 +298,26 @@ namespace Avalara.SDK.Model.A1099.V2
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099DivResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1099KResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newUpdate1099Form200Response = new Update1099Form200Response(JsonConvert.DeserializeObject<Form1099KResponse>(jsonString, Update1099Form200Response.SerializerSettings));
+                }
+                else
+                {
+                    newUpdate1099Form200Response = new Update1099Form200Response(JsonConvert.DeserializeObject<Form1099KResponse>(jsonString, Update1099Form200Response.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1099KResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099KResponse: {1}", jsonString, exception.ToString()));
             }
 
             try

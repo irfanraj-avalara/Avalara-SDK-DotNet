@@ -71,6 +71,18 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IUpdateForm1099Request" /> class
+        /// with the <see cref="Form1099KRequest" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1099KRequest.</param>
+        public IUpdateForm1099Request(Form1099KRequest actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IUpdateForm1099Request" /> class
         /// with the <see cref="Form1099NecRequest" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Form1099NecRequest.</param>
@@ -99,6 +111,10 @@ namespace Avalara.SDK.Model.A1099.V2
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(Form1099KRequest) || value is Form1099KRequest)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(Form1099MiscRequest) || value is Form1099MiscRequest)
                 {
                     this._actualInstance = value;
@@ -109,7 +125,7 @@ namespace Avalara.SDK.Model.A1099.V2
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099DivRequest, Form1099MiscRequest, Form1099NecRequest");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1099DivRequest, Form1099KRequest, Form1099MiscRequest, Form1099NecRequest");
                 }
             }
         }
@@ -132,6 +148,16 @@ namespace Avalara.SDK.Model.A1099.V2
         public Form1099MiscRequest GetForm1099MiscRequest()
         {
             return (Form1099MiscRequest)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1099KRequest`. If the actual instance is not `Form1099KRequest`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1099KRequest</returns>
+        public Form1099KRequest GetForm1099KRequest()
+        {
+            return (Form1099KRequest)this.ActualInstance;
         }
 
         /// <summary>
@@ -200,6 +226,26 @@ namespace Avalara.SDK.Model.A1099.V2
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099DivRequest: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1099KRequest).GetProperty("AdditionalProperties") == null)
+                {
+                    newIUpdateForm1099Request = new IUpdateForm1099Request(JsonConvert.DeserializeObject<Form1099KRequest>(jsonString, IUpdateForm1099Request.SerializerSettings));
+                }
+                else
+                {
+                    newIUpdateForm1099Request = new IUpdateForm1099Request(JsonConvert.DeserializeObject<Form1099KRequest>(jsonString, IUpdateForm1099Request.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1099KRequest");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099KRequest: {1}", jsonString, exception.ToString()));
             }
 
             try

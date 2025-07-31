@@ -83,6 +83,18 @@ namespace Avalara.SDK.Model.A1099.V2
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Create1099Form201Response" /> class
+        /// with the <see cref="Form1099DivListItemResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Form1099DivListItemResponse.</param>
+        public Create1099Form201Response(Form1099DivListItemResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Create1099Form201Response" /> class
         /// with the <see cref="Form1099KListItemResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Form1099KListItemResponse.</param>
@@ -155,6 +167,10 @@ namespace Avalara.SDK.Model.A1099.V2
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(Form1099DivListItemResponse) || value is Form1099DivListItemResponse)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(Form1099KListItemResponse) || value is Form1099KListItemResponse)
                 {
                     this._actualInstance = value;
@@ -173,7 +189,7 @@ namespace Avalara.SDK.Model.A1099.V2
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Form1042SListItemResponse, Form1095BListItemResponse, Form1099BaseResponse, Form1099DivListItemResponse, Form1099KListItemResponse, Form1099MiscListItemResponse, Form1099NecListItemResponse, Form1099RListItemResponse");
                 }
             }
         }
@@ -206,6 +222,16 @@ namespace Avalara.SDK.Model.A1099.V2
         public Form1095BListItemResponse GetForm1095BListItemResponse()
         {
             return (Form1095BListItemResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Form1099DivListItemResponse`. If the actual instance is not `Form1099DivListItemResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Form1099DivListItemResponse</returns>
+        public Form1099DivListItemResponse GetForm1099DivListItemResponse()
+        {
+            return (Form1099DivListItemResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -344,6 +370,26 @@ namespace Avalara.SDK.Model.A1099.V2
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099BaseResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Form1099DivListItemResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newCreate1099Form201Response = new Create1099Form201Response(JsonConvert.DeserializeObject<Form1099DivListItemResponse>(jsonString, Create1099Form201Response.SerializerSettings));
+                }
+                else
+                {
+                    newCreate1099Form201Response = new Create1099Form201Response(JsonConvert.DeserializeObject<Form1099DivListItemResponse>(jsonString, Create1099Form201Response.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Form1099DivListItemResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Form1099DivListItemResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
